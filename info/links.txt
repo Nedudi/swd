@@ -1,0 +1,5 @@
+https://github.com/inspirit/jsfeat
+http://inspirit.github.io/jsfeat/
+
+
+https://github.com/tjerkw/js-cam-motion
