@@ -1,0 +1,20 @@
+{
+  "name": "SWD",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+        "matches": [
+            "*://*.google.by/*",
+             "*://*.google.com/*",
+             "*://*.tut.by/*",
+              "*://*.google.ru/*"
+        ],
+      "js": [ "jquery.js", "background.js" ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    "/injected.js","/style.css","/audioclick.js","/jquery.js","/jquery.ui.js","/jsfeat-min.js","/compatibility.js","/bbf_face.js","/cam_watch.js","/images.js"
+  ]
+}
