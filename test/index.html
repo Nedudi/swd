@@ -4,13 +4,19 @@
   <meta charset="utf-8">
   <title>face move detect test</title>
   <style>
-    canvas {
-      position: absolute;
-      left: 0;
-      top: 0;
+    #frames > div,
+    #frames > canvas {
+      display: inline-block;
       width: 320px;
       height: 240px;
-      opacity: 1;
+      vertical-align: top;
+    }
+
+    #parameters {
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 0;
     }
   </style>
 
@@ -33,31 +39,40 @@
 
   <script type="text/javascript" src="js/cascades/bbf_face.js"></script>
 
+  <script type="text/javascript" src="js/dat.gui.min.js"></script>
   <script type="text/javascript" src="js/compatibility.js"></script>
   <script type="text/javascript" src="js/cameraMotionDetection.js"></script>
-  <script type="text/javascript" src="js/camWatch.js"></script>
+  <!--<script type="text/javascript" src="js/camWatch.js"></script>-->
+  <script type="text/javascript" src="js/canvasGLFilter.js"></script>
   <script type="text/javascript" src="js/cursorLayer.js"></script>
   <script type="text/javascript" src="js/transfer.js"></script>
   <script type="text/javascript" src="js/images.js"></script>
-  <script>
-    function onLoad() {
-      "use strict";
-      var video = document.getElementById('webcam');
-      var canvas = document.getElementById('canvas');
-      swd.cameraMotionDetection(video, canvas);
-      swd.cursorLayer();
-    }
-    function unload() {
-      var video = document.getElementById('webcam');
-      video.pause();
-      video.src=null;
+  <script type="text/javascript" src="js/mod_motion.js"></script>
+  <script type="text/javascript" src="js/mod_face.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script id="shader-grayscale" type="x-shader/x-fragment">
+    precision highp float;
+    varying vec2 texCoord;
+    uniform sampler2D uSampler;
+    void main(void) {
+      vec4 color = texture2D(uSampler, texCoord);
+      float vv = ((color.r * 4899.0) + (color.r * 9617.0) + (color.r * 1868.0) + 8192.0) / 16384.0;
+      gl_FragColor = vec4(vv,vv,vv,1.0);
     }
   </script>
 </head>
-<body onload="onLoad();" onunload="unload();">
+<body onload="window.swd.onLoad();" onunload="window.swd.onUnload();">
+  <div id="parameters"></div>
   <video id="webcam" width="640" height="480" style="display:none;"></video>
-  <div style=" width:640px;height:480px;margin: 10px auto;">
-    <canvas id="canvas" width="640" height="480"></canvas>
+  <div id="frames" style="margin: 10px auto;white-space:nowrap;">
+    <canvas id="canvas1" width="640" height="480"></canvas>
+    <canvas id="canvas2" width="640" height="480"></canvas>
+    <canvas id="canvas3" width="640" height="480"></canvas>
+    <br>
+    <canvas id="canvas4" width="640" height="480"></canvas>
+    <canvas id="canvas5" width="640" height="480"></canvas>
+    <div id="log"></div>
   </div>
 </body>
 </html>

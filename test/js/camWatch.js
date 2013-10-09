@@ -156,9 +156,15 @@
         this._point_statusOld[qq] = this._point_status[qq];
       }
 
+      console.time("time1");
       jsfeat.imgproc.grayscale(imageData.data, that._curr_img_pyr.data[0].data);
+      console.timeEnd("time1");
+      console.time("time2");
       that._curr_img_pyr.build(that._curr_img_pyr.data[0], true);
+      console.timeEnd("time2");
+      console.time("time3");
       jsfeat.optical_flow_lk.track(that._prev_img_pyr, that._curr_img_pyr, that._prev_xy, that._curr_xy, that._point_count, that.options.win_size|0, that.options.max_iterations|0, that._point_status, that.options.epsilon, that.options.min_eigen);
+      console.timeEnd("time3");
     }
   };
 
@@ -204,10 +210,10 @@
       num = this._point_count - 1;
     }
     return {
-      "active":(this._point_status[num] == 1),
+      "active":(this._point_status[num] === 1),
       "x":this._curr_xy[num<<1],
       "y":this._curr_xy[(num<<1)+1],
-      "live":(this._point_statusOld[num] == 1),
+      "live":(this._point_statusOld[num] === 1),
       "ox":this._prev_xy[num<<1],
       "oy":this._prev_xy[(num<<1)+1]
     };

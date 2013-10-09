@@ -40,16 +40,14 @@
       }
     }
 
-
-
-    window.swd.addEventListener("swdCursorPosition", function(event, data) {
+    window.swd.addEventListener("swdCursorPosition", function(data) {
       setCursorPosition(data);
     });
 
-    window.swd.addEventListener("swdCursorStyle", function(event, data) {
+    window.swd.addEventListener("swdCursorStyle", function(data) {
       setCursorStyle(data);
     });
 
-    setCursorStyle("wait");
+    setCursorStyle({"style":"wait"});
   };
 })(window);

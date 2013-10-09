@@ -53,14 +53,31 @@
   };
 
   window.addEventListener("message", function(data) {
-    if(typeof(data) === "string" && data.substr(0,window.swd._messagePrefix.length) === window.swd._messagePrefix) {
-      var json = JSON.parse(data.substr(window.swd._messagePrefix.length));
-      if(window.swd._listeners[json.type]) {
-        var that = this;
-        window.swd._listeners[window.swd].each(function(item) {
-          item.apply(that, data.data);
-        });
-      }
+    if(!data || typeof(data.data) !== "string") {
+      return;
+    }
+    var str = data.data;
+    if(str.substr(0, window.swd._messagePrefix.length) !== window.swd._messagePrefix) {
+      return;
+    }
+    var json = JSON.parse(str.substr(window.swd._messagePrefix.length));
+    if(window.swd._listeners[json.type]) {
+      var that = this;
+      window.swd._listeners[json.type].each(function(item) {
+        item.call(that, json.data);
+      });
     }
   });
+
+  /**
+   * call function for each element in array (!only)
+   * @param func -- callback function
+   */
+  Array.prototype.each = function(func) {
+    if(!func) { return; }
+    var qq;
+    for(qq = 0; qq < this.length; ++qq) {
+      func.call(this, this[qq]);
+    }
+  };
 })(window);
