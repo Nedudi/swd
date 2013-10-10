@@ -2,6 +2,7 @@ audiocorrelator = function (options) {
 
 
 function BufferLoader(context, urlList, callback) {
+  console.log(1)
   this.context = context;
   this.urlList = urlList;
   this.onload = callback;
@@ -10,6 +11,7 @@ function BufferLoader(context, urlList, callback) {
 }
 
 BufferLoader.prototype.loadBuffer = function(url, index) {
+  console.log(url)
   // Load buffer asynchronously
   var request = new XMLHttpRequest();
   request.open("GET", url, true);
@@ -61,29 +63,6 @@ BufferLoader.prototype.load = function() {
 
 
 
-      var loader = new BufferLoader(context, [
-        "sound/1.m4a",
-        "sound/2.m4a",
-        "sound/3.m4a",
-        "sound/4.m4a",
-        "sound/5.m4a"
-      ], onBuffersLoaded);
-
-
-
-
-   var onBuffersLoaded = function(b){
-    console.log('LAODED')
-    for (var i = 0; i < b.length; i++){
-      //Array.prototype.reverse.call( buffer.getChannelData(0) );
-      //Array.prototype.reverse.call( buffer.getChannelData(1) );
-      channels.convolver.buffer = b[i];
-    }
-   }
-
-
-
-
 
 
 
@@ -108,8 +87,8 @@ BufferLoader.prototype.load = function() {
     channels[index].analyser.smoothingTimeConstant = 0.5;
     channels[index].analyser.fftSize = 1024;
 
-    // channels[index].convolver = context.createConvolver();
-    // channels[index].convolver.connect(channels[index].analyser)
+    channels[index].convolver = context.createConvolver();
+    channels[index].convolver.connect(channels[index].analyser)
 
     channels[index].detector = context.createScriptProcessor(2048, 1, 1);
     // channels[index].splitter = context.createChannelSplitter();
@@ -144,8 +123,12 @@ BufferLoader.prototype.load = function() {
 
 
     // source.connect(channels[index].convolver);
-    source.connect(channels[index].analyser);
-    source.connect(channels[index].detector);
+    source.connect(channels[index].convolver);
+    channels[index].convolver.connect(channels[index].analyser);
+    channels[index].analyser.connect(channels[index].detector);
+    // channels[index].detector.connect(channels[index]);
+
+    //source.connect(channels[index].detector);
     channels[index].detector.connect(context.destination);
 
   };
@@ -157,6 +140,45 @@ BufferLoader.prototype.load = function() {
   var context, microphone;
   context = new window.webkitAudioContext();
 
+
+
+   var onBuffersLoaded = function(b){
+    console.log('LAODED')
+    for (var i = 0; i < b.length; i++){
+      Array.prototype.reverse.call( b[i].getChannelData(0) );
+      Array.prototype.reverse.call( b[i].getChannelData(1) );
+      //console.log(i)
+      channels[i].convolver.buffer = b[i];
+
+    }
+   }
+
+
+
+      var loader = new BufferLoader(context, [
+        "sound/1.m4a",
+        "sound/2.m4a",
+        "sound/3.m4a",
+      ], onBuffersLoaded);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   navigator.webkitGetUserMedia({
     audio: true
   }, function (stream) {
@@ -167,6 +189,7 @@ BufferLoader.prototype.load = function() {
     console.log(channels)
     // analyser = context.createAnalyser();
     // microphone.connect(analyser);
+    loader.load();
     redraw();
   }, function () {});
 
