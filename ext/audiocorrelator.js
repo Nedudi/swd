@@ -208,8 +208,8 @@ ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.beginPath();
         ctx.fillStyle = 'red';
         ctx.strokeStyle = "#ff0000";
-        ctx.moveTo((i-1 || 0), ctx.canvas.height - (avaliableHeight*index) - (channels[index].avgArr[i-1]|| 0)/channels.length );
-        ctx.lineTo(i, ctx.canvas.height - (avaliableHeight*index) - channels[index].avgArr[i]/channels.length);
+        ctx.moveTo((i-1 || 0), ctx.canvas.height - (avaliableHeight*index) - ((channels[index].avgArr[i-1]|| 0)) *3);
+        ctx.lineTo(i, ctx.canvas.height - (avaliableHeight*index) - (channels[index].avgArr[i])*3);
         ctx.closePath();
         ctx.stroke();
 
@@ -239,7 +239,7 @@ ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         }
 
         average = values / length;
-        return max;//average;
+        return average;
     }
 
 
