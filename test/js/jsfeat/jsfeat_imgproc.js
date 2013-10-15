@@ -4,7 +4,6 @@
 
 (function(global) {
     "use strict";
-    //
 
     var imgproc = (function() {
 
@@ -93,7 +92,7 @@
             jsfeat.cache.put_buffer(sum_node);
             jsfeat.cache.put_buffer(buf_node);
             jsfeat.cache.put_buffer(xofs_node);
-        }
+        };
 
         var _resample = function(src, dst, nw, nh) {
             var xofs_count=0;
@@ -179,7 +178,7 @@
             jsfeat.cache.put_buffer(sum_node);
             jsfeat.cache.put_buffer(buf_node);
             jsfeat.cache.put_buffer(xofs_node);
-        }
+        };
 
         var _convol_u8 = function(buf, src_d, dst_d, w, h, filter, kernel_size, half_kernel) {
             var i=0,j=0,k=0,sp=0,dp=0,sum=0,sum1=0,sum2=0,sum3=0,f0=filter[0],fk=0;
@@ -273,7 +272,7 @@
                     dst_d[dp] = Math.min(sum >> 8, 255);
                 }
             }
-        }
+        };
 
         var _convol = function(buf, src_d, dst_d, w, h, filter, kernel_size, half_kernel) {
             var i=0,j=0,k=0,sp=0,dp=0,sum=0.0,sum1=0.0,sum2=0.0,sum3=0.0,f0=filter[0],fk=0.0;
@@ -367,26 +366,41 @@
                     dst_d[dp] = sum;
                 }
             }
-        }
+        };
 
         return {
             // TODO: add support for RGB/BGR order
             // for raw arrays
-            grayscale: function(src, dst) {
-                var srcLength = src.length|0, srcLength_16 = (srcLength - 16)|0;
-                var j = 0;
-                var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868;
+            grayscaleRGBAToByte: function(src, dst) {
+              var srcLength = src.length|0, srcLength_16 = (srcLength - 16)|0;
+              var j = 0;
+              var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868;
 
-                for (var i = 0; i <= srcLength_16; i += 16, j += 4) {
-                    dst[j]     = (src[i] * coeff_r + src[i+1] * coeff_g + src[i+2] * coeff_b + 8192) >> 14;
-                    dst[j + 1] = (src[i+4] * coeff_r + src[i+5] * coeff_g + src[i+6] * coeff_b + 8192) >> 14;
-                    dst[j + 2] = (src[i+8] * coeff_r + src[i+9] * coeff_g + src[i+10] * coeff_b + 8192) >> 14;
-                    dst[j + 3] = (src[i+12] * coeff_r + src[i+13] * coeff_g + src[i+14] * coeff_b + 8192) >> 14;
-                }
-                for (; i < srcLength; i += 4, ++j) {
-                    dst[j] = (src[i] * coeff_r + src[i+1] * coeff_g + src[i+2] * coeff_b + 8192) >> 14;
-                }
+              for (var i = 0; i <= srcLength_16; i += 16, j += 4) {
+                dst[j] = src[i];
+                dst[j+1] = src[i+4];
+                dst[j+2] = src[i+8];
+                dst[j+3] = src[i+12];
+              }
+              for (; i < srcLength; i += 4, ++j) {
+                dst[j] = src[i];
+              }
             },
+//            grayscale: function(src, dst) {
+//                var srcLength = src.length|0, srcLength_16 = (srcLength - 16)|0;
+//                var j = 0;
+//                var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868;
+//
+//                for (var i = 0; i <= srcLength_16; i += 16, j += 4) {
+//                    dst[j]     = (src[i] * coeff_r + src[i+1] * coeff_g + src[i+2] * coeff_b + 8192) >> 14;
+//                    dst[j + 1] = (src[i+4] * coeff_r + src[i+5] * coeff_g + src[i+6] * coeff_b + 8192) >> 14;
+//                    dst[j + 2] = (src[i+8] * coeff_r + src[i+9] * coeff_g + src[i+10] * coeff_b + 8192) >> 14;
+//                    dst[j + 3] = (src[i+12] * coeff_r + src[i+13] * coeff_g + src[i+14] * coeff_b + 8192) >> 14;
+//                }
+//                for (; i < srcLength; i += 4, ++j) {
+//                    dst[j] = (src[i] * coeff_r + src[i+1] * coeff_g + src[i+2] * coeff_b + 8192) >> 14;
+//                }
+//            },
             // derived from CCV library
             resample: function(src, dst, nw, nh) {
                 var h=src.rows,w=src.cols;
@@ -1139,5 +1153,4 @@
     })();
 
     global.imgproc = imgproc;
-
 })(jsfeat);

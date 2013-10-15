@@ -27,9 +27,9 @@
         return;
       }
       if(data.style === "arrow") {
-        cursor.style.backgroundImage = "url(data:image/png;base64," + swd_base64CursorArrow + ")";
+        cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
       } else if(data.style === "wait") {
-        cursor.style.backgroundImage = "url(data:image/png;base64," + swd_base64CursorWait + ")";
+        cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
       }
     }
 

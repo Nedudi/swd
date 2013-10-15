@@ -38,26 +38,40 @@
   <script type="text/javascript" src="js/jsfeat/jsfeat_transform.js"></script>
 
   <script type="text/javascript" src="js/cascades/bbf_face.js"></script>
+  <script type="text/javascript" src="js/cascades/eye.js"></script>
+  <script type="text/javascript" src="js/cascades/frontalface.js"></script>
 
   <script type="text/javascript" src="js/dat.gui.min.js"></script>
   <script type="text/javascript" src="js/compatibility.js"></script>
-  <script type="text/javascript" src="js/cameraMotionDetection.js"></script>
-  <!--<script type="text/javascript" src="js/camWatch.js"></script>-->
   <script type="text/javascript" src="js/canvasGLFilter.js"></script>
-  <script type="text/javascript" src="js/cursorLayer.js"></script>
-  <script type="text/javascript" src="js/transfer.js"></script>
-  <script type="text/javascript" src="js/images.js"></script>
-  <script type="text/javascript" src="js/mod_motion.js"></script>
-  <script type="text/javascript" src="js/mod_face.js"></script>
+  <script type="text/javascript" src="js/graph.filters.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/swd.cameraMotionDetection.js"></script>
+  <script type="text/javascript" src="js/swd.cursorLayer.js"></script>
+  <script type="text/javascript" src="js/swd.transfer.js"></script>
+  <script type="text/javascript" src="js/swd.images.js"></script>
+  <script type="text/javascript" src="js/swd.mod_motion.js"></script>
+  <script type="text/javascript" src="js/swd.mod_face.js"></script>
 
   <script id="shader-grayscale" type="x-shader/x-fragment">
     precision highp float;
     varying vec2 texCoord;
     uniform sampler2D uSampler;
     void main(void) {
+      //float factor = 2.0;
       vec4 color = texture2D(uSampler, texCoord);
-      float vv = ((color.r * 4899.0) + (color.r * 9617.0) + (color.r * 1868.0) + 8192.0) / 16384.0;
+
+      //float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+      //gl_FragColor = vec4(gray, gray, gray, 1.0); // 8192.0 16384.0 64.0
+
+      //float gray = color.r * 0.3 + color.g * 0.59 + color.b *0.11;
+      //float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+      //color.r = (color.r - gray) * factor + gray;
+      //color.g = (color.g - gray) * factor + gray;
+      //color.b = (color.b - gray) * factor + gray;
+      //gl_FragColor = vec4(color.rgb, 1.0);
+
+      float vv = ((color.r * 4899.0) + (color.g * 9617.0) + (color.b * 1868.0) + 32.0) / 16384.0;
       gl_FragColor = vec4(vv,vv,vv,1.0);
     }
   </script>
@@ -66,12 +80,12 @@
   <div id="parameters"></div>
   <video id="webcam" width="640" height="480" style="display:none;"></video>
   <div id="frames" style="margin: 10px auto;white-space:nowrap;">
-    <canvas id="canvas1" width="640" height="480"></canvas>
-    <canvas id="canvas2" width="640" height="480"></canvas>
-    <canvas id="canvas3" width="640" height="480"></canvas>
+    <canvas id="canvas1" class="camera" width="640" height="480"></canvas>
+    <canvas id="canvas2" class="motion" width="640" height="480"></canvas>
+    <canvas id="canvas3" class="face1" width="640" height="480"></canvas>
     <br>
-    <canvas id="canvas4" width="640" height="480"></canvas>
-    <canvas id="canvas5" width="640" height="480"></canvas>
+    <canvas id="canvas4" class="face" width="640" height="480"></canvas>
+    <canvas id="canvas5" class="face2" width="640" height="480"></canvas>
     <div id="log"></div>
   </div>
 </body>

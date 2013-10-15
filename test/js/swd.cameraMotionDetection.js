@@ -5,11 +5,10 @@
   window.swd = window.swd || {};
   window.swd.cameraMotionDetection = function(layers) {
     var m_motion = new swd.Mod_Motion();
-    var m_face = new swd.Mod_Face();
+    var m_face = new swd.Mod_Face(layers);
 
     var ctx_camera = layers.camera.getContext("2d");
     var ctx_motion = layers.motion.getContext("2d");
-    var ctx_face = layers.face.getContext("2d");
     var width = layers.motion.width;
     var height = layers.motion.height;
 
@@ -34,7 +33,6 @@
       window.freeLog();
       ctx_camera.drawImage(layers.video, 0, 0);
       ctx_motion.drawImage(layers.camera, 0, 0);
-      ctx_face.drawImage(layers.camera, 0, 0);
 
       m_motion.process(layers);
 
@@ -62,7 +60,11 @@
 
       prune_oflow_points(ctx_motion);
       if(rect) {
-        ctx_face.strokeRect(rect.x, rect.y, rect.width, rect.height);
+        var ctx = ctx_camera;
+        ctx.save();
+        ctx.strokeStyle = "#ff0000";
+        ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+        ctx.restore();
       }
     }
 

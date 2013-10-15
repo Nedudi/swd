@@ -41,6 +41,7 @@
     this._gl = null;
 
     try {
+//      this._gl = this._canvas.getContext("experimental-webgl") || this._canvas.getContext("webgl");
       this._gl = this._canvas.getContext("experimental-webgl", { premultipliedAlpha: false }) ||
         this._canvas.getContext("webgl", { premultipliedAlpha: false });
     } catch(e) {
@@ -75,6 +76,7 @@
 
   CanvasGLFilter.prototype._initTextures = function() {
     this._cubeTexture = this._gl.createTexture();
+    this._updateTexture();
   };
 
   CanvasGLFilter.prototype._updateTexture = function() {
@@ -109,7 +111,7 @@
     this._gl.enableVertexAttribArray(this._textureCoordAttribute);
   };
 
-  CanvasGLFilter.prototype.getShader = function(gl, id) {
+  CanvasGLFilter.getShader = function(id) {
     var shaderScript = document.getElementById(id);
 
     // Didn't find an element with the specified ID; abort.
@@ -128,18 +130,7 @@
       }
       currentChild = currentChild.nextSibling;
     }
-
-    // Now figure out what type of shader script we have,
-    // based on its MIME type.
-    var shader;
-    if (shaderScript.type === "x-shader/x-fragment") {
-      shader = this.createShader(false, theSource);
-    } else if (shaderScript.type === "x-shader/x-vertex") {
-      shader = this.createShader(true, theSource);
-    } else {
-      return null;
-    }
-    return shader;
+    return theSource;
   };
 
   CanvasGLFilter.prototype.createShader = function(isVertextShader, theSource) {
@@ -160,7 +151,8 @@
   };
 
   CanvasGLFilter.prototype.doProcess = function() {
-    this._updateTexture();
+//    this._updateTexture();
+    this._gl.texImage2D(this._gl.TEXTURE_2D, 0, this._gl.RGBA, this._gl.RGBA, this._gl.UNSIGNED_BYTE, this._sourceElement);
 
     // Clear the canvas before we start drawing on it.
     this._gl.clear(this._gl.COLOR_BUFFER_BIT | this._gl.DEPTH_BUFFER_BIT);

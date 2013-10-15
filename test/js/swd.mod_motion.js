@@ -147,8 +147,9 @@
       this._point_statusOld[qq] = this._point_status[qq];
     }
 
+    window.graph.filters.grayscaleModified(imageData.data, imageData.data);
     window.timeStart();
-    jsfeat.imgproc.grayscale(imageData.data, that._curr_img_pyr.data[0].data);
+    jsfeat.imgproc.grayscaleRGBAToByte(imageData.data, that._curr_img_pyr.data[0].data);
     window.timeEnd("grayscale");
     window.timeStart();
     that._curr_img_pyr.build(that._curr_img_pyr.data[0], true);

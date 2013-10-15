@@ -23,9 +23,13 @@
   window.swd = window.swd || {};
   window.swd.params = null;
   var _paramData = function() {
-    this.grayscale = true;
-    this.param1 = 0.5;
-    this.param2 = 0.5;
+    this.Brightness = 0;
+    this.Contrast = 0;
+    this.Intensity = 0;
+    this.edges_density = 0.13;
+    this.use_canny = false;
+    this.min_scale = 2;
+    this.scale_factor = 1.15;
   };
 
   window.swd.onLoad = function () {
@@ -34,19 +38,19 @@
     var gui = new dat.GUI({autoPlace:false});
     paramsObj.appendChild(gui.domElement);
 
-    var uiFilters = gui.addFolder('Filters');
+    var uiFilters = gui.addFolder('Face detect');
     uiFilters.open();
-    uiFilters.add(window.swd.params, "grayscale");
-    uiFilters.add(window.swd.params, "param1", 0, 1);
-    uiFilters.add(window.swd.params, "param2", 0, 1);
+    uiFilters.add(window.swd.params, "Brightness", -128, 128);
+    uiFilters.add(window.swd.params, "Contrast", -2, 2, 0.01);
+    uiFilters.add(window.swd.params, "Intensity", -2, 2, 0.01);
 
     video = document.getElementById('webcam');
     layers.video = video;
     layers.camera = document.getElementById('canvas1');
     layers.motion = document.getElementById('canvas2');
-    layers.face = document.getElementById('canvas4');
-    layers.free1 = document.getElementById('canvas3');
-    layers.free2 = document.getElementById('canvas5');
+    layers.face1 = document.getElementById('canvas3');
+    layers.face2 = document.getElementById('canvas4');
+    layers.face3 = document.getElementById('canvas5');
     swd.connectCamera();
     swd.cursorLayer();
   };
