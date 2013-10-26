@@ -1,5 +1,9 @@
 audiocorrelator = function (options) {
 
+ Array.prototype.max = function() {
+   return Math.max.apply(Math, this);
+ };
+
 
 function BufferLoader(context, urlList, callback) {
   console.log(1)
@@ -85,35 +89,25 @@ BufferLoader.prototype.load = function() {
        channels[index].avgArr[i] = 0;
     }
 
-    channels[index].analyser  = context.createAnalyser();
-    channels[index].analyser.smoothingTimeConstant = 0.1;
-    channels[index].analyser.fftSize = 1024;
+    //channels[index].analyser  = context.createAnalyser();
+    //channels[index].analyser.smoothingTimeConstant = 0.1;
+    //channels[index].analyser.fftSize = 1024;
 
-    channels[index].convolver = context.createConvolver();
-    channels[index].convolver.connect(channels[index].analyser)
+    //channels[index].convolver = context.createConvolver();
+    //channels[index].convolver.connect(channels[index].analyser)
 
-    channels[index].detector = context.createScriptProcessor(1024, 1, 1);
+    //channels[index].detector = context.createScriptProcessor(1024, 1, 1);
     // channels[index].splitter = context.createChannelSplitter();
 
 
 
 
 
-    channels[index].detector.onaudioprocess = function() {
+    // channels[index].detector.onaudioprocess = function() {
+    //   window.webkitRequestAnimationFrame(function(){
 
-        window.webkitRequestAnimationFrame(function(){
-
-
-
-
-
-                //
-                //ctx.fillRect(i, ctx.canvas.height - (avaliableHeight*index) - channels[index].avgArr[i], 2, 2);
-             // }
-        })
-
-
-  }
+    //   })
+    // }
 
 
 
@@ -124,15 +118,16 @@ BufferLoader.prototype.load = function() {
 
 
 
+    // // source.connect(channels[index].convolver);
     // source.connect(channels[index].convolver);
-    source.connect(channels[index].convolver);
-    channels[index].convolver.connect(channels[index].analyser);
-    channels[index].analyser.connect(channels[index].detector);
-    // channels[index].detector.connect(channels[index]);
+     channels[index].source = source;
+    // channels[index].convolver.connect(channels[index].analyser);
+    // channels[index].analyser.connect(channels[index].detector);
+    // // channels[index].detector.connect(channels[index]);
 
-    //source.connect(channels[index].detector);
-    channels[index].detector.connect(context.destination);
-    channels[index].analyser.connect(context.destination);
+    // //source.connect(channels[index].detector);
+    // channels[index].detector.connect(context.destination);
+    // channels[index].analyser.connect(context.destination);
 
   };
 
@@ -170,8 +165,9 @@ function cloneAudioBuffer(audioBuffer){
 
 
 
-   var onBuffersLoaded = function(bufferList){
-    console.log('LAODED')
+    var onBuffersLoaded = function(bufferList){
+    console.log('LAODED', channels)
+
     for (var i = 0; i < bufferList.length; i++){
 
         storedBuffer[i] = bufferList[i]; // assign bufferList to globals
@@ -181,20 +177,17 @@ function cloneAudioBuffer(audioBuffer){
         Array.prototype.reverse.call( storedBufferR[i].getChannelData(0) );
         Array.prototype.reverse.call( storedBufferR[i].getChannelData(1) );
 
-
-      // b[i] = b[i].getChannelData(0).reverce();
-      // Array.prototype.reverse.call( b[i].getChannelData(1) );
-      // console.log(b[i].getChannelData(0))
-      channels[i].convolver.buffer = storedBufferR[i];
+        //channels[i].convolver.buffer = storedBufferR[i];
 
     }
+    options.onReady(context,channels);
    }
 
 
   var loader = new BufferLoader(context, [
-    //"sound/1.m4a",
+    "sound/1.m4a",
      //"sound/2.m4a",
-     "sound/3.m4a",
+     // "sound/3.m4a",
   ], onBuffersLoaded);
 
 
