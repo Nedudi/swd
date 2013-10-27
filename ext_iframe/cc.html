@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cc</title>
+  <script>
+
+    var video = null;
+    var camera = null;
+    var ctx_camera = null;
+
+    var compatibility = (function() {
+      var lastTime = 0,
+        isLittleEndian = true,
+
+        URL = window.URL || window.webkitURL,
+
+        requestAnimationFrame = function(callback, element) {
+          var requestAnimationFrame =
+            window.requestAnimationFrame        ||
+              window.webkitRequestAnimationFrame  ||
+              window.mozRequestAnimationFrame     ||
+              window.oRequestAnimationFrame       ||
+              window.msRequestAnimationFrame      ||
+              function(callback, element) {
+                var currTime = new Date().getTime();
+                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                var id = window.setTimeout(function() {
+                  callback(currTime + timeToCall);
+                }, timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+              };
+
+          return requestAnimationFrame.call(window, callback, element);
+        },
+
+        cancelAnimationFrame = function(id) {
+          var cancelAnimationFrame = window.cancelAnimationFrame ||
+            function(id) {
+              clearTimeout(id);
+            };
+          return cancelAnimationFrame.call(window, id);
+        },
+
+        getUserMedia = function(options, success, error) {
+          var getUserMedia =
+            window.navigator.getUserMedia ||
+              window.navigator.mozGetUserMedia ||
+              window.navigator.webkitGetUserMedia ||
+              window.navigator.msGetUserMedia ||
+              function(options, success, error) {
+                error();
+              };
+
+          return getUserMedia.call(window.navigator, options, success, error);
+        },
+
+        detectEndian = function() {
+          var buf = new ArrayBuffer(8);
+          var data = new Uint32Array(buf);
+          data[0] = 0xff000000;
+          isLittleEndian = true;
+          if (buf[0] === 0xff) {
+            isLittleEndian = false;
+          }
+          return isLittleEndian;
+        };
+
+      return {
+        URL: URL,
+        requestAnimationFrame: requestAnimationFrame,
+        cancelAnimationFrame: cancelAnimationFrame,
+        getUserMedia: getUserMedia,
+        detectEndian: detectEndian,
+        isLittleEndian: isLittleEndian
+      };
+    })();
+
+    window.swd = window.swd || {};
+
+    window.swd.connectCamera = function() {
+      var that = this;
+      try {
+        compatibility.getUserMedia({video: true}, function(stream) {
+          var videoStream = null;
+          try {
+            videoStream = compatibility.URL.createObjectURL(stream);
+          } catch (error) {
+            videoStream = stream;
+          }
+          if(window.swd.onCameraReady) {
+            window.swd.onCameraReady(videoStream);
+          }
+        }, function (error) {
+          if(window.swd.onCameraError) {
+            window.swd.onCameraError();
+          }
+        });
+      } catch (error) {
+        if(window.swd.onCameraError) {
+          window.swd.onCameraError();
+        }
+      }
+    };
+
+    window.swd.onCameraReady = function(streamUrl) {
+      console.log("window.swd.onCameraReady");
+      video.src = streamUrl;
+      video.play();
+      function tick() {
+        compatibility.requestAnimationFrame(tick);
+        ctx_camera.drawImage(video, 0, 0);
+        if(window.parent) {
+          var tmp = (new Date()).getTime() / 1000;
+          var xx = 100 + Math.cos(tmp) * 50;
+          var yy = 100 + Math.sin(tmp) * 50;
+          window.parent.postMessage("stop_web_disability_message_" + JSON.stringify({"type":"swdCursorPosition", "data":{"x":xx,"y":yy}}), "*");
+        } else {
+          console.log("no window.parent");
+        }
+      }
+      tick();
+    };
+
+    window.swd.onCameraError = function() {
+      console.log("window.swd.onCameraError");
+    };
+
+    function init() {
+      video = document.getElementById("webcam");
+      camera = document.getElementById("canvas1");
+      ctx_camera = camera.getContext("2d");
+      swd.connectCamera();
+    }
+  </script>
+</head>
+<body onload="init();" style="padding:0;margin:0;border:0;">
+  <video id="webcam" width="640" height="480" style="display:none;"></video>
+  <canvas id="canvas1" class="camera" width="640" height="480" style="width:100px;height:75px"></canvas>
+</body>
+</html>
