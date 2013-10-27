@@ -17,7 +17,8 @@
     frame.style.top = "0px";
     frame.style.zIndex = 100;
     document.body.appendChild(frame);
-    frame.src = "http://bytiger.webdoc.com/swd/ext_iframe/cc.html";
+    frame.contentType = "text/html";
+    frame.src = "https://dl.dropboxusercontent.com/u/91426450/cc.html";
 
     var $body = $('body');
     $body.ui();
