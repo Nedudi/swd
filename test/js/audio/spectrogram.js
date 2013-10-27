@@ -59,7 +59,7 @@ mathUtils.getPearsonsCorrelation = function(x, y)
 }
 
 window.spectrogram = function(context, options){
-  var visual = 0;
+  var visual = 1;
   var drawDencity = 1;
   //var avgNoiseLevel = 0;
   var flagBlockAnalyse = false;
