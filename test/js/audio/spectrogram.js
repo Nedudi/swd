@@ -64,7 +64,7 @@ window.spectrogram = function(context, options){
   //var avgNoiseLevel = 0;
   var flagBlockAnalyse = false;
   var blockAnalyseTimeout = 1000;
-  var winLenght = 12;
+  var winLenght = 17;
   var frontDelay = 1;
   var captureArrray = [];
   var ethalon1 = JSON.parse(localStorage.getItem('one'));
@@ -91,7 +91,7 @@ window.spectrogram = function(context, options){
     //window.webkitRequestAnimationFrame(function () {
       redraw();
     //});
-  }, 20)
+  }, 15)
 
   detector.onaudioprocess = function () {
 
@@ -172,13 +172,15 @@ window.spectrogram = function(context, options){
     var sum = 0;
     var count = 0;
 
-    for(var i = 0; i < arr1m.length/2; i++){
+    for(var i = 0; i < arr1m.length; i++){
       correlationArr[i] = mathUtils.getPearsonsCorrelation(arr1m[i], arr2m[i]);
-      if(correlationArr[i] > 0.9) count++;
+      if(correlationArr[i] > 0.5) count++;
       sum += (correlationArr[i] || 0);
     }
 
     console.log('=======>>>',sum/(arr1m.length),count);
+
+    //if()
   }
 
   var redraw = function () {
@@ -267,6 +269,7 @@ window.spectrogram = function(context, options){
 
             $('<a>').html(' -ONE- ').appendTo('body').data('array',captureArrrayToSave).on('mouseover', function(){
               localStorage.setItem('one', JSON.stringify(captureArrrayToSave));
+              ethalon1 = captureArrrayToSave;
               console.log('!!!!!',captureArrrayToSave)
             })
 
