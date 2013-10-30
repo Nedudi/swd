@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="js/keyboard/vk_loader.js?vk_layout=RU%20Russian_Qwerty&vk_skin=soberTouch" ></script>
+ </head>
+ <body>
+
+    <input type="text" onfocus="" />
+    <input type="password" class="VK_no_animate"/>
+    <textarea rows="6"></textarea>
+    <!-- <button onclick="VirtualKeyboard.toggle('text','td'); return false;">toggle</button> -->
+    <div id="td"></div>
+
+  <script type="text/javascript">
+
+    EM.addEventListener(window,'domload',function(){
+
+      document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
+        console.log(e);
+        VirtualKeyboard.attachInput(e.target);
+        VirtualKeyboard.toggle('text','td');
+      }, true);
+
+
+    });
+
+  </script>
+
+ </body>
+</html>
