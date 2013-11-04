@@ -19,6 +19,12 @@
     "/swd.transfer.js",
     "/swd.images.js",
     "/swd.cursorLayer.js",
+    "/swd.layout.js",
+    "/main.js",
+
+    "/style.css",
+    "/audioclick.js",
+    "/jquery.js",
     "/jquery.ui.js",
     "/style.css",
     "/main.js"

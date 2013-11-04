@@ -29,6 +29,13 @@ $.get(chrome.extension.getURL('/swd.cursorLayer.js'),
   }
 );
 
+
+$.get(chrome.extension.getURL('/swd.layout.js'),
+  function(data) {
+    addJsFileToHead(data);
+  }
+);
+
 $.get(chrome.extension.getURL('/swd.images.js'),
   function(data) {
 		addJsFileToHead(data);

@@ -1,3 +1,90 @@
+html.swd{
+  height: calc(100% - 100px);
+  width: calc(100% - 200px);
+  top:100px;
+/*  transform: translate3d(100px,100px,100px);
+  -webkit-transform: translate3d(100px,100px,0);*/
+}
+
+html.swd body{
+  transform: translate3d(100px,100px,100px);
+  -webkit-transform: translateX(100px) translateY(100px);
+
+}
+
+.swd_aside{
+  background: green;
+  min-width: 100px;
+  min-height: 100px;
+  position: fixed;
+  z-index: 2147483647;
+  box-shadow: 0 0 0 2px red inset;
+  display: block;
+/*  -webkit-transform: translateY(100px) translateX(100px)*/
+}
+
+.swd_top {
+  top:0;
+  right: 0;
+  -webkit-transform: translateY(-100px) translateX(0px);
+}
+
+
+.swd_left {
+  top:0;
+  left: 0;
+  -webkit-transform: translateY(-100px) translateX(-100px);
+}
+
+.swd_right {
+  top:0;
+  right: 0;
+  -webkit-transform: translateY(-100px) translateX(100px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================================= PRPBABLY DEPRECATED ===================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .swd_back_overlay.show{
   position: fixed;
   width:100%;

@@ -1,0 +1,644 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "src": "http://i.imgur.com/TqbNCfG.png",
+          "type": "Image",
+          "x": 303,
+          "y": 162,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 99,
+          "y": 521,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 55,
+          "text": "<div style=\"text-align: center;\"><span style=\"color: rgb(58, 58, 58);\">навигация в Web для людей с&nbsp;</span></div><font color=\"#3a3a3a\"><div style=\"text-align: center;\">ограниченными возможностями</div></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": true,
+      "active": true,
+      "markdown": "",
+      "surface": "bg-surf-grad-light",
+      "x": 180,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 88,
+          "y": 6,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 123,
+          "text": "<div style=\"text-align: center;\"><span style=\"color: rgb(0, 139, 224);\"><b>web&nbsp;</b>&nbsp;</span></div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 88,
+          "y": 157,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 34,
+          "text": "<div style=\"text-align: center;\">Возможность самовыражения, обучения.&nbsp;</div><div style=\"text-align: center;\">Величайший шанс для каждого быть равноправным,&nbsp;</div><div style=\"text-align: center;\">понятым&nbsp;и оцененным.</div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 348,
+          "y": 81,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 44,
+          "text": "<font color=\"#008be0\">Важнейшая&nbsp;социальная&nbsp;среда</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 194,
+          "y": 461,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 57,
+          "text": "<div style=\"text-align: center;\"><span style=\"color: rgb(0, 139, 224);\"><b>Люди</b> с ограниченными&nbsp;</span></div><font color=\"#008be0\"><div style=\"text-align: center;\">возможностями</div></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 148,
+          "y": 616,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 36,
+          "text": "<div style=\"text-align: center;\">Те, кто больше всех нуждается в общении и&nbsp;</div><div style=\"text-align: center;\">социальном самовыражении</div>",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/d627b5a7-4da2-4a70-b71f-335b2bbff8eb/00000805.png",
+          "type": "Image",
+          "x": 55,
+          "y": 317,
+          "scale": {
+            "x": 0.9315206445115811,
+            "y": 0.9315206445115811,
+            "width": 925,
+            "height": 124.82376636455187
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 314,
+          "y": 329,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 96,
+          "text": "<b><font color=\"#eeeeee\">СТЕНА ?</font></b>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "x": 460,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "src": "http://fakty.ua/user_uploads/images/articles/2013/01/15/157267/titov2.jpg",
+          "type": "Image",
+          "x": 101,
+          "y": 175,
+          "scale": {
+            "x": 1.3650000000000002,
+            "y": 1.3650000000000002,
+            "width": 819.0000000000001,
+            "height": 546.0000000000001
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 82,
+          "y": 25,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>32-летний поэт-песенник Юрий Титов</b></font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 349,
+          "y": 87,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#7e7e7e\">Украина 2013</font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.11,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "x": 740,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "src": "http://www.iltsource.com/v/vspfiles/images/full_hor450.jpg",
+          "type": "Image",
+          "x": 576,
+          "y": 41,
+          "scale": {
+            "x": 0.8822222222222222,
+            "y": 0.8822222222222222,
+            "width": 397,
+            "height": 330.8333333333333
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/2b054e9d-ae9d-492c-9798-30fa756d97ff/00000801.png",
+          "type": "Image",
+          "x": 39,
+          "y": 299,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 50,
+          "y": 40,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>Специальные <br>контактные <br>устройства стоят <br>дорого.</b></font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0.38,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "x": 1020,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "src": "http://farm4.static.flickr.com/3195/5861473109_a513562170.jpg",
+          "type": "Image",
+          "x": 57,
+          "y": 433,
+          "scale": {
+            "x": 0.8500000000000001,
+            "y": 0.8500000000000001,
+            "width": 425.00000000000006,
+            "height": 283.05
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/50a0fcaa-0edd-4414-a982-9f866e4867a1/00000804.png",
+          "type": "Image",
+          "x": 489,
+          "y": 98,
+          "scale": {
+            "x": 0.7462006079027356,
+            "y": 0.7462006079027356,
+            "width": 491,
+            "height": 622.3313069908814
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 55,
+          "y": 146,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>Бесконтактные <br>устройства стоят&nbsp;<br>заоблочно <br>дорого</b></font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": -0.1,
+      "rotateY": 0,
+      "rotateZ": 0.08,
+      "index": 4,
+      "selected": false,
+      "active": false,
+      "x": 1300,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 75,
+          "y": 301,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "<font color=\"#008be0\"><b>Существующие технологии:</b></font>",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/d627b5a7-4da2-4a70-b71f-335b2bbff8eb/00000805.png",
+          "type": "Image",
+          "x": 78,
+          "y": 44,
+          "scale": {
+            "x": 0.8972809667673716,
+            "y": 0.8972809667673716,
+            "width": 891,
+            "height": 120.23564954682779
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 450,
+          "y": 105,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 242,
+          "text": "=",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 191,
+          "y": 399,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<ul><li><span style=\"line-height: normal;\">Это очень дорого</span><br></li><li><span style=\"line-height: normal;\">Требует спец. оборудования</span><br></li><li><span style=\"line-height: normal;\">Географически и в силу&nbsp;<br></span><span style=\"line-height: normal;\">социального ранжирования<br></span><span style=\"line-height: normal;\">доступно для немногих</span></li></ul>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 357,
+          "y": 52,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 96,
+          "text": "<b><font color=\"#eeeeee\">СТЕНА</font></b>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.11,
+      "index": 5,
+      "selected": false,
+      "active": false,
+      "x": 1599,
+      "y": 175
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 49,
+          "y": 64,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 39,
+          "text": "<div style=\"text-align: center;\">Мы создаем расширение для браузера,&nbsp;</div><div style=\"text-align: center;\">позволяющее&nbsp;</div><div style=\"text-align: center;\"><br></div><div style=\"text-align: center;\"><font color=\"#008be0\"><b>осуществлять бесконтактное управление</b><b>&nbsp;</b></font></div><div style=\"text-align: center;\"><b><font color=\"#008be0\">любыми веб страницами</font></b></div><div style=\"text-align: center;\"><b><br></b></div><div style=\"text-align: center;\"><b>с помощью</b></div><div style=\"text-align: center;\"><b><br></b></div><div style=\"text-align: center;\"><b>&nbsp;<font color=\"#006d15\">движений лица&nbsp;</font></b><b><font color=\"#006d15\">и голосовыx команд</font></b></div><div style=\"text-align: center;\"><b><br></b></div><div style=\"text-align: center;\"><ol><li style=\"text-align: left;\"><b style=\"line-height: normal;\">Бесплатно</b></li><li style=\"text-align: left;\"><b style=\"line-height: normal;\">Устанавливается в 2 клика</b></li><li style=\"text-align: left;\"><b style=\"line-height: normal;\">Не требует дополнительного оборудования <br>(&nbsp;только встроенные&nbsp;</b><b style=\"line-height: normal;\">камера и микрофон)</b></li></ol></div>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.13,
+      "index": 6,
+      "selected": false,
+      "active": false,
+      "x": 506,
+      "y": 584
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 343,
+          "y": 271,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 133,
+          "text": "<font color=\"#008be0\">Демо</font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": -0.48,
+      "rotateY": 0.48,
+      "rotateZ": 0,
+      "index": 7,
+      "selected": false,
+      "active": false,
+      "x": 1172,
+      "y": 572
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 42,
+          "y": 39,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<div style=\"text-align: center;\"><b><font color=\"#008be0\">Почему мы участвуем в&nbsp;</font></b><b><font color=\"#008be0\">Social weekend&nbsp;</font></b></div><b><div style=\"text-align: center;\"><b><font color=\"#008be0\">и зачем нам грант:</font></b></div></b>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 148,
+          "y": 540,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 25,
+          "text": "<ol><li><span style=\"line-height: normal;\"><i>Мотивация команды разработчиков.</i></span></li><li><span style=\"line-height: normal;\"><i>Необходимость консультаций специалистов в области <br>цифровой обработки сигналов и изображений.</i></span></li><li><span style=\"line-height: normal;\"><i>Дефицит времени, ресурсов и средств на тестирование.&nbsp;</i></span></li><li><span style=\"line-height: normal;\"><i>Необходимость привлечения внимание социальных <br>организаций и фондов к существующей проблеме.</i></span></li></ol>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 78,
+          "y": 165,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 58,
+          "text": "<div style=\"text-align: center;\"><b><font color=\"#3a3a3a\">Мы хотим закончить 1-й</font></b></div><div style=\"text-align: center;\"><font color=\"#3a3a3a\"><b>свободный&nbsp;</b><b>для установки&nbsp;</b></font></div><div style=\"text-align: center;\"><font color=\"#3a3a3a\"><b>прототип&nbsp;</b><b>до начала 2014 года</b></font></div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 382,
+          "y": 397,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 96,
+          "text": "<b><font color=\"#959595\">$2000</font></b>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": -0.09,
+      "index": 8,
+      "selected": false,
+      "active": false,
+      "x": 1506,
+      "y": 574
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 57,
+          "y": 56,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 57,
+          "text": "<font color=\"#008be0\"><b>Над чем мы работаем по ночам:</b></font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 125,
+          "y": 153,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 42,
+          "text": "<ol><li><span style=\"line-height: normal;\">Сложные адаптируемые алгоритмы&nbsp;<br></span><span style=\"line-height: normal;\">отслеживания и сопровождения лица&nbsp;<br></span><span style=\"line-height: normal;\">webGl и адаптационные алгоритмы.</span></li><li><span style=\"line-height: normal;\">Улучшенный частотно-временной&nbsp;<br></span><span style=\"line-height: normal;\">корреляционный&nbsp;</span><span style=\"line-height: normal;\">анализ речи (звуков).</span></li><li><span style=\"line-height: normal;\">Распознавание лицевых жестов.</span></li><li><span style=\"line-height: normal;\">Голосовой ввод текста.</span></li><li><span style=\"line-height: normal;\">Виртуальная клавиатура и навигация,&nbsp;<br></span><span style=\"line-height: normal;\">переключение вкладок.</span></li><li><span style=\"line-height: normal;\">Интерфейс обучения системы.</span></li><li><span style=\"line-height: normal;\">UI/UX</span></li></ol><br><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.05,
+      "index": 9,
+      "selected": false,
+      "active": false,
+      "x": 1548,
+      "y": 858
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 203,
+          "y": 63,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 70,
+          "text": "<font color=\"#008be0\"><b>Члены команды</b></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 83,
+          "y": 217,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 24,
+          "text": "<span style=\"color: rgb(58, 58, 58);\"><b>Алексей Пузенко</b><br></span>Закончил БГУИР, талантливый программист c уникальным математическим <br>складом ума, бывший преподаватель.<br><i><font color=\"#7e7e7e\">flash, backend, 3D modeling, digital image processing, etc<br>Последние 3 года: Creative frontend solutions (XB Software)<br></font></i><br><b>Артем Чеховский</b><br>Недавно закончил БГУИР по специальности \"Искуственный интеллект\".<br><font color=\"#7e7e7e\"><i>На сегодняшний день: Frontend и backend разработка для всевозможных <br>внешних и внутренних проектов (XB Software)<br></i></font><br><b>Дмитрий Дудин</b><br>Закончил БГУИР. В прошлом: разработка радаров, работа с ПЛИС и <br>процессорами, digital signal processing, backend<br><font color=\"#7e7e7e\"><i>Последние 4 года: Creative frontend solutions, team management (XB Software)</i></font><br style=\"color: rgb(58, 58, 58);\">",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": -0.2,
+      "index": 10,
+      "selected": false,
+      "active": false,
+      "x": 1890,
+      "y": 856
+    }
+  ],
+  "activeSlide": {
+    "components": [
+      {
+        "src": "http://i.imgur.com/TqbNCfG.png",
+        "type": "Image",
+        "x": 303,
+        "y": 162,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "imageType": "PNG",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 99,
+        "y": 521,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 55,
+        "text": "<div style=\"text-align: center;\"><span style=\"color: rgb(58, 58, 58);\">навигация в Web для людей с&nbsp;</span></div><font color=\"#3a3a3a\"><div style=\"text-align: center;\">ограниченными возможностями</div></font>",
+        "selected": false
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": 0,
+    "rotateZ": 0,
+    "index": 0,
+    "selected": true,
+    "active": true,
+    "markdown": "",
+    "surface": "bg-surf-grad-light",
+    "x": 180,
+    "y": 180
+  },
+  "fileName": "presentation-3",
+  "surface": "bg-surf-grad-light",
+  "customStylesheet": ".strut-surface * {\n\tfont-family: Arial !important;\n}",
+  "deckVersion": "1.0",
+  "cannedTransition": "carousel",
+  "customBackgrounds": {
+    "bgs": []
+  },
+  "overviewX": 1035,
+  "overviewY": 516.5
+}
