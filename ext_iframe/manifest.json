@@ -15,19 +15,12 @@
     }
   ],
   "web_accessible_resources": [
+    "/jquery.js",
     "/swd.transfer.js",
     "/swd.images.js",
     "/swd.cursorLayer.js",
-    "/main.js",
-
-    "/style.css",
-    "/audioclick.js",
-    "/jquery.js",
     "/jquery.ui.js",
-    "/jsfeat-min.js",
-    "/compatibility.js",
-    "/bbf_face.js",
-    "/cam_watch.js",
-    "/images.js"
+    "/style.css",
+    "/main.js"
   ]
 }
