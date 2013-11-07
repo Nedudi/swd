@@ -4,12 +4,16 @@
   window.swd = window.swd || {};
 
   window.swd.layout = function() {
+    var that = this;
+    that.view = {};
     var html = document.getElementsByTagName('html')[0];
     var body = document.getElementsByTagName('body')[0];
     html.classList.add('swd');
     // html.style.width = "calc(100% - 100px)";
     //body.style['-webkit-transform'] = 'translateY(10px)';
     window.dispatchEvent(new Event('resize'));
+
+
 
     var createBlock = function(options){
       var block = document.createElement(options.tagName);
@@ -20,30 +24,37 @@
         block.style.height = document.documentElement.clientHeight+'px';
       }
       if(options.type && options.type == 'horizontal'){
-        block.style.width = document.documentElement.clientWidth+'px';
+        //block.style.width = document.documentElement.clientWidth+'px';
       }
       body.appendChild(block);
       return block;
     };
 
 
-    createBlock({
+    that.view.top = createBlock({
       type:'horizontal',
       tagName: 'aside',
       classList: ['swd_top','swd_aside']
     });
 
-    createBlock({
+    that.view.left = createBlock({
       type:'vertical',
       tagName: 'aside',
        classList: ['swd_left','swd_aside']
     });
 
-    createBlock({
+    that.view.right = createBlock({
       type:'vertical',
       tagName: 'aside',
       classList: ['swd_right','swd_aside']
     });
+
+    window.onscroll = function (oEvent) {
+      var scrollTop = body.scrollTop;
+      that.view.top.style.top = scrollTop+'px';
+      that.view.left.style.top = scrollTop+100+'px';
+      that.view.right.style.top = scrollTop+100+'px';
+    }
 
 
     //alert(1)

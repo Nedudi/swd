@@ -1,0 +1,88 @@
+
+html:not(.swd){
+  background: white !important;
+}
+
+html{
+  height: calc(100% - 100px);
+  width: calc(100% - 200px);
+  top:100px;
+}
+
+html body{
+  transform: translate3d(100px,100px,100px);
+  -webkit-transform: translateX(100px) translateY(100px);
+
+}
+
+.swd_aside{
+  background: white;
+  min-width: 100px;
+  min-height: 100px;
+  position: fixed;
+  z-index: 2147483647;
+/*  box-shadow: 0 0 2px 1px rgba(0,0,0,0.5);*/
+  display: block;
+/*  -webkit-transform: translateY(100px) translateX(100px)*/
+}
+
+.swd_top {
+  top:0;
+  right: -100px;
+  left: -100px;
+  -webkit-transform: translateY(-100px) translateX(0px);
+  border-bottom: 1px solid rgba(200,200,200,1);
+}
+
+
+.swd_left {
+  top:100px;
+/*  bottom:-100px;*/
+  left: 0;
+  -webkit-transform: translateY(-100px) translateX(-100px);
+  border-right: 1px solid rgba(200,200,200,1);
+}
+
+.swd_right {
+  top:100px;
+  right: 0;
+/*  bottom:-100px;*/
+  -webkit-transform: translateY(-100px) translateX(100px);
+  border-left: 1px solid rgba(200,200,200,1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================================= PRPBABLY DEPRECATED ===================================*/
+
+
+
+
+
+
+
+
+

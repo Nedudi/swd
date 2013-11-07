@@ -5,28 +5,24 @@
   "content_scripts": [
     {
         "matches": [
-            "*://*.google.by/*",
-             "*://*.google.com/*",
-             "*://*.tut.by/*",
-              "*://*.google.ru/*"
+            "http://*/*",
+            "https://*/*"
         ],
-      "js": [ "jquery.js", "background.js" ],
-      "run_at": "document_end"
+      "js": ["js/jquery.js", "js/background.js" ],
+      "css":["css/style.css"],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
-    "/jquery.js",
-    "/swd.transfer.js",
-    "/swd.images.js",
-    "/swd.cursorLayer.js",
-    "/swd.layout.js",
-    "/main.js",
-
-    "/style.css",
-    "/audioclick.js",
-    "/jquery.js",
-    "/jquery.ui.js",
-    "/style.css",
-    "/main.js"
+    "js/jquery.js",
+    "js/swd.transfer.js",
+    "js/swd.images.js",
+    "js/swd.cursorLayer.js",
+    "js/swd.layout.js",
+    "js/main.js",
+    "js/audioclick.js",
+    "js/jquery.js",
+    "js/jquery.ui.js",
+    "js/main.js"
   ]
 }
