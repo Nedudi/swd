@@ -5,7 +5,6 @@ function addJsFileToHead(data) {
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 
-
 $.get(chrome.extension.getURL('js/jquery.js'),
   function(data) {
 		addJsFileToHead(data);

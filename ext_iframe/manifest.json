@@ -4,12 +4,18 @@
   "manifest_version": 2,
   "content_scripts": [
     {
-        "matches": [
-            "http://*/*",
-            "https://*/*"
-        ],
-      "js": ["js/jquery.js", "js/background.js" ],
-      "css":["css/style.css"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "js/jquery.js",
+        "js/background.js"
+      ],
+      "css":[
+        "css/style.css",
+        "css/font-awesome-4.0.3/css/font-awesome.css"
+      ],
       "run_at": "document_idle"
     }
   ],
@@ -21,8 +27,9 @@
     "js/swd.layout.js",
     "js/main.js",
     "js/audioclick.js",
-    "js/jquery.js",
     "js/jquery.ui.js",
     "js/main.js"
+
+
   ]
 }

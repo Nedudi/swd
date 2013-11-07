@@ -34,7 +34,7 @@
     that.view.top = createBlock({
       type:'horizontal',
       tagName: 'aside',
-      classList: ['swd_top','swd_aside']
+      classList: ['swd_top','swd_aside','fa','fa-camera-retro']
     });
 
     that.view.left = createBlock({
