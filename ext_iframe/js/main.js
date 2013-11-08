@@ -7,7 +7,7 @@
 
   window.injected_main = function() {
     console.log("injected_main");
-    swd.layout();
+    //swd.layout();
     swd.cursorLayer();
 
     var frame = document.createElement("iframe");
