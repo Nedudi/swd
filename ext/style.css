@@ -6,7 +6,7 @@
     left: 0%;
     z-index: 20000;
     background: rgba(0,0,0,0.3);
-    pointer-events:none;
+/*    pointer-events:none;*/
   }
 
   .swd_overlay{
@@ -60,7 +60,7 @@
     position: absolute;
     width:710px;
     height: 256px;
-    bottom:0;
+    bottom:-110px;
     left: 0;
     /*background: rgba(0,0,0,0.4);*/
     z-index: 10;
