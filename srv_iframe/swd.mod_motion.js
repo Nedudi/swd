@@ -13,15 +13,7 @@
   function Mod_Motion() {
     this.width = 640;
     this.height = 480;
-//    this.videoStream = null;
-//    this.canvas = null;
-//    this.video = null;
     this.options = null;
-
-//    this.onCameraReady = null;
-//    this.onCameraError = null;
-
-//    this._ctx = null;
 
     this._curr_img_pyr = null;
     this._prev_img_pyr = null;
@@ -31,87 +23,11 @@
     this._prev_xy = null;
     this._curr_xy = null;
 
-//    this._faceCanvas = null;
-//    this._faceCtx = null;
-
     this._initParameters();
   }
   window.swd.Mod_Motion = Mod_Motion;
 
-//  Mod_Motion.prototype.init = function(context, video) {
-//    if(this.canvas) {
-//      if(this.canvas.parentNode) {
-//        this.canvas.parentNode.removeChild(this.canvas);
-//      }
-//      this.canvas = null;
-//      this._ctx = null;
-//    }
-//    if(this.video) {
-//      if(this.video.parentNode) {
-//        this.video.parentNode.removeChild(this.video);
-//      }
-//      this.video.src = null;
-//      this.video = null;
-//    }
-//
-//    if(!context) {
-//      this.canvas = document.createElement("canvas");
-//      this.canvas.width = 640;
-//      this.canvas.height = 480;
-//      document.body.appendChild(this.canvas);
-//      this._ctx = this.canvas.getContext("2d");
-//    } else {
-//      this._ctx = context;
-//      this.canvas = this._ctx.canvas;
-//    }
-//
-//    if(!video) {
-//      this.video = document.createElement("video");
-//      this.video.width = 640;
-//      this.video.height = 480;
-//      this.video.style.display = "none";
-//      document.body.appendChild(this.video);
-//    } else {
-//      this.video = video;
-//    }
-//  };
-
-//  CamWatch.prototype.detectCamera = function() {
-//    var that = this;
-//    try {
-//      compatibility.getUserMedia({video: true}, function(stream) {
-//        try {
-//          that.videoStream = compatibility.URL.createObjectURL(stream);
-//        } catch (error) {
-//          that.videoStream = stream;
-//        }
-//        if(that.video) {
-//          that.video.src = that.videoStream;
-//        }
-//        setTimeout(function() {
-//          that.video.play();
-//          that._initParameters();
-//          if(that.onCameraReady) {
-//            that.onCameraReady();
-//          }
-//        }, 500);
-//      }, function (error) {
-//        that.videoStream = null;
-//        if(that.onCameraError) {
-//          that.onCameraError();
-//        }
-//      });
-//    } catch (error) {
-//      that.videoStream = null;
-//      if(that.onCameraError) {
-//        that.onCameraError();
-//      }
-//    }
-//  };
-
   Mod_Motion.prototype._initParameters = function() {
-//    this._ctx = this.canvas.getContext('2d');
-
     this._curr_img_pyr = new jsfeat.pyramid_t(3);
     this._prev_img_pyr = new jsfeat.pyramid_t(3);
     this._curr_img_pyr.allocate(640, 480, jsfeat.U8_t|jsfeat.C1_t);
@@ -124,8 +40,6 @@
     this._curr_xy = new Float32Array(100*2);
 
     this.options = new WatchParams();
-
-//    jsfeat.bbf.prepare_cascade(jsfeat.bbf.face_cascade);
   };
 
   Mod_Motion.prototype.process = function(layers) {

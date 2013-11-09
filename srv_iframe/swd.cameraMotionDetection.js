@@ -19,64 +19,64 @@
       centerRectColor: "rgb(0,0,255)",
       gridPointColor: "rgb(0,255,0)",
       maskSteps: 5,
-      detectRectCount: 20,
+      detectRectCount: 4,
       moveSpeed: 15
     };
 
-    var tmp = 0;
-    var skip = 1;
+    // currect state, can be: detect, motion
+    var curWorkingState = "detect";
+    var rect;
+
     function tick() {
       compatibility.requestAnimationFrame(tick);
-      if(((++tmp)%skip) !== 0) {
-        return;
-      }
       window.freeLog();
       ctx_camera.drawImage(layers.video, 0, 0);
       ctx_motion.drawImage(layers.camera, 0, 0);
 
-      m_motion.process(layers);
-
-      if(m_motion.getActivePointCount() < (m_motion.getPointCount()/3)) {
-        reinitParams();
-      }
-
-      var rect = m_face.process(layers);
-      if(rect) {
-        faceRects.push(rect);
-      }
-      if(faceRects.length >= globalParams.detectRectCount) {
-        if(faceRects.length > globalParams.detectRectCount) {
-          faceRects.shift();
+      if(curWorkingState === "detect") {
+        rect = m_face.process(layers);
+        if(rect) {
+          faceRects.push(rect);
         }
-        if(m_motion.getPointCount() === 0) {
-          updatePoints();
+        if(faceRects.length >= globalParams.detectRectCount) {
+          if(faceRects.length > globalParams.detectRectCount) {
+            faceRects.shift();
+          }
+          createNewPointForMotionDetect();
+          activeCursor(true);
+          curWorkingState = "motion";
+        }
+        if(rect) {
+          var ctx = ctx_camera;
+          ctx.save();
+          ctx.strokeStyle = "#ff0000";
+          ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+          ctx.restore();
+        }
+      } else if(curWorkingState === "motion") {
+        m_motion.process(layers);
+        if(m_motion.getActivePointCount() < (m_motion.getPointCount()/3)) {
+          reinitParams();
+          activeCursor(false);
+          curWorkingState = "detect";
         } else {
           findMoveDelta();
-          activeCursor(true);
+          drawActiveMotionPoint(ctx_motion);
+          drawCursors();
         }
-      } else {
-        drawCursors();
-      }
-
-      prune_oflow_points(ctx_motion);
-      if(rect) {
-        var ctx = ctx_camera;
-        ctx.save();
-        ctx.strokeStyle = "#ff0000";
-        ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
-        ctx.restore();
       }
     }
 
     var maskSteps = globalParams.maskSteps;
 
     function reinitParams() {
-      activeCursor(false);
       faceRects = [];
       m_motion.removeAllPoints();
       cursorPos = {"x":window.innerWidth/2, "y":window.innerHeight/2};
       headRect = {x:0,y:0,w:0,h:0};
     }
+
+    activeCursor(false);
     reinitParams();
 
     function updateRect() {
@@ -95,7 +95,7 @@
       headRect = tmp;
     }
 
-    function updatePoints() {
+    function createNewPointForMotionDetect() {
       var qq, ww;
       updateRect();
 
@@ -161,7 +161,7 @@
      * draw and send commands
      ********************************************************************************/
 
-    function prune_oflow_points(ctx) {
+    function drawActiveMotionPoint(ctx) {
       var qq, dd, num = m_motion.getPointCount();
       for(qq = 0; qq < num; ++qq) {
         dd = m_motion.getPoint(qq);
@@ -172,7 +172,7 @@
     }
 
     function drawCursors() {
-      moveCursor(cursorPos.x, cursorPos.y);
+      window.swd.sendMessage("swdCursorPosition", {"x":(cursorPos.x|0), "y":(cursorPos.y|0)});
     }
 
     function activeCursor(isActive) {
@@ -181,10 +181,6 @@
       } else {
         window.swd.sendMessage("swdCursorStyle", {"style":"wait"});
       }
-    }
-
-    function moveCursor(x,y) {
-      window.swd.sendMessage("swdCursorPosition", {"x":(x|0), "y":(y|0)});
     }
 
     function draw_circle(ctx, x, y, color) {

@@ -7,18 +7,11 @@
     this.width = 640;
     this.height = 480;
     this._img_u8 = null;
-//    this._edg = null;
-//    this._ii_sum = null;
-//    this._ii_sqsum = null;
-//    this._ii_tilted = null;
-//    this._ii_canny = null;
 
     // sizes for canvas to detect face
     this._maxFaceCanvasSize = 160;
     this._detectFaceWidth = 0;
     this._detectFaceHeight = 0;
-//    this._classifier = jsfeat.haar.eye;
-//    this._classifier = jsfeat.haar.frontalface;
 
     this._initParameters(layers);
   }
@@ -35,13 +28,6 @@
 
     this._img_u8 = new jsfeat.matrix_t(this._detectFaceWidth, this._detectFaceHeight, jsfeat.U8_t | jsfeat.C1_t);
     jsfeat.bbf.prepare_cascade(jsfeat.bbf.face_cascade);
-
-//    this._edg = new jsfeat.matrix_t(this._detectFaceWidth, this._detectFaceHeight, jsfeat.U8_t | jsfeat.C1_t);
-//    this._ii_sum = new Int32Array((this._detectFaceWidth+1)*(this._detectFaceHeight+1));
-//    this._ii_sqsum = new Int32Array((this._detectFaceWidth+1)*(this._detectFaceHeight+1));
-//    this._ii_tilted = new Int32Array((this._detectFaceWidth+1)*(this._detectFaceHeight+1));
-//    this._ii_canny = new Int32Array((this._detectFaceWidth+1)*(this._detectFaceHeight+1));
-//    jsfeat.bbf.prepare_cascade(jsfeat.haar.eye);
   };
 
   Mod_Face.prototype.process = function(layers) {
@@ -52,13 +38,6 @@
 
     window.timeStart();
     window.graph.filters.grayscaleModified(imageData.data, imageData.data);
-//    window.graph.filters.brightnesAndContrast(
-//      imageData.data,
-//      imageData.data,
-//      window.swd.params.Brightness,
-//      window.swd.params.Contrast,
-//      window.swd.params.Intensity
-//    );
     context2.putImageData(imageData, 0, 0);
 
     jsfeat.imgproc.grayscaleRGBAToByte(imageData.data, this._img_u8.data);
@@ -81,16 +60,6 @@
       jsfeat.math.qsort(rects, 0, on-1, function(a,b){ return (b.confidence<a.confidence); });
     }
     var n = 1 || on;
-
-    /* haaf */
-//    jsfeat.imgproc.compute_integral_image(this._img_u8, this._ii_sum, this._ii_sqsum, this._classifier.tilted ? ii_tilted : null);
-//    if(options.use_canny) {
-//      jsfeat.imgproc.canny(img_u8, edg, 10, 50);
-//      jsfeat.imgproc.compute_integral_image(edg, ii_canny, null, null);
-//    }
-//    jsfeat.haar.edges_density = swd.params.edges_density;
-//    rects = jsfeat.haar.detect_multi_scale(this._ii_sum, this._ii_sqsum, this._ii_tilted, swd.params.use_canny ? this._ii_canny : null, this._img_u8.cols, this._img_u8.rows, this._classifier, swd.params.scale_factor, swd.params.min_scale);
-//    rects = jsfeat.haar.group_rectangles(rects, 1);
 
     var r = rects[0];
     if(!r) { return null; }

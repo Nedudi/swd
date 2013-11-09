@@ -22,19 +22,10 @@
   };
 
   window.swd = window.swd || {};
-//  window.swd.params = null;
-//  var _paramData = function() {
-//    this.Brightness = 0;
-//    this.Contrast = 0;
-//    this.Intensity = 0;
-//    this.edges_density = 0.13;
-//    this.use_canny = false;
-//    this.min_scale = 2;
-//    this.scale_factor = 1.15;
-//  };
 
   window.swd.onLoad = function () {
-//    swd.params = new _paramData();
+    window.swd.cursorLayer();
+
     video = document.getElementById('webcam');
     layers.video = video;
     layers.camera = document.getElementById('canvas1');
