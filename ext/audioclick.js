@@ -119,7 +119,7 @@ audioclick = function () {
       }
 
       avg = sum / 50;
-      var b = 200; //* avg * 0.0;
+      var b = 180; //* avg * 0.0;
      // if (b < 170) b = 250;
 
       //console.log(b)
