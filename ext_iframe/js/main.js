@@ -27,32 +27,14 @@
     frame.contentType = "text/html";
     frame.src = "https://stop-web-disability.org";
 
-    window.swd.addEventListener("swdCursorPosition", function(data) {
-      if(data && typeof(data.x) !== "undefined" && typeof(data.y) !== "undefined") {
-        app.cursor.x = data.x;
-        app.cursor.y = data.y;
-      }
-    });
+    // window.swd.addEventListener("swdCursorPosition", function(data) {
+    //   if(data && typeof(data.x) !== "undefined" && typeof(data.y) !== "undefined") {
+    //     app.cursor.x = data.x;
+    //     app.cursor.y = data.y;
+    //   }
+    // });
 
 
-    window.swd.addEventListener("swdAudioClick", function(data) {
-      app.clickOnItem(app.cursor.x,app.cursor.y);
-    });
 
-    app.clickOnItem = function(x,y){
-      var o = document.createEvent('MouseEvents');
-      var element = null;
-
-      if(x && y){
-        element = document.elementFromPoint(x,y);
-      }
-
-      if(element){
-        o.initMouseEvent('click', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
-        if(o){
-          element.dispatchEvent(o);
-        }
-      }
-    };
   };
 })(window);

@@ -10,9 +10,9 @@ var compatibility = (function() {
 
         requestAnimationFrame = function(callback, element) {
             var requestAnimationFrame =
-                window.requestAnimationFrame        || 
-                window.webkitRequestAnimationFrame  || 
-                window.mozRequestAnimationFrame     || 
+                window.requestAnimationFrame        ||
+                window.webkitRequestAnimationFrame  ||
+                window.mozRequestAnimationFrame     ||
                 window.oRequestAnimationFrame       ||
                 window.msRequestAnimationFrame      ||
                 function(callback, element) {

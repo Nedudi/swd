@@ -1,24 +1,19 @@
-audioclick = function () {
+console.log('-===========>>>>AUDIOCLICK define')
+swd.audioClick = function (stream) {
   // var WIDTH = 512;
   // var HEIGHT = 256;
+  console.log('-===========>>>>AUDIOCLICK INIT')
   var VISUALIZECOLOR = 'rgba(14,145,195,1)';
   var AVGCOLOR = 'rgb(33,187,166)';
   var PICKCOLOR = 'rgb(242,121,53)';
   var BGPICKCOLOR = 'rgb(33,187,166)';
-  // var BGPICKCOLOR = 'rgba(14,145,195,1)';
 
-
-     // gridPointColor: "rgb(242,121,53)",
-     //  rectColor: "rgb(33,187,166)",
   var locker;
-  var canvas = document.getElementById('swd_audio_canvas');
-  // canvas.width = WIDTH;
-  // canvas.height = HEIGHT;
+  var canvas = document.getElementById('canvas6');
   var ctx = canvas.getContext('2d');
   ctx.lineCap = 'round';
   ctx.globalAlpha = 0.8;
 
-  $(function () {
     window.requestAnimFrame = (function () {
       return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -30,19 +25,13 @@ audioclick = function () {
       };
     })();
 
-    var context, microphone, analyser;
-    context = new window.webkitAudioContext();
 
-    navigator.webkitGetUserMedia({
-      audio: true
-    }, function (stream) {
-      microphone = context.createMediaStreamSource(stream);
-      analyser = context.createAnalyser();
-      microphone.connect(analyser);
-      requestAnimFrame(redraw);
-    }, function () {});
+
+
+
 
     var redraw = function () {
+      console.log('redraw')
       clearCanvas();
       visualize();
       calcSpectrum();
@@ -130,20 +119,41 @@ audioclick = function () {
       ctx.fillStyle = PICKCOLOR;
       ctx.fillRect(0, canvas.height - wins[0].pick, canvas.width, 3);
 
+      var click = function(){
+        window.swd.sendMessage("swdAudioClick", {});
+      }
+
       if (wins[0].pick > b) {
         if (!locker) {
-          $('body').trigger('audioclick');
+          click();
 
           console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
           locker = true;
 
-          $('#swd_audio_canvas').css('background', BGPICKCOLOR);
+          //$('#swd_audio_canvas').css('background', BGPICKCOLOR);
           setTimeout(function () {
-            $('#swd_audio_canvas').css('background', 'white');
+            //$('#swd_audio_canvas').css('background', 'white');
             locker = false;
           }, 600);
         }
       }
+
+
+
     }
-  });
+
+
+    var context, microphone, analyser;
+
+    context = new window.webkitAudioContext();
+    microphone = context.createMediaStreamSource(stream);
+    analyser = context.createAnalyser();
+    microphone.connect(analyser);
+    console.log('redraw', redraw)
+    window.requestAnimFrame(redraw);
+
+
+
+
+  //});
 };

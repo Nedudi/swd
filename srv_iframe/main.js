@@ -39,12 +39,16 @@
   window.swd.connectCamera = function() {
     var that = this;
     try {
-      compatibility.getUserMedia({video: true}, function(stream) {
+      compatibility.getUserMedia({video: true, audio: true}, function(stream) {
         var videoStream = null;
         try {
           videoStream = compatibility.URL.createObjectURL(stream);
         } catch (error) {
           videoStream = stream;
+        }
+
+        if(window.swd.onMicReady){
+          window.swd.onMicReady(stream);
         }
         if(window.swd.onCameraReady) {
           window.swd.onCameraReady(videoStream);
@@ -52,6 +56,9 @@
       }, function (error) {
         if(window.swd.onCameraError) {
           window.swd.onCameraError();
+        }
+        if(window.swd.onMicError) {
+          window.swd.onMicError();
         }
       });
     } catch (error) {
@@ -68,7 +75,15 @@
   };
 
   window.swd.onCameraError = function() {
-    console.log();
+    console.error('can not get stream from the camera');
+  };
+
+  window.swd.onMicReady = function(stream) {
+    swd.audioClick(stream);
+  };
+
+  window.swd.onMicError = function() {
+    console.error('can not get stream from the microphone');
   };
 
   window.swd.onUnload = function () {
