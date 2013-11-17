@@ -5,7 +5,7 @@
   window.swd._messagePrefix = "stop_web_disability_message_";
 
   window.swd.sendMessage = function(type, data)  {
-    console.log("window.swd.sendMessage");
+    //console.log("window.swd.sendMessage");
     if(window.parent) {
       window.parent.postMessage(window.swd._messagePrefix + JSON.stringify({"type":type, "data":data}), "*");
     }

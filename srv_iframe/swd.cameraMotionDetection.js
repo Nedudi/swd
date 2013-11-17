@@ -12,15 +12,14 @@
     var width = layers.motion.width;
     var height = layers.motion.height;
 
-    var cursorPos = {"x":(width/2), "y":(height/2)};
+    var cursorPos = {"x":(1/2), "y":(1/2)};
     var faceRects = [];
     var headRect = {};
     var globalParams = {
       centerRectColor: "rgb(0,0,255)",
       gridPointColor: "rgb(0,255,0)",
       maskSteps: 5,
-      detectRectCount: 4,
-      moveSpeed: 15
+      detectRectCount: 4
     };
 
     // currect state, can be: detect, motion
@@ -72,7 +71,7 @@
     function reinitParams() {
       faceRects = [];
       m_motion.removeAllPoints();
-      cursorPos = {"x":window.innerWidth/2, "y":window.innerHeight/2};
+      cursorPos = {"x":1/2, "y":1/2};
       headRect = {x:0,y:0,w:0,h:0};
     }
 
@@ -142,12 +141,17 @@
 
         if(cnt) {
           if(lastDetectSuccess) {
-            cursorPos.x -= pos.x / cnt * globalParams.moveSpeed;
-            cursorPos.y += pos.y / cnt * globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth);
+
+            cursorPos.x -= (pos.x / cnt) / width;  //* globalParams.moveSpeed;
+            cursorPos.y += (pos.y / cnt) / height; //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
+
+
             if(cursorPos.x < 0) { cursorPos.x = 0; }
-            else if(cursorPos.x > window.innerWidth) { cursorPos.x = window.innerWidth; }
+            else if(cursorPos.x > 1) { cursorPos.x = 1; }
             if(cursorPos.y < 0) { cursorPos.y = 0; }
-            else if(cursorPos.y > window.innerHeight) { cursorPos.y = window.innerHeight; }
+            else if(cursorPos.y > 1) { cursorPos.y = 1; }
+
+
           }
           lastDetectSuccess = true;
         }
@@ -172,7 +176,7 @@
     }
 
     function drawCursors() {
-      window.swd.sendMessage("swdCursorPosition", {"x":(cursorPos.x|0), "y":(cursorPos.y|0)});
+      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
     }
 
     function activeCursor(isActive) {

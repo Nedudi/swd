@@ -4,10 +4,10 @@
   window.swd = window.swd || {};
 
   function WatchParams() {
-    this.win_size = 15;
-    this.max_iterations = 100;
-    this.epsilon = 0.01;
-    this.min_eigen = 0.001;
+    this.win_size = 40;
+    this.max_iterations = 30;
+    this.epsilon = 0;
+    this.min_eigen = 0;
   }
 
   function Mod_Motion() {

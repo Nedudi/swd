@@ -24,7 +24,7 @@
   window.swd = window.swd || {};
 
   window.swd.onLoad = function () {
-    window.swd.cursorLayer();
+    //window.swd.cursorLayer();
 
     video = document.getElementById('webcam');
     layers.video = video;

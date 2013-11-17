@@ -23,6 +23,13 @@
     document.body.appendChild(cursor);
 
     var lastCursorStyle = "";
+    var moveSpeed = 20000;
+    var currentHoverElement = false;
+
+    // window.addEventListener('mouseout', function(e){
+    //   console.log(1)
+    //   e.target.style.background = "blue";
+    // }, false);
 
     function setCursorStyle(data) {
       if(data.style === lastCursorStyle) {
@@ -37,8 +44,61 @@
 
     function setCursorPosition(data) {
       if(data.x && data.y) {
-        cursor.style.left = (data.x|0) + "px";
-        cursor.style.top = (data.y|0) + "px";
+
+        var x = window.innerWidth/2 - 100 + ((data.x - 0.5) * moveSpeed);
+        var y = window.innerHeight/2 - 100 + ((data.y - 0.5) * moveSpeed);// * (window.innerHeight/window.innerWidth); //window.innerWidth
+
+        cursor.style.left = x + "px";
+        cursor.style.top = y + "px";
+
+
+      var o = document.createEvent('MouseEvents');
+      var element = null;
+
+        if(x && y){
+          element = document.elementFromPoint(x+100,y+100);
+        }
+
+        if(element){
+          if(currentHoverElement){
+            if((currentHoverElement.dataset.swdoutline+'').length > 4){
+              currentHoverElement.style.boxShadow = currentHoverElement.dataset.swdoutline;
+            } else {
+              currentHoverElement.style.boxShadow = "0 0 0 0 transparent";
+            }
+          }
+
+          if((element.nodeName.toLowerCase() === 'a' || element.nodeName.toLowerCase() === 'input')){
+            element.dataset.swdoutline = window.getComputedStyle(element,null).getPropertyValue("boxShadow");
+            element.style.boxShadow = "0 0 0 2px rgb(14, 145, 195) inset";
+          }
+
+
+
+
+          currentHoverElement = element;
+
+          o.initMouseEvent('mouseover', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
+          if(o){
+             element.dispatchEvent(o);
+          }
+        }
+
+
+
+ // if( document.createEvent ) {
+ //            var evObj = document.createEvent('MouseEvents');
+ //            evObj.initEvent( 'mouseover', true, false );
+ //            elem.dispatchEvent(evObj);
+ //        } else if( document.createEventObject ) {
+ //            elem.fireEvent('onmouseover');
+ //        }
+
+
+
+
+
+
       }
     }
 
