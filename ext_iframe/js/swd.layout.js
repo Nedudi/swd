@@ -2,29 +2,15 @@
 (function(window){
   "use strict";
 
-
-
   window.swd = window.swd || {};
 
   window.swd.layout = function() {
-    //alert(1)
-
-
-
-
-   // chrome.extension.tabs
-
     var that = this;
     that.view = {};
     var html = document.getElementsByTagName('html')[0];
     var body = document.getElementsByTagName('body')[0];
     html.classList.add('swd');
-    // html.style.width = "calc(100% - 100px)";
-    //body.style['-webkit-transform'] = 'translateY(10px)';
     window.dispatchEvent(new Event('resize'));
-
-
-
     var createBlock = function(options){
       var block = document.createElement(options.tagName);
       options.classList.map(function(v,i){
@@ -98,20 +84,30 @@
       tagName: 'a',
       classList: ['swd_button','swd_button_settings','icon-settings']
     });
+
+    that.view.buttonSettings.addEventListener('click', function(){
+      var iframe = document.getElementsByClassName('swd-iframe')[0];
+      iframe.classList.toggle('swd-none');
+    });
+
     that.view.buttonBack = createBlock({
       container:that.view.historyBlock,
       tagName: 'a',
       classList: ['swd_button','swd_button_back','icon-arrow-left-thick']
     });
-    that.view.buttonBack = createBlock({
+    that.view.buttonNext = createBlock({
       container:that.view.historyBlock,
       tagName: 'a',
       classList: ['swd_button','swd_button_next','icon-arrow-right-thick']
     });
-    that.view.buttonBack = createBlock({
+
+    that.view.buttonRefresh = createBlock({
       container:that.view.historyBlock,
       tagName: 'a',
       classList: ['swd_button','swd_button_refresh','icon-repeat']
+    });
+    that.view.buttonRefresh.addEventListener('click', function(){
+      window.location.reload(true);
     });
 
 
@@ -128,24 +124,13 @@
       classList: ['swd_button','swd_button_add_tab','icon-plus']
     });
 
-
-
-
-
     window.onscroll = function (oEvent) {
       var scrollTop = body.scrollTop;
       var scrollLeft = body.scrollLeft;
-
-      console.log(scrollTop,scrollLeft)
       that.view.top.style.top = scrollTop+'px';
       that.view.left.style.top = scrollTop+100+'px';
       that.view.right.style.top = scrollTop+100+'px';
-
-      // that.view.top.style.left = scrollLeft-100+'px';
-      // that.view.left.style.left = scrollLeft+'px';
-      // that.view.right.style.left = scrollLeft+document.documentElement.clientHeight-199+'px';
     }
-
 
     that.renderTab = function(tab){
       console.log('render tab', tab);
@@ -160,7 +145,8 @@
     }
 
     that.renderAllTabs = function(tabs){
-      for (var i = 0; i < tabs.length; i++) {
+      var length = tabs.length>3?3:tabs.length;
+      for (var i = 0; i < length; i++) {
         that.renderTab(tabs[i]);
       }
     }
@@ -173,63 +159,6 @@
 
 
     that.getAllTabs(that.renderAllTabs);
-
-
-//},1000);
-
-
-
-
-
-
-    //alert(1)
-    // var cursor = document.createElement("div");
-    // cursor.setAttribute("id", "swd-cursor-pointer");
-    // console.log(window.innerWidth, window.innerHeight);
-
-    // cursor.style.position = "fixed";
-    // cursor.style.left = "0";
-    // cursor.style.top = "0";
-    // cursor.style.width = "32px";
-    // cursor.style.height = "32px";
-    // cursor.style.display = "block";
-    // cursor.style.zIndex = "999999999999999999999";
-    // cursor.style.left = ((window.innerWidth/2)|0) + "px";
-    // cursor.style.top = ((window.innerHeight/2)|0) + "px";
-    // cursor.style.backgroundSize = "100% 100%";
-    // cursor.style.backgroundPosition = "50% 50%";
-    // cursor.style.pointerEvents = "none";
-    // document.body.appendChild(cursor);
-
-    // var lastCursorStyle = "";
-
-    // function setCursorStyle(data) {
-    //   if(data.style === lastCursorStyle) {
-    //     return;
-    //   }
-    //   if(data.style === "arrow") {
-    //     cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
-    //   } else if(data.style === "wait") {
-    //     cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
-    //   }
-    // }
-
-    // function setCursorPosition(data) {
-    //   if(data.x && data.y) {
-    //     cursor.style.left = (data.x|0) + "px";
-    //     cursor.style.top = (data.y|0) + "px";
-    //   }
-    // }
-
-    // window.swd.addEventListener("swdCursorPosition", function(data) {
-    //   setCursorPosition(data);
-    // });
-
-    // window.swd.addEventListener("swdCursorStyle", function(data) {
-    //   setCursorStyle(data);
-    // });
-
-    // setCursorStyle({"style":"wait"});
   };
   window.swd.layout();
 })(window);

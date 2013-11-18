@@ -1,8 +1,5 @@
-console.log('-===========>>>>AUDIOCLICK define')
+
 swd.audioClick = function (stream) {
-  // var WIDTH = 512;
-  // var HEIGHT = 256;
-  console.log('-===========>>>>AUDIOCLICK INIT')
   var VISUALIZECOLOR = 'rgba(14,145,195,1)';
   var AVGCOLOR = 'rgb(33,187,166)';
   var PICKCOLOR = 'rgb(242,121,53)';
@@ -25,13 +22,7 @@ swd.audioClick = function (stream) {
       };
     })();
 
-
-
-
-
-
     var redraw = function () {
-      console.log('redraw')
       clearCanvas();
       visualize();
       calcSpectrum();
@@ -149,7 +140,7 @@ swd.audioClick = function (stream) {
     microphone = context.createMediaStreamSource(stream);
     analyser = context.createAnalyser();
     microphone.connect(analyser);
-    console.log('redraw', redraw)
+    //console.log('redraw', redraw)
     window.requestAnimFrame(redraw);
 
 

@@ -19,7 +19,10 @@
       "js": [
         "js/jquery.js",
         "js/background.js",
-        "js/swd.layout.js"
+        "js/swd.layout.js",
+        "js/swd.transfer.js",
+        "js/swd.images.js",
+        "js/swd.cursorLayer.js"
       ],
       "css":[
         "css/style.css",
@@ -33,15 +36,13 @@
   ],
   "web_accessible_resources": [
     "js/jquery.js",
+    "js/background.js",
     "js/swd.transfer.js",
     "js/swd.images.js",
     "js/swd.cursorLayer.js",
     "js/swd.layout.js",
     "js/main.js",
-    "js/audioclick.js",
     "js/jquery.ui.js",
     "js/main.js"
-
-
   ]
 }
