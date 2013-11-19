@@ -3,12 +3,18 @@
   "use strict";
   window.swd = window.swd || {};
 
+
+
   window.swd.cursorLayer = function() {
     console.log('-- CURSOR LAYER INITED');
+    var fifoX = [];
+    var fifoY = [];
+    var fifoSize = 10;
+    var moveSpeed = 20000;
     var cursor = document.createElement("div");
     cursor.setAttribute("id", "swd-cursor");
     cursor.setAttribute("class", "swd-cursor");
-    console.log(window.innerWidth, window.innerHeight);
+    //console.log(window.innerWidth, window.innerHeight);
 
     cursor.style.left = ((window.innerWidth/2)|0) + "px";
     cursor.style.top = ((window.innerHeight/2)|0) + "px";
@@ -16,7 +22,7 @@
     document.body.appendChild(cursor);
 
     var lastCursorStyle = "";
-    var moveSpeed = 20000;
+
     swd.currentHoverElement = false;
 
     function setCursorStyle(data) {
@@ -36,6 +42,25 @@
 
         var x = window.innerWidth/2  - 100 + ((data.x - 0.5) * moveSpeed);
         var y = window.innerHeight/2 - 100 + ((data.y - 0.5) * moveSpeed);// * (window.innerHeight/window.innerWidth); //window.innerWidth
+
+        fifoX.push(x);
+        fifoY.push(y);
+
+        var sumX = 0;
+        var sumY = 0;
+
+        for (var i = 0; i < fifoX.length; i++) {
+          sumX+=fifoX[i];
+          sumY+=fifoY[i];
+        }
+
+        x = sumX/fifoX.length;
+        y = sumY/fifoY.length;
+
+        if(fifoX.length >= fifoSize || fifoY.length >= fifoSize ){
+          fifoX.splice(0,1);
+          fifoY.splice(0,1);
+        }
 
         var xs = x + document.body.scrollLeft;
         var ys = y + document.body.scrollTop;
