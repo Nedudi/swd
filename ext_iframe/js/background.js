@@ -5,6 +5,13 @@ function addJsFileToHead(data) {
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 
+
+// $.get(chrome.extension.getURL('js/keyboard/vk_loader.js?vk_layout=RU%20Russian_Qwerty&vk_skin=soberTouch'),
+//   function(data) {
+//     addJsFileToHead(data);
+//   }
+// );
+
 $.get(chrome.extension.getURL('js/main.js'),
   function(data) {
 		addJsFileToHead(data);

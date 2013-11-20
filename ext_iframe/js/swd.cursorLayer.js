@@ -62,8 +62,8 @@
           fifoY.splice(0,1);
         }
 
-        var xs = x + document.body.scrollLeft;
-        var ys = y + document.body.scrollTop;
+        var xs = x; //+ document.body.scrollLeft;
+        var ys = y; //+ document.body.scrollTop;
 
         cursor.style.left = xs + "px";
         cursor.style.top = ys + "px";
@@ -73,7 +73,7 @@
         var element = null;
 
         if(x && y){
-          element = document.elementFromPoint(x+100,y+100);
+          element = document.elementFromPoint(x/*+100*/,y/*+100*/);
         }
 
         if(element){

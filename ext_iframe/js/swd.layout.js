@@ -11,19 +11,23 @@
     var body = document.getElementsByTagName('body')[0];
     html.classList.add('swd');
     window.dispatchEvent(new Event('resize'));
+
     var createBlock = function(options){
       var block = document.createElement(options.tagName);
       options.classList.map(function(v,i){
         block.classList.add(v);
       });
       if(options.type && options.type == 'vertical'){
-        block.style.height = document.documentElement.clientHeight-100+'px';
+        //block.style.height = document.documentElement.clientHeight-100+'px';
       }
       if(options.type && options.type == 'horizontal'){
         //block.style.width = document.documentElement.clientWidth+'px';
       }
       if(options.html){
         block.innerHTML = options.html;
+      }
+      if(options.id){
+        block.setAttribute('id', options.id);
       }
       options.container.appendChild(block);
       return block;
@@ -51,6 +55,13 @@
       classList: ['swd_right','swd_aside']
     });
 
+    that.view.keyboard = createBlock({
+      container:body,
+      type:'vertical',
+      tagName: 'aside',
+      id:'swd_keyboard',
+      classList: ['swd_keyboard','swd_aside']
+    });
 
     that.view.buttonScrollUp = createBlock({
       container:that.view.right,
@@ -127,9 +138,9 @@
     window.onscroll = function (oEvent) {
       var scrollTop = body.scrollTop;
       var scrollLeft = body.scrollLeft;
-      that.view.top.style.top = scrollTop+'px';
-      that.view.left.style.top = scrollTop+100+'px';
-      that.view.right.style.top = scrollTop+100+'px';
+      // that.view.top.style.top = scrollTop+'px';
+      // that.view.left.style.top = scrollTop+100+'px';
+      // that.view.right.style.top = scrollTop+100+'px';
     }
 
     that.renderTab = function(tab){
@@ -159,6 +170,39 @@
 
 
     that.getAllTabs(that.renderAllTabs);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
+
+      that.view.keyboard.classList.add('swd_keyboard_show');
+      if(e.target.nodeName.toLowerCase() === 'input' || e.target.nodeName.toLowerCase() === 'textarea'){
+        VirtualKeyboard.attachInput(e.target);
+        VirtualKeyboard.show('text','swd_keyboard');
+      }
+    }, true);
+
+
+
+
+
+
+
+
+
+
   };
   window.swd.layout();
 })(window);

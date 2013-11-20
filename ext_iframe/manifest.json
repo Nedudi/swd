@@ -22,11 +22,18 @@
         "js/swd.layout.js",
         "js/swd.transfer.js",
         "js/swd.images.js",
-        "js/swd.cursorLayer.js"
+        "js/swd.cursorLayer.js",
+
+    "js/keyboard/extensions/scriptqueue.js",
+    "js/keyboard/extensions/e.js",
+    "js/keyboard/virtualkeyboard.js",
+    "js/keyboard/layouts/layouts.js"
+
       ],
       "css":[
         "css/style.css",
-        "css/font.css"
+        "css/font.css",
+        "js/keyboard/css/soberTouch/keyboard.css"
       ],
       "run_at": "document_end"
     }
@@ -43,6 +50,12 @@
     "js/swd.layout.js",
     "js/main.js",
     "js/jquery.ui.js",
-    "js/main.js"
+    "js/main.js",
+
+
+    "js/keyboard/extensions/scriptqueue.js",
+    "js/keyboard/extensions/e.js",
+    "js/keyboard/virtualkeyboard.js",
+    "js/keyboard/layouts/layouts.js"
   ]
 }

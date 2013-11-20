@@ -15,14 +15,17 @@
   <script type="text/javascript">
 
     EM.addEventListener(window,'domload',function(){
-
       document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
-        console.log(e);
-        VirtualKeyboard.attachInput(e.target);
-        VirtualKeyboard.toggle('text','td');
+        if(e.target.nodeName.toLowerCase() === 'input' || e.target.nodeName.toLowerCase() === 'textarea'){
+          VirtualKeyboard.attachInput(e.target);
+          VirtualKeyboard.show('text','td');
+        }
       }, true);
-
-
+      // document.getElementsByTagName('body')[0].addEventListener('blur', function(e){
+      //   if(e.target.nodeName.toLowerCase() == 'input'){
+      //     VirtualKeyboard.hide('text','td');
+      //   }
+      // }, true);
     });
 
   </script>
