@@ -72,9 +72,9 @@ html body{
 
 .swd_keyboard{
   bottom:0px;
-  right: 100px;
-  left: 100px;
-  height: 300px;
+  right: 0px;
+  left: 0px;
+  height: 370px;
   text-align: center;
   border-top: 1px solid rgba(200,200,200,1) !important;
   -webkit-transform: translateY(100%);

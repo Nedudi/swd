@@ -106,10 +106,19 @@
       tagName: 'a',
       classList: ['swd_button','swd_button_back','icon-arrow-left-thick']
     });
+
+    that.view.buttonBack.addEventListener('click', function(){
+      history.back();
+    });
+
     that.view.buttonNext = createBlock({
       container:that.view.historyBlock,
       tagName: 'a',
       classList: ['swd_button','swd_button_next','icon-arrow-right-thick']
+    });
+
+    that.view.buttonNext.addEventListener('click', function(){
+      history.forward();
     });
 
     that.view.buttonRefresh = createBlock({
@@ -117,10 +126,10 @@
       tagName: 'a',
       classList: ['swd_button','swd_button_refresh','icon-repeat']
     });
+
     that.view.buttonRefresh.addEventListener('click', function(){
       window.location.reload(true);
     });
-
 
     // tabs
     that.view.tabsBlock = createBlock({
@@ -186,6 +195,8 @@
 
 
     document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
+
+      //console.log('!!!!!!!!==========!!!!!!!!!!!',getEventListeners(document));
 
       that.view.keyboard.classList.add('swd_keyboard_show');
       if(e.target.nodeName.toLowerCase() === 'input' || e.target.nodeName.toLowerCase() === 'textarea'){

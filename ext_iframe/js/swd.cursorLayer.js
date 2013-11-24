@@ -85,7 +85,7 @@
             }
           }
 
-          if((element.nodeName.toLowerCase() === 'a' || element.nodeName.toLowerCase() === 'input')){
+          if(isNodeName(element,['a','button','input','textarea'])){
             element.dataset.swdoutline = window.getComputedStyle(element,null).getPropertyValue("boxShadow");
             element.style.boxShadow = "0 0 0 2px rgb(14, 145, 195) inset";
           }
@@ -102,20 +102,31 @@
 
 
     function clickOnItem() {
-      var o = document.createEvent('MouseEvents');
-      // var element = null;
-
-      // if(x && y){
-      //   element = document.elementFromPoint(x,y);
-      // }
-
       if(swd.currentHoverElement){
-        o.initMouseEvent('click', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
-        if(o){
-          swd.currentHoverElement.dispatchEvent(o);
+        if(isNodeName(swd.currentHoverElement, ['input','textarea'])){
+          console.log()
+          swd.currentHoverElement.focus();
+        } else {
+          var o = document.createEvent('MouseEvents');
+          o.initMouseEvent('click', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
+          if(o){
+            swd.currentHoverElement.dispatchEvent(o);
+          }
         }
       }
     };
+
+    function isNodeName(element,names){
+      if(!names.length) names = [names];
+      var nodeName = element.nodeName.toLowerCase();
+      var isName = false;
+      names.map(function(v,i){
+        if(v.toLowerCase() === nodeName){
+          isName = true;
+        }
+      });
+      return isName;
+    }
 
     window.swd.addEventListener("swdCursorPosition", function(data) {
       setCursorPosition(data);
@@ -126,7 +137,6 @@
     });
 
     window.swd.addEventListener("swdAudioClick", function(data) {
-      console.log('CLICK',swd.currentHoverElement)
       clickOnItem();
     });
 
