@@ -6,7 +6,7 @@
   function WatchParams() {
     this.win_size = 40;
     this.max_iterations = 30;
-    this.epsilon = 0;
+    this.epsilon = 1;
     this.min_eigen = 0;
   }
 
@@ -45,6 +45,7 @@
   Mod_Motion.prototype.process = function(layers) {
     var that = this;
     var context = layers.motion.getContext("2d");
+    var context2 = layers.motion2.getContext("2d");
 
     var imageData = context.getImageData(0, 0, this.width, this.height);
 
@@ -61,7 +62,14 @@
       this._point_statusOld[qq] = this._point_status[qq];
     }
 
-    window.graph.filters.grayscaleModified(imageData.data, imageData.data);
+//    window.graph.filters.grayscaleModified(imageData.data, imageData.data);
+//    window.graph.filters.grayscale(imageData.data, imageData.data);
+//    window.graph.filters.r_chanel(imageData.data, imageData.data);
+//    window.graph.filters.g_chanel(imageData.data, imageData.data);
+//    window.graph.filters.b_chanel(imageData.data, imageData.data);
+    window.graph.filters.rg_chanel(imageData.data, imageData.data);
+
+    context.putImageData(imageData, 0, 0);
     window.timeStart();
     jsfeat.imgproc.grayscaleRGBAToByte(imageData.data, that._curr_img_pyr.data[0].data);
     window.timeEnd("grayscale");

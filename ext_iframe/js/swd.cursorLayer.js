@@ -1,4 +1,4 @@
-/* global swd_base64CursorArrow:true, swd_base64CursorWait:true */
+/* global swd_base64CursorArrow:true, swd_base64CursorWait:true, swd:true */
 (function(window){
   "use strict";
   window.swd = window.swd || {};
@@ -19,7 +19,13 @@
     cursor.style.left = ((window.innerWidth/2)|0) + "px";
     cursor.style.top = ((window.innerHeight/2)|0) + "px";
 
-    document.body.appendChild(cursor);
+    if(document.body) {
+      document.body.appendChild(cursor);
+    } else {
+      window.addEventListener("load", function() {
+        document.body.appendChild(cursor);
+      });
+    }
 
     var lastCursorStyle = "";
 
@@ -77,7 +83,7 @@
         }
 
         if(element){
-          if(swd.currentHoverElement){
+          if(swd.currentHoverElement) {
             if((swd.currentHoverElement.dataset.swdoutline+'').length > 4){
               swd.currentHoverElement.style.boxShadow = swd.currentHoverElement.dataset.swdoutline;
             } else {
@@ -103,8 +109,7 @@
 
     function clickOnItem() {
       if(swd.currentHoverElement){
-        if(isNodeName(swd.currentHoverElement, ['input','textarea'])){
-          console.log()
+        if(isNodeName(swd.currentHoverElement, ['input','textarea'])) {
           swd.currentHoverElement.focus();
         } else {
           var o = document.createEvent('MouseEvents');
@@ -114,7 +119,7 @@
           }
         }
       }
-    };
+    }
 
     function isNodeName(element,names){
       if(!names.length) names = [names];

@@ -30,6 +30,7 @@
     layers.video = video;
     layers.camera = document.getElementById('canvas1');
     layers.motion = document.getElementById('canvas2');
+    layers.motion2 = document.getElementById('canvas6');
     layers.face1 = document.getElementById('canvas3');
     layers.face2 = document.getElementById('canvas4');
     layers.face3 = document.getElementById('canvas5');
@@ -39,7 +40,7 @@
   window.swd.connectCamera = function() {
     var that = this;
     try {
-      compatibility.getUserMedia({video: true, audio: true}, function(stream) {
+      compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
         var videoStream = null;
         try {
           videoStream = compatibility.URL.createObjectURL(stream);
@@ -79,7 +80,9 @@
   };
 
   window.swd.onMicReady = function(stream) {
-    swd.audioClick(stream);
+    if(swd.audioClick) {
+      swd.audioClick(stream);
+    }
   };
 
   window.swd.onMicError = function() {

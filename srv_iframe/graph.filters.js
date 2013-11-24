@@ -3,12 +3,55 @@
 
   var _filters = {
     grayscaleModified: function(src, dst) {
-      var srcLength = src.length|0, srcLength_16 = (srcLength - 16)|0;
+      var srcLength = src.length|0;
       var qq, tmp, j = 0;
       var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868;
       for(qq = 0; qq <= srcLength; qq += 4) {
         tmp = (src[qq] * coeff_r + src[qq+1] * coeff_g + src[qq+2] * coeff_b + 8192) >> 14;
         dst[qq] = dst[qq+1] = dst[qq+2] = tmp;
+      }
+    },
+
+    grayscale: function(src, dst) {
+      var srcLength = src.length|0;
+      var qq, tmp, j = 0;
+      var coeff_r = 0.2126, coeff_g = 0.7152, coeff_b = 0.0722;
+      for(qq = 0; qq <= srcLength; qq += 4) {
+        tmp = src[qq] * coeff_r + src[qq+1] * coeff_g + src[qq+2] * coeff_b;
+        dst[qq] = dst[qq+1] = dst[qq+2] = tmp < 0 ? 0 : (tmp > 255 ? 255 : tmp);
+      }
+    },
+
+    r_chanel: function(src, dst) {
+      var srcLength = src.length|0;
+      var qq;
+      for(qq = 0; qq <= srcLength; qq += 4) {
+        dst[qq] = dst[qq+1] = dst[qq+2] = src[qq];
+      }
+    },
+
+    g_chanel: function(src, dst) {
+      var srcLength = src.length|0;
+      var qq;
+      for(qq = 0; qq <= srcLength; qq += 4) {
+        dst[qq] = dst[qq+1] = dst[qq+2] = src[qq+1];
+      }
+    },
+
+    b_chanel: function(src, dst) {
+      var srcLength = src.length|0;
+      var qq;
+      for(qq = 0; qq <= srcLength; qq += 4) {
+        dst[qq] = dst[qq+1] = dst[qq+2] = src[qq+2];
+      }
+    },
+
+    rg_chanel: function(src, dst) {
+      var srcLength = src.length|0;
+      var qq;
+      for(qq = 0; qq <= srcLength; qq += 4) {
+        var tmp = src[qq]*0.5 + src[qq]*0.5;
+        dst[qq] = dst[qq+1] = dst[qq+2] = tmp < 0 ? 0 : (tmp > 255 ? 255 : tmp);
       }
     },
 
