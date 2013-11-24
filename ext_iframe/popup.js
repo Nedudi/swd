@@ -1,8 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('--')
   init();
 });
 
 var init = function(){
+
+  document.getElementById('enable').addEventListener('change',function(){
+    // chrome.management.setEnabled(chrome.runtime.id, this.checked, function(){
+    //   console.log('-- Extension ' + this.checked?'enabled':'disabled');
+    // });
+
+    if(this.checked){
+      chrome.windows.getCurrent(function(win){
+        chrome.windows.update(win.id, { state: "fullscreen" })
+        window.close();
+          // chrome.tabs.getAllInWindow(win.id, function(tabs)
+          // {
+          //     // Should output an array of tab objects to your dev console.
+          //     console.debug(tabs);
+          // });
+      });
+    };
+
+
+
+
+    ///console.log();
+  },false);
+
+// console.log(chrome.management)
+// console.log()
 
 
 

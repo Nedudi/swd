@@ -2,6 +2,11 @@
   "name": "SWD_iframe",
   "version": "1.0",
   "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "storage",
+    "management"
+  ],
   "background": {
     "persistent": false,
     "scripts": ["bg.js"]
@@ -68,9 +73,6 @@
       ],
       "run_at": "document_end"
     }
-  ],
-  "permissions": [
-    "tabs"
   ],
   "web_accessible_resources": [
     "js/jquery.js",
