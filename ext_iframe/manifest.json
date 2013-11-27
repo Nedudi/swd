@@ -5,11 +5,20 @@
   "permissions": [
     "tabs",
     "storage",
-    "management"
+    "management",
+    "topSites",
+    "fontSettings",
+    "bookmarks",
+    "chrome://favicon/",
+    "chrome://thumb/"
   ],
+  "options_page": "newtab.html#options",
+  "chrome_url_overrides": {
+    "newtab" : "newtab.html"
+  },
   "background": {
     "persistent": false,
-    "scripts": ["bg.js"]
+    "scripts": ["js/bg.js"]
   },
   "browser_action": {
     "default_icon": "icon.png",
@@ -75,6 +84,9 @@
     }
   ],
   "web_accessible_resources": [
+
+    "newtab.html",
+
     "js/jquery.js",
     "js/background.js",
     "js/swd.transfer.js",

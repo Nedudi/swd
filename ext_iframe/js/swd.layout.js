@@ -17,12 +17,6 @@
       options.classList.map(function(v,i){
         block.classList.add(v);
       });
-      if(options.type && options.type == 'vertical'){
-        //block.style.height = document.documentElement.clientHeight-100+'px';
-      }
-      if(options.type && options.type == 'horizontal'){
-        //block.style.width = document.documentElement.clientWidth+'px';
-      }
       if(options.html){
         block.innerHTML = options.html;
       }
@@ -36,28 +30,24 @@
 
     that.view.top = createBlock({
       container:body,
-      type:'horizontal',
       tagName: 'aside',
       classList: ['swd_top','swd_aside']
     });
 
     that.view.left = createBlock({
       container:body,
-      type:'vertical',
       tagName: 'aside',
        classList: ['swd_left','swd_aside']
     });
 
     that.view.right = createBlock({
       container:body,
-      type:'vertical',
       tagName: 'aside',
       classList: ['swd_right','swd_aside']
     });
 
     that.view.keyboard = createBlock({
       container:body,
-      type:'vertical',
       tagName: 'aside',
       id:'swd_keyboard',
       classList: ['swd_keyboard','swd_aside']
