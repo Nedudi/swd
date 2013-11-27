@@ -143,19 +143,73 @@
     }
 
     that.renderTab = function(tab){
-      console.log('render tab', tab);
+      //console.log('render tab', tab);
+      if(tab.url.indexOf('http') === -1) return;
       var tabLayout = createBlock({
         container:that.view.tabsBlock,
         tagName: 'a',
+        id: "swd_tab_"+tab.id,
         classList: ['swd_tab'],
         html:(tab.favIconUrl?'<img src="'+tab.favIconUrl+'">':'')+
              (tab.title?'<span class="swd_tab_title">'+tab.title+'</span>':'')+
              (tab.url?'<span class="swd_tab_url">'+tab.url+'</span>':'')
       });
+      tabLayout.addEventListener('click', function(){
+        var allTabNodes = document.querySelectorAll('.swd_tab');
+        for(var i=0; i< allTabNodes.length; i++){
+          allTabNodes[i].classList.remove('swd_active_tab');
+        }
+        setTimeout(function(){
+          that.setActiveTab(tab.id);
+        },50)
+      }, false)
     }
 
     that.renderAllTabs = function(tabs){
-      var length = tabs.length>3?3:tabs.length;
+      //that.view.tabsBlock.innerHTML = '';
+      var prevTabs = document.querySelectorAll('.swd_tab');
+      var length = prevTabs.length;
+      for(var i=0; i < length; i++){
+        prevTabs[0].parentNode.removeChild(prevTabs[0]);
+      }
+      console.log(tabs)
+      var length = tabs.length>5?5:tabs.length;
+      for (var i = 0; i < length; i++) {
+        that.renderTab(tabs[i]);
+      }
+    }
+
+     document.addEventListener('webkitvisibilitychange', function(){
+      if(document.webkitHidden){
+        var allTabNodes = document.querySelectorAll('.swd_tab');
+        for(var i=0; i< allTabNodes.length; i++){
+          allTabNodes[i].classList.remove('swd_active_tab');
+        }
+      } else {
+        window.swd.onActiveTabEventReceived = function(){
+          if(!document.webkitHidden){
+            document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
+          }
+        }
+      }
+     }, false);
+
+
+
+    that.highlightActiveTab = function(tabId){
+      window.swd.activeTabId = tabId;
+      window.swd.onActiveTabEventReceived();
+    };
+
+    that.renderAllTabs = function(tabs){
+      that.view.tabsBlock.innerHTML = '';
+      // var prevTabs = document.querySelectorAll('.swd_tab');
+      // var length = prevTabs.length;
+      // for(var i=0; i < length; i++){
+      //   prevTabs[0].parentNode.removeChild(prevTabs[0]);
+      // }
+      console.log(tabs)
+      var length = tabs.length>5?5:tabs.length;
       for (var i = 0; i < length; i++) {
         that.renderTab(tabs[i]);
       }
@@ -167,10 +221,31 @@
       });
     }
 
+    that.setActiveTab = function(id,callback){
+      chrome.runtime.sendMessage({cmd: "setActiveTab",data:{tabId:id}}, function(response) {
+        callback(response.data);
+      });
+    }
 
     that.getAllTabs(that.renderAllTabs);
 
 
+    chrome.runtime.onMessage.addListener(
+      function(request, sender, sendResponse) {
+      console.log(sender.tab ?
+                  "from a content script:" + sender.tab.url :
+                  "from the extension");
+
+      if(request.cmd == "tabsChanged"){
+        that.getAllTabs(that.renderAllTabs);
+      }
+
+      if(request.cmd == "tabActivated"){
+        that.highlightActiveTab(request.tabId)
+      }
+      // if (request.greeting == "hello")
+      //   sendResponse({farewell: "goodbye"});
+    });
 
 
 

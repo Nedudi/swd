@@ -113,6 +113,20 @@ html body{
   position: relative !important;
   box-sizing: border-box !important;
   text-decoration: none !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
+/*  -webkit-transition: background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition:    background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition:      background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  transition:         background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);*/
+}
+
+.swd_active_tab{
+  background-color: rgba(14, 145, 195, 0.3) !important;
+  -webkit-transition: background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition:    background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition:      background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  transition:         background-color 300ms 0 cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .swd_tab::after{
@@ -125,10 +139,9 @@ html body{
   background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%) !important; /* Chrome10+,Safari5.1+ */
 }
 
-.swd_tab:hover::after{
+.swd_tab.swd_active_tab::after{
   display: none !important;
 }
-
 
 .swd_tab img{
   width: 16px !important;
@@ -180,9 +193,9 @@ html body{
 }
 
 .swd_aside a:hover{
-  color: rgb(0, 105, 125) !important;
+/*  color: rgb(0, 105, 125) !important;
   background-color: rgba(14, 145, 195, 0.1) !important;
-  text-decoration: none !important;
+  text-decoration: none !important;*/
 }
 
 .swd_button_refresh{

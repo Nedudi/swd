@@ -3,14 +3,16 @@
   "version": "1.0",
   "manifest_version": 2,
   "permissions": [
+        // "http://*/*",
+        // "https://*/*",
     "tabs",
     "storage",
     "management",
     "topSites",
     "fontSettings",
     "bookmarks",
-    "chrome://favicon/",
-    "chrome://thumb/"
+    "chrome://favicon/"
+    //"chrome://thumb/"
   ],
   "options_page": "newtab.html#options",
   "chrome_url_overrides": {
@@ -28,7 +30,8 @@
     {
       "matches": [
         "http://*/*",
-        "https://*/*"
+        "https://*/*"//,
+        //"chrome-extension://"
       ],
       "js": [
         "js/jquery.js",
