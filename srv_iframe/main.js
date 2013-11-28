@@ -71,6 +71,7 @@
 
   window.swd.onCameraReady = function(streamUrl) {
     video.src = streamUrl;
+    video.setAttribute('muted','true');
     video.play();
     swd.cameraMotionDetection(layers);
   };
