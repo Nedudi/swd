@@ -5,13 +5,14 @@
   window.swd._messagePrefix = "stop_web_disability_message_";
 
   window.swd.sendMessage = function(type, data)  {
+    console.log('===SEND MESSAGE',type, data)
     var msg = window.swd._messagePrefix + JSON.stringify({"type":type, "data":data});
     window.postMessage(msg, "*");
     if(window.parent) {
       window.parent.postMessage(msg, "*");
     }
     var tmp = document.querySelector(".swd-iframe");
-    if(tmp && tmp[0] && tmp[0].contentWindow) {
+    if(tmp && tmp.contentWindow) {
       tmp.contentWindow.postMessage(msg, "*");
     }
   };

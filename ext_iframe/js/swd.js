@@ -57,10 +57,10 @@
   document.addEventListener('webkitvisibilitychange', function(){
     if(document.webkitHidden){
       console.log('disable srv frame')
-      swd.sendMessage("disable");
+      window.swd.sendMessage("disable");
     } else {
       console.log('enable srv frame')
-      swd.sendMessage("enable");
+      window.swd.sendMessage("enable");
     }
   }, false);
 

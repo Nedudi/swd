@@ -11,7 +11,7 @@
       window.parent.postMessage(msg, "*");
     }
     var tmp = document.querySelector(".swd-iframe");
-    if(tmp && tmp[0] && tmp[0].contentWindow) {
+    if(tmp && tmp.contentWindow) {
       tmp.contentWindow.postMessage(msg, "*");
     }
   };
