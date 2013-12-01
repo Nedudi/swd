@@ -208,21 +208,6 @@
       });
     };
 
-    // document.addEventListener('webkitvisibilitychange', function(){
-    //   if(document.webkitHidden){
-    //     var allTabNodes = document.querySelectorAll('.swd_tab');
-    //     for(var i=0; i< allTabNodes.length; i++){
-    //       allTabNodes[i].classList.remove('swd_active_tab');
-    //     }
-    //   } else {
-    //     window.swd.onActiveTabEventReceived = function(){
-    //       if(!document.webkitHidden){
-    //         document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
-    //       }
-    //     }
-    //   }
-    // }, false);
-
     // ------------------------------------------------------------------------
     // listen for commands from extension
     // ------------------------------------------------------------------------
