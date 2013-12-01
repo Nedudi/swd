@@ -269,6 +269,7 @@
     });
 
     window.swd.addEventListener("disable", function() {
+      console.log('srv frame now disable stream')
       _disabled = true;
       if(window.swd.stream) {
         window.swd.stream.stop();

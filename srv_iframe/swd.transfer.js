@@ -59,6 +59,7 @@
   };
 
   window.addEventListener("message", function(data) {
+    console.log('srv iframe got the message = ', data);
     if(!data || typeof(data.data) !== "string") {
       return;
     }
