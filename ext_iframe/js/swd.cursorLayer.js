@@ -1,9 +1,6 @@
 /* global swd_base64CursorArrow:true, swd_base64CursorWait:true, swd:true */
 (function(window){
   "use strict";
-  window.swd = window.swd || {};
-
-
 
   window.swd.cursorLayer = function() {
     console.log('-- CURSOR LAYER INITED');
@@ -106,7 +103,6 @@
       }
     }
 
-
     function clickOnItem() {
       if(swd.currentHoverElement){
         if(isNodeName(swd.currentHoverElement, ['input','textarea'])) {
@@ -148,5 +144,4 @@
 
     setCursorStyle({"style":"wait"});
   };
-  window.swd.cursorLayer();
 })(window);

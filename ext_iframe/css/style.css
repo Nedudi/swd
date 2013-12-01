@@ -254,5 +254,88 @@ html body{
   display: none !important;
 }
 
+/*********************** new tab *************/
+
+.swd_newtab{
+  text-align: left !important;
+  background: white !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  position: fixed !important;
+  z-index: 2147483649 !important;
+  padding: 120px !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+}
+
+
+.swd_searchfield{
+  background: rgba(255, 0, 0, 0) !important;
+  height: 80px !important;
+  width: 100% !important;
+  border: 2px solid rgb(14, 145, 195) !important;
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.2) inset !important;
+  font-size: 50px !important;
+  line-height: 60px !important;
+  color: rgb(100, 100, 100) !important;
+  padding: 0 20px !important;
+}
+
+
+input[type="search"].swd_searchfield::-webkit-search-decoration,
+input[type="search"].swd_searchfield::-webkit-search-cancel-button,
+input[type="search"].swd_searchfield::-webkit-search-results-button,
+input[type="search"].swd_searchfield::-webkit-search-results-decoration {
+      display: none !important;
+}
+
+.swd_newtab_list{
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+
+.swd_newtab_list_item{
+  list-style-position: inside !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100px !important;
+  width: 100% !important;
+}
+
+.swd_newtab_list_item img{
+  width: 16px !important;
+  height: 16px !important;
+  float: left !important;
+  margin-right:10px !important;
+  margin-top: 6px !important;
+}
+
+.swd_newtab_list_item h3,
+.swd_newtab_list_item a{
+  text-overflow:ellipsis !important;
+  overflow: hidden !important;
+  font-size: 18px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+  white-space: nowrap !important;
+  display: block !important;
+  font-family: Arial !important;
+  text-decoration: none !important;
+}
+
+.swd_newtab_list_item h3{
+  font-weight: bold !important;
+  color: rgba(0,0,0,0.9) !important;
+}
+
+.swd_newtab_list_item a{
+  font-weight: normal !important;
+  color: rgba(0, 112, 175, 1) !important;
+}
 
 

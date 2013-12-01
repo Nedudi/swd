@@ -1,6 +1,7 @@
 /* global swd:true */
 (function(window) {
   "use strict";
+
   window.injected_main = function() {
     var frame = document.createElement("iframe");
     frame.classList.add('swd-iframe');
