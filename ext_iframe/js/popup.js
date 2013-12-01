@@ -14,7 +14,7 @@ var sendMessageToAllTabs = function(message){
 
 var settingsChanged = function(key,value){
   sendMessageToAllTabs({
-    cmd:'messageFromSettings',
+    cmd:'messageSettingsChanged',
     data:{
       key: key,
       value: value
