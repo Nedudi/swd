@@ -41,12 +41,13 @@
 <body onload="window.swd.onLoad();" onunload="window.swd.onUnload();">
   <video id="webcam" width="640" height="480" style="display:none;"></video>
   <div id="frames" style="margin: 10px auto;white-space:nowrap;">
-    <canvas id="canvas1" class="camera" width="640" height="480"></canvas>
-    <canvas id="canvas2" class="motion" width="640" height="480"></canvas>
-    <canvas id="canvas3" class="face1" width="640" height="480"></canvas>
+    <div id="canvas1" style="display:inline-block;"></div>
+    <div id="canvas2" style="display:inline-block;"></div>
+    <div id="canvas3" style="display:inline-block;"></div>
     <br>
-    <canvas id="canvas4" class="face" width="640" height="480"></canvas>
+    <div id="canvas4" style="display:inline-block;"></div>
     <canvas id="canvas5" class="face2" width="640" height="480"></canvas>
+    <canvas id="canvas6" class="face2" width="640" height="480"></canvas>
     <div id="log"></div>
   </div>
 </body>

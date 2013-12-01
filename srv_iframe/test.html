@@ -55,12 +55,17 @@
 <body onload="window.swd.onLoad();" onunload="window.swd.onUnload();">
   <video id="webcam" width="640" height="480" style="display:none;"></video>
   <div id="frames" style="margin: 10px auto;white-space:nowrap;">
-    <canvas id="canvas1" class="camera" width="640" height="480"></canvas>
-    <canvas id="canvas2" class="motion" width="640" height="480"></canvas>
+    <!-- image from camera -->
+    <div id="canvas1" style="display:inline-block;"></div>
+    <!-- motion detect -->
+    <div id="canvas2" style="display:inline-block;"></div>
+    <!-- audio -->
     <canvas id="canvas6" class="motion" width="640" height="480"></canvas>
     <br>
-    <canvas id="canvas3" class="face1" width="640" height="480"></canvas>
-    <canvas id="canvas4" class="face"  width="640" height="480"></canvas>
+    <!-- face-detect detect -->
+    <div id="canvas3" style="display:inline-block;"></div>
+    <!-- face-detect detect (temp) -->
+    <div id="canvas4" style="display:inline-block;"></div>
     <canvas id="canvas5" class="face2" width="640" height="480"></canvas>
     <div id="log"></div>
   </div>

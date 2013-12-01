@@ -3,44 +3,56 @@
   "use strict";
   window.swd = window.swd || {};
 
-  function Mod_Face(layers) {
+  function Mod_Face() {
     this.width = 640;
     this.height = 480;
     this._img_u8 = null;
+    this._canvas = null;
+    this._canvas2 = null;
 
     // sizes for canvas to detect face
     this._maxFaceCanvasSize = 160;
     this._detectFaceWidth = 0;
     this._detectFaceHeight = 0;
 
-    this._initParameters(layers);
+    this._initParameters();
   }
   window.swd.Mod_Face = Mod_Face;
 
-  Mod_Face.prototype._initParameters = function(layers) {
+  Mod_Face.prototype._initParameters = function() {
     /* face detect */
     var scale = Math.min(this._maxFaceCanvasSize/this.width, this._maxFaceCanvasSize/this.height);
     this._detectFaceWidth = (this.width*scale)|0;
     this._detectFaceHeight = (this.height*scale)|0;
 
-    layers.face1.height = layers.face2.height = layers.face3.height = this._detectFaceHeight;
-    layers.face1.width = layers.face2.width = layers.face3.width = this._detectFaceWidth;
+    this._canvas = document.createElement("canvas");
+    this._canvas.width = this._detectFaceWidth;
+    this._canvas.height = this._detectFaceHeight;
+
+    this._canvas2 = document.createElement("canvas");
+    this._canvas2.width = this._detectFaceWidth;
+    this._canvas2.height = this._detectFaceHeight;
 
     this._img_u8 = new jsfeat.matrix_t(this._detectFaceWidth, this._detectFaceHeight, jsfeat.U8_t | jsfeat.C1_t);
     jsfeat.bbf.prepare_cascade(jsfeat.bbf.face_cascade);
   };
 
   Mod_Face.prototype.process = function(layers) {
-    var context1 = layers.face1.getContext("2d");
-    var context2 = layers.face2.getContext("2d");
-    context1.drawImage(layers.camera, 0, 0, this._detectFaceWidth, this._detectFaceHeight);
-    var imageData = context1.getImageData(0, 0, this._detectFaceWidth, this._detectFaceHeight);
+    this._context = this._canvas.getContext("2d");
+    if(window.swd.displayProcessing) {
+      this._context2 = this._canvas2.getContext("2d");
+    }
+    this._context.drawImage(window.swd.video, 0, 0, this._detectFaceWidth, this._detectFaceHeight);
+    var imageData = this._context.getImageData(0, 0, this._detectFaceWidth, this._detectFaceHeight);
 
     window.timeStart();
-    window.graph.filters.grayscaleModified(imageData.data, imageData.data);
-    context2.putImageData(imageData, 0, 0);
+    window.graph.filters.rg_chanel(imageData.data, imageData.data);
 
-    jsfeat.imgproc.grayscaleRGBAToByte(imageData.data, this._img_u8.data);
+    if(window.swd.displayProcessing) {
+      this._context2.putImageData(imageData, 0, 0);
+    }
+
+    window.graph.filters.getRChannelAsByteArray(imageData.data, this._img_u8.data);
     window.timeEnd("grayscale");
 
     var rects;
@@ -64,11 +76,12 @@
     var r = rects[0];
     if(!r) { return null; }
 
-    var ctx = context2;
-    ctx.save();
-    ctx.strokeStyle = "#ff0000";
-    ctx.strokeRect(r.x, r.y, r.width, r.height);
-    ctx.restore();
+    if(window.swd.displayProcessing) {
+      this._context2.save();
+      this._context2.strokeStyle = "#ff0000";
+      this._context2.strokeRect(r.x, r.y, r.width, r.height);
+      this._context2.restore();
+    }
 
     var sc = this.width/this._img_u8.cols;
     return { "x":(r.x*sc)|0, "y":(r.y*sc)|0, "width":(r.width*sc)|0, "height":(r.height*sc)|0 };

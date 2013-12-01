@@ -23,6 +23,8 @@
     this._prev_xy = null;
     this._curr_xy = null;
 
+    this._canvas = null;
+
     this._initParameters();
   }
   window.swd.Mod_Motion = Mod_Motion;
@@ -39,15 +41,19 @@
     this._prev_xy = new Float32Array(100*2);
     this._curr_xy = new Float32Array(100*2);
 
+    this._canvas = document.createElement("canvas");
+    this._canvas.width = this.width;
+    this._canvas.height = this.height;
+
     this.options = new WatchParams();
   };
 
   Mod_Motion.prototype.process = function(layers) {
     var that = this;
-    var context = layers.motion.getContext("2d");
-    var context2 = layers.motion2.getContext("2d");
+    this._context = this._canvas.getContext("2d");
 
-    var imageData = context.getImageData(0, 0, this.width, this.height);
+    this._context.drawImage(window.swd.video, 0, 0);
+    var imageData = this._context.getImageData(0, 0, this.width, this.height);
 
     // swap flow data
     var _pt_xy = that._prev_xy;
@@ -62,16 +68,14 @@
       this._point_statusOld[qq] = this._point_status[qq];
     }
 
-//    window.graph.filters.grayscaleModified(imageData.data, imageData.data);
-//    window.graph.filters.grayscale(imageData.data, imageData.data);
-//    window.graph.filters.r_chanel(imageData.data, imageData.data);
-//    window.graph.filters.g_chanel(imageData.data, imageData.data);
-//    window.graph.filters.b_chanel(imageData.data, imageData.data);
     window.graph.filters.rg_chanel(imageData.data, imageData.data);
 
-    context.putImageData(imageData, 0, 0);
+    if(window.swd.displayProcessing) {
+      this._context.putImageData(imageData, 0, 0);
+    }
+
     window.timeStart();
-    jsfeat.imgproc.grayscaleRGBAToByte(imageData.data, that._curr_img_pyr.data[0].data);
+    window.graph.filters.getRChannelAsByteArray(imageData.data, that._curr_img_pyr.data[0].data);
     window.timeEnd("grayscale");
     window.timeStart();
     that._curr_img_pyr.build(that._curr_img_pyr.data[0], true);

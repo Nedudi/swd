@@ -84,6 +84,20 @@
         dst[i + 1] = g < 0 ? 0 : (g > 255 ? 255 : Math.floor(g));
         dst[i + 2] = b < 0 ? 0 : (b > 255 ? 255 : Math.floor(b));
       }
+    },
+
+    getRChannelAsByteArray: function(src, dst) {
+      var srcLength = src.length|0, srcLength_16 = (srcLength - 16)|0;
+      var j = 0;
+      for (var i = 0; i <= srcLength_16; i += 16, j += 4) {
+        dst[j] = src[i];
+        dst[j+1] = src[i+4];
+        dst[j+2] = src[i+8];
+        dst[j+3] = src[i+12];
+      }
+      for (; i < srcLength; i += 4, ++j) {
+        dst[j] = src[i];
+      }
     }
   };
 

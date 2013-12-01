@@ -3,16 +3,29 @@
   "use strict";
 
   window.swd = window.swd || {};
+
+  window.swd.getCursorMultiplier = function(inParam) {
+    return (1/inParam) / 2;
+  };
+
+  window.swd.modMotion = null;
+  window.swd.modFace = null;
+
   window.swd.cameraMotionDetection = function(layers) {
-    var m_motion = new swd.Mod_Motion();
-    var m_face = new swd.Mod_Face(layers);
+    var width = 640;
+    var height = 480;
 
-    var ctx_camera = layers.camera.getContext("2d");
-    var ctx_motion = layers.motion.getContext("2d");
-    var width = layers.motion.width;
-    var height = layers.motion.height;
+    swd.cameraCanvas = document.createElement("canvas");
+    swd.cameraCanvas.width = width;
+    swd.cameraCanvas.height = height;
+    swd.modMotion = new swd.Mod_Motion();
+    swd.modFace = new swd.Mod_Face();
 
-    var cursorPos = {"x":(1/2), "y":(1/2)};
+    layers.camera = swd.cameraCanvas;
+
+    var ctx_camera = swd.cameraCanvas.getContext("2d");
+
+    var cursorPos = {"x":(1/2), "y":(1/2), "spdX":0, "spdY":0};
     var faceRects = [];
     var headRect = {};
     var globalParams = {
@@ -25,15 +38,21 @@
     // currect state, can be: detect, motion
     var curWorkingState = "detect";
     var rect;
+    var _disabled = false;
 
     function tick() {
+      if(_disabled) {
+        return;
+      }
+
       compatibility.requestAnimationFrame(tick);
       window.freeLog();
-      ctx_camera.drawImage(layers.video, 0, 0);
-      ctx_motion.drawImage(layers.camera, 0, 0);
+      if(swd.displayProcessing) {
+        ctx_camera.drawImage(swd.video, 0, 0);
+      }
 
       if(curWorkingState === "detect") {
-        rect = m_face.process(layers);
+        rect = swd.modFace.process(layers);
         if(rect) {
           faceRects.push(rect);
         }
@@ -45,34 +64,36 @@
           activeCursor(true);
           curWorkingState = "motion";
         }
-        if(rect) {
-          var ctx = ctx_camera;
-          ctx.save();
-          ctx.strokeStyle = "#ff0000";
-          ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
-          ctx.restore();
+        if(rect && swd.displayProcessing) {
+          ctx_camera.save();
+          ctx_camera.strokeStyle = "#ff0000";
+          ctx_camera.strokeRect(rect.x, rect.y, rect.width, rect.height);
+          ctx_camera.restore();
         }
       } else if(curWorkingState === "motion") {
-        m_motion.process(layers);
-        if(m_motion.getActivePointCount() < (m_motion.getPointCount()/3)) {
+        swd.modMotion.process(layers);
+        if(swd.modMotion.getActivePointCount() < (swd.modMotion.getPointCount()/3)) {
           reinitParams();
           activeCursor(false);
           curWorkingState = "detect";
         } else {
           findMoveDelta();
-          drawActiveMotionPoint(ctx_motion);
+          drawActiveMotionPoint();
           drawCursors();
         }
       }
     }
+    this.tick = tick();
 
     var maskSteps = globalParams.maskSteps;
 
     function reinitParams() {
       faceRects = [];
-      m_motion.removeAllPoints();
-      cursorPos = {"x":1/2, "y":1/2};
+      swd.modMotion.removeAllPoints();
+      cursorPos.x = 1/2;
+      cursorPos.y = 1/2;
       headRect = {x:0,y:0,w:0,h:0};
+      curWorkingState = "detect";
     }
 
     activeCursor(false);
@@ -98,6 +119,10 @@
       var qq, ww;
       updateRect();
 
+      cursorPos.spdX = headRect.w / 640;
+      cursorPos.spdY = headRect.h / 480;
+      console.log(cursorPos.spdX, cursorPos.spdY);
+
       var sx = headRect.w*0.9/maskSteps;
       var sy = headRect.h*0.9/maskSteps;
       var cx = (headRect.x + headRect.w/2)|0;
@@ -105,17 +130,17 @@
 
       for(ww = 0; ww < maskSteps; ++ww) {
         for(qq = 0; qq < maskSteps; ++qq) {
-          m_motion.setPoint(ww * maskSteps + qq, cx-(qq-(maskSteps>>1))*sx, cy-(ww-(maskSteps>>1))*sy);
+          swd.modMotion.setPoint(ww * maskSteps + qq, cx-(qq-(maskSteps>>1))*sx, cy-(ww-(maskSteps>>1))*sy);
         }
       }
     }
 
     var lastDetectSuccess = false;
     function findMoveDelta() {
-      var qq, nn = m_motion.getPointCount();
+      var qq, nn = swd.modMotion.getPointCount();
       var pp, cnt = 0, pos = {x:0, y:0};
       for(qq = 0; qq < nn; ++qq) {
-        pp = m_motion.getPoint(qq);
+        pp = swd.modMotion.getPoint(qq);
         if(pp && pp.active && pp.live) {
           pos.x += pp.x - pp.ox;
           pos.y += pp.y - pp.oy;
@@ -129,7 +154,7 @@
 
         pos = {x:0, y:0};
         for(qq = 0; qq < nn; ++qq) {
-          pp = m_motion.getPoint(qq);
+          pp = swd.modMotion.getPoint(qq);
           if(pp && pp.active && pp.live) {
             if(Math.abs(pp.x - pp.ox) < limx && Math.abs(pp.y - pp.oy) < limy) {
               pos.x += pp.x - pp.ox;
@@ -142,16 +167,13 @@
         if(cnt) {
           if(lastDetectSuccess) {
 
-            cursorPos.x -= (pos.x / cnt) / width;  //* globalParams.moveSpeed;
-            cursorPos.y += (pos.y / cnt) / height; //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
-
+            cursorPos.x -= (pos.x / cnt) / width * swd.getCursorMultiplier(cursorPos.spdY);  //* globalParams.moveSpeed;
+            cursorPos.y += (pos.y / cnt) / height * swd.getCursorMultiplier(cursorPos.spdY); //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
 
             if(cursorPos.x < 0) { cursorPos.x = 0; }
             else if(cursorPos.x > 1) { cursorPos.x = 1; }
             if(cursorPos.y < 0) { cursorPos.y = 0; }
             else if(cursorPos.y > 1) { cursorPos.y = 1; }
-
-
           }
           lastDetectSuccess = true;
         }
@@ -165,10 +187,26 @@
      * draw and send commands
      ********************************************************************************/
 
-    function drawActiveMotionPoint(ctx) {
-      var qq, dd, num = m_motion.getPointCount();
+    function drawActiveMotionPoint() {
+      if(!swd.displayProcessing) {
+        return;
+      }
+
+      var draw_circle = function(ctx, x, y, color) {
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        ctx.arc(x, y, 6, 0, Math.PI*2, true);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      };
+
+      var ctx = swd.modMotion._canvas.getContext("2d");
+      var qq, dd, num = swd.modMotion.getPointCount();
       for(qq = 0; qq < num; ++qq) {
-        dd = m_motion.getPoint(qq);
+        dd = swd.modMotion.getPoint(qq);
         if(dd.active) {
           draw_circle(ctx, dd.x, dd.y, globalParams.gridPointColor);
         }
@@ -187,20 +225,25 @@
       }
     }
 
-    function draw_circle(ctx, x, y, color) {
-      ctx.save();
-      ctx.fillStyle = color;
-      ctx.strokeStyle = color;
-      ctx.beginPath();
-      ctx.arc(x, y, 6, 0, Math.PI*2, true);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-    }
-
     /********************************************************************************
      * start processing
      ********************************************************************************/
+
+    window.swd.addEventListener("enable", function() {
+      _disabled = false;
+      window.swd.video.play();
+      tick();
+    });
+
+    window.swd.addEventListener("disable", function() {
+      _disabled = true;
+      window.swd.video.pause();
+      reinitParams();
+    });
+
+    window.swd.addEventListener("refresh", function() {
+      reinitParams();
+    });
 
     tick();
   };

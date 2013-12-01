@@ -2,7 +2,6 @@
 (function(window) {
   "use strict";
 
-  var video = null;
   var layers = {};
 
   window.freeLog = function(txt) {
@@ -23,22 +22,14 @@
 
   window.swd = window.swd || {};
 
-  window.swd.onLoad = function () {
-    //window.swd.cursorLayer();
+  window.swd.displayProcessing = true;
 
-    video = document.getElementById('webcam');
-    layers.video = video;
-    layers.camera = document.getElementById('canvas1');
-    layers.motion = document.getElementById('canvas2');
-    layers.motion2 = document.getElementById('canvas6');
-    layers.face1 = document.getElementById('canvas3');
-    layers.face2 = document.getElementById('canvas4');
-    layers.face3 = document.getElementById('canvas5');
+  window.swd.onLoad = function () {
+    swd.video = document.getElementById('webcam');
     swd.connectCamera();
   };
 
   window.swd.connectCamera = function() {
-    var that = this;
     try {
       compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
         var videoStream = null;
@@ -70,10 +61,22 @@
   };
 
   window.swd.onCameraReady = function(streamUrl) {
-    video.src = streamUrl;
-    video.setAttribute('muted','true');
-    video.play();
+    swd.video.src = streamUrl;
+    swd.video.setAttribute('muted','true');
+    swd.video.play();
     swd.cameraMotionDetection(layers);
+    if(swd.cameraCanvas) {
+      document.getElementById('canvas1').appendChild(swd.cameraCanvas);
+    }
+    if(swd.modMotion._canvas) {
+      document.getElementById('canvas2').appendChild(swd.modMotion._canvas);
+    }
+    if(swd.modFace._canvas) {
+      document.getElementById('canvas3').appendChild(swd.modFace._canvas);
+    }
+    if(swd.modFace._canvas2) {
+      document.getElementById('canvas4').appendChild(swd.modFace._canvas2);
+    }
   };
 
   window.swd.onCameraError = function() {
@@ -91,8 +94,9 @@
   };
 
   window.swd.onUnload = function () {
-    var video = document.getElementById('webcam');
-    video.pause();
-    video.src=null;
+    if(swd.video) {
+      swd.video.pause();
+      swd.video.src = null;
+    }
   };
 })(window);
