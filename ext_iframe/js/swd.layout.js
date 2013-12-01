@@ -2,8 +2,6 @@
 (function(window){
   "use strict";
 
-  window.swd = window.swd || {};
-
   window.swd.layout = function() {
     var that = this;
     that.view = {};
@@ -134,6 +132,11 @@
       classList: ['swd_button','swd_button_add_tab','icon-plus']
     });
 
+    that.view.buttonAddTab.addEventListener('click', function(){
+      window.swd.openNewTabScreen();
+    });
+
+
     window.onscroll = function (oEvent) {
       var scrollTop = body.scrollTop;
       var scrollLeft = body.scrollLeft;
@@ -141,6 +144,13 @@
       // that.view.left.style.top = scrollTop+100+'px';
       // that.view.right.style.top = scrollTop+100+'px';
     }
+
+
+
+
+    // ------------------------------------------------------------------------
+    // handle tabs
+    // ------------------------------------------------------------------------
 
     that.renderTab = function(tab){
       //console.log('render tab', tab);
@@ -179,23 +189,6 @@
       }
     }
 
-     document.addEventListener('webkitvisibilitychange', function(){
-      if(document.webkitHidden){
-        var allTabNodes = document.querySelectorAll('.swd_tab');
-        for(var i=0; i< allTabNodes.length; i++){
-          allTabNodes[i].classList.remove('swd_active_tab');
-        }
-      } else {
-        window.swd.onActiveTabEventReceived = function(){
-          if(!document.webkitHidden){
-            document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
-          }
-        }
-      }
-     }, false);
-
-
-
     that.highlightActiveTab = function(tabId){
       window.swd.activeTabId = tabId;
       window.swd.onActiveTabEventReceived();
@@ -208,61 +201,57 @@
       // for(var i=0; i < length; i++){
       //   prevTabs[0].parentNode.removeChild(prevTabs[0]);
       // }
-      console.log(tabs)
+      //console.log(tabs)
       var length = tabs.length>5?5:tabs.length;
       for (var i = 0; i < length; i++) {
         that.renderTab(tabs[i]);
       }
     }
 
+
+
     that.getAllTabs = function(callback){
-      chrome.runtime.sendMessage({cmd: "getTabs"}, function(response) {
+      window.swd.ask('messageGetTabs', false, function(response){
         callback(response.data);
       });
     }
 
-    that.setActiveTab = function(id,callback){
-      chrome.runtime.sendMessage({cmd: "setActiveTab",data:{tabId:id}}, function(response) {
-        callback(response.data);
-      });
+    that.setActiveTab = function(id){
+      window.swd.ask('messageSetActiveTab',{tabId:id});
     }
 
-    that.getAllTabs(that.renderAllTabs);
-
-
-    chrome.runtime.onMessage.addListener(
-      function(request, sender, sendResponse) {
-      console.log(sender.tab ?
-                  "from a content script:" + sender.tab.url :
-                  "from the extension");
-
-      if(request.cmd == "tabsChanged"){
-        that.getAllTabs(that.renderAllTabs);
+    document.addEventListener('webkitvisibilitychange', function(){
+      if(document.webkitHidden){
+        var allTabNodes = document.querySelectorAll('.swd_tab');
+        for(var i=0; i< allTabNodes.length; i++){
+          allTabNodes[i].classList.remove('swd_active_tab');
+        }
+      } else {
+        window.swd.onActiveTabEventReceived = function(){
+          if(!document.webkitHidden){
+            document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
+          }
+        }
       }
+    }, false);
 
-      if(request.cmd == "tabActivated"){
-        that.highlightActiveTab(request.tabId)
-      }
-      // if (request.greeting == "hello")
-      //   sendResponse({farewell: "goodbye"});
+    // ------------------------------------------------------------------------
+    // listen for commands from extension
+    // ------------------------------------------------------------------------
+
+    swd.on('messageTabsChanged', function(request){
+      that.getAllTabs(that.renderAllTabs);
     });
 
+    swd.on('messageTabActivated', function(request){
+      that.highlightActiveTab(request.data.tabId);
+    });
 
-
-
-
-
-
-
-
-
-
-
+    // ------------------------------------------------------------------------
+    // keyboard
+    // ------------------------------------------------------------------------
 
     document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
-
-      //console.log('!!!!!!!!==========!!!!!!!!!!!',getEventListeners(document));
-
       that.view.keyboard.classList.add('swd_keyboard_show');
       if(e.target.nodeName.toLowerCase() === 'input' || e.target.nodeName.toLowerCase() === 'textarea'){
         VirtualKeyboard.attachInput(e.target);
@@ -270,15 +259,7 @@
       }
     }, true);
 
-
-
-
-
-
-
-
-
+    that.getAllTabs(that.renderAllTabs);
 
   };
-  window.swd.layout();
 })(window);

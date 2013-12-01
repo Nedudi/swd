@@ -1,92 +1,63 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('--')
   init();
 });
 
+
+var sendMessageToAllTabs = function(message){
+  chrome.tabs.query({}, function(tabs) {
+    console.log(message,tabs);
+    for (var i=0; i<tabs.length; i++) {
+      chrome.tabs.sendMessage(tabs[i].id, message);
+    }
+  });
+};
+
+var settingsChanged = function(key,value){
+  sendMessageToAllTabs({
+    cmd:'messageSettingsChanged',
+    data:{
+      key: key,
+      value: value
+    }
+  });
+};
+
+var controlCallback = function(value){
+  settingsChanged(this.property,value);
+};
+
+var swdControls = function() {
+  this['cursor speed horizontal'] = 3;
+  this['cursor speed vertical'] = 2;
+  this['some text'] = 'ololo';
+  this['some checkbox'] = false;
+  this['some button'] = function() {
+    console.log('ololo')
+  };
+};
+
 var init = function(){
-
-  document.getElementById('enable').addEventListener('change',function(){
-    // chrome.management.setEnabled(chrome.runtime.id, this.checked, function(){
-    //   console.log('-- Extension ' + this.checked?'enabled':'disabled');
-    // });
-
-    if(this.checked){
-      chrome.windows.getCurrent(function(win){
-        chrome.windows.update(win.id, { state: "fullscreen" })
-        window.close();
-          // chrome.tabs.getAllInWindow(win.id, function(tabs)
-          // {
-          //     // Should output an array of tab objects to your dev console.
-          //     console.debug(tabs);
-          // });
-      });
-    };
+  var SWDC = new swdControls();
+  var gui = new dat.GUI({ autoPlace: false, width: 500 });
+  gui.remember(SWDC);
+  document.getElementById('main_form').appendChild(gui.domElement);
 
 
+  // cursor speed horizontal
+  var cursorSpeedHorizontal = gui.add(SWDC, 'cursor speed horizontal', 1, 10);
+  cursorSpeedHorizontal.onChange(function(value) {});
+  cursorSpeedHorizontal.onFinishChange(controlCallback);
+
+  // cursor speed vertical
+  var cursorSpeedVertical = gui.add(SWDC, 'cursor speed vertical', 1, 10);
+  cursorSpeedVertical.onChange(function(value) {});
+  cursorSpeedVertical.onFinishChange(controlCallback);
 
 
-    ///console.log();
-  },false);
-
-// console.log(chrome.management)
-// console.log()
-
-
-
-
-  // console.log('!!!!!!!!',chrome.tabs)
-
-//   chrome.tabs.query({}, function(tabs) {
-//       for (var i = 0; i < tabs.length; i++) {
-//       // chrome.tabs.sendRequest(tabs[i].id, { action: "xxx" });
-//       console.log('!!!!!!!!',tabs[i])
-//       }
-//   } );
-
-
-
-
-// chrome.runtime.onConnect.addListener(function(port) {
-//   console.assert(port.name == "knockknock");
-//   port.onMessage.addListener(function(msg) {
-//     console.log('_____MESSAGE FROM CONTENT')
-//     if (msg.joke == "Knock knock")
-//       port.postMessage({question: "Who's there?"});
-//     else if (msg.answer == "Madame")
-//       port.postMessage({question: "Madame who?"});
-//     else if (msg.answer == "Madame... Bovary")
-//       port.postMessage({question: "I don't get it."});
-//   });
-// });
-
-
-  // port.postMessage({joke: "Knock knock"});
-  // port.onMessage.addListener(function(msg) {
-
-  //   console.log('_____MESSAGE FROM CONTENT')
-  //   if (msg.question == "Who's there?")
-  //     port.postMessage({answer: "Madame"});
-  //   else if (msg.question == "Madame who?")
-  //     port.postMessage({answer: "Madame... Bovary"});
-  // });
-
-  // chrome.runtime.onMessage.addListener(
-  //   function(request, sender, sendResponse) {
-  //     console.log(sender.tab ?
-  //                 "from a content script:" + sender.tab.url :
-  //                 "from the extension");
-  //     if (request.greeting == "hello")
-  //       sendResponse({farewell: "goodbye"});
-  //   });
-  // );
-
-
-  // chrome.tabs.query({}, function(tabs) {
-  //     for (var i=0; i<tabs.length; ++i) {
-  //         chrome.tabs.sendMessage(tabs[i].id, {a:'!!!!!!!!!!!!!!!!!!! --------> hello tabs'});
-  //     }
-  // });
-
+  // add handlers here and ololo :)
+  var someText      = gui.add(SWDC, 'some text');
+  var someCheckbox  = gui.add(SWDC, 'some checkbox');
+  var someButton    = gui.add(SWDC, 'some button');
 
 
 };
