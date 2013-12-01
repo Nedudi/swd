@@ -29,24 +29,32 @@
     return true; // fucking important true
   });
 
-  chrome.tabs.onRemoved.addListener(function(){
+  chrome.tabs.onRemoved.addListener(function(v){
     ex.ask('messageTabsChanged');
+    console.log('==>tab removed',v.tabId);
   });
 
-  chrome.tabs.onCreated.addListener(function(){
+  chrome.tabs.onCreated.addListener(function(v){
     ex.ask('messageTabsChanged');
+    console.log('==>tab created',v.tabId);
   });
 
-  chrome.tabs.onUpdated.addListener(function(){
-    ex.ask('messageTabsChanged');
+  chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab){
+    var url = tab.url;
+    if (url !== undefined && changeinfo.status == "complete") {
+      ex.ask('messageTabsChanged');
+      console.log('==>tab updated',tabid, changeinfo, tab);
+    }
   });
 
-  chrome.tabs.onMoved.addListener(function(){
+  chrome.tabs.onMoved.addListener(function(v){
     ex.ask('messageTabsChanged');
+    console.log('==>tab moved',v.tabId);
   });
 
   chrome.tabs.onActivated.addListener(function(v){
     ex.ask('messageTabActivated',{tabId:v.tabId, windowId:v.windowId});
+    console.log('==>tab activated',v.tabId);
   });
 
 
@@ -62,11 +70,28 @@
     });
   });
 
+  ex.on('messageGetMyTabId', function(request, sender, sendResponse){
+    if(sender && sender.tab && sender.tab.id){
+      chrome.tabs.query({}, function(tabs) {
+        console.log('messageGetMyTabId',sender.tab.id)
+        sendResponse({
+          data:{
+            tabId: sender.tab.id
+          }
+        });
+      });
+    }
+
+  });
+
+
+
   ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
     chrome.topSites.get(function(pages) {
       sendResponse({data:pages});
     });
   });
+
 
 
 

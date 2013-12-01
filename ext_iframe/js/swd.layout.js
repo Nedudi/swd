@@ -152,8 +152,9 @@
     // handle tabs
     // ------------------------------------------------------------------------
 
+
     that.renderTab = function(tab){
-      //console.log('render tab', tab);
+      console.log('render tab', tab);
       if(tab.url.indexOf('http') === -1) return;
       var tabLayout = createBlock({
         container:that.view.tabsBlock,
@@ -165,75 +166,62 @@
              (tab.url?'<span class="swd_tab_url">'+tab.url+'</span>':'')
       });
       tabLayout.addEventListener('click', function(){
-        var allTabNodes = document.querySelectorAll('.swd_tab');
-        for(var i=0; i< allTabNodes.length; i++){
-          allTabNodes[i].classList.remove('swd_active_tab');
-        }
-        setTimeout(function(){
-          that.setActiveTab(tab.id);
-        },50)
+        that.setActiveTab(tab.id);
       }, false)
     }
 
     that.renderAllTabs = function(tabs){
-      //that.view.tabsBlock.innerHTML = '';
-      var prevTabs = document.querySelectorAll('.swd_tab');
-      var length = prevTabs.length;
-      for(var i=0; i < length; i++){
-        prevTabs[0].parentNode.removeChild(prevTabs[0]);
-      }
-      console.log(tabs)
-      var length = tabs.length>5?5:tabs.length;
-      for (var i = 0; i < length; i++) {
-        that.renderTab(tabs[i]);
-      }
-    }
-
-    that.highlightActiveTab = function(tabId){
-      window.swd.activeTabId = tabId;
-      window.swd.onActiveTabEventReceived();
-    };
-
-    that.renderAllTabs = function(tabs){
       that.view.tabsBlock.innerHTML = '';
-      // var prevTabs = document.querySelectorAll('.swd_tab');
-      // var length = prevTabs.length;
-      // for(var i=0; i < length; i++){
-      //   prevTabs[0].parentNode.removeChild(prevTabs[0]);
-      // }
-      //console.log(tabs)
-      var length = tabs.length>5?5:tabs.length;
+      console.log('that.renderAllTabs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      var length = tabs.length;//>5?5:tabs.length;
       for (var i = 0; i < length; i++) {
         that.renderTab(tabs[i]);
       }
+      if(!swd.currentTabId){
+        that.getMyTabId(function(tabId){
+          swd.currentTabId = tabId;
+          that.highlightActiveTab();
+          console.log('MY TAB ID IS = swd.currentTabId = ',tabId);
+        });
+      } else {
+        that.highlightActiveTab();
+      }
     }
 
-
+    that.highlightActiveTab = function(){
+      document.querySelector('#swd_tab_'+swd.currentTabId).classList.add('swd_active_tab');
+    }
 
     that.getAllTabs = function(callback){
       window.swd.ask('messageGetTabs', false, function(response){
         callback(response.data);
       });
-    }
+    };
 
     that.setActiveTab = function(id){
       window.swd.ask('messageSetActiveTab',{tabId:id});
-    }
+    };
 
-    document.addEventListener('webkitvisibilitychange', function(){
-      if(document.webkitHidden){
-        var allTabNodes = document.querySelectorAll('.swd_tab');
-        for(var i=0; i< allTabNodes.length; i++){
-          allTabNodes[i].classList.remove('swd_active_tab');
-        }
-      } else {
-        window.swd.onActiveTabEventReceived = function(){
-          if(!document.webkitHidden){
-            document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
-          }
-        }
-      }
-    }, false);
+    that.getMyTabId = function(callback){
+      window.swd.ask('messageGetMyTabId',false, function(response){
+        callback(response.data.tabId);
+      });
+    };
+
+    // document.addEventListener('webkitvisibilitychange', function(){
+    //   if(document.webkitHidden){
+    //     var allTabNodes = document.querySelectorAll('.swd_tab');
+    //     for(var i=0; i< allTabNodes.length; i++){
+    //       allTabNodes[i].classList.remove('swd_active_tab');
+    //     }
+    //   } else {
+    //     window.swd.onActiveTabEventReceived = function(){
+    //       if(!document.webkitHidden){
+    //         document.getElementById("swd_tab_"+window.swd.activeTabId).classList.add('swd_active_tab');
+    //       }
+    //     }
+    //   }
+    // }, false);
 
     // ------------------------------------------------------------------------
     // listen for commands from extension
@@ -244,7 +232,7 @@
     });
 
     swd.on('messageTabActivated', function(request){
-      that.highlightActiveTab(request.data.tabId);
+      //that.highlightActiveTab(request.data.tabId);
     });
 
     // ------------------------------------------------------------------------
@@ -259,7 +247,7 @@
       }
     }, true);
 
-    that.getAllTabs(that.renderAllTabs);
+    //that.getAllTabs(that.renderAllTabs);
 
   };
 })(window);
