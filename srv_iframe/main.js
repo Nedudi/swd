@@ -25,6 +25,9 @@
   window.swd.displayProcessing = true;
 
   window.swd.onLoad = function () {
+    if(swd.cursorLayer) {
+      swd.cursorLayer();
+    }
     swd.video = document.getElementById('webcam');
     swd.connectCamera();
   };
@@ -32,6 +35,7 @@
   window.swd.connectCamera = function() {
     try {
       compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
+        window.swd.stream = stream;
         var videoStream = null;
         try {
           videoStream = compatibility.URL.createObjectURL(stream);

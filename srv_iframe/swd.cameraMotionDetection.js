@@ -230,13 +230,50 @@
      ********************************************************************************/
 
     window.swd.addEventListener("enable", function() {
-      _disabled = false;
-      window.swd.video.play();
-      tick();
+      if(!_disabled) {
+        return;
+      }
+
+      try {
+        compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
+          window.swd.stream = stream;
+
+          var videoStream = null;
+          try {
+            videoStream = compatibility.URL.createObjectURL(stream);
+          } catch (error) {
+            videoStream = stream;
+          }
+
+          _disabled = false;
+          if(window.swd.onMicReady){
+            window.swd.onMicReady(stream);
+          }
+          swd.video.src = videoStream;
+          swd.video.setAttribute('muted','true');
+          swd.video.play();
+          tick();
+        }, function (error) {
+          if(window.swd.onCameraError) {
+            window.swd.onCameraError();
+          }
+          if(window.swd.onMicError) {
+            window.swd.onMicError();
+          }
+        });
+      } catch (error) {
+        if(window.swd.onCameraError) {
+          window.swd.onCameraError();
+        }
+      }
     });
 
     window.swd.addEventListener("disable", function() {
       _disabled = true;
+      if(window.swd.stream) {
+        window.swd.stream.stop();
+        window.swd.stream = null;
+      }
       window.swd.video.pause();
       reinitParams();
     });

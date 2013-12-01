@@ -1,15 +1,20 @@
+(function(window){
+  "use strict";
 
-swd.audioClick = function (stream) {
-  var VISUALIZECOLOR = 'rgba(14,145,195,1)';
-  var AVGCOLOR = 'rgb(33,187,166)';
-  var PICKCOLOR = 'rgb(242,121,53)';
-  var BGPICKCOLOR = 'rgb(33,187,166)';
+  window.swd = window.swd || {};
 
-  var locker;
-  var canvas = document.getElementById('canvas6');
-  var ctx = canvas.getContext('2d');
-  ctx.lineCap = 'round';
-  ctx.globalAlpha = 0.8;
+  window.swd.audioClick = function (stream) {
+    var WIDTH = 512;
+    var VISUALIZECOLOR = 'rgba(14,145,195,1)';
+    var AVGCOLOR = 'rgb(33,187,166)';
+    var PICKCOLOR = 'rgb(242,121,53)';
+    var BGPICKCOLOR = 'rgb(33,187,166)';
+
+    var locker;
+    var canvas = document.getElementById('canvas6');
+    var ctx = canvas.getContext('2d');
+    ctx.lineCap = 'round';
+    ctx.globalAlpha = 0.8;
 
     window.requestAnimFrame = (function () {
       return window.requestAnimationFrame ||
@@ -23,11 +28,13 @@ swd.audioClick = function (stream) {
     })();
 
     var redraw = function () {
-      clearCanvas();
-      visualize();
+      if(window.swd.displayProcessing) {
+        clearCanvas();
+        visualize();
+      }
       calcSpectrum();
       requestAnimFrame(redraw);
-    }
+    };
 
     var visualize = function () {
       var times = new Uint8Array(analyser.frequencyBinCount);
@@ -37,14 +44,11 @@ swd.audioClick = function (stream) {
         var percent = value / 256;
         var height = canvas.height * percent;
         var offset = canvas.height - height  - 1;
-        var barWidth = this.WIDTH / times.length;
+        var barWidth = WIDTH / times.length;
         ctx.fillStyle = VISUALIZECOLOR;
         ctx.fillRect(i * barWidth, offset, 1, 1);
       }
     };
-
-
-
 
     function calcSpectrum() {
       var data = new Uint8Array(analyser.frequencyBinCount);
@@ -57,12 +61,12 @@ swd.audioClick = function (stream) {
     }
 
     function drawSpectrum(data) {
-      var sum = 0,
-        avg;
+      var sum = 0;
+      var avg, i, w;
 
       var dataslight = [];
 
-      for (var i = 0; i < canvas.width; ++i) {
+      for(i = 0; i < canvas.width; ++i) {
         dataslight[i] = ((data[i + 2] || data[i]) + (data[i + 1] || data[i]) + (data[i - 1] || data[i]) + (data[i - 2] || data[i]) + data[i]) / 5;
       }
 
@@ -72,24 +76,29 @@ swd.audioClick = function (stream) {
           min: 35,
           max: 55,
           pick: 0
-        },
+        }
         //{min:180, max:230},
       ];
 
-      ctx.fillStyle = PICKCOLOR;
-      ctx.fillRect(wins[0].min, 0, wins[0].max - wins[0].min, canvas.height);
 
-      for (var i = 0; i < canvas.width; ++i) {
-        ctx.fillStyle = VISUALIZECOLOR;
-        var magnitude = data[i];
-        ctx.fillRect(i, canvas.height, 1, -magnitude);
+      if(window.swd.displayProcessing) {
+        ctx.fillStyle = PICKCOLOR;
+        ctx.fillRect(wins[0].min, 0, wins[0].max - wins[0].min, canvas.height);
+
+        for(i = 0; i < canvas.width; ++i) {
+          ctx.fillStyle = VISUALIZECOLOR;
+          var magnitude = data[i];
+          ctx.fillRect(i, canvas.height, 1, -magnitude);
+        }
       }
 
-      for (var i = 15; i < 65; ++i) {
-        for (var w = 0; w < wins.length; w++) {
-          if (i > wins[w].min && i < wins[w].max) {
-            ctx.fillStyle = 'white';
-            ctx.fillRect(i, canvas.height, 1, -data[i]);
+      for(i = 15; i < 65; ++i) {
+        for(w = 0; w < wins.length; w++) {
+          if(i > wins[w].min && i < wins[w].max) {
+            if(window.swd.displayProcessing) {
+              ctx.fillStyle = 'white';
+              ctx.fillRect(i, canvas.height, 1, -data[i]);
+            }
             if (wins[w].pick < data[i]) {
               wins[w].pick = data[i];
             }
@@ -104,21 +113,23 @@ swd.audioClick = function (stream) {
 
       //console.log(b)
 
-      ctx.fillStyle = AVGCOLOR;
-      ctx.fillRect(0, canvas.height - b, canvas.width, 3);
+      if(window.swd.displayProcessing) {
+        ctx.fillStyle = AVGCOLOR;
+        ctx.fillRect(0, canvas.height - b, canvas.width, 3);
 
-      ctx.fillStyle = PICKCOLOR;
-      ctx.fillRect(0, canvas.height - wins[0].pick, canvas.width, 3);
+        ctx.fillStyle = PICKCOLOR;
+        ctx.fillRect(0, canvas.height - wins[0].pick, canvas.width, 3);
+      }
 
       var click = function(){
         window.swd.sendMessage("swdAudioClick", {});
-      }
+      };
 
       if (wins[0].pick > b) {
         if (!locker) {
           click();
 
-          console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+          console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
           locker = true;
 
           //$('#swd_audio_canvas').css('background', BGPICKCOLOR);
@@ -140,11 +151,6 @@ swd.audioClick = function (stream) {
     microphone = context.createMediaStreamSource(stream);
     analyser = context.createAnalyser();
     microphone.connect(analyser);
-    //console.log('redraw', redraw)
     window.requestAnimFrame(redraw);
-
-
-
-
-  //});
-};
+  };
+})(window);
