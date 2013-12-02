@@ -1,0 +1,575 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "src": "http://i.imgur.com/TqbNCfG.png",
+          "type": "Image",
+          "x": 303,
+          "y": 162,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 199,
+          "y": 543,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 55,
+          "text": "<div style=\"text-align: center;\"><font color=\"#3a3a3a\">WEB browsing&nbsp;</font></div><div style=\"text-align: center;\"><font color=\"#3a3a3a\">for people with disabilities</font></div>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": false,
+      "active": false,
+      "markdown": "",
+      "surface": "bg-surf-grad-light",
+      "x": 180,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 131,
+          "y": 525,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 111,
+          "text": "<div style=\"text-align: center;\"><span style=\"color: rgb(0, 139, 224);\"><b>web&nbsp;</b>&nbsp;</span></div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 408,
+          "y": 560,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 36,
+          "text": "<div style=\"text-align: center;\">The most wonderful and powerful&nbsp;</div><div style=\"text-align: center;\">social and socializing place</div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 187,
+          "y": 63,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 60,
+          "text": "<div style=\"text-align: center;\"><font color=\"#008be0\"><b>People with disabilities</b></font></div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 89,
+          "y": 159,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 40,
+          "text": "<div style=\"text-align: center;\">Who needs socialisation much more than others</div>",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/d627b5a7-4da2-4a70-b71f-335b2bbff8eb/00000805.png",
+          "type": "Image",
+          "x": 49,
+          "y": 307,
+          "scale": {
+            "x": 0.9315206445115811,
+            "y": 0.9315206445115811,
+            "width": 925,
+            "height": 124.82376636455187
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 306,
+          "y": 322,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 81,
+          "text": "<font color=\"#ffffff\"><b>THE WALL</b></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "x": 470,
+      "y": 222
+    },
+    {
+      "components": [
+        {
+          "src": "http://fakty.ua/user_uploads/images/articles/2013/01/15/157267/titov2.jpg",
+          "type": "Image",
+          "x": 101,
+          "y": 175,
+          "scale": {
+            "x": 1.3650000000000002,
+            "y": 1.3650000000000002,
+            "width": 819.0000000000001,
+            "height": 546.0000000000001
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 122,
+          "y": 25,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>32 years old song writer &nbsp;Yuty Titov</b></font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 380,
+          "y": 96,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#7e7e7e\">Ukraine 2013</font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "x": 740,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "src": "http://www.iltsource.com/v/vspfiles/images/full_hor450.jpg",
+          "type": "Image",
+          "x": 576,
+          "y": 41,
+          "scale": {
+            "x": 0.8822222222222222,
+            "y": 0.8822222222222222,
+            "width": 397,
+            "height": 330.8333333333333
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/2b054e9d-ae9d-492c-9798-30fa756d97ff/00000801.png",
+          "type": "Image",
+          "x": 39,
+          "y": 299,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 50,
+          "y": 40,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>Contact-based <br>special devices <br>cost a lot</b></font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "x": 1020,
+      "y": 209
+    },
+    {
+      "components": [
+        {
+          "src": "http://www.tobii.com/ImageVaultFiles/id_3254/cf_1001/Frontpage-mounted.jpg",
+          "type": "Image",
+          "x": 235,
+          "y": 279,
+          "scale": {
+            "x": 0.4045307443365695,
+            "y": 0.4045307443365695,
+            "width": 249.99999999999994,
+            "height": 141.58576051779932
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "src": "http://farm4.static.flickr.com/3195/5861473109_a513562170.jpg",
+          "type": "Image",
+          "x": 59,
+          "y": 434,
+          "scale": {
+            "x": 0.8500000000000001,
+            "y": 0.8500000000000001,
+            "width": 425.00000000000006,
+            "height": 283.05
+          },
+          "imageType": "JPG",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/50a0fcaa-0edd-4414-a982-9f866e4867a1/00000804.png",
+          "type": "Image",
+          "x": 489,
+          "y": 98,
+          "scale": {
+            "x": 0.7462006079027356,
+            "y": 0.7462006079027356,
+            "width": 491,
+            "height": 622.3313069908814
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 46,
+          "y": 43,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font color=\"#008be0\"><b>Contact-less special <br>systems are very <br>expenceive</b></font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 4,
+      "selected": false,
+      "active": false,
+      "x": 1300,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 208,
+          "y": 340,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "<font color=\"#008be0\"><b>Existing technologies</b></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 91,
+          "y": 454,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 59,
+          "text": "<ul><li>Expenceive&nbsp;</li><li>Require additional devices&nbsp;</li><li>Not for everybody because of <br>social and geographical problems</li></ul>",
+          "selected": false
+        },
+        {
+          "src": "http://content.screencast.com/users/Nedudi/folders/Jing/media/d627b5a7-4da2-4a70-b71f-335b2bbff8eb/00000805.png",
+          "type": "Image",
+          "x": 65,
+          "y": 28,
+          "scale": {
+            "x": 0.8972809667673716,
+            "y": 0.8972809667673716,
+            "width": 891,
+            "height": 120.23564954682779
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 425,
+          "y": 73,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 286,
+          "text": "<font color=\"#7e7e7e\">=</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 318,
+          "y": 43,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 73,
+          "text": "<font color=\"#ffffff\"><b>THE &nbsp;WALL</b></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.11,
+      "index": 5,
+      "selected": false,
+      "active": false,
+      "x": 1125,
+      "y": 448
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 123,
+          "y": 142,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 47,
+          "text": "<div style=\"text-align: center;\">Create browser extension that&nbsp;</div><div style=\"text-align: center;\">allows people to browse any web-pages</div><div style=\"text-align: center;\">using&nbsp;</div><div style=\"text-align: center;\">contact-less navigation&nbsp;</div><div style=\"text-align: center;\">via face tracking&nbsp;</div><div style=\"text-align: center;\">and voice-clicks</div>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 361,
+          "y": 33,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 76,
+          "text": "<font color=\"#008be0\"><b>Our goal</b></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 107,
+          "y": 499,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 41,
+          "text": "<ul><li><font color=\"#006d15\"><span style=\"line-height: normal;\">Free</span></font></li><li><font color=\"#006d15\"><span style=\"line-height: normal;\">2 clicks to install</span></font></li><li><font color=\"#006d15\"><span style=\"line-height: normal;\">Do not require additional devices&nbsp;<br></span></font><span style=\"line-height: normal; color: rgb(0, 109, 21);\">(using only ) existing camera and microphone</span></li></ul>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 6,
+      "selected": false,
+      "active": false,
+      "x": 813,
+      "y": 545
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 145,
+          "y": 92,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 58,
+          "text": "<font color=\"#008be0\"><b>What we are working on now</b></font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 99,
+          "y": 262,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 42,
+          "text": "<ol><li><span style=\"line-height: normal;\">Complex self-adapting <br>face-tracking algorithms</span></li><li><span style=\"line-height: normal;\">Time-freq correlation based voice recognition</span></li><li><span style=\"line-height: normal;\">Face gestures detection</span></li><li><span style=\"line-height: normal;\">Speech detection</span></li><li><span style=\"line-height: normal;\">Multilingual virtual keyboard</span></li><li><span style=\"line-height: normal;\">Special UI/UX</span></li><li><span style=\"line-height: normal;\">System teaching interface</span></li></ol><br><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.05,
+      "index": 7,
+      "selected": false,
+      "active": false,
+      "x": 485,
+      "y": 447
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 414,
+          "y": 117,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 70,
+          "text": "<font color=\"#008be0\"><b>Team</b></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 26,
+          "y": 282,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 31,
+          "text": "<b><font color=\"#006d15\">Dmitry Dudin</font><br></b>before: radar engener, digital signal processing systems, <br>program logical integral schemes, backend<br>now: <b>creative frontend developer at xb-software, http://urturn.com</b><br><br><b><font color=\"#006d15\">Alexey Puzenko</font></b><br>Before: advanced math specialist, <br>lecturer in Radio Engineering College, c++ modelling, flash, backend<br>Now: <b>creative frontend developer at xb-software, http://urturn.com</b><br><br style=\"color: rgb(58, 58, 58);\">",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": -0.2,
+      "index": 8,
+      "selected": true,
+      "active": true,
+      "x": 161,
+      "y": 557
+    }
+  ],
+  "activeSlide": {
+    "components": [
+      {
+        "TextBox": {},
+        "x": 414,
+        "y": 117,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 70,
+        "text": "<font color=\"#008be0\"><b>Team</b></font>",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 26,
+        "y": 282,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 31,
+        "text": "<b><font color=\"#006d15\">Dmitry Dudin</font><br></b>before: radar engener, digital signal processing systems, <br>program logical integral schemes, backend<br>now: <b>creative frontend developer at xb-software, http://urturn.com</b><br><br><b><font color=\"#006d15\">Alexey Puzenko</font></b><br>Before: advanced math specialist, <br>lecturer in Radio Engineering College, c++ modelling, flash, backend<br>Now: <b>creative frontend developer at xb-software, http://urturn.com</b><br><br style=\"color: rgb(58, 58, 58);\">",
+        "selected": false
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": 0,
+    "rotateZ": -0.2,
+    "index": 8,
+    "selected": true,
+    "active": true,
+    "x": 161,
+    "y": 557
+  },
+  "fileName": "stop-web-disability-en",
+  "surface": "bg-surf-grad-light",
+  "customStylesheet": "/*.example {\n\tborder: 4px groove orange;\n}*/",
+  "deckVersion": "1.0",
+  "cannedTransition": "carousel",
+  "customBackgrounds": {
+    "bgs": []
+  }
+}
