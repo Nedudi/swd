@@ -11,15 +11,20 @@
     var cursor = document.createElement("div");
     cursor.setAttribute("id", "swd-cursor");
     cursor.setAttribute("class", "swd-cursor");
-    //console.log(window.innerWidth, window.innerHeight);
 
     cursor.style.left = ((window.innerWidth/2)|0) + "px";
     cursor.style.top = ((window.innerHeight/2)|0) + "px";
 
+    var highlight = document.createElement("div");
+    highlight.setAttribute("id", "swd-highlight");
+    highlight.setAttribute("class", "swd-highlight");
+
     if(document.body) {
+      document.body.appendChild(highlight);
       document.body.appendChild(cursor);
     } else {
       window.addEventListener("load", function() {
+        document.body.appendChild(highlight);
         document.body.appendChild(cursor);
       });
     }
@@ -80,25 +85,40 @@
         }
 
         if(element){
-          if(swd.currentHoverElement) {
-            if((swd.currentHoverElement.dataset.swdoutline+'').length > 4){
-              swd.currentHoverElement.style.boxShadow = swd.currentHoverElement.dataset.swdoutline;
-            } else {
-              swd.currentHoverElement.style.boxShadow = "0 0 0 0 transparent";
-            }
+
+
+          var hElement = false;
+          var clickableMatches = ['a','button','input','textarea'];
+
+          if(isNodeName(element,clickableMatches)){
+            hElement = element;
+          } else if(element.parentNode && isNodeName(element.parentNode,clickableMatches)){
+            hElement = element.parentNode;
+          } else if(element.parentNode.parentNode && isNodeName(element.parentNode.parentNode,clickableMatches)){
+            hElement = element.parentNode.parentNode;
+          } else if(element.parentNode.parentNode.parentNode && isNodeName(element.parentNode.parentNode.parentNode,clickableMatches)){
+            hElement = element.parentNode.parentNode.parentNode;
           }
 
-          if(isNodeName(element,['a','button','input','textarea'])){
-            element.dataset.swdoutline = window.getComputedStyle(element,null).getPropertyValue("boxShadow");
-            element.style.boxShadow = "0 0 0 2px rgb(14, 145, 195) inset";
+          if(!hElement){
+            return;
           }
 
-          swd.currentHoverElement = element;
-
-          o.initMouseEvent('mouseover', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
-          if(o){
-             element.dispatchEvent(o);
+          if(swd.currentHoverElement !== hElement) {
+            var rect = hElement.getBoundingClientRect();
+            highlight.style.display = 'block';
+            highlight.style.height  = rect.height +20+'px';
+            highlight.style.width   = rect.width  +20+'px';
+            highlight.style.top     = rect.top    -10+'px';
+            highlight.style.left    = rect.left   -10+'px';
+            swd.currentHoverElement = hElement;
+            console.log('CURRENT HOVER ELEMENT CHANGED = ',swd.currentHoverElement);
           }
+
+          // o.initMouseEvent('mouseover', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
+          // if(o){
+          //    element.dispatchEvent(o);
+          // }
         }
       }
     }

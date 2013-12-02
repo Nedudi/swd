@@ -68,6 +68,7 @@
   setTimeout(function(){
     window.swd.newTab();
     window.swd.layout();
+    window.swd.keyboard();
     window.swd.cursorLayer();
   },0)
 

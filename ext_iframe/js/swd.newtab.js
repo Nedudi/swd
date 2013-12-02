@@ -13,6 +13,7 @@
 
     window.swd.openNewTabScreen = function(){
       that.view.container.show();
+      that.view.search.focus();
     };
 
     window.swd.closeNewTabScreen = function(){
@@ -25,13 +26,13 @@
         var href = data[i].url;
         var title = data[i].title;
         var favicon = 'chrome://favicon/' + data[i].url;
-        var item = $('<div>',{'class':"swd_newtab_list_item"}).appendTo(list);
-        $('<img>',{src:favicon}).appendTo(item);
-        $('<h3>').html(title).appendTo(item);
-        $('<a>',{href:href}).html(href).appendTo(item);
+        var item = $('<li>',{href:href,'class':"swd_newtab_list_item"}).appendTo(list);
+        var clickable_item = $('<a>',{href:href,'class':"swd_newtab_clickable_item swd_clickable"}).appendTo(item);
+        $('<img>',{src:favicon}).appendTo(clickable_item);
+        $('<h3>').html(title).appendTo(clickable_item);
+        $('<span>').html(href).appendTo(clickable_item);
       }
     }
-
 
     window.swd.ask('messageGetMostVisitedPages', false, function(response){
       thumbnailsGotten(response.data);

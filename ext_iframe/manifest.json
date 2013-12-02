@@ -40,8 +40,9 @@
         "js/background.js",
         "js/swd.layout.js",
         "js/swd.transfer.js",
-        "js/swd.images.js",
+        // "js/swd.images.js",
         "js/swd.cursorLayer.js",
+        "js/swd.keyboard.js",
         "js/swd.newtab.js",
 
         // "js/keyboard/extensions/scriptqueue.js",
@@ -96,6 +97,7 @@
     "js/swd.transfer.js",
     "js/swd.cursorLayer.js",
     "js/swd.layout.js",
+    "js/swd.keyboard.js",
     "js/swd.newtab.js",
     "js/main.js",
 

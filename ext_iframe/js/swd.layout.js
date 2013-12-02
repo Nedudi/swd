@@ -8,6 +8,7 @@
     var html = document.getElementsByTagName('html')[0];
     var body = document.getElementsByTagName('body')[0];
     html.classList.add('swd');
+
     window.dispatchEvent(new Event('resize'));
 
     var createBlock = function(options){
@@ -44,13 +45,6 @@
       classList: ['swd_right','swd_aside']
     });
 
-    that.view.keyboard = createBlock({
-      container:body,
-      tagName: 'aside',
-      id:'swd_keyboard',
-      classList: ['swd_keyboard','swd_aside']
-    });
-
     that.view.buttonScrollUp = createBlock({
       container:that.view.right,
       tagName: 'a',
@@ -58,7 +52,7 @@
     });
 
     that.view.buttonScrollUp.addEventListener('click', function(){
-      body.scrollTop-=document.documentElement.clientHeight/4;
+      $('html, body').animate({scrollTop: body.scrollTop - document.documentElement.clientHeight/3}, 200);
     }, false);
 
     that.view.buttonScrollDown = createBlock({
@@ -68,7 +62,7 @@
     });
 
     that.view.buttonScrollDown.addEventListener('click', function(){
-      body.scrollTop+=document.documentElement.clientHeight/4;
+      $('html, body').animate({scrollTop: body.scrollTop + document.documentElement.clientHeight/3}, 200);
     }, false);
 
 
@@ -140,12 +134,8 @@
     window.onscroll = function (oEvent) {
       var scrollTop = body.scrollTop;
       var scrollLeft = body.scrollLeft;
-      // that.view.top.style.top = scrollTop+'px';
-      // that.view.left.style.top = scrollTop+100+'px';
-      // that.view.right.style.top = scrollTop+100+'px';
+      // do something
     }
-
-
 
 
     // ------------------------------------------------------------------------
@@ -219,20 +209,6 @@
     swd.on('messageTabActivated', function(request){
       //that.highlightActiveTab(request.data.tabId);
     });
-
-    // ------------------------------------------------------------------------
-    // keyboard
-    // ------------------------------------------------------------------------
-
-    document.getElementsByTagName('body')[0].addEventListener('focus', function(e){
-      that.view.keyboard.classList.add('swd_keyboard_show');
-      if(e.target.nodeName.toLowerCase() === 'input' || e.target.nodeName.toLowerCase() === 'textarea'){
-        VirtualKeyboard.attachInput(e.target);
-        VirtualKeyboard.show('text','swd_keyboard');
-      }
-    }, true);
-
-    //that.getAllTabs(that.renderAllTabs);
 
   };
 })(window);
