@@ -60,6 +60,8 @@
   };
 
   window.addEventListener("message", function(data) {
+    //console.log('extension window got the message = ', data);
+
     if(!data || typeof(data.data) !== "string") {
       return;
     }
@@ -71,6 +73,7 @@
     if(window.swd._listeners[json.type]) {
       var that = this;
       window.swd._listeners[json.type].each(function(item) {
+        //if(window.swd.trigger) window.swd.trigger(json.type, {cmd:json.type, data:json.data});
         item.call(that, json.data);
       });
     }

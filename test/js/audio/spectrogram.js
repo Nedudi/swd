@@ -59,7 +59,7 @@ mathUtils.getPearsonsCorrelation = function(x, y)
 }
 
 window.spectrogram = function(context, options){
-  var visual = 1;
+  var visual = 0;
   var drawDencity = 1;
   //var avgNoiseLevel = 0;
   var flagBlockAnalyse = false;
@@ -91,7 +91,7 @@ window.spectrogram = function(context, options){
     //window.webkitRequestAnimationFrame(function () {
       redraw();
     //});
-  }, 15)
+  }, 25)
 
   detector.onaudioprocess = function () {
 

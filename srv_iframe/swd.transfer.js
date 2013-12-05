@@ -59,7 +59,7 @@
   };
 
   window.addEventListener("message", function(data) {
-    console.log('srv iframe got the message = ', data);
+    //console.log('swg.org window got the message = ', data);
     if(!data || typeof(data.data) !== "string") {
       return;
     }
@@ -87,4 +87,5 @@
       func.call(this, this[qq]);
     }
   };
+
 })(window);

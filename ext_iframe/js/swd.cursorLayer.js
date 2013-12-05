@@ -37,8 +37,9 @@
       if(data.style === lastCursorStyle) {
         return;
       }
+      cursor.classList.add('icon-pointer');
       if(data.style === "arrow") {
-        cursor.classList.add('icon-pointer');
+
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
       } else if(data.style === "wait") {
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
@@ -149,15 +150,16 @@
       return isName;
     }
 
-    window.swd.addEventListener("swdCursorPosition", function(data) {
-      setCursorPosition(data);
+    window.swd.on("swdCursorPosition", function(request) {
+      //console.log('!!!!!!!!!!!!!!!swdCursorPosition',data)
+      setCursorPosition(request.data);
     });
 
-    window.swd.addEventListener("swdCursorStyle", function(data) {
-      setCursorStyle(data);
+     window.swd.on("swdCursorStyle", function(request) {
+      setCursorStyle(request.data);
     });
 
-    window.swd.addEventListener("swdAudioClick", function(data) {
+     window.swd.on("swdAudioClick", function(request) {
       clickOnItem();
     });
 

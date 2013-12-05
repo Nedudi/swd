@@ -215,6 +215,7 @@
 
     function drawCursors() {
       window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
+      //window.swd.ask("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
     }
 
     function activeCursor(isActive) {

@@ -89,9 +89,9 @@ BufferLoader.prototype.load = function() {
        channels[index].avgArr[i] = 0;
     }
 
-    //channels[index].analyser  = context.createAnalyser();
-    //channels[index].analyser.smoothingTimeConstant = 0.1;
-    //channels[index].analyser.fftSize = 1024;
+    // channels[index].analyser  = context.createAnalyser();
+    // channels[index].analyser.smoothingTimeConstant = 0.1;
+    // channels[index].analyser.fftSize = 1024;
 
     //channels[index].convolver = context.createConvolver();
     //channels[index].convolver.connect(channels[index].analyser)
@@ -206,28 +206,28 @@ function cloneAudioBuffer(audioBuffer){
   }, function () {});
 
   var redraw = function () {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    var avaliableHeight = ctx.canvas.height/options.data.length;
-    for(var index = 0; index < options.data.length; index ++){
-      var array =  new Uint8Array(channels[index].analyser.frequencyBinCount);
-      channels[index].analyser.getByteFrequencyData(array);
-      var avg = getAverageVolume(array)
+    // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    // var avaliableHeight = ctx.canvas.height/options.data.length;
+    // for(var index = 0; index < options.data.length; index ++){
+    //   var array =  new Uint8Array(channels[index].analyser.frequencyBinCount);
+    //   channels[index].analyser.getByteFrequencyData(array);
+    //   var avg = getAverageVolume(array)
 
-      channels[index].avgArr.splice(0,1);
-      channels[index].avgArr.push(avg);
-      for (var i = 0; i < channels[index].avgArr.length; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = 'red';
-        ctx.strokeStyle = "#ff0000";
-        ctx.moveTo((i-1 || 0), ctx.canvas.height - (avaliableHeight*index) - ((channels[index].avgArr[i-1]|| 0)) *3);
-        ctx.lineTo(i, ctx.canvas.height - (avaliableHeight*index) - (channels[index].avgArr[i])*3);
-        ctx.closePath();
-        ctx.stroke();
+    //   channels[index].avgArr.splice(0,1);
+    //   channels[index].avgArr.push(avg);
+    //   for (var i = 0; i < channels[index].avgArr.length; i++) {
+    //     ctx.beginPath();
+    //     ctx.fillStyle = 'red';
+    //     ctx.strokeStyle = "#ff0000";
+    //     ctx.moveTo((i-1 || 0), ctx.canvas.height - (avaliableHeight*index) - ((channels[index].avgArr[i-1]|| 0)) *3);
+    //     ctx.lineTo(i, ctx.canvas.height - (avaliableHeight*index) - (channels[index].avgArr[i])*3);
+    //     ctx.closePath();
+    //     ctx.stroke();
 
-        //ctx.fillRect(i, ctx.canvas.height - (avaliableHeight*index) - channels[index].avgArr[i]/channels.length,1,1);
-      }
-    }
-    window.webkitRequestAnimationFrame(redraw);
+    //     //ctx.fillRect(i, ctx.canvas.height - (avaliableHeight*index) - channels[index].avgArr[i]/channels.length,1,1);
+    //   }
+    // }
+    // window.webkitRequestAnimationFrame(redraw);
   }
 
   function getAverageVolume(array) {

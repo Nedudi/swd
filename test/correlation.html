@@ -19,7 +19,7 @@
 
         },
         onReady: function(context,channels) {
-          console.log(channels[0].analyser)
+          //console.log(channels[0].analyser)
           spectrogram(context, {
             node: channels[0].source,
             canvas: document.getElementById('swd_spectrum_canvas'),
@@ -40,7 +40,7 @@
     z-index: 10;
 /*    display: none;*/
 border: 1px solid red;
-display: none;
+
   }
 
 </style>

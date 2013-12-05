@@ -4,45 +4,44 @@
 
   window.swd = window.swd || {};
 
-  window.swd.on = function(command, callback){
-    if(!swd.callStack) swd.callStack = {};
-    if(!swd.callStack[command]) swd.callStack[command] = [];
-    swd.callStack[command].push(callback);
-  };
 
-  window.swd.trigger = function(command, request, sender, sendResponse){
-    if(swd.callStack && swd.callStack[command]){
-      for(var i=0; i<swd.callStack[command].length;i++){
-        swd.callStack[command][i](request, sender, sendResponse)
-      }
-    }
-  };
 
-  window.swd.ask = function(command, data, callback){
-    chrome.runtime.sendMessage({cmd:command, data:data}, function(response) {
-      callback(response);
-    });
-  };
+  // window.swd.addEventListener("swdCursorPosition", function(data) {
+  //   //setCursorPosition(data);
+  // });
 
-  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    swd.trigger(request.cmd, request, sender, sendResponse);
-    window.swd.sendMessage(request.cmd, request, sender, sendResponse); // send message to iframe
-    return true; // important true!!!
+
+
+  window.swd.addEventListener("swdCursorPosition", function(data) {
+    //console.log('====',data)
+    window.swd.ask('swdCursorPosition',data);
   });
 
-  function addJsFileToHead(data) {
-    var script = document.createElement("script");
-    script.setAttribute("type", "text/javascript");
-    script.innerHTML = data;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  }
+  window.swd.addEventListener("swdCursorStyle", function(data) {
+    window.swd.ask('swdCursorStyle',data);
+  });
 
-  $.get(chrome.extension.getURL('js/main.js'),
-    function(data) {
-      addJsFileToHead(data);
-      document.getElementsByTagName("body")[0].setAttribute("onLoad", "injected_main();");
-    }
-  );
+  window.swd.addEventListener("swdAudioClick", function(data) {
+     window.swd.ask('swdAudioClick',data);
+  });
+
+  // window.swd.on('swdCursorPosition', function(data){
+  //   console.log('==>swdCursorPosition',data)
+  // });
+
+  // function addJsFileToHead(data) {
+  //   var script = document.createElement("script");
+  //   script.setAttribute("type", "text/javascript");
+  //   script.innerHTML = data;
+  //   document.getElementsByTagName("head")[0].appendChild(script);
+  // }
+
+  // $.get(chrome.extension.getURL('js/main.js'),
+  //   function(data) {
+  //     addJsFileToHead(data);
+  //     document.getElementsByTagName("body")[0].setAttribute("onLoad", "injected_main();");
+  //   }
+  // );
 
 
 
@@ -55,13 +54,13 @@
 
 
   document.addEventListener('webkitvisibilitychange', function(){
-    if(document.webkitHidden){
-      console.log('disable srv frame')
-      window.swd.sendMessage("disable");
-    } else {
-      console.log('enable srv frame')
-      window.swd.sendMessage("enable");
-    }
+    // if(document.webkitHidden){
+    //   console.log('disable srv frame')
+    //   window.swd.sendMessage("disable");
+    // } else {
+    //   console.log('enable srv frame')
+    //   window.swd.sendMessage("enable");
+    // }
   }, false);
 
 

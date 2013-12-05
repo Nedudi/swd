@@ -36,14 +36,17 @@
       "js": [
 
         "js/jquery.js",
-        "js/swd.js",
-        "js/background.js",
-        "js/swd.layout.js",
+
         "js/swd.transfer.js",
+        "js/swd.extensionTransfer.js",
+        "js/swd.layout.js",
         // "js/swd.images.js",
         "js/swd.cursorLayer.js",
         "js/swd.keyboard.js",
         "js/swd.newtab.js",
+
+
+        "js/swd.js",
 
         // "js/keyboard/extensions/scriptqueue.js",
         // "js/keyboard/extensions/helpers.js",
@@ -93,12 +96,12 @@
 
     "js/dat.gui.min.js",
     "js/jquery.js",
-    "js/background.js",
     "js/swd.transfer.js",
     "js/swd.cursorLayer.js",
     "js/swd.layout.js",
     "js/swd.keyboard.js",
     "js/swd.newtab.js",
+    "js/swd.extensionTransfer.js",
     "js/main.js",
 
     "js/keyboard/extensions/scriptqueue.js",
