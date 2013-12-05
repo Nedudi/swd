@@ -68,6 +68,24 @@
     swd.video.src = streamUrl;
     swd.video.setAttribute('muted','true');
     swd.video.play();
+
+//    swd.video.addEventListener("timeupdate", function () {
+//      var vTime = swd.video.currentTime;
+//      console.log(vTime);
+//    }, false);
+
+//    var droppedFrames = 0, decodedFrames = 0;
+//    var ot = (new Date()).getTime();
+//    var fps, fps2, deltaTime;
+//    setInterval(function(){
+//      deltaTime = (new Date()).getTime() - ot;
+//      ot = (new Date()).getTime();
+//      fps = (swd.video.webkitDroppedFrameCount - droppedFrames) / deltaTime;
+//      fps2 = (swd.video.webkitDecodedFrameCount - decodedFrames) / deltaTime;
+//      droppedFrames = swd.video.webkitDroppedFrameCount;
+//      decodedFrames = swd.video.webkitDecodedFrameCount;
+//      console.log(fps, fps2, swd.video.webkitDroppedFrameCount, swd.video.webkitDecodedFrameCount);
+//    }, 100);
     swd.cameraMotionDetection(layers);
     if(swd.cameraCanvas) {
       document.getElementById('canvas1').appendChild(swd.cameraCanvas);

@@ -40,12 +40,18 @@
     var rect;
     var _disabled = false;
 
+    swd.video.addEventListener("timeupdate", function () {
+      tick();
+//      var vTime = swd.video.currentTime;
+//      console.log(vTime);
+    }, false);
+
     function tick() {
       if(_disabled) {
         return;
       }
 
-      compatibility.requestAnimationFrame(tick);
+//      compatibility.requestAnimationFrame(tick);
       window.freeLog();
       if(swd.displayProcessing) {
         ctx_camera.drawImage(swd.video, 0, 0);

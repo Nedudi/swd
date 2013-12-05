@@ -9,31 +9,47 @@ var compatibility = (function() {
         URL = window.URL || window.webkitURL,
 
         requestAnimationFrame = function(callback, element) {
-            var requestAnimationFrame =
-                window.requestAnimationFrame        ||
-                window.webkitRequestAnimationFrame  ||
-                window.mozRequestAnimationFrame     ||
-                window.oRequestAnimationFrame       ||
-                window.msRequestAnimationFrame      ||
-                function(callback, element) {
-                    var currTime = new Date().getTime();
-                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                    var id = window.setTimeout(function() {
-                        callback(currTime + timeToCall);
-                    }, timeToCall);
-                    lastTime = currTime + timeToCall;
-                    return id;
-                };
-
-            return requestAnimationFrame.call(window, callback, element);
+          var currTime = new Date().getTime();
+          var timeToCall = Math.max(0, 30 - (currTime - lastTime)); //Math.round(1000/60)
+          var id = window.setTimeout(function() {
+              callback(currTime + timeToCall);
+          }, timeToCall);
+          lastTime = currTime + timeToCall;
+          return id;
         },
 
+//        requestAnimationFrame = function(callback, element) {
+//          return setInterval(callback, Math.floor(1000/60));
+//        },
+
+//        requestAnimationFrame = function(callback, element) {
+//            var requestAnimationFrame =
+//                window.requestAnimationFrame        ||
+//                window.webkitRequestAnimationFrame  ||
+//                window.mozRequestAnimationFrame     ||
+//                window.oRequestAnimationFrame       ||
+//                window.msRequestAnimationFrame      ||
+//                function(callback, element) {
+//                    var currTime = new Date().getTime();
+//                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+//                    var id = window.setTimeout(function() {
+//                        callback(currTime + timeToCall);
+//                    }, timeToCall);
+//                    lastTime = currTime + timeToCall;
+//                    return id;
+//                };
+//
+//            return requestAnimationFrame.call(window, callback, element);
+//        },
+
         cancelAnimationFrame = function(id) {
-            var cancelAnimationFrame = window.cancelAnimationFrame ||
-                                        function(id) {
+//            var cancelAnimationFrame = window.cancelAnimationFrame ||
+//                                        function(id) {
                                             clearTimeout(id);
-                                        };
-            return cancelAnimationFrame.call(window, id);
+//                                        };
+//            return cancelAnimationFrame.call(window, id);
+
+//          clearInterval(id);
         },
 
         getUserMedia = function(options, success, error) {

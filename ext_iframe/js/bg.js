@@ -1,6 +1,7 @@
 var ex = {};
 ex.options = {
-  url:"https://stop-web-disability.org"
+//  url: "https://stop-web-disability.org"
+  url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
 };
 
 ex.status = {
@@ -104,7 +105,7 @@ ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
 });
 
 ex.createSrvTabIfNotExistYet = function(){
-  console.log('== creating SRV FRAME ...')
+  console.log('== creating SRV FRAME ...');
   chrome.tabs.query({currentWindow: true},function(tabs){
     for(var t=0; t<tabs.length; t++){
       //console.log(tabs[t].url,ex.options.url,tabs[t].url.indexOf(ex.options.url) !== -1)
@@ -114,13 +115,14 @@ ex.createSrvTabIfNotExistYet = function(){
       }
     }
     if(ex.status.isSrvTabAlreadyCreated){
-      console.log('== SRV FRAME already exists')
+      console.log('== SRV FRAME already exists');
     } else {
       chrome.tabs.create({
         active :false,
         pinned: true,
         index:0,
-        url: "https://stop-web-disability.org",
+//        url: "https://stop-web-disability.org",
+        url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html",
         windowId: chrome.windows.WINDOW_ID_CURRENT
       }, function(){
         console.log('== SRV FRAME created ;)!')
