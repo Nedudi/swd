@@ -1,7 +1,8 @@
 var ex = {};
 ex.options = {
-//  url: "https://stop-web-disability.org"
-  url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
+  url: "https://stop-web-disability.org"
+//  url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
+
 };
 
 ex.status = {
@@ -121,8 +122,7 @@ ex.createSrvTabIfNotExistYet = function(){
         active :false,
         pinned: true,
         index:0,
-//        url: "https://stop-web-disability.org",
-        url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html",
+        url: ex.options.url,
         windowId: chrome.windows.WINDOW_ID_CURRENT
       }, function(){
         console.log('== SRV FRAME created ;)!')
