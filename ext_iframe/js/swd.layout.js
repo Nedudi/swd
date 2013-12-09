@@ -26,6 +26,28 @@
       return block;
     };
 
+    window.swd.layout.cursorPositionChanged = function(x,y){
+      if(x <= 4){
+        that.view.left.classList.add('swd_hover');
+      } else
+      if (x >= 120){
+        that.view.left.classList.remove('swd_hover');
+      }
+
+      if(y <= 4){
+        that.view.top.classList.add('swd_hover');
+      } else
+      if (y >= 120){
+        that.view.top.classList.remove('swd_hover');
+      }
+
+      if(x >= document.documentElement.clientWidth - 4){
+        that.view.right.classList.add('swd_hover');
+      } else
+      if (x <= document.documentElement.clientWidth - 120){
+        that.view.right.classList.remove('swd_hover');
+      }
+    };
 
     that.view.top = createBlock({
       container:body,
