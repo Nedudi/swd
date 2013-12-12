@@ -7,13 +7,13 @@
   window.swd.sendMessage = function(type, data)  {
     var msg = window.swd._messagePrefix + JSON.stringify({"type":type, "data":data});
     window.postMessage(msg, "*");
-    if(window.parent) {
-      window.parent.postMessage(msg, "*");
-    }
-    var tmp = document.querySelector(".swd-iframe");
-    if(tmp && tmp.contentWindow) {
-      tmp.contentWindow.postMessage(msg, "*");
-    }
+    // if(window.parent) {
+    //   window.parent.postMessage(msg, "*");
+    // }
+    // var tmp = document.querySelector(".swd-iframe");
+    // if(tmp && tmp.contentWindow) {
+    //   tmp.contentWindow.postMessage(msg, "*");
+    // }
   };
 
   /**

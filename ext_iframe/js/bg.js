@@ -39,6 +39,16 @@ ex.on('swdCursorPosition', function(data){
   ex.ask('swdCursorPosition',data.data);
 });
 
+ex.on('swdCursorStyle', function(data){
+  //console.log(data.data)
+  ex.ask('swdCursorStyle',data.data);
+});
+
+ex.on('swdAudioClick', function(data){
+  console.log('!!!!! AUDIOCLICK',data.data);
+  ex.ask('swdAudioClick',data.data);
+});
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   ex.trigger(request.cmd, request, sender, sendResponse);
   return true; // fucking important true
@@ -107,7 +117,7 @@ ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
 
 ex.createSrvTabIfNotExistYet = function(){
   console.log('== creating SRV FRAME ...');
-  chrome.tabs.query({currentWindow: true},function(tabs){
+  chrome.tabs.query({},function(tabs){
     for(var t=0; t<tabs.length; t++){
       //console.log(tabs[t].url,ex.options.url,tabs[t].url.indexOf(ex.options.url) !== -1)
       if(tabs[t].url.indexOf(ex.options.url) !== -1){

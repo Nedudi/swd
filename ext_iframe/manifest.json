@@ -14,7 +14,7 @@
     "chrome://favicon/"
     //"chrome://thumb/"
   ],
-  "options_page": "newtab.html#options",
+  //"options_page": "newtab.html#options",
   // "chrome_url_overrides": {
   //   "newtab" : "newtab.html"
   // },
@@ -92,7 +92,7 @@
   ],
   "web_accessible_resources": [
 
-    "newtab.html",
+    //"newtab.html",
 
     "js/dat.gui.min.js",
     "js/jquery.js",

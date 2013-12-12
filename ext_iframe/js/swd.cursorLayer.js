@@ -39,7 +39,6 @@
       }
       cursor.classList.add('icon-pointer');
       if(data.style === "arrow") {
-
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
       } else if(data.style === "wait") {
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
@@ -47,6 +46,8 @@
     }
 
     function setCursorPosition(data) {
+
+
       if(data.x && data.y) {
 
         var x = window.innerWidth/2  - 100 + ((data.x - 0.5) * moveSpeed);
@@ -74,6 +75,10 @@
         cursor.style.left = x + "px";
         cursor.style.top = y + "px";
 
+        if(document.webkitHidden) {
+          console.log('define active element for click is refused because tab is not visible')
+          return;
+        }
 
         var o = document.createEvent('MouseEvents');
         var element = null;
@@ -124,6 +129,12 @@
     }
 
     function clickOnItem() {
+
+      if(document.webkitHidden) {
+        console.log('click refused because tab is not visible')
+        return;
+      }
+
       if(swd.currentHoverElement){
         if(isNodeName(swd.currentHoverElement, ['input','textarea'])) {
           swd.currentHoverElement.focus();

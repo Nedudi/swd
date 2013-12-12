@@ -108,7 +108,7 @@
       }
 
       avg = sum / 50;
-      var b = 180; //* avg * 0.0;
+      var b = 150; //* avg * 0.0;
      // if (b < 170) b = 250;
 
       //console.log(b)
@@ -128,15 +128,14 @@
       if (wins[0].pick > b) {
         if (!locker) {
           click();
-
-          console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+          console.log(locker,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
           locker = true;
 
           //$('#swd_audio_canvas').css('background', BGPICKCOLOR);
           setTimeout(function () {
             //$('#swd_audio_canvas').css('background', 'white');
             locker = false;
-          }, 600);
+          }, 700);
         }
       }
 
