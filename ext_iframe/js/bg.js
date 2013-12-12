@@ -90,7 +90,12 @@ chrome.tabs.onActivated.addListener(function(v){
 
 
 ex.on('messageSetActiveTab', function(request, sender, sendResponse){
-  chrome.tabs.update(request.data.tabId, {active: true});
+  chrome.tabs.update(request.data.tabId, {active: true}, function(tab){
+    chrome.windows.update(tab.windowId, {focused: true}, function(win){
+      console.log('set active tab manualy',tab,win);
+    })
+  });
+  //
 });
 
 ex.on('messageGetTabs', function(request, sender, sendResponse){
@@ -121,6 +126,10 @@ ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
 
 ex.createSrvTabIfNotExistYet = function(){
   console.log('== creating SRV FRAME ...');
+
+
+
+
   chrome.tabs.query({},function(tabs){
     for(var t=0; t<tabs.length; t++){
       //console.log(tabs[t].url,ex.options.url,tabs[t].url.indexOf(ex.options.url) !== -1)
@@ -138,8 +147,10 @@ ex.createSrvTabIfNotExistYet = function(){
         index:0,
         url: ex.options.url,
         windowId: chrome.windows.WINDOW_ID_CURRENT
-      }, function(){
-        console.log('== SRV FRAME created ;)!')
+      }, function(tab){
+        chrome.windows.create({tabId:tab.id}, function(){
+          console.log('== SRV FRAME created ;)!',tab)
+        })
       });
     }
   });
