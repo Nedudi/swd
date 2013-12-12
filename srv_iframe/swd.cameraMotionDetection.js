@@ -4,9 +4,9 @@
 
   window.swd = window.swd || {};
 
-  window.swd.getCursorMultiplier = function(inParam) {
-    return (1/inParam) / 2;
-  };
+//  window.swd.getCursorMultiplier = function(inParam) {
+//    return (1/inParam) / 2;
+//  };
 
   window.swd.modMotion = null;
   window.swd.modFace = null;
@@ -103,6 +103,7 @@
       cursorPos.y = 1/2;
       headRect = {x:0,y:0,w:0,h:0};
       curWorkingState = "detect";
+      resetCursors();
     }
 
     activeCursor(false);
@@ -175,14 +176,14 @@
 
         if(cnt) {
           if(lastDetectSuccess) {
+            cursorPos.x -= (pos.x / cnt) / width;// * swd.getCursorMultiplier(cursorPos.spdY);  //* globalParams.moveSpeed;
+            cursorPos.y += (pos.y / cnt) / height;// * swd.getCursorMultiplier(cursorPos.spdY); //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
 
-            cursorPos.x -= (pos.x / cnt) / width * swd.getCursorMultiplier(cursorPos.spdY);  //* globalParams.moveSpeed;
-            cursorPos.y += (pos.y / cnt) / height * swd.getCursorMultiplier(cursorPos.spdY); //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
-
-            if(cursorPos.x < 0) { cursorPos.x = 0; }
-            else if(cursorPos.x > 1) { cursorPos.x = 1; }
-            if(cursorPos.y < 0) { cursorPos.y = 0; }
-            else if(cursorPos.y > 1) { cursorPos.y = 1; }
+            // TODO no limit on server side
+//            if(cursorPos.x < 0) { cursorPos.x = 0; }
+//            else if(cursorPos.x > 1) { cursorPos.x = 1; }
+//            if(cursorPos.y < 0) { cursorPos.y = 0; }
+//            else if(cursorPos.y > 1) { cursorPos.y = 1; }
           }
           lastDetectSuccess = true;
         }
@@ -223,8 +224,12 @@
     }
 
     function drawCursors() {
-      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
+      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y, "mx":cursorPos.spdX, "my":cursorPos.spdY});
       //window.swd.ask("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
+    }
+
+    function resetCursors() {
+      window.swd.sendMessage("swdCursorReset", {"x":cursorPos.x, "y":cursorPos.y});
     }
 
     function activeCursor(isActive) {
@@ -279,7 +284,7 @@
     });
 
     window.swd.addEventListener("disable", function() {
-      console.log('srv frame now disable stream')
+      console.log('srv frame now disable stream');
       _disabled = true;
       if(window.swd.stream) {
         window.swd.stream.stop();

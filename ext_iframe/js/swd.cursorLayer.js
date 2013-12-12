@@ -38,20 +38,53 @@
         return;
       }
       cursor.classList.add('icon-pointer');
-      if(data.style === "arrow") {
+//      if(data.style === "arrow") {
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
-      } else if(data.style === "wait") {
+//      } else if(data.style === "wait") {
         //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
-      }
+//      }
     }
 
-    function setCursorPosition(data) {
+    var lastPosX = null;
+    var lastPosY = null;
+    var cursorPosX = window.innerWidth/2 - 100;
+    var cursorPosY = window.innerHeight/2 - 100;
+    var cursorMode = 1; // TODO 1 or 2
 
+    function setCursorPosition(data, reInitPosition) {
 
-      if(data.x && data.y) {
+      var getCursorMultiplier = function(inParam) {
+        return (1/inParam) / 2;
+      };
 
-        var x = window.innerWidth/2  - 100 + ((data.x - 0.5) * moveSpeed);
-        var y = window.innerHeight/2 - 100 + ((data.y - 0.5) * moveSpeed);// * (window.innerHeight/window.innerWidth); //window.innerWidth
+      if(data.x && data.y && data.my) {
+        var x = ((data.x - 0.5) * moveSpeed) * getCursorMultiplier(data.my);
+        var y = ((data.y - 0.5) * moveSpeed) * getCursorMultiplier(data.my);
+
+        if(lastPosX === null || lastPosY === null || reInitPosition === true) {
+          lastPosX = x;
+          lastPosY = y;
+          if(reInitPosition) {
+            cursorPosX = window.innerWidth/2 - 100;
+            cursorPosY = window.innerHeight/2 - 100;
+          }
+          return;
+        }
+
+        if(cursorMode === 1) {
+          cursorPosX += x - lastPosX;
+          cursorPosY += y - lastPosY;
+          lastPosX = x;
+          lastPosY = y;
+        } else {
+          cursorPosX = x;
+          cursorPosY = y;
+          lastPosX = x;
+          lastPosY = y;
+        }
+
+        cursorPosX = cursorPosX < 0 ? 0 : (cursorPosX > window.innerWidth ? window.innerWidth : cursorPosX);
+        cursorPosY = cursorPosY < 0 ? 0 : (cursorPosY > window.innerHeight ? window.innerHeight : cursorPosY);
 
         fifoX.push(x);
         fifoY.push(y);
@@ -76,7 +109,7 @@
         cursor.style.top = y + "px";
 
         if(document.webkitHidden) {
-          console.log('define active element for click is refused because tab is not visible')
+          console.log('define active element for click is refused because tab is not visible');
           return;
         }
 
@@ -131,7 +164,7 @@
     function clickOnItem() {
 
       if(document.webkitHidden) {
-        console.log('click refused because tab is not visible')
+        console.log('click refused because tab is not visible');
         return;
       }
 
@@ -149,7 +182,9 @@
     }
 
     function isNodeName(element,names){
-      if(!names.length) names = [names];
+      if(!names.length) {
+        names = [names];
+      }
       var nodeName = element.nodeName.toLowerCase();
       var isName = false;
       names.map(function(v,i){
@@ -163,6 +198,10 @@
     window.swd.on("swdCursorPosition", function(request) {
       //console.log('!!!!!!!!!!!!!!!swdCursorPosition',data)
       setCursorPosition(request.data);
+    });
+
+    window.swd.on("swdCursorReset", function(request) {
+      setCursorPosition(request.data, true);
     });
 
      window.swd.on("swdCursorStyle", function(request) {

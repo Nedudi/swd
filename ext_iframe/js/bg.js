@@ -39,6 +39,10 @@ ex.on('swdCursorPosition', function(data){
   ex.ask('swdCursorPosition',data.data);
 });
 
+ex.on('swdCursorReset', function(data){
+  ex.ask('swdCursorReset',data.data);
+});
+
 ex.on('swdCursorStyle', function(data){
   //console.log(data.data)
   ex.ask('swdCursorStyle',data.data);

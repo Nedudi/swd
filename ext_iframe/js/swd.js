@@ -8,12 +8,16 @@
     window.swd.ask('swdCursorPosition',data);
   });
 
+  window.swd.addEventListener("swdCursorReset", function(data) {
+    window.swd.ask('swdCursorReset',data);
+  });
+
   window.swd.addEventListener("swdCursorStyle", function(data) {
     window.swd.ask('swdCursorStyle',data);
   });
 
   window.swd.addEventListener("swdAudioClick", function(data) {
-     console.log('!!!!!!!!!!!!AAAAAAAA')
+     console.log('!!!!!!!!!!!!AAAAAAAA');
      window.swd.ask('swdAudioClick',data);
   });
 
@@ -34,7 +38,7 @@
     window.swd.layout();
     window.swd.keyboard();
     window.swd.cursorLayer();
-  },0)
+  },0);
 
 })(window);
 
