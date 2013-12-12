@@ -1,8 +1,7 @@
 var ex = {};
 ex.options = {
   url: "https://stop-web-disability.org"
-//  url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
-
+  //url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
 };
 
 ex.status = {
@@ -33,6 +32,69 @@ ex.ask = function(command, data, callback){
   });
 };
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  ex.trigger(request.cmd, request, sender, sendResponse);
+  return true; // fucking important true
+});
+
+
+/*****************************************************************************/
+
+ex.activateTab = function(id){
+  chrome.tabs.update(id, {active: true}, function(tab){
+    chrome.windows.update(tab.windowId, {focused: true}, function(win){
+      console.log('set active tab manualy',tab,win);
+    })
+  });
+};
+
+ex.getSrvTabId = function(callback){
+  chrome.tabs.query({},function(tabs){
+    for(var t=0; t<tabs.length; t++){
+      if(tabs[t].url.indexOf(ex.options.url) !== -1){
+        callback(tabs[t].id);
+        return;
+      }
+    }
+    callback(false);
+    return false;
+  });
+}
+
+ex.reloadAllTabs = function(){
+  chrome.tabs.query({},function(tabs){
+    for(var t=0; t<tabs.length; t++){
+      if(tabs[t].url.indexOf(ex.options.url) === -1 && tabs[t].url.indexOf('chrome://') === -1){
+        chrome.tabs.reload(tabs[t].id);
+      }
+    }
+  });
+}
+
+ex.recreateSrvTab = function(){
+  console.log('== creating SRV FRAME ...');
+  ex.getSrvTabId(function(id){
+    if(id){
+      chrome.tabs.remove(id, function(){});
+    }
+    ex.reloadAllTabs();
+    chrome.tabs.create({
+      active :false,
+      pinned: true,
+      index:0,
+      url: ex.options.url,
+      windowId: chrome.windows.WINDOW_ID_CURRENT
+    }, function(tab){
+      chrome.windows.create({tabId:tab.id}, function(win){
+        // ololo
+      })
+    });
+  });
+};
+
+/*****************************************************************************/
+
+
 
 ex.on('swdCursorPosition', function(data){
   //console.log(data.data)
@@ -53,10 +115,45 @@ ex.on('swdAudioClick', function(data){
   ex.ask('swdAudioClick',data.data);
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  ex.trigger(request.cmd, request, sender, sendResponse);
-  return true; // fucking important true
+ex.on('messageSetActiveTab', function(request, sender, sendResponse){
+  ex.activateTab(request.data.tabId);
 });
+
+ex.on('messageActivateSrvTab', function(request, sender, sendResponse){
+  ex.getSrvTabId(function(id){
+    ex.activateTab(id);
+  })
+});
+
+ex.on('messageGetTabs', function(request, sender, sendResponse){
+  chrome.tabs.query({}, function(tabs) {
+    sendResponse({data:tabs});
+  });
+});
+
+ex.on('messageGetMyTabId', function(request, sender, sendResponse){
+  if(sender && sender.tab && sender.tab.id){
+    chrome.tabs.query({}, function(tabs) {
+      console.log('messageGetMyTabId',sender.tab.id)
+      sendResponse({
+        data:{
+          tabId: sender.tab.id
+        }
+      });
+    });
+  }
+
+});
+
+ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
+  chrome.topSites.get(function(pages) {
+    sendResponse({data:pages});
+  });
+});
+
+/*****************************************************************************/
+
+
 
 chrome.tabs.onRemoved.addListener(function(v){
   ex.ask('messageTabsChanged');
@@ -87,74 +184,7 @@ chrome.tabs.onActivated.addListener(function(v){
 });
 
 
+/*****************************************************************************/
 
-
-ex.on('messageSetActiveTab', function(request, sender, sendResponse){
-  chrome.tabs.update(request.data.tabId, {active: true}, function(tab){
-    chrome.windows.update(tab.windowId, {focused: true}, function(win){
-      console.log('set active tab manualy',tab,win);
-    })
-  });
-  //
-});
-
-ex.on('messageGetTabs', function(request, sender, sendResponse){
-  chrome.tabs.query({}, function(tabs) {
-    sendResponse({data:tabs});
-  });
-});
-
-ex.on('messageGetMyTabId', function(request, sender, sendResponse){
-  if(sender && sender.tab && sender.tab.id){
-    chrome.tabs.query({}, function(tabs) {
-      console.log('messageGetMyTabId',sender.tab.id)
-      sendResponse({
-        data:{
-          tabId: sender.tab.id
-        }
-      });
-    });
-  }
-
-});
-
-ex.on('messageGetMostVisitedPages', function(request, sender, sendResponse){
-  chrome.topSites.get(function(pages) {
-    sendResponse({data:pages});
-  });
-});
-
-ex.createSrvTabIfNotExistYet = function(){
-  console.log('== creating SRV FRAME ...');
-
-
-
-
-  chrome.tabs.query({},function(tabs){
-    for(var t=0; t<tabs.length; t++){
-      //console.log(tabs[t].url,ex.options.url,tabs[t].url.indexOf(ex.options.url) !== -1)
-      if(tabs[t].url.indexOf(ex.options.url) !== -1){
-        ex.status.isSrvTabAlreadyCreated = true;
-        //alert(tabs[t].url.indexOf(ex.options.url) !== -1)
-      }
-    }
-    if(ex.status.isSrvTabAlreadyCreated){
-      console.log('== SRV FRAME already exists');
-    } else {
-      chrome.tabs.create({
-        active :false,
-        pinned: true,
-        index:0,
-        url: ex.options.url,
-        windowId: chrome.windows.WINDOW_ID_CURRENT
-      }, function(tab){
-        chrome.windows.create({tabId:tab.id}, function(){
-          console.log('== SRV FRAME created ;)!',tab)
-        })
-      });
-    }
-  });
-};
-
-ex.createSrvTabIfNotExistYet();
+ex.recreateSrvTab();
 

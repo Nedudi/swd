@@ -101,8 +101,9 @@
     });
 
     that.view.buttonSettings.addEventListener('click', function(){
-      var iframe = document.getElementsByClassName('swd-iframe')[0];
-      iframe.classList.toggle('swd-none');
+      window.swd.ask('messageActivateSrvTab',false, function(response){
+        //callback(response.data.tabId);
+      });
     });
 
     that.view.buttonBack = createBlock({
@@ -168,6 +169,7 @@
     that.renderTab = function(tab){
       console.log('render tab', tab);
       if(tab.url.indexOf('http') === -1) return;
+      if(tab.url.indexOf('https://stop-web-disability.org') !== -1) return;
       var tabLayout = createBlock({
         container:that.view.tabsBlock,
         tagName: 'a',
