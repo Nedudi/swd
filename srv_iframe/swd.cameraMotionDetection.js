@@ -40,18 +40,21 @@
     var rect;
     var _disabled = false;
 
-    swd.video.addEventListener("timeupdate", function () {
-      tick();
+//    swd.video.addEventListener("timeupdate", function () {
+//      tick();
 //      var vTime = swd.video.currentTime;
 //      console.log(vTime);
-    }, false);
+//    }, false);
 
+    var ll = 0;
     function tick() {
+      console.log(ll - (new Date()).getTime());
+      ll = (new Date()).getTime();
       if(_disabled) {
         return;
       }
 
-//      compatibility.requestAnimationFrame(tick);
+      compatibility.requestAnimationFrame(tick);
       window.freeLog();
       if(swd.displayProcessing) {
         ctx_camera.drawImage(swd.video, 0, 0);
