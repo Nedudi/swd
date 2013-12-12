@@ -229,7 +229,7 @@
     }
 
     function resetCursors() {
-      window.swd.sendMessage("swdCursorReset", {"x":cursorPos.x, "y":cursorPos.y});
+      window.swd.sendMessage("swdCursorReset", {"x":cursorPos.x, "y":cursorPos.y, "mx":cursorPos.spdX, "my":cursorPos.spdY});
     }
 
     function activeCursor(isActive) {
