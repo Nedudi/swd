@@ -52,6 +52,7 @@
     var cursorMode = 1; // TODO 1 or 2
 
     function setCursorPosition(data, reInitPosition) {
+      console.log(data, reInitPosition);
 
       var getCursorMultiplier = function(inParam) {
         return (1/inParam) / 2;
@@ -86,8 +87,8 @@
         cursorPosX = cursorPosX < 0 ? 0 : (cursorPosX > window.innerWidth ? window.innerWidth : cursorPosX);
         cursorPosY = cursorPosY < 0 ? 0 : (cursorPosY > window.innerHeight ? window.innerHeight : cursorPosY);
 
-        fifoX.push(x);
-        fifoY.push(y);
+        fifoX.push(cursorPosX);
+        fifoY.push(cursorPosY);
 
         var sumX = 0;
         var sumY = 0;
