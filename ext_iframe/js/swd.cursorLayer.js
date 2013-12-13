@@ -52,7 +52,7 @@
     var cursorMode = 1; // TODO 1 or 2
 
     function setCursorPosition(data, reInitPosition) {
-      console.log(data, reInitPosition);
+//      console.log(data, reInitPosition);
 
       var getCursorMultiplier = function(inParam) {
         return (1/inParam) / 2;
