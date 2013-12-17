@@ -1,7 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-  init();
-});
+var defaultSettings = {};
+defaultSettings['cursor speed horizontal'] = 3;
+defaultSettings['cursor speed vertical'] = 2;
+defaultSettings['use audio click'] = false;
+defaultSettings['reset settings'] = function() {
+  chrome.storage.sync.set({'settings': null}, function() {
+    //console.log('!!!!!!!!! we just reset all settings');
+    window.location.href=window.location.href;
+  });
+};
+//defaultSettings['some text'] = 'ololo';
 
+document.addEventListener('DOMContentLoaded', function () {
+  chrome.storage.sync.get("settings", function(savedSettings) {
+    console.log('defaultSettings=',defaultSettings,',savedSettings=', savedSettings);
+    var settings = $.extend({}, defaultSettings, savedSettings.settings);
+    init(settings);
+  })
+});
 
 var sendMessageToAllTabs = function(message){
   chrome.tabs.query({}, function(tabs) {
@@ -20,44 +35,43 @@ var settingsChanged = function(key,value){
       value: value
     }
   });
+
+  chrome.storage.sync.get("settings", function(data) {
+    var settings = data.settings || {};
+    settings[key] = value;
+    chrome.storage.sync.set({'settings': settings}, function(savedData) {
+      console.log('Settings saved',savedData);
+    });
+  });
 };
 
 var controlCallback = function(value){
   settingsChanged(this.property,value);
 };
 
-var swdControls = function() {
-  this['cursor speed horizontal'] = 3;
-  this['cursor speed vertical'] = 2;
-  this['some text'] = 'ololo';
-  this['some checkbox'] = false;
-  this['some button'] = function() {
-    console.log('ololo')
-  };
-};
+var init = function(defaultSettings){
 
-var init = function(){
-  var SWDC = new swdControls();
   var gui = new dat.GUI({ autoPlace: false, width: 500 });
-  gui.remember(SWDC);
+  gui.remember(defaultSettings);
   document.getElementById('main_form').appendChild(gui.domElement);
 
-
   // cursor speed horizontal
-  var cursorSpeedHorizontal = gui.add(SWDC, 'cursor speed horizontal', 1, 10);
+  var cursorSpeedHorizontal = gui.add(defaultSettings, 'cursor speed horizontal', 1, 10);
   cursorSpeedHorizontal.onChange(function(value) {});
   cursorSpeedHorizontal.onFinishChange(controlCallback);
 
   // cursor speed vertical
-  var cursorSpeedVertical = gui.add(SWDC, 'cursor speed vertical', 1, 10);
+  var cursorSpeedVertical = gui.add(defaultSettings, 'cursor speed vertical', 1, 10);
   cursorSpeedVertical.onChange(function(value) {});
   cursorSpeedVertical.onFinishChange(controlCallback);
 
+  // use audio click
+  var useAudioClick  = gui.add(defaultSettings, 'use audio click');
+  useAudioClick.onChange(function(value) {});
+  useAudioClick.onFinishChange(controlCallback);
+
+  var someButton    = gui.add(defaultSettings, 'reset settings');
 
   // add handlers here and ololo :)
-  var someText      = gui.add(SWDC, 'some text');
-  var someCheckbox  = gui.add(SWDC, 'some checkbox');
-  var someButton    = gui.add(SWDC, 'some button');
-
-
+  //var someText      = gui.add(defaultSettings, 'some text');
 };

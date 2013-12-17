@@ -4,6 +4,7 @@
   window.swd = window.swd || {};
 
   window.swd.audioClick = function (stream) {
+    return;
     var WIDTH = 512;
     var VISUALIZECOLOR = 'rgba(14,145,195,1)';
     var AVGCOLOR = 'rgb(33,187,166)';
