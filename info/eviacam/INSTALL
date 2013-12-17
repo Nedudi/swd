@@ -1,0 +1,110 @@
+=======================================
+Enable Viacam Installation Instructions
+=======================================
+
+This document describes how to compile and install Enable Viacam for
+GNU/Linux and Windows platforms.
+
+Linux
+=====
+
+- Pre-requisites
+  --------------
+  wxWidgets >= 2.6
+  opencv >= 1.0
+  gtk+-2.0
+  libxtst
+  libxext 
+
+  For Debian/Ubuntu see file debian/control for exact dependencies.
+ 
+- Generic compilation and installation
+  ------------------------------------
+  If you downloaded a release tarball:
+  ./configure
+  make 
+  make install
+
+  If you got sources from repositories, first you need to install 
+  libtool
+  automake
+  autoconf
+
+  then run:
+  ./autogen.sh
+  ./configure
+  make
+  make install
+
+- Generic compilation and installation (debug mode)
+  -------------------------------------------------
+  ./configure --enable-debug
+  make 
+  make install  
+
+- Source package generation
+  -------------------------
+  ./configure 
+  make dist
+
+- DEB Packages
+  -------------
+  
+  Before generating any .deb package make sure file debian/changelog is up
+  to date. Run the following command and check that contents are correct:
+    dch -i
+
+  * DEB source package generation
+      ./configure
+      make deb-src
+	  
+  * changes file generation
+      Useful when generating packages for several distros. Assumes previous 
+	  step has been done. For each distro edit debian/changes with 
+		dch -i
+      add the right information then run
+	    make deb-src-changes
+	  
+  * DEB binary package generation
+      ./configure
+      make deb
+	  
+    Old way:
+      1.- Ensure that config.status doesn't exists (i.e. make distclean)
+      2.- Run: fakeroot debian/rules binary
+      3.- Clean tree:fakeroot debian/rules clean
+  	  
+- RPM package generation
+  ----------------------
+
+  ./configure
+  make rpm
+
+Windows
+=======
+
+- Pre-requisites
+  --------------
+  VS2008
+  wxWidgets = 2.8.x
+  opencv >= 1.0
+  Platform SDK (tested with PSDK-x86_WindowsServer2003_SP1(2005))
+  DirectX SDK 9.0 Update (February 2005) or later
+  
+- Building using Visual Studio 2008
+  ---------------------------------
+
+  Build project under
+  \Microsoft Platform SDK\Samples\Multimedia\DirectShow\BaseClasses\
+  Works with VS2008, but is also supposed to work for newer VS versions. 
+  Visual Studio solution (.sln) is in win32/ directory. 
+  You should set the following environment variables:
+
+	WXWIN to point to wxWidgets folder
+	CVPATH to point to opencv1 folder
+	PSDK_DIR to point the Platform SDK folder
+	
+  Build as Release.
+	
+  Once the program is compiled, you may wish to create the installer. 
+  Inno Setup is used for installer generation on Windows
