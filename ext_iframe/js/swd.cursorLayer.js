@@ -3,6 +3,7 @@
   "use strict";
 
   window.swd.cursorLayer = function() {
+    var that = this;
     console.log('-- CURSOR LAYER INITED');
     var fifoX = [];
     var fifoY = [];
@@ -50,6 +51,17 @@
     var cursorPosX = window.innerWidth/2 - 100;
     var cursorPosY = window.innerHeight/2 - 100;
     var cursorMode = 1; // TODO 1 or 2
+
+
+    window.swd.cursorLayer.redrawHighlightedElement = function(){
+      var rect = swd.currentHoverElement.getBoundingClientRect();
+      highlight.style.display = 'block';
+      highlight.style.height  = rect.height +20+'px';
+      highlight.style.width   = rect.width  +20+'px';
+      highlight.style.top     = rect.top    -10+'px';
+      highlight.style.left    = rect.left   -10+'px';
+    }
+
 
     function setCursorPosition(data, reInitPosition) {
 //      console.log(data, reInitPosition);
@@ -125,7 +137,6 @@
 
         if(element){
 
-
           var hElement = false;
           var clickableMatches = ['a','button','input','textarea'];
 
@@ -144,13 +155,8 @@
           }
 
           if(swd.currentHoverElement !== hElement) {
-            var rect = hElement.getBoundingClientRect();
-            highlight.style.display = 'block';
-            highlight.style.height  = rect.height +20+'px';
-            highlight.style.width   = rect.width  +20+'px';
-            highlight.style.top     = rect.top    -10+'px';
-            highlight.style.left    = rect.left   -10+'px';
             swd.currentHoverElement = hElement;
+            window.swd.cursorLayer.redrawHighlightedElement();
             console.log('CURRENT HOVER ELEMENT CHANGED = ',swd.currentHoverElement);
           }
 
@@ -163,12 +169,10 @@
     }
 
     function clickOnItem() {
-
       if(document.webkitHidden) {
         console.log('click refused because tab is not visible');
         return;
       }
-
       if(swd.currentHoverElement){
         if(isNodeName(swd.currentHoverElement, ['input','textarea'])) {
           swd.currentHoverElement.focus();

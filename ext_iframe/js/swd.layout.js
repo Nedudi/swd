@@ -67,6 +67,11 @@
       classList: ['swd_right','swd_aside']
     });
 
+
+    $(that.view.right).add(that.view.left).add(that.view.top).on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',function() {
+       window.swd.cursorLayer.redrawHighlightedElement();
+    });
+
     that.view.buttonScrollUp = createBlock({
       container:that.view.right,
       tagName: 'a',
