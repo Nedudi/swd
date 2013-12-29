@@ -25,12 +25,22 @@
   // Lesha hello, options change can be detected like this
   swd.on('messageSettingsChanged', function(request){
     console.log('!!!!!!==== messageSettingsChanged ====>>>>',request);
+    //window.swd.sendMessage(request.cmd, request.data);
+
+    if(request.data.key == 'show camera preview'){
+      if(request.data.value){
+        document.body.classList.add('swd-show-camera-preview');
+      } else {
+        document.body.classList.remove('swd-show-camera-preview');
+      }
+    }
+  });
+
+  swd.on('swdWindowFocusChanged', function(request){
+    //
   });
 
 
-  document.addEventListener('webkitvisibilitychange', function(){
-    // if(document.webkitHidden){........
-  }, false);
 
 
   setTimeout(function(){

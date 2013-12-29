@@ -2,6 +2,7 @@ var defaultSettings = {};
 defaultSettings['cursor speed horizontal'] = 3;
 defaultSettings['cursor speed vertical'] = 2;
 defaultSettings['use audio click'] = false;
+defaultSettings['show camera preview'] = true;
 defaultSettings['reset settings'] = function() {
   chrome.storage.sync.set({'settings': null}, function() {
     //console.log('!!!!!!!!! we just reset all settings');
@@ -67,6 +68,11 @@ var init = function(defaultSettings){
 
   // use audio click
   var useAudioClick  = gui.add(defaultSettings, 'use audio click');
+  useAudioClick.onChange(function(value) {});
+  useAudioClick.onFinishChange(controlCallback);
+
+  // use audio click
+  var useAudioClick  = gui.add(defaultSettings, 'show camera preview');
   useAudioClick.onChange(function(value) {});
   useAudioClick.onFinishChange(controlCallback);
 

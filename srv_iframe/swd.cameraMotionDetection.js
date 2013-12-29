@@ -48,7 +48,9 @@
 
     var ll = 0;
     function tick() {
-      console.log(ll - (new Date()).getTime());
+      tickCounter++;
+      //console.log(tickCounter)
+      //console.log(ll - (new Date()).getTime());
       ll = (new Date()).getTime();
       if(_disabled) {
         return;
@@ -82,13 +84,20 @@
       } else if(curWorkingState === "motion") {
         swd.modMotion.process(layers);
         if(swd.modMotion.getActivePointCount() < (swd.modMotion.getPointCount()/3)) {
-          reinitParams();
+          resetMotionTracing();
           activeCursor(false);
           curWorkingState = "detect";
         } else {
-          findMoveDelta();
+          if(tickCounter >= 100){
+            tickCounter = 0;
+            resetParameters();
+          } else {
+            findMoveDelta();
+          }
           drawActiveMotionPoint();
           drawCursors();
+          // if(tickCounter === 49)console.log('==> 49',cursorPos.x,cursorPos.y);
+          // if(tickCounter === 0) console.log('==> 0' ,cursorPos.x,cursorPos.y);
         }
       }
     }
@@ -96,18 +105,29 @@
 
     var maskSteps = globalParams.maskSteps;
 
-    function reinitParams() {
-      faceRects = [];
-      swd.modMotion.removeAllPoints();
+
+
+
+    function resetCursorPosition() {
       cursorPos.x = 1/2;
       cursorPos.y = 1/2;
+    }
+
+    function resetParameters() {
+      faceRects = [];
+      swd.modMotion.removeAllPoints();
       headRect = {x:0,y:0,w:0,h:0};
       curWorkingState = "detect";
+    }
+
+    function resetMotionTracing() {
+      resetParameters();
+      resetCursorPosition();
       resetCursors();
     }
 
     activeCursor(false);
-    reinitParams();
+    resetMotionTracing();
 
     function updateRect() {
       var qq;
@@ -125,13 +145,21 @@
       headRect = tmp;
     }
 
+
+    // setInterval(function(){
+    //   createNewPointForMotionDetect();
+    //   console.log(1)
+    // },2000)
+
+    var tickCounter = 0;
+
     function createNewPointForMotionDetect() {
       var qq, ww;
       updateRect();
 
       cursorPos.spdX = headRect.w / 640;
       cursorPos.spdY = headRect.h / 480;
-      console.log(cursorPos.spdX, cursorPos.spdY);
+     // console.log(cursorPos.spdX, cursorPos.spdY);
 
       var sx = headRect.w*0.9/maskSteps;
       var sy = headRect.h*0.9/maskSteps;
@@ -147,6 +175,7 @@
 
     var lastDetectSuccess = false;
     function findMoveDelta() {
+      //if(isReseted) return;
       var qq, nn = swd.modMotion.getPointCount();
       var pp, cnt = 0, pos = {x:0, y:0};
       for(qq = 0; qq < nn; ++qq) {
@@ -291,11 +320,11 @@
         window.swd.stream = null;
       }
       window.swd.video.pause();
-      reinitParams();
+      resetMotionTracing();
     });
 
     window.swd.addEventListener("refresh", function() {
-      reinitParams();
+      resetMotionTracing();
     });
 
     tick();

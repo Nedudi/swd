@@ -64,7 +64,8 @@ ex.getSrvTabId = function(callback){
 ex.reloadAllTabs = function(){
   chrome.tabs.query({},function(tabs){
     for(var t=0; t<tabs.length; t++){
-      if(tabs[t].url.indexOf(ex.options.url) === -1 && tabs[t].url.indexOf('chrome://') === -1){
+      if(tabs[t].url.indexOf(ex.options.url) === -1 && tabs[t].url.indexOf('chrome://') === -1 && tabs[t].url.indexOf('chrome-devtools://') === -1){
+        console.log('-=-=-=-=-=url',tabs[t].url)
         chrome.tabs.reload(tabs[t].id);
       }
     }
@@ -78,20 +79,27 @@ ex.recreateSrvTab = function(){
       chrome.tabs.remove(id, function(){});
     }
     ex.reloadAllTabs();
-    chrome.tabs.create({
-      active :false,
-      pinned: true,
-      index:0,
-      url: ex.options.url,
-      windowId: chrome.windows.WINDOW_ID_CURRENT
-    }, function(tab){
-      chrome.windows.create({tabId:tab.id}, function(win){
-        // ololo
-      })
+    chrome.windows.getLastFocused({}, function(win){
+      var lastFocusedWinId = win.id;
+      chrome.windows.create({
+        focused: false,
+        type: "popup",
+        url:ex.options.url
+      }, function(settingsWindow){
+        chrome.windows.update(lastFocusedWinId,{focused:true});
+      });
     });
   });
 };
 
+chrome.windows.onCreated.addListener(function(win){
+  //console.log('===========!!!!!!!!!!!!!!!!!!!!!!!!!!!!',win)
+});
+
+chrome.windows.onFocusChanged.addListener(function(win){
+  ex.ask('swdWindowFocusChanged',win);
+  console.log('===========!!!!!!!!!!!!!!!!!!!!!!!!!!!!',win)
+});
 /*****************************************************************************/
 
 

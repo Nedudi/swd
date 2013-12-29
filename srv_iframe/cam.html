@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>cc</title>
+  <title>Settings| stop web disability</title>
 
   <script type="text/javascript" src="jsfeat/jsfeat.js"></script>
   <script type="text/javascript" src="jsfeat/jsfeat_struct.js"></script>
@@ -32,20 +32,23 @@
   <script type="text/javascript" src="swd.mod_motion.js"></script>
   <script type="text/javascript" src="swd.mod_face.js"></script>
   <style>
-    canvas {
+    canvas, video {
       width: 320px;
       height: 240px;
+      display: none;
+    }
+    .swd-show-camera-preview canvas,
+    .swd-show-camera-preview video{
+      display: inline-block;
     }
   </style>
 </head>
-<body onload="window.swd.onLoad();" onunload="window.swd.onUnload();">
-  <video id="webcam" width="640" height="480" style="display:none;"></video>
+<body onload="window.swd.onLoad();" onunload="window.swd.onUnload();" >
+  <video id="webcam" width="640" height="480"></video>
   <div id="frames" style="margin: 10px auto;white-space:nowrap;">
-    <div id="canvas1" style="display:inline-block;"></div>
-    <div id="canvas2" style="display:inline-block;"></div>
-    <div id="canvas3" style="display:inline-block;"></div>
+    <div id="canvas1"></div><div id="canvas2"></div><div id="canvas3"></div>
     <br>
-    <div id="canvas4" style="display:inline-block;"></div>
+    <div id="canvas4"></div>
     <canvas id="canvas5" class="face2" width="640" height="480"></canvas>
     <canvas id="canvas6" class="face2" width="640" height="480"></canvas>
     <div id="log"></div>
