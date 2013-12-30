@@ -93,9 +93,10 @@
             resetParameters();
           } else {
             findMoveDelta();
+            drawActiveMotionPoint();
+            drawCursors();
           }
-          drawActiveMotionPoint();
-          drawCursors();
+
           // if(tickCounter === 49)console.log('==> 49',cursorPos.x,cursorPos.y);
           // if(tickCounter === 0) console.log('==> 0' ,cursorPos.x,cursorPos.y);
         }
@@ -253,7 +254,12 @@
     }
 
     function drawCursors() {
-      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y, "mx":cursorPos.spdX, "my":cursorPos.spdY});
+      // temporary disable scale head parameter because of re-detection each time cursorPos.spdX, cursorPos.spdY
+      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y, "mx":0.5/*cursorPos.spdX*/, "my":0.5/*cursorPos.spdY*/});
+      //console.log(cursorPos.x,cursorPos.y);
+
+        // document.getElementById('test_cursor').style.top = cursorPos.y*3000-1000+'px';
+        // document.getElementById('test_cursor').style.left = cursorPos.x*3000-1000+'px';
       //window.swd.ask("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
     }
 

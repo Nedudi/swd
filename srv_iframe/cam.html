@@ -41,9 +41,16 @@
     .swd-show-camera-preview video{
       display: inline-block;
     }
+    #test_cursor{
+      background-color: red;
+      position: absolute;
+      width: 3px;
+      height: 3px;
+    }
   </style>
 </head>
-<body onload="window.swd.onLoad();" onunload="window.swd.onUnload();" >
+<body class="swd-show-camera-preview" onload="window.swd.onLoad();" onunload="window.swd.onUnload();" >
+  <div id="test_cursor"></div>
   <video id="webcam" width="640" height="480"></video>
   <div id="frames" style="margin: 10px auto;white-space:nowrap;">
     <div id="canvas1"></div><div id="canvas2"></div><div id="canvas3"></div>

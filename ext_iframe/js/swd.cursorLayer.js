@@ -7,7 +7,7 @@
     console.log('-- CURSOR LAYER INITED');
     var fifoX = [];
     var fifoY = [];
-    var fifoSize = 10;
+    var fifoSize = 12;
     var moveSpeed = 20000;
     var cursor = document.createElement("div");
     cursor.setAttribute("id", "swd-cursor");
