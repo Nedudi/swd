@@ -18,7 +18,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
 */
 #virtualKeyboard * {
         border: 0;
-        color: black; 
+        color: black;
         cursor: default;
         margin: 0;
         padding: 0;
@@ -133,7 +133,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
 #kbDesk.modeAlt span.charShiftCaps,
 #kbDesk.modeNormal span.charCaps,
 #kbDesk.modeNormal span.charShiftAlt,
-#kbDesk.modeNormal span.charShiftCaps, 
+#kbDesk.modeNormal span.charShiftCaps,
 #kbDesk.modeNormal span.hiddenShift,
 #kbDesk.modeShift span.hiddenShift,
 #kbDesk.modeShift span.charAlt,

@@ -23,7 +23,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
 */
 #virtualKeyboard * {
         border: 0;
-        color: black; 
+        color: black;
         cursor: default;
         margin: 0;
         padding: 0;
@@ -126,7 +126,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
 #kbDesk.modeAlt span.charShiftCaps,
 #kbDesk.modeNormal span.charCaps,
 #kbDesk.modeNormal span.charShiftAlt,
-#kbDesk.modeNormal span.charShiftCaps, 
+#kbDesk.modeNormal span.charShiftCaps,
 #kbDesk.modeNormal span.hiddenShift,
 #kbDesk.modeShift span.hiddenShift,
 #kbDesk.modeShift span.charAlt,
@@ -316,6 +316,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
         position: absolute;
         left: 734px;
         width: 125px;
+        display: none;
 }
 #virtualKeyboard select#kb_mappingselector {
         left: 607px;
@@ -454,7 +455,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
 */
 #virtualKeyboard div.progressbar {
         background: url(button_set.png) 0 1000px no-repeat;
-        color: #666;
+        color: #111;
         font-family: Verdana, Tahoma;
         font-size: 160px;
         font-weight: bold;
@@ -462,10 +463,15 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
         text-align: center;
         top: 10%;
         width: 100%;
+        display: none !important;
+        opacity: 0;
+
 }
 
 #virtualKeyboard div.loaderror {
-        color: #a22 !important;
+        color: #111 !important;
+         display: none !important;
+         opacity: 0;
 }
 
 /************************************

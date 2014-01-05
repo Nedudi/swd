@@ -13,7 +13,7 @@
 
     window.swd.openNewTabScreen = function(){
       that.view.container.show();
-      that.view.search.focus();
+      //that.view.search.focus();
     };
 
     window.swd.closeNewTabScreen = function(){
@@ -27,8 +27,8 @@
         var title = data[i].title;
         var favicon = 'chrome://favicon/' + data[i].url;
         var item = $('<li>',{href:href,'class':"swd_newtab_list_item"}).appendTo(list);
-        var clickable_item = $('<a>',{href:href,'class':"swd_newtab_clickable_item swd_clickable"}).appendTo(item);
-        $('<img>',{src:favicon}).appendTo(clickable_item);
+        var clickable_item = $('<a>',{target:'_blank',href:href,'class':"swd_newtab_clickable_item swd_clickable"}).appendTo(item);
+        //$('<img>',{src:favicon}).appendTo(clickable_item);
         $('<h3>').html(title).appendTo(clickable_item);
         $('<span>').html(href).appendTo(clickable_item);
       }

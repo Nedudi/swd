@@ -465,6 +465,7 @@ html.VirtualKeyboardPopup, body.VirtualKeyboardPopup {
         text-align: center;
         top: 10%;
         width: 100%;
+        display: none !important;
 }
 
 #virtualKeyboard div.loaderror {
