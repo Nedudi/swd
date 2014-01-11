@@ -59,7 +59,6 @@
   };
 
   window.addEventListener("message", function(data) {
-    //console.log('swg.org window got the message = ', data);
     if(!data || typeof(data.data) !== "string") {
       return;
     }
@@ -68,6 +67,7 @@
       return;
     }
     var json = JSON.parse(str.substr(window.swd._messagePrefix.length));
+    console.log(json.type,window.swd._listeners);
     if(window.swd._listeners[json.type]) {
       var that = this;
       window.swd._listeners[json.type].each(function(item) {

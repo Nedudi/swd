@@ -1,20 +1,20 @@
 var defaultSettings = {};
+defaultSettings['enable face tracking'] = true;
 defaultSettings['cursor speed horizontal'] = 3;
 defaultSettings['cursor speed vertical'] = 2;
 defaultSettings['use audio click'] = false;
 defaultSettings['show camera preview'] = true;
 defaultSettings['reset settings'] = function() {
   chrome.storage.sync.set({'settings': null}, function() {
-    //console.log('!!!!!!!!! we just reset all settings');
     window.location.href=window.location.href;
   });
 };
-//defaultSettings['some text'] = 'ololo';
 
 document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get("settings", function(savedSettings) {
     console.log('defaultSettings=',defaultSettings,',savedSettings=', savedSettings);
-    var settings = $.extend({}, defaultSettings, savedSettings.settings);
+    //var settings = $.extend({}, defaultSettings, savedSettings.settings);
+    var settings = defaultSettings; // temporary
     init(settings);
   })
 });
@@ -56,25 +56,30 @@ var init = function(defaultSettings){
   gui.remember(defaultSettings);
   document.getElementById('main_form').appendChild(gui.domElement);
 
+  // use audio click
+  var enableFaceTracking  = gui.add(defaultSettings, 'enable face tracking');
+      enableFaceTracking.onChange(function(value) {});
+      enableFaceTracking.onFinishChange(controlCallback);
+
   // cursor speed horizontal
   var cursorSpeedHorizontal = gui.add(defaultSettings, 'cursor speed horizontal', 1, 10);
-  cursorSpeedHorizontal.onChange(function(value) {});
-  cursorSpeedHorizontal.onFinishChange(controlCallback);
+      cursorSpeedHorizontal.onChange(function(value) {});
+      cursorSpeedHorizontal.onFinishChange(controlCallback);
 
   // cursor speed vertical
   var cursorSpeedVertical = gui.add(defaultSettings, 'cursor speed vertical', 1, 10);
-  cursorSpeedVertical.onChange(function(value) {});
-  cursorSpeedVertical.onFinishChange(controlCallback);
+      cursorSpeedVertical.onChange(function(value) {});
+      cursorSpeedVertical.onFinishChange(controlCallback);
 
   // use audio click
   var useAudioClick  = gui.add(defaultSettings, 'use audio click');
-  useAudioClick.onChange(function(value) {});
-  useAudioClick.onFinishChange(controlCallback);
+      useAudioClick.onChange(function(value) {});
+      useAudioClick.onFinishChange(controlCallback);
 
   // use audio click
   var useAudioClick  = gui.add(defaultSettings, 'show camera preview');
-  useAudioClick.onChange(function(value) {});
-  useAudioClick.onFinishChange(controlCallback);
+      useAudioClick.onChange(function(value) {});
+      useAudioClick.onFinishChange(controlCallback);
 
   var someButton    = gui.add(defaultSettings, 'reset settings');
 

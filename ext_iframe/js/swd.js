@@ -27,13 +27,9 @@
     console.log('!!!!!!==== messageSettingsChanged ====>>>>',request);
     //window.swd.sendMessage(request.cmd, request.data);
 
-    if(request.data.key == 'show camera preview'){
-      if(request.data.value){
-        document.body.classList.add('swd-show-camera-preview');
-      } else {
-        document.body.classList.remove('swd-show-camera-preview');
-      }
-    }
+    window.swd.sendMessage('messageSettingsChanged',request.data)
+
+
   });
 
   swd.on('swdWindowFocusChanged', function(request){

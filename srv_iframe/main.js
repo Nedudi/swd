@@ -32,6 +32,7 @@
     swd.connectCamera();
   };
 
+
   window.swd.connectCamera = function() {
     try {
       compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
@@ -121,4 +122,7 @@
       swd.video.src = null;
     }
   };
+
+
+
 })(window);

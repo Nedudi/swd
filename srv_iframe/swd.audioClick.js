@@ -4,7 +4,6 @@
   window.swd = window.swd || {};
 
   window.swd.audioClick = function (stream) {
-    return;
     var WIDTH = 512;
     var VISUALIZECOLOR = 'rgba(14,145,195,1)';
     var AVGCOLOR = 'rgb(33,187,166)';
@@ -62,6 +61,8 @@
     }
 
     function drawSpectrum(data) {
+      if(!window.swd.isHUseAudioClick) return;
+
       var sum = 0;
       var avg, i, w;
 
@@ -131,10 +132,7 @@
           click();
           console.log(locker,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
           locker = true;
-
-          //$('#swd_audio_canvas').css('background', BGPICKCOLOR);
           setTimeout(function () {
-            //$('#swd_audio_canvas').css('background', 'white');
             locker = false;
           }, 700);
         }
@@ -144,9 +142,7 @@
 
     }
 
-
     var context, microphone, analyser;
-
     context = new window.webkitAudioContext();
     microphone = context.createMediaStreamSource(stream);
     analyser = context.createAnalyser();

@@ -8,6 +8,31 @@
 //    return (1/inParam) / 2;
 //  };
 
+  window.swd.addEventListener("messageSettingsChanged", function(data) {
+    console.log('111111',data)
+    switch(data.key){
+      case 'show camera preview':{
+        if(data.value === true){
+          document.body.classList.add('swd-show-camera-preview');
+        } else {
+          document.body.classList.remove('swd-show-camera-preview');
+        }
+      };break;
+      case 'enable face tracking':{
+        if(data.value === true){
+          window.swd.enableCamera();
+        } else {
+          window.swd.disableCamera();
+        }
+      };break;
+      case 'use audio click':{
+        window.swd.isHUseAudioClick = data.value;
+      };break;
+
+
+    }
+  });
+
   window.swd.modMotion = null;
   window.swd.modFace = null;
 
@@ -279,7 +304,7 @@
      * start processing
      ********************************************************************************/
 
-    window.swd.addEventListener("enable", function() {
+     window.swd.enableCamera = function() {
       if(!_disabled) {
         return;
       }
@@ -316,9 +341,9 @@
           window.swd.onCameraError();
         }
       }
-    });
+    };
 
-    window.swd.addEventListener("disable", function() {
+    window.swd.disableCamera =  function() {
       console.log('srv frame now disable stream');
       _disabled = true;
       if(window.swd.stream) {
@@ -327,7 +352,7 @@
       }
       window.swd.video.pause();
       resetMotionTracing();
-    });
+    };
 
     window.swd.addEventListener("refresh", function() {
       resetMotionTracing();
