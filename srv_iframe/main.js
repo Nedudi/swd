@@ -22,7 +22,7 @@
 
   window.swd = window.swd || {};
 
-  window.swd.displayProcessing = true;
+  window.swd.displayProcessing = false;
 
   window.swd.onLoad = function () {
     if(swd.cursorLayer) {

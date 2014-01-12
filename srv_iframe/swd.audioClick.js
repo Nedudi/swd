@@ -30,24 +30,9 @@
     var redraw = function () {
       if(window.swd.displayProcessing) {
         clearCanvas();
-        visualize();
       }
       calcSpectrum();
       requestAnimFrame(redraw);
-    };
-
-    var visualize = function () {
-      var times = new Uint8Array(analyser.frequencyBinCount);
-      analyser.getByteTimeDomainData(times);
-      for (var i = 0; i < times.length; i++) {
-        var value = times[i];
-        var percent = value / 256;
-        var height = canvas.height * percent;
-        var offset = canvas.height - height  - 1;
-        var barWidth = WIDTH / times.length;
-        ctx.fillStyle = VISUALIZECOLOR;
-        ctx.fillRect(i * barWidth, offset, 1, 1);
-      }
     };
 
     function calcSpectrum() {
@@ -60,28 +45,20 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    var fifo = [];
+
     function drawSpectrum(data) {
-      if(!window.swd.isHUseAudioClick) return;
+      if(!window.swd.isUseAudioClick) return;
 
       var sum = 0;
-      var avg, i, w;
-
-      var dataslight = [];
-
-      for(i = 0; i < canvas.width; ++i) {
-        dataslight[i] = ((data[i + 2] || data[i]) + (data[i + 1] || data[i]) + (data[i - 1] || data[i]) + (data[i - 2] || data[i]) + data[i]) / 5;
-      }
-
-      data = dataslight;
+      var avg, i, w, max=0;
 
       var wins = [{
-          min: 35,
-          max: 55,
+          min: 10,
+          max: 100,
           pick: 0
         }
-        //{min:180, max:230},
       ];
-
 
       if(window.swd.displayProcessing) {
         ctx.fillStyle = PICKCOLOR;
@@ -94,52 +71,52 @@
         }
       }
 
-      for(i = 15; i < 65; ++i) {
-        for(w = 0; w < wins.length; w++) {
-          if(i > wins[w].min && i < wins[w].max) {
-            if(window.swd.displayProcessing) {
-              ctx.fillStyle = 'white';
-              ctx.fillRect(i, canvas.height, 1, -data[i]);
-            }
-            if (wins[w].pick < data[i]) {
-              wins[w].pick = data[i];
-            }
-          }
-          sum += data[i];
+      for(w = wins[0].min; w < wins[0].max; w++) {
+
+        if(window.swd.displayProcessing) {
+          ctx.fillStyle = 'white';
+          ctx.fillRect(w, canvas.height, 1, -data[w]);
         }
+        if(data[w]>max) max = data[w];
       }
 
-      avg = sum / 50;
-      var b = 150; //* avg * 0.0;
-     // if (b < 170) b = 250;
+      fifo.push(max);
+      if(fifo.length > 6) {
+        fifo.splice(0,1);
+      }
 
-      //console.log(b)
+      var fifoLength = fifo.length, fifoSum=0, fifoAvg = 0;
+
+      for(var i = 0; i < fifoLength; i ++){
+        fifoSum += fifo[i];
+      }
+
+      fifoAvg = fifoSum/fifoLength;
 
       if(window.swd.displayProcessing) {
         ctx.fillStyle = AVGCOLOR;
-        ctx.fillRect(0, canvas.height - b, canvas.width, 3);
+        ctx.fillRect(0, canvas.height - max, canvas.width, 3);
 
         ctx.fillStyle = PICKCOLOR;
-        ctx.fillRect(0, canvas.height - wins[0].pick, canvas.width, 3);
+        ctx.fillRect(0, canvas.height - fifoAvg, canvas.width, 3);
       }
 
       var click = function(){
         window.swd.sendMessage("swdAudioClick", {});
       };
 
-      if (wins[0].pick > b) {
+      var clickCoefficient = 1.25;
+
+      if (max > fifoAvg*clickCoefficient) {
         if (!locker) {
           click();
-          console.log(locker,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+          console.log('CLICK =>>>>>>>>> ' + (new Date().getTime()));
           locker = true;
           setTimeout(function () {
             locker = false;
-          }, 700);
+          }, 1000);
         }
       }
-
-
-
     }
 
     var context, microphone, analyser;

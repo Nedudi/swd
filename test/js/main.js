@@ -95,4 +95,33 @@
     video.pause();
     video.src=null;
   };
+
+
+  window.swd.addEventListener("messageSettingsChanged", function(data) {
+    console.log('>>>>>>>>>>>>>>> inside srv frame messageSettingsChanged ===>>>> ',data.key,data.value)
+    switch(data.key){
+      case 'show camera preview':{
+        if(data.value === true){
+          window.swd.displayProcessing = true;
+          document.body.classList.add('swd-show');
+        } else {
+          window.swd.displayProcessing = false;
+          document.body.classList.remove('swd-show');
+        }
+      };break;
+      case 'enable face tracking':{
+        if(data.value === true){
+          window.swd.enableCamera();
+        } else {
+          window.swd.disableCamera();
+        }
+      };break;
+      case 'use audio click':{
+        window.swd.isUseAudioClick = data.value;
+      };break;
+
+
+    }
+  });
+
 })(window);

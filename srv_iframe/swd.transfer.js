@@ -67,7 +67,7 @@
       return;
     }
     var json = JSON.parse(str.substr(window.swd._messagePrefix.length));
-    console.log(json.type,window.swd._listeners);
+    //console.log(json.type,window.swd._listeners);
     if(window.swd._listeners[json.type]) {
       var that = this;
       window.swd._listeners[json.type].each(function(item) {
