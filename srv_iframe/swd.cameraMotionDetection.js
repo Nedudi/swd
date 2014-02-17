@@ -12,6 +12,7 @@
 
   window.swd.modMotion = null;
   window.swd.modFace = null;
+  swd.displayProcessing = true;
 
   window.swd.cameraMotionDetection = function(layers) {
     var width = 640;

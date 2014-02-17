@@ -48,7 +48,7 @@
     var fifo = [];
 
     function drawSpectrum(data) {
-      if(!window.swd.isUseAudioClick) return;
+      // if(!window.swd.isUseAudioClick) return;
 
       var sum = 0;
       var avg, i, w, max=0;

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fifo",
+				"fifoAvg"
+			],
+			[
+				"fif",
+				"fifoSum"
+			],
+			[
 				"ma",
 				"margin-top"
 			],
@@ -158,14 +166,6 @@
 			[
 				"su",
 				"sumY"
-			],
-			[
-				"fif",
-				"fifoSize"
-			],
-			[
-				"fifo",
-				"fifoSize"
 			],
 			[
 				"class",
@@ -504,10 +504,58 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/nedudi/work/urturn/webdoc-expressions/src_test/svg_filter/expression.json",
+			"file": "/Users/nedudi/work/my/enjoyCSS/package.json",
 			"settings":
 			{
-				"buffer_size": 357,
+				"buffer_size": 657,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "srv_iframe/swd.cameraMotionDetection.js",
+			"settings":
+			{
+				"buffer_size": 9956,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "srv_iframe/main.js",
+			"settings":
+			{
+				"buffer_size": 3564,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/D3007C83-E54C-4ECD-8CB4-AF8CEC1D6259/editor.html",
+			"settings":
+			{
+				"buffer_size": 61310,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/2573D70B-5AA7-439C-B845-354DD274D065/editor.js",
+			"settings":
+			{
+				"buffer_size": 11956,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "srv_iframe/swd.audioClick.js",
+			"settings":
+			{
+				"buffer_size": 3301,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "srv_iframe/graph.filters.js",
+			"settings":
+			{
+				"buffer_size": 3156,
 				"line_ending": "Unix"
 			}
 		}
@@ -580,7 +628,39 @@
 	},
 	"file_history":
 	[
+		"/Users/nedudi/work/my/html5by/wp-config.php",
+		"/Users/nedudi/work/my/enjoyCSS/public/css/ui/panels/background.panels.ui.css",
+		"/Users/nedudi/work/my/enjoyCSS/public/css/plugins/enjoy/jquery.enjoy.general.css",
+		"/Users/nedudi/work/my/enjoyCSS/gruntfile.js",
+		"/Users/nedudi/work/my/enjoyCSS/.gitignore",
+		"/Users/nedudi/work/my/enjoyCSS/public/css/enjoy.autoprefixed.css",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/E84C4528-6135-4888-AE3F-EBC8151A2BCC/deliver.php",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/28B2D445-4D83-4704-B409-847B62E9EF26/3202206521.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/F00A9FBA-8DA7-4010-8F7F-E530731E33BA/notice._layout_search.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/1DCD3F24-1004-4507-97D6-4F48308B2885/navigation.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/7A098B0F-F78B-4BE8-A987-AE009A806522/main.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/8C8AE0FA-1C5B-4100-B29A-959D51F2342A/1.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/AE5BD1AD-2CD6-43E6-B84A-607EF51A2A33/index.php",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/5E234FA8-42BD-4498-9B69-6C17DA4E5CD2/notice._layout_all.tpl",
+		"/Users/nedudi/work/urturn/webdoc-expressions/src_test/svg_filter/expression.json",
+		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/swd.audioClick.js",
+		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/main.js",
+		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/swd.transfer.js",
+		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/cam.html",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/D18A26DF-A7C9-44D2-BD14-BC9EF5A09D9D/navigation.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/E941BFB3-FA52-490A-9922-DB8CEB4D42F9/footer.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/518BF89C-A437-4B89-8CD1-7FD30A6A0B0C/notice._layout_search.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/8F84D264-DC1E-4DCE-8B5D-00457178BA97/pitomnik._layout_search.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/F93A4624-31AC-466F-8CFB-DD7ABBB43FB9/index.php",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/643779A5-9F81-4B36-85E1-C6FD57D37E21/main_page_template.tpl",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/4A07E16C-CCC7-4695-8E96-0FC5C5C22FB8/bottom_navigation.tpl",
+		"/Users/nedudi/work/my/stop-web-disability/test/js/main.js",
+		"/Users/nedudi/work/my/stop-web-disability/test/js/swd.cameraMotionDetection.js",
+		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/bg.js",
 		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/swd.cameraMotionDetection.js",
+		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/popup.js",
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/B6E2BCF7-BDAC-4F33-9E79-B9CD2AAA13BB/main.tpl",
+		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.js",
 		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.keyboard.js",
 		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.layout.js",
 		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.newtab.js",
@@ -593,17 +673,12 @@
 		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/manifest.json",
 		"/Users/nedudi/work/my/stop-web-disability/test/js/keyboard/css/air_large/keyboard.css",
 		"/Users/nedudi/work/my/stop-web-disability/test/js/keyboard/css/textual/keyboard.css",
-		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/bg.js",
-		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.js",
 		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/swd.cursorLayer.js",
-		"/Users/nedudi/work/my/stop-web-disability/ext_iframe/js/popup.js",
-		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/cam.html",
 		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/swd.mod_motion.js",
 		"/Users/nedudi/work/my/stop-web-disability/srv_iframe/test.html",
 		"/Users/nedudi/work/my/enjoyCSS/.editorconfig",
 		"/Users/nedudi/work/my/enjoyCSS/.gitattributes",
 		"/Users/nedudi/work/my/enjoyCSS/.jshintrc",
-		"/Users/nedudi/work/my/enjoyCSS/.gitignore",
 		"/Users/nedudi/work/my/enjoyCSS/views/layout_samples.jade",
 		"/Users/nedudi/work/my/enjoyCSS/public/css/fonts/enjoycss/style.css",
 		"/Users/nedudi/work/my/enjoyCSS/public/css/enjoy.css",
@@ -611,7 +686,6 @@
 		"/Users/nedudi/work/my/enjoyCSS/public/js/plugins/other/jquery.sharing.js",
 		"/Users/nedudi/work/my/enjoyCSS/public/css/ui/controls/code.controls.ui.css",
 		"/Users/nedudi/work/my/enjoyCSS/public/js/ui/controls/controls.ui.js",
-		"/Users/nedudi/work/my/enjoyCSS/gruntfile.js",
 		"/Users/nedudi/work/my/enjoyCSS/config/servers/production.js",
 		"/Users/nedudi/work/my/enjoyCSS/public/css/ui/layout/tabs.layout.ui.css",
 		"/Users/nedudi/work/my/enjoyCSS/public/css/ui/aside/aside.ui.css",
@@ -681,33 +755,7 @@
 		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/C7F0059D-539C-4CD5-B6C9-2A6F3B14751D/editor.html",
 		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/4D4EE25C-3D8E-4C0D-8370-05DFE5561293/player.html",
 		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/00A627C8-AF54-4531-8CDC-718DD9FA308C/editor.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/6F7E10FD-A67E-4176-8EFF-02F9A0DD72DE/player.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/26B7298F-E492-4E7F-A932-280721FF8175/utPopupChooser.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/012604A2-53B9-4E25-8658-6EF86120A57C/common.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/music_postcard/expression.json",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/music_postcard/js/player.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/music_postcard/js/jquery.ut-audio.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src_usr/xmasJumper-UglySweater/js/common.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src_usr/xmasJumper-UglySweater/expression.json",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/71316773-A879-4723-9DD2-2D00AFBBE795/common.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/835D4B51-E8BE-4B6C-98B0-83A671A982C9/editor.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/4A6280F6-FE3D-4966-96FE-3854B1C47E66/editor.js",
-		"/Users/nedudi/work/my/html5by/blogdemo/pointer-lock/css/main.css",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src_templates/sticker/sticker/js/editor.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/bubbles/js/editor.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/5A330328-F6BB-4D30-9D93-C357EFBD7783/player.html",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/89598385-A610-4BA7-B3D1-533986BFABCE/editor.html",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/C7348979-C753-4577-B97E-B947564FF257/editor.html",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/745C7E22-3B11-4435-855C-1BC792869041/player.js",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/06C2906D-52CE-4629-9750-486FCA0D33BC/editor.js",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/do_dont/expression.json",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/doodle/expression.json",
-		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/B2ABFFF3-1872-4726-BC8F-BAAE267992D3/player.js",
-		"/Users/nedudi/work/my/html5by/blogdemo/pointer-lock/main.js",
-		"/Users/nedudi/work/urturn/urturn-expression/jquery.ut-video/bower.json",
-		"/Users/nedudi/work/urturn/webdoc-expressions/src/video_clip/js/jquery.ut-video.js",
-		"/Users/nedudi/work/my/enjoyCSS/secret.json",
-		"/Users/nedudi/work/urturn/urturn-expression/jquery.ut-video/js/jquery.ut-video.js"
+		"/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/6F7E10FD-A67E-4176-8EFF-02F9A0DD72DE/player.js"
 	],
 	"find":
 	{
@@ -738,6 +786,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hide",
+			"btn_menu_group_ri",
+			"btn_menu_group_left",
+			"isUseAudioClick",
+			"audiocl",
+			"displayProcessing",
+			"ya",
+			"tpl",
+			"displayProcessing",
+			"avg",
+			"window.swd.displayProcessing",
+			"audioclick",
+			"displayProcessing",
+			"isUseAudioClick",
+			"enable",
+			"messa",
 			"theme",
 			"newtab",
 			"progress",
@@ -849,23 +913,7 @@
 			"updateFilterParameters",
 			"recalculateFilterStr",
 			"updateFilterParameters",
-			"window.recalculateFilterStr();",
-			"media",
-			"utImage",
-			"change",
-			"parametersCha",
-			"parameter",
-			"parameterscha",
-			"fastqu",
-			"size",
-			"conso",
-			"console",
-			"flex",
-			"utImage",
-			"flexRa",
-			"flex",
-			"height",
-			"target"
+			"window.recalculateFilterStr();"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1011,24 +1059,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/nedudi/work/urturn/webdoc-expressions/src_test/svg_filter/expression.json",
+					"file": "/Users/nedudi/work/my/enjoyCSS/package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 357,
+						"buffer_size": 657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								264,
-								264
+								23,
+								23
 							]
 						],
 						"settings":
@@ -1044,7 +1092,205 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "srv_iframe/swd.cameraMotionDetection.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "srv_iframe/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1180,
+								1180
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/D3007C83-E54C-4ECD-8CB4-AF8CEC1D6259/editor.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 61310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20335,
+								20335
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12435.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/nedudi/Library/Caches/Cleanup At Startup/Transmit/2573D70B-5AA7-439C-B845-354DD274D065/editor.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2042,
+								2057
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 6.0,
+						"translation.y": 548.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "srv_iframe/swd.audioClick.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1330,
+								1345
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 175.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "srv_iframe/graph.filters.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1126,7 +1372,7 @@
 		[
 			[
 				"",
-				"~/work/my/html5by/blogdemo/pointer-lock/pointer-lock.sublime-project"
+				"~/work/urturn/urturn.sublime-project"
 			]
 		],
 		"width": 380.0
