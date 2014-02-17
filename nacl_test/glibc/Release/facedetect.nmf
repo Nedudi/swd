@@ -1,0 +1,148 @@
+{
+  "files": {
+    "libopencv_core.so.2.4": {
+      "x86-64": {
+        "url": "lib64/libopencv_core.so.2.4"
+      },
+      "x86-32": {
+        "url": "lib32/libopencv_core.so.2.4"
+      }
+    },
+    "libc.so.8ec02f0e": {
+      "x86-64": {
+        "url": "lib64/libc.so.8ec02f0e"
+      },
+      "x86-32": {
+        "url": "lib32/libc.so.8ec02f0e"
+      }
+    },
+    "main.nexe": {
+      "x86-64": {
+        "url": "facedetect_x86_64.nexe"
+      },
+      "x86-32": {
+        "url": "facedetect_x86_32.nexe"
+      }
+    },
+    "libstdc++.so.6": {
+      "x86-64": {
+        "url": "lib64/libstdc++.so.6"
+      },
+      "x86-32": {
+        "url": "lib32/libstdc++.so.6"
+      }
+    },
+    "libz.so": {
+      "x86-64": {
+        "url": "lib64/libz.so"
+      },
+      "x86-32": {
+        "url": "lib32/libz.so"
+      }
+    },
+    "libpthread.so.8ec02f0e": {
+      "x86-64": {
+        "url": "lib64/libpthread.so.8ec02f0e"
+      },
+      "x86-32": {
+        "url": "lib32/libpthread.so.8ec02f0e"
+      }
+    },
+    "libjpeg.so": {
+      "x86-64": {
+        "url": "lib64/libjpeg.so"
+      },
+      "x86-32": {
+        "url": "lib32/libjpeg.so"
+      }
+    },
+    "libopencv_imgproc.so.2.4": {
+      "x86-64": {
+        "url": "lib64/libopencv_imgproc.so.2.4"
+      },
+      "x86-32": {
+        "url": "lib32/libopencv_imgproc.so.2.4"
+      }
+    },
+    "librt.so.8ec02f0e": {
+      "x86-64": {
+        "url": "lib64/librt.so.8ec02f0e"
+      },
+      "x86-32": {
+        "url": "lib32/librt.so.8ec02f0e"
+      }
+    },
+    "libopencv_video.so.2.4": {
+      "x86-64": {
+        "url": "lib64/libopencv_video.so.2.4"
+      },
+      "x86-32": {
+        "url": "lib32/libopencv_video.so.2.4"
+      }
+    },
+    "libopencv_objdetect.so.2.4": {
+      "x86-64": {
+        "url": "lib64/libopencv_objdetect.so.2.4"
+      },
+      "x86-32": {
+        "url": "lib32/libopencv_objdetect.so.2.4"
+      }
+    },
+    "libppapi_cpp.so": {
+      "x86-64": {
+        "url": "lib64/libppapi_cpp.so"
+      },
+      "x86-32": {
+        "url": "lib32/libppapi_cpp.so"
+      }
+    },
+    "libgcc_s.so.1": {
+      "x86-64": {
+        "url": "lib64/libgcc_s.so.1"
+      },
+      "x86-32": {
+        "url": "lib32/libgcc_s.so.1"
+      }
+    },
+    "libdl.so.8ec02f0e": {
+      "x86-64": {
+        "url": "lib64/libdl.so.8ec02f0e"
+      },
+      "x86-32": {
+        "url": "lib32/libdl.so.8ec02f0e"
+      }
+    },
+    "libnaclmounts.so": {
+      "x86-64": {
+        "url": "lib64/libnaclmounts.so"
+      },
+      "x86-32": {
+        "url": "lib32/libnaclmounts.so"
+      }
+    },
+    "libopencv_highgui.so.2.4": {
+      "x86-64": {
+        "url": "lib64/libopencv_highgui.so.2.4"
+      },
+      "x86-32": {
+        "url": "lib32/libopencv_highgui.so.2.4"
+      }
+    },
+    "libm.so.8ec02f0e": {
+      "x86-64": {
+        "url": "lib64/libm.so.8ec02f0e"
+      },
+      "x86-32": {
+        "url": "lib32/libm.so.8ec02f0e"
+      }
+    }
+  },
+  "program": {
+    "x86-64": {
+      "url": "lib64/runnable-ld.so"
+    },
+    "x86-32": {
+      "url": "lib32/runnable-ld.so"
+    }
+  }
+}

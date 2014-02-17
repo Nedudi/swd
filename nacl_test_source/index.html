@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><ProjectName>!</title>
+  <script src="compatibility.js"></script>
+  <script src="main.js"></script>
+</head>
+<body onload="pageDidLoad()">
+  <h1>Native Client OpenCV 2.4.2 Haar Face Detection Example</h1>
+  <p>
+    <div>
+      <video id="webcam" width="320" height="240"></video>
+      <canvas id="myCanvas"></canvas>
+    </div>
+    <div style="clear:both"></div>
+    <div id="listener">
+    <!--<input type="button" id="request" value="Request" />-->
+      <script type="text/javascript">
+        var listener = document.getElementById('listener');
+        listener.addEventListener('load', moduleDidLoad, true);
+        listener.addEventListener('message', handleMessage, true);
+//        var button = document.getElementById("request");
+//        button.addEventListener('click', moduleRequest, true);
+      </script>
+      <embed name="nacl_module" id="test" width="0" height="0" src="glibc/Release/facedetect.nmf" type="application/x-nacl" />
+    </div>
+  </p>
+  <h2>Status</h2>
+  <div id="status_field">NO-STATUS</div>
+  <div id="motion_data"></div>
+</body>
+</html>
