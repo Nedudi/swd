@@ -302,9 +302,7 @@ void facedetectInstance::CreateMemFile(const string& content, const string& file
 void facedetectInstance::RecognizeFace(){
 
   if(!this->face_cascade) {
-    // stream message for debugging
     const char* cascadeFilename = "/haarcascade_frontalface_alt.xml";
-    //CascadeClassifier *face_cascade;
     this->face_cascade = new CascadeClassifier();
     face_cascade->load(cascadeFilename);
     if(!face_cascade->load(cascadeFilename)){
@@ -313,28 +311,21 @@ void facedetectInstance::RecognizeFace(){
     }
   }
 
-//  if(!this->curFrame) {
-//    this->curFrame = new Mat();
-//  }
-//  static int detectCounter;
+  static std::vector<Rect> faces;
+  static Mat frame_gray;
 
-//  if((detectCounter%10) == 0) {
-    std::vector<Rect> faces;
-    Mat frame_gray;
+  cvtColor(Mat(this->frame->ptr()), frame_gray, CV_BGR2GRAY );
+  equalizeHist(frame_gray, frame_gray);
 
-    cvtColor(Mat(this->frame->ptr()), frame_gray, CV_BGR2GRAY );
-    equalizeHist(frame_gray, frame_gray);
-
-    //-- Detect faces
-    this->face_cascade->detectMultiScale(frame_gray, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, Size(60, 60));
-    if(faces.size() > 0) {
-      this->_fx = faces[0].x;
-      this->_fy = faces[0].y;
-      this->_fw = faces[0].width;
-      this->_fh = faces[0].height;
-    }
-//  }
-//  ++detectCounter;
+  //-- Detect faces
+//  this->face_cascade->detectMultiScale(frame_gray, faces, 1.1, 2, CV_HAAR_DO_CANNY_PRUNING, Size(65, 65));
+  this->face_cascade->detectMultiScale(frame_gray, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, Size(65, 65));
+  if(faces.size() > 0) {
+    this->_fx = faces[0].x;
+    this->_fy = faces[0].y;
+    this->_fw = faces[0].width;
+    this->_fh = faces[0].height;
+  }
 
   this->DetectMotion();
 }
@@ -361,8 +352,8 @@ void facedetectInstance::DetectMotion() {
 
   double pyr_scale = 0.5;
   int levels = 3;
-  int winsize = 5; //40
-  int iterations = 5; //30
+  int winsize = 8; //40
+  int iterations = 10; //30
   int poly_n = 5;
   double poly_sigma = 1.1; //1
   int flags = 0;
@@ -374,8 +365,8 @@ void facedetectInstance::DetectMotion() {
   int y, x, cc = 0;
   float sx,sy,sl;
 	float velModulusMax = 0;
-	int cellW = 15;//(int)(this->_fw/step);
-	int cellH = 15;//(int)(this->_fh/step);
+	int cellW = 15;
+	int cellH = 15;
 	int stepW = (int)(this->_fw / cellW);
 	int stepH = (int)(this->_fh / cellH);
 	if(stepW < 1) {
@@ -384,22 +375,24 @@ void facedetectInstance::DetectMotion() {
 	if(stepH < 1) {
 	  stepH = 1;
 	}
+	int startX = (int)(this->_fx + this->_fw/2 - (stepW*cellW)/2);
+	int startY = (int)(this->_fy + this->_fh/2 - (stepH*cellH)/2);
 
 	// Compute modulus for every motion cell
-  for(y = 0; y < cellH; y += stepH) {
-    for(x = 0; x < cellW; x += stepW) {
-      const cv::Point2f& fxy = flow.at<cv::Point2f>(this->_fy + y, this->_fx + x);
-      sl = this->_fx * this->_fx + this->_fy * this->_fy;
+  for(y = 0; y < cellH; ++y) {
+    for(x = 0; x < cellW; ++x) {
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(startY + y*stepH, startX + x*stepW);
+      sl = fxy.x * fxy.x + fxy.y * fxy.y;
       if(velModulusMax < sl) {
         velModulusMax = sl;
       }
 		}
 	}
 
-  for(y = 0; y < cellH; y += stepH) {
-    for(x = 0; x < cellW; x += stepW) {
-      const cv::Point2f& fxy = flow.at<cv::Point2f>(this->_fy + y, this->_fx + x);
-      sl = this->_fx * this->_fx + this->_fy * this->_fy;
+  for(y = 0; y < cellH; ++y) {
+    for(x = 0; x < cellW; ++x) {
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(startY + y*stepH, startX + x*stepW);
+      sl = fxy.x * fxy.x + fxy.y * fxy.y;
       if(sl > (0.05 * velModulusMax)) {
          sx += fxy.x;
          sy += fxy.y;

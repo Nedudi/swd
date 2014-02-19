@@ -135,8 +135,10 @@
   };
 
   window.swd.nacl.findMoveDelta = function(data) {
-    window.swd.nacl._cursorPos.x -= data.dx / window.swd.nacl._width;
-    window.swd.nacl._cursorPos.y += data.dy / window.swd.nacl._height;
+    var dx = Math.exp(1.5*Math.log(Math.abs(data.dx))) * (data.dx > 0 ? 1 : -1);
+    var dy = Math.exp(1.5*Math.log(Math.abs(data.dy))) * (data.dy > 0 ? 1 : -1);
+    window.swd.nacl._cursorPos.x -= dx / window.swd.nacl._width;
+    window.swd.nacl._cursorPos.y += dy / window.swd.nacl._height;
     if(window.swd.nacl._cursorPos.x < 0) { window.swd.nacl._cursorPos.x = 0; }
     else if(window.swd.nacl._cursorPos.x > 1) { window.swd.nacl._cursorPos.x = 1; }
     if(window.swd.nacl._cursorPos.y < 0) { window.swd.nacl._cursorPos.y = 0; }
@@ -151,8 +153,8 @@
     window.swd.sendMessage("swdCursorPosition", {
       "x":  window.swd.nacl._cursorPos.x,
       "y":  window.swd.nacl._cursorPos.y,
-      "mx": 0.5/*window.swd.nacl._cursorPos.spdX*/,
-      "my": 0.5/*window.swd.nacl._cursorPos.spdY*/
+      "mx": 1/*window.swd.nacl._cursorPos.spdX*/,
+      "my": 1/*window.swd.nacl._cursorPos.spdY*/
     });
   };
 
