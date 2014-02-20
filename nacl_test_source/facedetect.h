@@ -36,10 +36,21 @@ class facedetectInstance : public pp::Instance {
 
   private:
     int width, height;
-    std::string url;
     GetURLHandler* handler;
     bool classifierCreated;
     CascadeClassifier *face_cascade;
-    int _fx,_fy,_fw,_fh;
+    int _fx, _fy, _fw, _fh;
+    double scaleFactor;
+    int minNeighbors;
+    int sizeW, sizeH;
+    double mp_pyr_scale;
+    int mp_levels;
+    int mp_winsize;
+    int mp_iterations;
+    int mp_poly_n;
+    double mp_poly_sigma;
+    int mp_flags;
+    double regionX;
+    double regionY;
 };
 #endif

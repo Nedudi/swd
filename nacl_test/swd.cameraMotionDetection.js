@@ -20,6 +20,7 @@
   window.swd.nacl._faceRect = null;
   window.swd.nacl._width = 0;
   window.swd.nacl._height = 0;
+  window.swd.nacl._motionLimit = 0.25;
 
   window.swd.nacl.updateStatus = function(txt) {
     console.log("updateStatus - ", txt);
@@ -32,6 +33,17 @@
     if(window.swd.nacl._videoReady && window.swd.nacl._naclReady) {
       window.swd.nacl.activeCursor(false);
       window.swd.nacl.resetMotionTracing();
+
+      //region|regionX|regionY
+      swd._naclModule.postMessage("region|0.4|0.5");
+      //recognize|scaleFactor|minNeighbors|sizeW|sizeH
+//      swd._naclModule.postMessage("recognize|1.1|2|65|65");
+      //motion|pyr_scale|levels|winsize|iterations|poly_n|poly_sigma|flags
+//      swd._naclModule.postMessage("motion|0.5|3|8|10|5|1.1|0");
+      if(swd.cameraCanvas && swd.cameraCanvas.width > 0 && swd.cameraCanvas.height > 0) {
+        //size|width|height
+        swd._naclModule.postMessage("size|" + swd.cameraCanvas.width + "|" + swd.cameraCanvas.height);
+      }
       window.swd.nacl.tick();
     }
   };
@@ -68,7 +80,6 @@
       ctx.restore();
     }
 
-    swd._naclModule.postMessage(imageData.width + '|' + imageData.height);
     swd._naclModule.postMessage(imageData.data.buffer);
   };
 
@@ -89,6 +100,11 @@
     }
 
     if(tmp && tmp[0] && tmp[0].dx && tmp[0].dy) {
+      if((tmp[0].dx*tmp[0].dx + tmp[0].dy*tmp[0].dy) < window.swd.nacl._motionLimit) {
+        tmp[0].dx = 0;
+        tmp[0].dy = 0;
+      }
+
       tmp[0].dx *= -1;
       window.swd.nacl.findMoveDelta(tmp[0]);
       window.swd.nacl.drawCursors();
@@ -135,8 +151,8 @@
   };
 
   window.swd.nacl.findMoveDelta = function(data) {
-    var dx = Math.exp(1.5*Math.log(Math.abs(data.dx))) * (data.dx > 0 ? 1 : -1);
-    var dy = Math.exp(1.5*Math.log(Math.abs(data.dy))) * (data.dy > 0 ? 1 : -1);
+    var dx = Math.exp(1.3*Math.log(Math.abs(data.dx))) * (data.dx > 0 ? 1 : -1);
+    var dy = Math.exp(1.3*Math.log(Math.abs(data.dy))) * (data.dy > 0 ? 1 : -1);
     window.swd.nacl._cursorPos.x -= dx / window.swd.nacl._width;
     window.swd.nacl._cursorPos.y += dy / window.swd.nacl._height;
     if(window.swd.nacl._cursorPos.x < 0) { window.swd.nacl._cursorPos.x = 0; }

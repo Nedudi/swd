@@ -200,24 +200,110 @@ facedetectInstance::facedetectInstance(PP_Instance instance) : pp::Instance(inst
   this->_fy = 0;
   this->_fw = 0;
   this->_fh = 0;
+
+  this->scaleFactor = 1.1;
+  this->minNeighbors = 2;
+  this->sizeW = 65;
+  this->sizeH = 65;
+
+  this->mp_pyr_scale = 0.5;
+  this->mp_levels = 3;
+  this->mp_winsize = 8; //40
+  this->mp_iterations = 10; //30
+  this->mp_poly_n = 5;
+  this->mp_poly_sigma = 1.1; //1
+  this->mp_flags = 0;
+
+  this->regionX = 0.8;
+  this->regionY = 0.8;
 }
 
 facedetectInstance::~facedetectInstance() {
 }
 
+int readIntFromStream(string &str) {
+  stringstream convert;
+  int res;
+  convert << str.substr(0, str.find_first_of('|'));
+  convert >> res;
+  str = str.substr(str.find_first_of('|')+1, str.length());
+  return res;
+}
+
+float readFloatFromStream(string &str) {
+  stringstream convert;
+  float res;
+  convert << str.substr(0, str.find_first_of('|'));
+  convert >> res;
+  str = str.substr(str.find_first_of('|')+1, str.length());
+  return res;
+}
+
+double readDoubleFromStream(string &str) {
+  stringstream convert;
+  double res;
+  convert << str.substr(0, str.find_first_of('|'));
+  convert >> res;
+  str = str.substr(str.find_first_of('|')+1, str.length());
+  return res;
+}
+
+string readStringFromStream(string &str) {
+  stringstream convert;
+  string res;
+  res = str.substr(0, str.find_first_of('|'));
+  str = str.substr(str.find_first_of('|')+1, str.length());
+  return res;
+}
+
 // Read first AJAX call to and parse the string to get the data (src of the
-// image, width, height) 
+// image, width, height)
 void facedetectInstance::HandleMessage(const pp::Var& var_message) {
 
   if(var_message.pp_var().type == 5) {
-    stringstream convert;
     string data = var_message.AsString();
-    convert << data.substr(0, data.find_first_of('|'));
-    convert >> this->width;
-    stringstream convert2;
-    convert2 << data.substr(data.find_first_of('|')+1, data.length());
-    convert2 >> this->height;
-    this->PostMessage(pp::Var("params"));
+    string type = readStringFromStream(data);
+
+    stringstream ss;
+    if(!type.compare("size")) {
+      this->width = readIntFromStream(data);
+      this->height = readIntFromStream(data);
+      ss << "width=" << this->width
+        << ", height=" << this->height;
+      this->PostMessage(pp::Var(ss.str()));
+    } else if(!type.compare("recognize")) {
+      this->scaleFactor = readDoubleFromStream(data);
+      this->minNeighbors = readIntFromStream(data);
+      this->sizeW = readIntFromStream(data);
+      this->sizeH = readIntFromStream(data);
+      ss << "scaleFactor=" << this->scaleFactor
+        << ", minNeighbors=" << this->minNeighbors
+        << ", sizeW=" << this->sizeW
+        << ", sizeH=" << this->sizeH;
+      this->PostMessage(pp::Var(ss.str()));
+    } else if(!type.compare("motion")) {
+      this->mp_pyr_scale = readDoubleFromStream(data);
+      this->mp_levels = readIntFromStream(data);
+      this->mp_winsize = readIntFromStream(data);
+      this->mp_iterations = readIntFromStream(data);
+      this->mp_poly_n = readIntFromStream(data);
+      this->mp_poly_sigma = readDoubleFromStream(data);
+      this->mp_flags = readIntFromStream(data);
+      ss << "pyr_scale=" << this->mp_pyr_scale
+        << ", levels=" << this->mp_levels
+        << ", winsize=" << this->mp_winsize
+        << ", iterations=" << this->mp_iterations
+        << ", poly_n=" << this->mp_poly_n
+        << ", poly_sigma=" << this->mp_poly_sigma
+        << ", mp_flags=" << this->mp_flags;
+      this->PostMessage(pp::Var(ss.str()));
+    } else if(!type.compare("region")) {
+      this->regionX = readDoubleFromStream(data);
+      this->regionY = readDoubleFromStream(data);
+      ss << "regionX=" << this->regionX
+        << ", regionY=" << this->regionY;
+      this->PostMessage(pp::Var(ss.str()));
+    }
   } else if(var_message.pp_var().type == 9) {
     if(!this->width || !this->height) {
       this->PostMessage(pp::Var("no params"));
@@ -318,8 +404,8 @@ void facedetectInstance::RecognizeFace(){
   equalizeHist(frame_gray, frame_gray);
 
   //-- Detect faces
-//  this->face_cascade->detectMultiScale(frame_gray, faces, 1.1, 2, CV_HAAR_DO_CANNY_PRUNING, Size(65, 65));
-  this->face_cascade->detectMultiScale(frame_gray, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, Size(65, 65));
+//  this->face_cascade->detectMultiScale(frame_gray, faces, this->scaleFactor, this->minNeighbors, CV_HAAR_DO_CANNY_PRUNING, Size(this->sizeW, this->sizeH));
+  this->face_cascade->detectMultiScale(frame_gray, faces, this->scaleFactor, this->minNeighbors, CV_HAAR_SCALE_IMAGE, Size(this->sizeW, this->sizeH));
   if(faces.size() > 0) {
     this->_fx = faces[0].x;
     this->_fy = faces[0].y;
@@ -350,16 +436,8 @@ void facedetectInstance::DetectMotion() {
   }
   cvtColor(Mat(this->frame->ptr()), *newMat, CV_BGR2GRAY);
 
-  double pyr_scale = 0.5;
-  int levels = 3;
-  int winsize = 8; //40
-  int iterations = 10; //30
-  int poly_n = 5;
-  double poly_sigma = 1.1; //1
-  int flags = 0;
-
   Mat flow = Mat(oldMat->size(), CV_32FC2);
-  calcOpticalFlowFarneback(*oldMat, *newMat, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags);
+  calcOpticalFlowFarneback(*oldMat, *newMat, flow, this->mp_pyr_scale, this->mp_levels, this->mp_winsize, this->mp_iterations, this->mp_poly_n, this->mp_poly_sigma, this->mp_flags);
   (*oldMat) = (*newMat).clone();
 
   int y, x, cc = 0;
@@ -367,8 +445,8 @@ void facedetectInstance::DetectMotion() {
 	float velModulusMax = 0;
 	int cellW = 15;
 	int cellH = 15;
-	int stepW = (int)(this->_fw / cellW);
-	int stepH = (int)(this->_fh / cellH);
+	int stepW = (int)(this->_fw * this->regionX / cellW);
+	int stepH = (int)(this->_fh * this->regionY / cellH);
 	if(stepW < 1) {
 	  stepW = 1;
 	}
@@ -415,118 +493,6 @@ void facedetectInstance::DetectMotion() {
 	// Compute speed
 	xVel= - (xVel / (float)cc);
 	yVel= (yVel / (float)cc);
-
-//  xVel = sx / cc;
-//  yVel = sy / cc;
-
-//  for(int y = 0; y < cflowmap.rows; y += step)
-//      for(int x = 0; x < cflowmap.cols; x += step)
-//      {
-//          const cv::Point2f& fxy = flow.at<cv::Point2f>(y, x);
-//          cv::line(cflowmap, cv::Point(x,y), cv::Point(cvRound(x+fxy.x),cvRound(y+fxy.y)), color);
-//          cv::circle(cflowmap, cv::Point(x,y), 2, color, -1);
-//      }
-
-/*
-  static CFImage *oldFrame;
-  static CFImage *newFrame;
-  if(!oldFrame) {
-    oldFrame = new CFImage(this->frame->ptr());
-    this->PostMessage(pp::Var("[]"));
-    return;
-  }
-  if(!newFrame) {
-    newFrame = new CFImage();
-    newFrame->Create(this->width, this->height, IPL_DEPTH_8U, "GRAY");
-  }
-  newFrame->Import(this->frame->ptr());
-
-  static CFImage *oldFrameGray;
-  static CFImage *newFrameGray;
-  if(!oldFrameGray) {
-    oldFrameGray = new CFImage();
-    oldFrameGray->Create(this->width, this->height, IPL_DEPTH_8U, "GRAY");
-  }
-  if(!newFrameGray) {
-    newFrameGray = new CFImage();
-    newFrameGray->Create(this->width, this->height, IPL_DEPTH_8U, "GRAY");
-  }
-
-  static CFImage *pImgVelX;
-  static CFImage *pImgVelY;
-  if(!pImgVelX) {
-    pImgVelX = new CFImage();
-    pImgVelX->Create(this->width, this->height, IPL_DEPTH_32F, "GRAY");
-  }
-  if(!pImgVelY) {
-    pImgVelY = new CFImage();
-    pImgVelY->Create(this->width, this->height, IPL_DEPTH_32F, "GRAY");
-  }
-
-  int his[256];
-  unsigned char m_prevLut[256];
-  int range;
-
-  crvHistogram(this->frame->ptr(), his);
-  range = crvNormalizeHistogram(his, m_prevLut, 50);
-
-  crvLUTTransform(oldFrame->ptr(), oldFrameGray->ptr(), m_prevLut);
-  crvLUTTransform(newFrame->ptr(), newFrameGray->ptr(), m_prevLut);
-
-	// Compute optical flow
-	CvTermCriteria term;
-	term.type = CV_TERMCRIT_ITER;
-	term.max_iter = 6;
-  cvCalcOpticalFlowHS((CvArr*)oldFrameGray->ptr(), (CvArr*)newFrameGray->ptr(), 0, (CvArr*)pImgVelX->ptr(), (CvArr*)pImgVelY->ptr(), 0.001, term);
-
-  static TAnalisysMatrix velXMatrix, velYMatrix, velModulusMatrix;
-
-	MatrixMeanImageCells(pImgVelX->ptr(), velXMatrix);
-	MatrixMeanImageCells(pImgVelY->ptr(), velYMatrix);
-
-	int x, y;
-	float velModulusMax = 0;
-
-	// Compute modulus for every motion cell
-	for(x = 0; x < COMP_MATRIX_WIDTH; ++x) {
-		for(y = 0; y < COMP_MATRIX_HEIGHT; ++y) {
-			velModulusMatrix[x][y] = (velXMatrix[x][y] * velXMatrix[x][y] + velYMatrix[x][y] * velYMatrix[x][y]);
-			if(velModulusMax < velModulusMatrix[x][y]) {
-			  velModulusMax = velModulusMatrix[x][y];
-			}
-		}
-	}
-
-	// Select valid cells (i.e. those with enough motion)
-	int validCells = 0;
-
-	xVel = yVel = 0;
-	for(x = 0; x < COMP_MATRIX_WIDTH; ++x) {
-		for(y = 0; y < COMP_MATRIX_HEIGHT; ++y) {
-			if(velModulusMatrix[x][y] > (0.05 * velModulusMax)) {
-				++validCells;
-				xVel += velXMatrix[x][y];
-				yVel += velYMatrix[x][y];
-			}
-		}
-	}
-
-	// Ensure minimal area to avoid extremely high values
-	int cellArea = (this->_fw * this->_fh) / (COMP_MATRIX_WIDTH * COMP_MATRIX_HEIGHT);
-	if(cellArea == 0) {
-	  cellArea= 1;
-	}
-	int minValidCells = (3000 / cellArea);
-	if(validCells < minValidCells) {
-	  validCells= minValidCells;
-	}
-
-	// Compute speed
-	xVel = - (xVel / (float)validCells) * 40;
-	yVel = (yVel / (float)validCells) * 80;
-*/
-
-  //(*(this->oldFrame)) = (*(this->curFrame)).clone();
 
   stringstream ss;
   ss << "[{\"x\":" << this->_fx

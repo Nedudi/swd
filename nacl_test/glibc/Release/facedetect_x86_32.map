@@ -129,9 +129,9 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
                 0x00000000010000a0                . = ALIGN (0x20)
  *fill*         0x0000000001000089       0x17 90909090
 
-.plt            0x00000000010000a0     0x1c80
+.plt            0x00000000010000a0     0x1dc0
  *(.plt)
- .plt           0x00000000010000a0     0x1c80 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .plt           0x00000000010000a0     0x1dc0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
                 0x00000000010000e0                _ZN2pp8InstanceD2Ev
                 0x0000000001000120                __deregister_frame_info@@GLIBC_2.0
                 0x0000000001000160                _ZN2pp3VarC1EPKc
@@ -166,221 +166,230 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
                 0x00000000010008e0                _ZSt20__throw_out_of_rangePKc@@GLIBCXX_3.4
                 0x0000000001000920                _ZN2cv3Mat6createEiPKii
                 0x0000000001000960                _ZNSsC1ERKSsjj@@GLIBCXX_3.4
-                0x00000000010009a0                _ZNK2cv3Mat6copyToERKNS_12_OutputArrayE
-                0x00000000010009e0                _ZN2pp8Instance16HandleInputEventERKNS_10InputEventE
-                0x0000000001000a20                _ZNSsD1Ev@@GLIBCXX_3.4
-                0x0000000001000a60                _ZNSs4_Rep10_M_destroyERKSaIcE@@GLIBCXX_3.4
-                0x0000000001000aa0                cvReleaseImage
-                0x0000000001000ae0                _ZN2pp4Lock7ReleaseEv
-                0x0000000001000b20                _ZN2cv17CascadeClassifier4loadERKSs
-                0x0000000001000b60                fflush@@GLIBC_2.0
-                0x0000000001000ba0                _ZN2pp9URLLoader16ReadResponseBodyEPviRKNS_18CompletionCallbackE
-                0x0000000001000be0                _ZNSs7replaceEjjPKcj@@GLIBCXX_3.4
-                0x0000000001000c20                __cxa_guard_release@@CXXABI_1.3
-                0x0000000001000c60                _ZN2pp14VarArrayBufferC1ERKNS_3VarE
-                0x0000000001000ca0                _ZN11KernelProxy5closeEi
-                0x0000000001000ce0                memcpy@@GLIBC_2.0
-                0x0000000001000d20                _ZN2pp3VarD2Ev
-                0x0000000001000d60                strlen@@GLIBC_2.0
-                0x0000000001000da0                _ZN2cv12_OutputArrayC1ERNS_3MatE
-                0x0000000001000de0                _ZN2pp8Instance18HandleDocumentLoadERKNS_9URLLoaderE
-                0x0000000001000e20                _ZNSsC1EPKcRKSaIcE@@GLIBCXX_3.4
-                0x0000000001000e60                _ZN2pp8Instance11PostMessageERKNS_3VarE
-                0x0000000001000ea0                _ZN2cv24calcOpticalFlowFarnebackERKNS_11_InputArrayES2_RKNS_12_OutputArrayEdiiiidi
-                0x0000000001000ee0                _ZN2pp8ResourceD2Ev
-                0x0000000001000f20                _ZN12MountManager8AddMountEP5MountPKc
-                0x0000000001000f60                _ZN2pp4LockC1Ev
-                0x0000000001000fa0                printf@@GLIBC_2.0
-                0x0000000001000fe0                _ZNSt6localeC1Ev@@GLIBCXX_3.4
-                0x0000000001001020                jpeg_resync_to_restart
-                0x0000000001001060                _ZN2cv3Mat8copySizeERKS0_
-                0x00000000010010a0                _Znwj@@GLIBCXX_3.4
-                0x00000000010010e0                cvSetZero
-                0x0000000001001120                cvCreateImage
-                0x0000000001001160                _ZN2cv12equalizeHistERKNS_11_InputArrayERKNS_12_OutputArrayE
-                0x00000000010011a0                _ZN2pp14VarArrayBuffer3MapEv
-                0x00000000010011e0                fwrite@@GLIBC_2.0
-                0x0000000001001220                _ZN2cv17CascadeClassifierC1Ev
-                0x0000000001001260                _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E@@GLIBCXX_3.4
-                0x00000000010012a0                _ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii
-                0x00000000010012e0                _ZN2pp14VarArrayBuffer5UnmapEv
-                0x0000000001001320                _ZN2cv11FileStorage4openERKSsiS2_
-                0x0000000001001360                _ZNSt8ios_baseD2Ev@@GLIBCXX_3.4
-                0x00000000010013a0                _ZN2cv11FileStorageD1Ev
-                0x00000000010013e0                _ZN2pp8Instance14DidChangeFocusEb
-                0x0000000001001420                _ZNK2cv11FileStorage4rootEi
-                0x0000000001001460                pthread_create@@GLIBC_2.1
-                0x00000000010014a0                _ZNSirsERi@@GLIBCXX_3.4
-                0x00000000010014e0                _ZN2pp14URLRequestInfoC1ERKNS_14InstanceHandleE
-                0x0000000001001520                _ZNSs6assignERKSs@@GLIBCXX_3.4
-                0x0000000001001560                _ZSt19__throw_logic_errorPKc@@GLIBCXX_3.4
-                0x00000000010015a0                _ZN2pp8Instance4InitEjPPKcS3_
-                0x00000000010015e0                _ZN2cv11_InputArrayC1ERKNS_3MatE
-                0x0000000001001620                _ZN2pp8InstanceC2Ei
-                0x0000000001001660                _ZN2cv11FileStorage7releaseEv
-                0x00000000010016a0                _ZN2pp3VarD1Ev
-                0x00000000010016e0                puts@@GLIBC_2.0
-                0x0000000001001720                _ZNSo9_M_insertIdEERSoT_@@GLIBCXX_3.4.9
-                0x0000000001001760                _ZNSt9basic_iosIcSt11char_traitsIcEED2Ev@@GLIBCXX_3.4
-                0x00000000010017a0                _ZN2pp6Module4InitEv
-                0x00000000010017e0                _ZN12MountManager10MMInstanceEv
-                0x0000000001001820                _ZNK2cv11FileStorage8isOpenedEv
-                0x0000000001001860                _ZNSs4_Rep9_S_createEjjRKSaIcE@@GLIBCXX_3.4
-                0x00000000010018a0                _ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev@@GLIBCXX_3.4
-                0x00000000010018e0                _ZNSs6appendEPKcj@@GLIBCXX_3.4
-                0x0000000001001920                __pthread_key_create@@GLIBC_2.0
-                0x0000000001001960                _ZN2cv8fastFreeEPv
-                0x00000000010019a0                _ZN8MemMountC1Ev
-                0x00000000010019e0                __gxx_personality_v0@@CXXABI_1.3
-                0x0000000001001a20                _ZN2pp6ModuleC2Ev
-                0x0000000001001a60                _ZN2pp6ModuleD2Ev
-                0x0000000001001aa0                _ZN2cv16FileNodeIteratorC1EPK13CvFileStoragePK10CvFileNodej
-                0x0000000001001ae0                PPP_ShutdownModule
-                0x0000000001001b20                _Unwind_Resume@@GCC_3.0
-                0x0000000001001b60                _ZNK2pp3Var8AsStringEv
-                0x0000000001001ba0                _ZNSt6localeD1Ev@@GLIBCXX_3.4
-                0x0000000001001be0                _ZNSs12_M_leak_hardEv@@GLIBCXX_3.4
-                0x0000000001001c20                _ZNSs6appendERKSs@@GLIBCXX_3.4
-                0x0000000001001c60                _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i@@GLIBCXX_3.4.9
-                0x0000000001001ca0                _ZNSs7reserveEj@@GLIBCXX_3.4
-                0x0000000001001ce0                _ZN2pp14URLRequestInfo11SetPropertyE21PP_URLRequestPropertyRKNS_3VarE
+                0x00000000010009a0                _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@@GLIBCXX_3.4
+                0x00000000010009e0                _ZNK2cv3Mat6copyToERKNS_12_OutputArrayE
+                0x0000000001000a20                _ZN2pp8Instance16HandleInputEventERKNS_10InputEventE
+                0x0000000001000a60                _ZNSsD1Ev@@GLIBCXX_3.4
+                0x0000000001000aa0                _ZNSs4_Rep10_M_destroyERKSaIcE@@GLIBCXX_3.4
+                0x0000000001000ae0                cvReleaseImage
+                0x0000000001000b20                _ZN2pp4Lock7ReleaseEv
+                0x0000000001000b60                _ZN2cv17CascadeClassifier4loadERKSs
+                0x0000000001000ba0                fflush@@GLIBC_2.0
+                0x0000000001000be0                _ZNSi10_M_extractIdEERSiRT_@@GLIBCXX_3.4.9
+                0x0000000001000c20                _ZN2pp9URLLoader16ReadResponseBodyEPviRKNS_18CompletionCallbackE
+                0x0000000001000c60                _ZNSs7replaceEjjPKcj@@GLIBCXX_3.4
+                0x0000000001000ca0                __cxa_guard_release@@CXXABI_1.3
+                0x0000000001000ce0                _ZN2pp14VarArrayBufferC1ERKNS_3VarE
+                0x0000000001000d20                _ZN11KernelProxy5closeEi
+                0x0000000001000d60                memcpy@@GLIBC_2.0
+                0x0000000001000da0                _ZN2pp3VarD2Ev
+                0x0000000001000de0                strlen@@GLIBC_2.0
+                0x0000000001000e20                _ZN2cv12_OutputArrayC1ERNS_3MatE
+                0x0000000001000e60                _ZN2pp8Instance18HandleDocumentLoadERKNS_9URLLoaderE
+                0x0000000001000ea0                _ZNKSs7compareEPKc@@GLIBCXX_3.4
+                0x0000000001000ee0                _ZNSsC1EPKcRKSaIcE@@GLIBCXX_3.4
+                0x0000000001000f20                _ZN2pp8Instance11PostMessageERKNS_3VarE
+                0x0000000001000f60                _ZN2cv24calcOpticalFlowFarnebackERKNS_11_InputArrayES2_RKNS_12_OutputArrayEdiiiidi
+                0x0000000001000fa0                _ZN2pp8ResourceD2Ev
+                0x0000000001000fe0                _ZN12MountManager8AddMountEP5MountPKc
+                0x0000000001001020                _ZN2pp4LockC1Ev
+                0x0000000001001060                printf@@GLIBC_2.0
+                0x00000000010010a0                _ZNSt6localeC1Ev@@GLIBCXX_3.4
+                0x00000000010010e0                jpeg_resync_to_restart
+                0x0000000001001120                _ZN2cv3Mat8copySizeERKS0_
+                0x0000000001001160                _Znwj@@GLIBCXX_3.4
+                0x00000000010011a0                cvSetZero
+                0x00000000010011e0                cvCreateImage
+                0x0000000001001220                _ZN2cv12equalizeHistERKNS_11_InputArrayERKNS_12_OutputArrayE
+                0x0000000001001260                _ZN2pp14VarArrayBuffer3MapEv
+                0x00000000010012a0                fwrite@@GLIBC_2.0
+                0x00000000010012e0                _ZN2cv17CascadeClassifierC1Ev
+                0x0000000001001320                _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E@@GLIBCXX_3.4
+                0x0000000001001360                _ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii
+                0x00000000010013a0                _ZN2pp14VarArrayBuffer5UnmapEv
+                0x00000000010013e0                _ZN2cv11FileStorage4openERKSsiS2_
+                0x0000000001001420                _ZNSt8ios_baseD2Ev@@GLIBCXX_3.4
+                0x0000000001001460                _ZN2cv11FileStorageD1Ev
+                0x00000000010014a0                _ZN2pp8Instance14DidChangeFocusEb
+                0x00000000010014e0                _ZNK2cv11FileStorage4rootEi
+                0x0000000001001520                pthread_create@@GLIBC_2.1
+                0x0000000001001560                _ZNSirsERi@@GLIBCXX_3.4
+                0x00000000010015a0                _ZN2pp14URLRequestInfoC1ERKNS_14InstanceHandleE
+                0x00000000010015e0                _ZNSs6assignERKSs@@GLIBCXX_3.4
+                0x0000000001001620                _ZSt19__throw_logic_errorPKc@@GLIBCXX_3.4
+                0x0000000001001660                _ZN2pp8Instance4InitEjPPKcS3_
+                0x00000000010016a0                _ZN2cv11_InputArrayC1ERKNS_3MatE
+                0x00000000010016e0                _ZN2pp8InstanceC2Ei
+                0x0000000001001720                _ZN2cv11FileStorage7releaseEv
+                0x0000000001001760                _ZNKSt15basic_stringbufIcSt11char_traitsIcESaIcEE3strEv@@GLIBCXX_3.4
+                0x00000000010017a0                _ZN2pp3VarD1Ev
+                0x00000000010017e0                puts@@GLIBC_2.0
+                0x0000000001001820                _ZNSo9_M_insertIdEERSoT_@@GLIBCXX_3.4.9
+                0x0000000001001860                _ZNSt9basic_iosIcSt11char_traitsIcEED2Ev@@GLIBCXX_3.4
+                0x00000000010018a0                _ZN2pp6Module4InitEv
+                0x00000000010018e0                _ZN12MountManager10MMInstanceEv
+                0x0000000001001920                _ZNK2cv11FileStorage8isOpenedEv
+                0x0000000001001960                _ZNSs4_Rep9_S_createEjjRKSaIcE@@GLIBCXX_3.4
+                0x00000000010019a0                _ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev@@GLIBCXX_3.4
+                0x00000000010019e0                _ZNSs6appendEPKcj@@GLIBCXX_3.4
+                0x0000000001001a20                __pthread_key_create@@GLIBC_2.0
+                0x0000000001001a60                _ZN2cv8fastFreeEPv
+                0x0000000001001aa0                _ZN8MemMountC1Ev
+                0x0000000001001ae0                __gxx_personality_v0@@CXXABI_1.3
+                0x0000000001001b20                _ZN2pp6ModuleC2Ev
+                0x0000000001001b60                _ZN2pp6ModuleD2Ev
+                0x0000000001001ba0                _ZN2cv16FileNodeIteratorC1EPK13CvFileStoragePK10CvFileNodej
+                0x0000000001001be0                PPP_ShutdownModule
+                0x0000000001001c20                _Unwind_Resume@@GCC_3.0
+                0x0000000001001c60                _ZNK2pp3Var8AsStringEv
+                0x0000000001001ca0                _ZNSt6localeD1Ev@@GLIBCXX_3.4
+                0x0000000001001ce0                _ZNSi10_M_extractIfEERSiRT_@@GLIBCXX_3.4.9
+                0x0000000001001d20                _ZNSs12_M_leak_hardEv@@GLIBCXX_3.4
+                0x0000000001001d60                _ZNSs6appendERKSs@@GLIBCXX_3.4
+                0x0000000001001da0                _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i@@GLIBCXX_3.4.9
+                0x0000000001001de0                _ZNSs7reserveEj@@GLIBCXX_3.4
+                0x0000000001001e20                _ZN2pp14URLRequestInfo11SetPropertyE21PP_URLRequestPropertyRKNS_3VarE
 
-.text           0x0000000001001d20     0xe2e0
+.text           0x0000000001001e60     0xe1a0
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000001001d20       0x80 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
-                0x0000000001001d20                _start
- .text          0x0000000001001da0        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
- .text          0x0000000001001da0      0x160 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
- .text          0x0000000001001f00     0x1e20 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001001f00                _ZN13GetURLHandler15AppendDataBytesEPKci
-                0x0000000001002000                _ZN13GetURLHandler5StartEv
-                0x00000000010021a0                _ZN13GetURLHandlerC2EP18facedetectInstanceRKSs
-                0x0000000001002640                _ZN13GetURLHandler12ReportResultERKSsS1_b
-                0x0000000001002a40                _ZN13GetURLHandlerC1EP18facedetectInstanceRKSs
-                0x0000000001002ee0                _ZN13GetURLHandler6CreateEP18facedetectInstanceRKSs
-                0x0000000001002f80                _ZN13GetURLHandlerD1Ev
-                0x00000000010032e0                _ZN13GetURLHandler18ReportResultAndDieERKSsS1_b
-                0x0000000001003380                _ZN13GetURLHandlerD2Ev
-                0x00000000010036e0                _ZN13GetURLHandler8ReadBodyEv
-                0x0000000001003920                _ZN13GetURLHandler6OnReadEi
-                0x0000000001003b60                _ZN13GetURLHandler6OnOpenEi
+ .text          0x0000000001001e60       0x80 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x0000000001001e60                _start
+ .text          0x0000000001001ee0        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
+ .text          0x0000000001001ee0      0x160 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .text          0x0000000001002040     0x1e20 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001002040                _ZN13GetURLHandler15AppendDataBytesEPKci
+                0x0000000001002140                _ZN13GetURLHandler5StartEv
+                0x00000000010022e0                _ZN13GetURLHandlerC2EP18facedetectInstanceRKSs
+                0x0000000001002780                _ZN13GetURLHandler12ReportResultERKSsS1_b
+                0x0000000001002b80                _ZN13GetURLHandlerC1EP18facedetectInstanceRKSs
+                0x0000000001003020                _ZN13GetURLHandler6CreateEP18facedetectInstanceRKSs
+                0x00000000010030c0                _ZN13GetURLHandlerD1Ev
+                0x0000000001003420                _ZN13GetURLHandler18ReportResultAndDieERKSsS1_b
+                0x00000000010034c0                _ZN13GetURLHandlerD2Ev
+                0x0000000001003820                _ZN13GetURLHandler8ReadBodyEv
+                0x0000000001003a60                _ZN13GetURLHandler6OnReadEi
+                0x0000000001003ca0                _ZN13GetURLHandler6OnOpenEi
  .text._ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEE12CallbackDataINS3_11Dispatcher0IMS1_FviEEEE5ThunkEPvi
-                0x0000000001003d20      0x160 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003d20                _ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEE12CallbackDataINS3_11Dispatcher0IMS1_FviEEEE5ThunkEPvi
+                0x0000000001003e60      0x160 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001003e60                _ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEE12CallbackDataINS3_11Dispatcher0IMS1_FviEEEE5ThunkEPvi
  .text._ZN2pp9URLLoaderD1Ev
-                0x0000000001003e80       0x20 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003e80                _ZN2pp9URLLoaderD1Ev
+                0x0000000001003fc0       0x20 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001003fc0                _ZN2pp9URLLoaderD1Ev
  .text._ZN2pp9URLLoaderD0Ev
-                0x0000000001003ea0       0x40 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003ea0                _ZN2pp9URLLoaderD0Ev
+                0x0000000001003fe0       0x40 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001003fe0                _ZN2pp9URLLoaderD0Ev
  .text._ZN2pp14URLRequestInfoD1Ev
-                0x0000000001003ee0       0x20 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003ee0                _ZN2pp14URLRequestInfoD1Ev
+                0x0000000001004020       0x20 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001004020                _ZN2pp14URLRequestInfoD1Ev
  .text._ZN2pp14URLRequestInfoD0Ev
-                0x0000000001003f00       0x40 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003f00                _ZN2pp14URLRequestInfoD0Ev
+                0x0000000001004040       0x40 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001004040                _ZN2pp14URLRequestInfoD0Ev
  .text._ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEED1Ev
-                0x0000000001003f40      0x100 glibc/Release/geturl_handler_x86_32.o
-                0x0000000001003f40                _ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEED1Ev
- .text          0x0000000001004040      0x160 glibc/Release/jpeg_mem_src_x86_32.o
-                0x0000000001004040                _Z11init_sourceP22jpeg_decompress_struct
-                0x0000000001004060                _Z15skip_input_dataP22jpeg_decompress_structl
-                0x00000000010040a0                _Z11term_sourceP22jpeg_decompress_struct
-                0x00000000010040c0                jpeg_mem_src
-                0x0000000001004160                _Z17fill_input_bufferP22jpeg_decompress_struct
- .text          0x00000000010041a0      0xba0 glibc/Release/fimage_x86_32.o
-                0x00000000010041a0                _ZN7CFImageC2Ev
-                0x00000000010041e0                _ZN7CFImageC1Ev
-                0x0000000001004220                _ZN7CFImage4InitEv
-                0x0000000001004260                _ZN7CFImage12InitROIStackEii
-                0x00000000010042a0                _ZN7CFImage6DetachEv
-                0x0000000001004320                _ZN7CFImage6SetROIEiiiij
-                0x0000000001004400                _ZN7CFImage6SetROIER7_IplROI
-                0x00000000010044e0                _ZN7CFImage6SetROIER6CvRect
-                0x00000000010045c0                _ZN7CFImage6GetROIER7_IplROI
-                0x0000000001004600                _ZN7CFImage8ResetROIEv
-                0x0000000001004640                _ZN7CFImage7PushROIEv
-                0x00000000010046c0                _ZN7CFImage6PopROIEv
-                0x0000000001004700                _ZNK7CFImage11InitializedEv
-                0x0000000001004720                _ZN7CFImage3ptrEv
-                0x0000000001004740                _ZNK7CFImage3ptrEv
-                0x0000000001004760                _ZNK7CFImage5WidthEv
-                0x0000000001004780                _ZNK7CFImage6HeightEv
-                0x00000000010047a0                _ZNK7CFImage7GetSizeEv
-                0x00000000010047c0                _ZN7CFImage5ResetEv
-                0x0000000001004800                _ZN7CFImage4FreeEv
-                0x00000000010048c0                _ZN7CFImage6ImportEP9_IplImage
-                0x0000000001004980                _ZN7CFImageC1EP9_IplImage
-                0x00000000010049c0                _ZN7CFImageC2EP9_IplImage
-                0x0000000001004a00                _ZN7CFImageD1Ev
-                0x0000000001004a20                _ZN7CFImageD2Ev
-                0x0000000001004a40                _ZN7CFImage6CreateEiijPKcii
-                0x0000000001004c00                _ZN7CFImageC1EiiiPKc
-                0x0000000001004ca0                _ZN7CFImageC2EiiiPKc
- .text          0x0000000001004d40     0x53c0 glibc/Release/facedetect_x86_32.o
-                0x0000000001004d40                _Z16crvImgByteOffsetPK9_IplImageii
-                0x0000000001004dc0                _Z15crvGetROILimitsPK9_IplImageRiS2_S2_S2_
-                0x0000000001004e80                _Z12crvHistogramP9_IplImagePi
-                0x0000000001005000                _Z15crvLUTTransformP9_IplImageS0_Ph
-                0x00000000010051e0                _Z20crvHistogramBeginEndPiRhS0_
-                0x00000000010052c0                _Z21crvNormalizeHistogramPiPhh
-                0x00000000010053c0                _Z12crvImgOffsetPK9_IplImageii
-                0x00000000010054a0                _Z20MatrixMeanImageCellsP9_IplImageRA15_A15_f
-                0x00000000010056e0                _ZN2pp12CreateModuleEv
-                0x0000000001005780                _ZN18facedetectInstanceC1Ei
-                0x0000000001005800                _ZN18facedetectInstanceC2Ei
-                0x0000000001005880                _ZN18facedetectInstanceD2Ev
-                0x0000000001005980                _ZN18facedetectInstanceD0Ev
-                0x0000000001005aa0                _ZN18facedetectInstanceD1Ev
-                0x0000000001005ba0                _ZN18facedetectInstance12DetectMotionEv
-                0x0000000001007680                _ZN18facedetectInstance13RecognizeFaceEv
-                0x0000000001007de0                _ZN18facedetectInstance26PrepareNewImageFromMessageERKN2pp3VarE
-                0x0000000001008280                _ZN18facedetectInstance13CreateMemFileERKSsS1_
-                0x0000000001008f80                _ZN18facedetectInstance9HandleXmlERKSs
-                0x0000000001009120                _ZN18facedetectInstance13HandleMessageERKN2pp3VarE
+                0x0000000001004080      0x100 glibc/Release/geturl_handler_x86_32.o
+                0x0000000001004080                _ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEED1Ev
+ .text          0x0000000001004180      0x160 glibc/Release/jpeg_mem_src_x86_32.o
+                0x0000000001004180                _Z11init_sourceP22jpeg_decompress_struct
+                0x00000000010041a0                _Z15skip_input_dataP22jpeg_decompress_structl
+                0x00000000010041e0                _Z11term_sourceP22jpeg_decompress_struct
+                0x0000000001004200                jpeg_mem_src
+                0x00000000010042a0                _Z17fill_input_bufferP22jpeg_decompress_struct
+ .text          0x00000000010042e0      0xba0 glibc/Release/fimage_x86_32.o
+                0x00000000010042e0                _ZN7CFImageC2Ev
+                0x0000000001004320                _ZN7CFImageC1Ev
+                0x0000000001004360                _ZN7CFImage4InitEv
+                0x00000000010043a0                _ZN7CFImage12InitROIStackEii
+                0x00000000010043e0                _ZN7CFImage6DetachEv
+                0x0000000001004460                _ZN7CFImage6SetROIEiiiij
+                0x0000000001004540                _ZN7CFImage6SetROIER7_IplROI
+                0x0000000001004620                _ZN7CFImage6SetROIER6CvRect
+                0x0000000001004700                _ZN7CFImage6GetROIER7_IplROI
+                0x0000000001004740                _ZN7CFImage8ResetROIEv
+                0x0000000001004780                _ZN7CFImage7PushROIEv
+                0x0000000001004800                _ZN7CFImage6PopROIEv
+                0x0000000001004840                _ZNK7CFImage11InitializedEv
+                0x0000000001004860                _ZN7CFImage3ptrEv
+                0x0000000001004880                _ZNK7CFImage3ptrEv
+                0x00000000010048a0                _ZNK7CFImage5WidthEv
+                0x00000000010048c0                _ZNK7CFImage6HeightEv
+                0x00000000010048e0                _ZNK7CFImage7GetSizeEv
+                0x0000000001004900                _ZN7CFImage5ResetEv
+                0x0000000001004940                _ZN7CFImage4FreeEv
+                0x0000000001004a00                _ZN7CFImage6ImportEP9_IplImage
+                0x0000000001004ac0                _ZN7CFImageC1EP9_IplImage
+                0x0000000001004b00                _ZN7CFImageC2EP9_IplImage
+                0x0000000001004b40                _ZN7CFImageD1Ev
+                0x0000000001004b60                _ZN7CFImageD2Ev
+                0x0000000001004b80                _ZN7CFImage6CreateEiijPKcii
+                0x0000000001004d40                _ZN7CFImageC1EiiiPKc
+                0x0000000001004de0                _ZN7CFImageC2EiiiPKc
+ .text          0x0000000001004e80     0x7620 glibc/Release/facedetect_x86_32.o
+                0x0000000001004e80                _Z16crvImgByteOffsetPK9_IplImageii
+                0x0000000001004f00                _Z15crvGetROILimitsPK9_IplImageRiS2_S2_S2_
+                0x0000000001004fc0                _Z12crvHistogramP9_IplImagePi
+                0x0000000001005140                _Z15crvLUTTransformP9_IplImageS0_Ph
+                0x0000000001005320                _Z20crvHistogramBeginEndPiRhS0_
+                0x0000000001005400                _Z21crvNormalizeHistogramPiPhh
+                0x0000000001005500                _Z12crvImgOffsetPK9_IplImageii
+                0x00000000010055e0                _Z20MatrixMeanImageCellsP9_IplImageRA15_A15_f
+                0x0000000001005820                _ZN2pp12CreateModuleEv
+                0x00000000010058c0                _ZN18facedetectInstanceD0Ev
+                0x0000000001005900                _ZN18facedetectInstanceD1Ev
+                0x0000000001005920                _ZN18facedetectInstanceD2Ev
+                0x0000000001005940                _ZN18facedetectInstanceC1Ei
+                0x0000000001005a20                _ZN18facedetectInstanceC2Ei
+                0x0000000001005b00                _Z20readStringFromStreamRSs
+                0x00000000010062c0                _Z20readDoubleFromStreamRSs
+                0x0000000001006aa0                _Z19readFloatFromStreamRSs
+                0x0000000001007280                _Z17readIntFromStreamRSs
+                0x0000000001007a60                _ZN18facedetectInstance13CreateMemFileERKSsS1_
+                0x0000000001008760                _ZN18facedetectInstance12DetectMotionEv
+                0x000000000100a300                _ZN18facedetectInstance13RecognizeFaceEv
+                0x000000000100aa40                _ZN18facedetectInstance9HandleXmlERKSs
+                0x000000000100abe0                _ZN18facedetectInstance26PrepareNewImageFromMessageERKN2pp3VarE
+                0x000000000100b080                _ZN18facedetectInstance13HandleMessageERKN2pp3VarE
  .text._ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED1Ev
-                0x000000000100a100       0x40 glibc/Release/facedetect_x86_32.o
-                0x000000000100a100                _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED1Ev
+                0x000000000100c4a0       0x40 glibc/Release/facedetect_x86_32.o
+                0x000000000100c4a0                _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED1Ev
  .text._ZN10testModuleD0Ev
-                0x000000000100a140       0x40 glibc/Release/facedetect_x86_32.o
-                0x000000000100a140                _ZN10testModuleD0Ev
+                0x000000000100c4e0       0x40 glibc/Release/facedetect_x86_32.o
+                0x000000000100c4e0                _ZN10testModuleD0Ev
  .text._ZN10testModuleD1Ev
-                0x000000000100a180       0x20 glibc/Release/facedetect_x86_32.o
-                0x000000000100a180                _ZN10testModuleD1Ev
+                0x000000000100c520       0x20 glibc/Release/facedetect_x86_32.o
+                0x000000000100c520                _ZN10testModuleD1Ev
  .text._ZNSs12_S_constructIPcEES0_T_S1_RKSaIcESt20forward_iterator_tag
-                0x000000000100a1a0      0x180 glibc/Release/facedetect_x86_32.o
-                0x000000000100a1a0                _ZNSs12_S_constructIPcEES0_T_S1_RKSaIcESt20forward_iterator_tag
+                0x000000000100c540      0x180 glibc/Release/facedetect_x86_32.o
+                0x000000000100c540                _ZNSs12_S_constructIPcEES0_T_S1_RKSaIcESt20forward_iterator_tag
  .text._ZN10testModule14CreateInstanceEi
-                0x000000000100a320       0xa0 glibc/Release/facedetect_x86_32.o
-                0x000000000100a320                _ZN10testModule14CreateInstanceEi
+                0x000000000100c6c0       0xa0 glibc/Release/facedetect_x86_32.o
+                0x000000000100c6c0                _ZN10testModule14CreateInstanceEi
  .text._ZN2cv3MatD1Ev
-                0x000000000100a3c0      0x100 glibc/Release/facedetect_x86_32.o
-                0x000000000100a3c0                _ZN2cv3MatD1Ev
+                0x000000000100c760      0x100 glibc/Release/facedetect_x86_32.o
+                0x000000000100c760                _ZN2cv3MatD1Ev
  .text._ZNSt15basic_stringbufIcSt11char_traitsIcESaIcEED1Ev
-                0x000000000100a4c0      0x100 glibc/Release/facedetect_x86_32.o
-                0x000000000100a4c0                _ZNSt15basic_stringbufIcSt11char_traitsIcESaIcEED1Ev
- .text          0x000000000100a5c0       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
-                0x000000000100a5c0                main
- .text          0x000000000100a600       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
-                0x000000000100a600                PpapiPluginMain
- .text          0x000000000100a640      0x1e0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
-                0x000000000100a6a0                PpapiPluginStart
- .text          0x000000000100a820       0xc0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
-                0x000000000100a820                __nacl_register_thread_creator
- .text          0x000000000100a8e0       0xe0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
-                0x000000000100a8e0                __libc_csu_fini
-                0x000000000100a900                __libc_csu_init
- .text          0x000000000100a9c0       0x80 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
- .text          0x000000000100aa40        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
+                0x000000000100c860      0x100 glibc/Release/facedetect_x86_32.o
+                0x000000000100c860                _ZNSt15basic_stringbufIcSt11char_traitsIcESaIcEED1Ev
+ .text          0x000000000100c960       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+                0x000000000100c960                main
+ .text          0x000000000100c9a0       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+                0x000000000100c9a0                PpapiPluginMain
+ .text          0x000000000100c9e0      0x1e0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+                0x000000000100ca40                PpapiPluginStart
+ .text          0x000000000100cbc0       0xc0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+                0x000000000100cbc0                __nacl_register_thread_creator
+ .text          0x000000000100cc80       0xe0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+                0x000000000100cc80                __libc_csu_fini
+                0x000000000100cca0                __libc_csu_init
+ .text          0x000000000100cd60       0x80 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+ .text          0x000000000100cde0        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
  *(.text.*personality*)
  *(.gnu.warning)
  *(.fini)
- .fini          0x000000000100aa40       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
-                0x000000000100aa40                _fini
- .fini          0x000000000100aa80       0x20 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
- .fini          0x000000000100aaa0        0x9 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
+ .fini          0x000000000100cde0       0x40 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
+                0x000000000100cde0                _fini
+ .fini          0x000000000100ce20       0x20 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .fini          0x000000000100ce40        0x9 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
                 0x0000000001010000                . = ALIGN (0x10000)
- *fill*         0x000000000100aaa9     0x5557 90909090
+ *fill*         0x000000000100ce49     0x31b7 90909090
                 0x0000000001010000                PROVIDE (__etext, .)
                 0x0000000001010000                PROVIDE (_etext, .)
                 0x0000000001010000                PROVIDE (etext, .)
@@ -403,36 +412,36 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 
 .dummy
 
-.hash           0x0000000011000040      0x46c
+.hash           0x0000000011000040      0x480
  *(.hash)
- .hash          0x0000000011000040      0x46c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .hash          0x0000000011000040      0x480 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
 .gnu.hash
  *(.gnu.hash)
 
-.dynsym         0x00000000110004ac      0x960
+.dynsym         0x00000000110004c0      0x9b0
  *(.dynsym)
- .dynsym        0x00000000110004ac      0x960 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .dynsym        0x00000000110004c0      0x9b0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
-.dynstr         0x0000000011000e0c     0x1018
+.dynstr         0x0000000011000e70     0x10d3
  *(.dynstr)
- .dynstr        0x0000000011000e0c     0x1018 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .dynstr        0x0000000011000e70     0x10d3 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
-.gnu.version    0x0000000011001e24      0x12c
+.gnu.version    0x0000000011001f44      0x136
  *(.gnu.version)
- .gnu.version   0x0000000011001e24      0x12c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .gnu.version   0x0000000011001f44      0x136 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
-.gnu.version_d  0x0000000011001f50        0x0
+.gnu.version_d  0x000000001100207c        0x0 load address 0x000000001100207a
  *(.gnu.version_d)
  .gnu.version_d
                 0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
-.gnu.version_r  0x0000000011001f50       0xd0
+.gnu.version_r  0x000000001100207c       0xd0
  *(.gnu.version_r)
  .gnu.version_r
-                0x0000000011001f50       0xd0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x000000001100207c       0xd0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
-.rel.dyn        0x0000000011002020        0x0
+.rel.dyn        0x000000001100214c        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .rel.eh_frame  0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
@@ -442,7 +451,7 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 .rela.init
  *(.rela.init)
 
-.rel.text       0x0000000011002020        0x0
+.rel.text       0x000000001100214c        0x0
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
  .rel.text      0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .rel.text._ZN2pp25CompletionCallbackFactoryI13GetURLHandlerNS_22ThreadSafeThreadTraitsEE12CallbackDataINS3_11Dispatcher0IMS1_FviEEEE5ThunkEPvi
@@ -481,7 +490,7 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 .rela.fini
  *(.rela.fini)
 
-.rel.rodata     0x0000000011002020        0x0
+.rel.rodata     0x000000001100214c        0x0
  *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
  .rel.rodata._ZTVN2pp9URLLoaderE
                 0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
@@ -540,135 +549,135 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 .rela.dtors
  *(.rela.dtors)
 
-.rel.got        0x0000000011002020        0x8
+.rel.got        0x000000001100214c        0x8
  *(.rel.got)
- .rel.got       0x0000000011002020        0x8 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .rel.got       0x000000001100214c        0x8 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
 .rela.got
  *(.rela.got)
 
-.rel.bss        0x0000000011002028       0x70
+.rel.bss        0x0000000011002154       0x70
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
- .rel.bss       0x0000000011002028       0x70 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .rel.bss       0x0000000011002154       0x70 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
 .rela.bss
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
 
-.rel.plt        0x0000000011002098      0x388
+.rel.plt        0x00000000110021c4      0x3b0
  *(.rel.plt)
- .rel.plt       0x0000000011002098      0x388 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .rel.plt       0x00000000110021c4      0x3b0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
 .rela.plt
  *(.rela.plt)
 
-.rodata         0x0000000011002420      0x3e8
+.rodata         0x0000000011002580      0x4b0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x0000000011002420        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
-                0x0000000011002420                _IO_stdin_used
+ .rodata.cst4   0x0000000011002580        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x0000000011002580                _IO_stdin_used
  .rodata.str1.1
-                0x0000000011002424       0x21 glibc/Release/geturl_handler_x86_32.o
+                0x0000000011002584       0x21 glibc/Release/geturl_handler_x86_32.o
                                          0x23 (size before relaxing)
- *fill*         0x0000000011002445        0x3 00
+ *fill*         0x00000000110025a5        0x3 00
  .rodata.str1.4
-                0x0000000011002448       0x77 glibc/Release/geturl_handler_x86_32.o
- *fill*         0x00000000110024bf        0x1 00
+                0x00000000110025a8       0x77 glibc/Release/geturl_handler_x86_32.o
+ *fill*         0x000000001100261f        0x1 00
  .rodata._ZTVN2pp9URLLoaderE
-                0x00000000110024c0       0x10 glibc/Release/geturl_handler_x86_32.o
-                0x00000000110024c0                _ZTVN2pp9URLLoaderE
+                0x0000000011002620       0x10 glibc/Release/geturl_handler_x86_32.o
+                0x0000000011002620                _ZTVN2pp9URLLoaderE
  .rodata._ZTIN2pp9URLLoaderE
-                0x00000000110024d0        0xc glibc/Release/geturl_handler_x86_32.o
-                0x00000000110024d0                _ZTIN2pp9URLLoaderE
+                0x0000000011002630        0xc glibc/Release/geturl_handler_x86_32.o
+                0x0000000011002630                _ZTIN2pp9URLLoaderE
  .rodata._ZTSN2pp9URLLoaderE
-                0x00000000110024dc       0x10 glibc/Release/geturl_handler_x86_32.o
-                0x00000000110024dc                _ZTSN2pp9URLLoaderE
- *fill*         0x00000000110024ec        0x4 00
+                0x000000001100263c       0x10 glibc/Release/geturl_handler_x86_32.o
+                0x000000001100263c                _ZTSN2pp9URLLoaderE
+ *fill*         0x000000001100264c        0x4 00
  .rodata._ZTVN2pp14URLRequestInfoE
-                0x00000000110024f0       0x10 glibc/Release/geturl_handler_x86_32.o
-                0x00000000110024f0                _ZTVN2pp14URLRequestInfoE
+                0x0000000011002650       0x10 glibc/Release/geturl_handler_x86_32.o
+                0x0000000011002650                _ZTVN2pp14URLRequestInfoE
  .rodata._ZTIN2pp14URLRequestInfoE
-                0x0000000011002500        0xc glibc/Release/geturl_handler_x86_32.o
-                0x0000000011002500                _ZTIN2pp14URLRequestInfoE
+                0x0000000011002660        0xc glibc/Release/geturl_handler_x86_32.o
+                0x0000000011002660                _ZTIN2pp14URLRequestInfoE
  .rodata._ZTSN2pp14URLRequestInfoE
-                0x000000001100250c       0x16 glibc/Release/geturl_handler_x86_32.o
-                0x000000001100250c                _ZTSN2pp14URLRequestInfoE
+                0x000000001100266c       0x16 glibc/Release/geturl_handler_x86_32.o
+                0x000000001100266c                _ZTSN2pp14URLRequestInfoE
  .rodata.str1.1
-                0x0000000011002522       0x17 glibc/Release/jpeg_mem_src_x86_32.o
+                0x0000000011002682       0x17 glibc/Release/jpeg_mem_src_x86_32.o
  .rodata.str1.1
-                0x0000000011002539       0x1d glibc/Release/fimage_x86_32.o
- *fill*         0x0000000011002556        0x2 00
+                0x0000000011002699       0x1d glibc/Release/fimage_x86_32.o
+ *fill*         0x00000000110026b6        0x2 00
  .rodata.str1.4
-                0x0000000011002558       0xb7 glibc/Release/facedetect_x86_32.o
+                0x00000000110026b8       0xb8 glibc/Release/facedetect_x86_32.o
  .rodata.str1.1
-                0x000000001100260f       0x8c glibc/Release/facedetect_x86_32.o
-                                         0x97 (size before relaxing)
- *fill*         0x000000001100269b        0x5 00
+                0x0000000011002770      0x14f glibc/Release/facedetect_x86_32.o
+                                        0x153 (size before relaxing)
+ *fill*         0x00000000110028bf        0x1 00
  .rodata._ZTV18facedetectInstance
-                0x00000000110026a0       0x2c glibc/Release/facedetect_x86_32.o
-                0x00000000110026a0                _ZTV18facedetectInstance
+                0x00000000110028c0       0x2c glibc/Release/facedetect_x86_32.o
+                0x00000000110028c0                _ZTV18facedetectInstance
  .rodata._ZTS18facedetectInstance
-                0x00000000110026cc       0x15 glibc/Release/facedetect_x86_32.o
-                0x00000000110026cc                _ZTS18facedetectInstance
- *fill*         0x00000000110026e1        0x3 00
+                0x00000000110028ec       0x15 glibc/Release/facedetect_x86_32.o
+                0x00000000110028ec                _ZTS18facedetectInstance
+ *fill*         0x0000000011002901        0x3 00
  .rodata._ZTI18facedetectInstance
-                0x00000000110026e4        0xc glibc/Release/facedetect_x86_32.o
-                0x00000000110026e4                _ZTI18facedetectInstance
+                0x0000000011002904        0xc glibc/Release/facedetect_x86_32.o
+                0x0000000011002904                _ZTI18facedetectInstance
  .rodata._ZTV10testModule
-                0x00000000110026f0       0x18 glibc/Release/facedetect_x86_32.o
-                0x00000000110026f0                _ZTV10testModule
+                0x0000000011002910       0x18 glibc/Release/facedetect_x86_32.o
+                0x0000000011002910                _ZTV10testModule
  .rodata._ZTI10testModule
-                0x0000000011002708        0xc glibc/Release/facedetect_x86_32.o
-                0x0000000011002708                _ZTI10testModule
+                0x0000000011002928        0xc glibc/Release/facedetect_x86_32.o
+                0x0000000011002928                _ZTI10testModule
  .rodata._ZTS10testModule
-                0x0000000011002714        0xd glibc/Release/facedetect_x86_32.o
-                0x0000000011002714                _ZTS10testModule
- *fill*         0x0000000011002721        0x3 00
- .rodata.cst4   0x0000000011002724        0x8 glibc/Release/facedetect_x86_32.o
- *fill*         0x000000001100272c        0x4 00
- .rodata.cst8   0x0000000011002730       0x10 glibc/Release/facedetect_x86_32.o
- .rodata        0x0000000011002740        0xc /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+                0x0000000011002934        0xd glibc/Release/facedetect_x86_32.o
+                0x0000000011002934                _ZTS10testModule
+ *fill*         0x0000000011002941        0x3 00
+ .rodata.cst4   0x0000000011002944        0x8 glibc/Release/facedetect_x86_32.o
+ *fill*         0x000000001100294c        0x4 00
+ .rodata.cst8   0x0000000011002950       0x18 glibc/Release/facedetect_x86_32.o
+ .rodata        0x0000000011002968        0xc /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
  .rodata.str1.4
-                0x000000001100274c       0x9c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+                0x0000000011002974       0x9c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
                                          0x99 (size before relaxing)
  .rodata.str1.1
-                0x00000000110027e8       0x17 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- *fill*         0x00000000110027ff        0x1 00
- .rodata        0x0000000011002800        0x8 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+                0x0000000011002a10       0x17 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ *fill*         0x0000000011002a27        0x1 00
+ .rodata        0x0000000011002a28        0x8 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x0000000011002808      0x2b4
+.eh_frame_hdr   0x0000000011002a30      0x2d4
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x0000000011002808      0x2b4 glibc/Release/geturl_handler_x86_32.o
+ .eh_frame_hdr  0x0000000011002a30      0x2d4 glibc/Release/geturl_handler_x86_32.o
 
-.eh_frame       0x0000000011002abc      0xa6c
+.eh_frame       0x0000000011002d04      0xafc
  *(.eh_frame)
- .eh_frame      0x0000000011002abc        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
- .eh_frame      0x0000000011002abc      0x2a4 glibc/Release/geturl_handler_x86_32.o
- .eh_frame      0x0000000011002d60       0x8c glibc/Release/jpeg_mem_src_x86_32.o
+ .eh_frame      0x0000000011002d04        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .eh_frame      0x0000000011002d04      0x2a4 glibc/Release/geturl_handler_x86_32.o
+ .eh_frame      0x0000000011002fa8       0x8c glibc/Release/jpeg_mem_src_x86_32.o
                                          0xa8 (size before relaxing)
- .eh_frame      0x0000000011002dec      0x32c glibc/Release/fimage_x86_32.o
+ .eh_frame      0x0000000011003034      0x32c glibc/Release/fimage_x86_32.o
                                         0x348 (size before relaxing)
- .eh_frame      0x0000000011003118      0x350 glibc/Release/facedetect_x86_32.o
-                                        0x38c (size before relaxing)
- .eh_frame      0x0000000011003468       0x34 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .eh_frame      0x000000001100349c       0x14 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .eh_frame      0x0000000011003360      0x3e0 glibc/Release/facedetect_x86_32.o
+                                        0x41c (size before relaxing)
+ .eh_frame      0x0000000011003740       0x34 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .eh_frame      0x0000000011003774       0x14 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
                                          0x2c (size before relaxing)
- .eh_frame      0x00000000110034b0       0x38 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .eh_frame      0x0000000011003788       0x38 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
                                          0x50 (size before relaxing)
- .eh_frame      0x00000000110034e8       0x3c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .eh_frame      0x00000000110037c0       0x3c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
                                          0x54 (size before relaxing)
- .eh_frame      0x0000000011003524        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+ .eh_frame      0x00000000110037fc        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
 
 .gcc_except_table
-                0x0000000011003528      0x42b
+                0x0000000011003800      0x573
  *(.gcc_except_table .gcc_except_table.*)
  .gcc_except_table
-                0x0000000011003528      0x1b0 glibc/Release/geturl_handler_x86_32.o
+                0x0000000011003800      0x1b0 glibc/Release/geturl_handler_x86_32.o
  .gcc_except_table
-                0x00000000110036d8      0x27b glibc/Release/facedetect_x86_32.o
-                0x0000000011003953                . = (ALIGN (0x10000) - ((0x10000 - .) & 0xffff))
-                0x0000000011013953                . = (0x10000 DATA_SEGMENT_ALIGN 0x10000)
+                0x00000000110039b0      0x3c3 glibc/Release/facedetect_x86_32.o
+                0x0000000011003d73                . = (ALIGN (0x10000) - ((0x10000 - .) & 0xffff))
+                0x0000000011013d73                . = (0x10000 DATA_SEGMENT_ALIGN 0x10000)
 
 .eh_frame
  *(.eh_frame)
@@ -676,104 +685,104 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
-.tdata          0x0000000011013953        0x0
-                0x0000000011013953                PROVIDE (__tls_template_start, .)
+.tdata          0x0000000011013d73        0x0
+                0x0000000011013d73                PROVIDE (__tls_template_start, .)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
-                0x0000000011013953                PROVIDE (__tls_template_tdata_end, .)
+                0x0000000011013d73                PROVIDE (__tls_template_tdata_end, .)
 
 .tbss
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
-                0x0000000011013953                PROVIDE (__tls_template_end, .)
+                0x0000000011013d73                PROVIDE (__tls_template_end, .)
                 *undef*                           PROVIDE (__tls_template_align, (ALIGNOF (.tdata) MAX ALIGNOF (.tbss)))
 
-.preinit_array  0x0000000011013953        0x0
-                0x0000000011013953                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0000000011013d73        0x0
+                0x0000000011013d73                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x0000000011013953                PROVIDE (__preinit_array_end, .)
+                0x0000000011013d73                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000000011013953        0x0
-                0x0000000011013953                PROVIDE (__init_array_start, .)
+.init_array     0x0000000011013d73        0x0
+                0x0000000011013d73                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x0000000011013953                PROVIDE (__init_array_end, .)
+                0x0000000011013d73                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000011013953        0x0
-                0x0000000011013953                PROVIDE (__fini_array_start, .)
+.fini_array     0x0000000011013d73        0x0
+                0x0000000011013d73                PROVIDE (__fini_array_start, .)
  *(.fini_array)
  *(SORT(.fini_array.*))
-                0x0000000011013953                PROVIDE (__fini_array_end, .)
+                0x0000000011013d73                PROVIDE (__fini_array_end, .)
 
-.ctors          0x0000000011013954        0x8
+.ctors          0x0000000011013d74        0x8
  *crtbegin.o(.ctors)
- .ctors         0x0000000011013954        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .ctors         0x0000000011013d74        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
- .ctors         0x0000000011013958        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+ .ctors         0x0000000011013d78        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
 
-.dtors          0x000000001101395c        0x8
+.dtors          0x0000000011013d7c        0x8
  *crtbegin.o(.dtors)
- .dtors         0x000000001101395c        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .dtors         0x0000000011013d7c        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
- .dtors         0x0000000011013960        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
-                0x0000000011013960                __DTOR_END__
+ .dtors         0x0000000011013d80        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+                0x0000000011013d80                __DTOR_END__
 
-.jcr            0x0000000011013964        0x4
+.jcr            0x0000000011013d84        0x4
  *(.jcr)
- .jcr           0x0000000011013964        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
- .jcr           0x0000000011013964        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+ .jcr           0x0000000011013d84        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+ .jcr           0x0000000011013d84        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
 
 .data.rel.ro
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x0000000011013968      0x118
+.dynamic        0x0000000011013d88      0x118
  *(.dynamic)
- .dynamic       0x0000000011013968      0x118 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
-                0x0000000011013968                _DYNAMIC
+ .dynamic       0x0000000011013d88      0x118 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x0000000011013d88                _DYNAMIC
 
-.got            0x0000000011013a80        0x4
+.got            0x0000000011013ea0        0x4
  *(.got)
- .got           0x0000000011013a80        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
-                0x0000000011013a84                . = (. DATA_SEGMENT_RELRO_END 0xc)
+ .got           0x0000000011013ea0        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x0000000011013ea4                . = (. DATA_SEGMENT_RELRO_END 0xc)
 
-.got.plt        0x0000000011013a84      0x1d0
+.got.plt        0x0000000011013ea4      0x1e4
  *(.got.plt)
- .got.plt       0x0000000011013a84      0x1d0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
-                0x0000000011013a84                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x0000000011013ea4      0x1e4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+                0x0000000011013ea4                _GLOBAL_OFFSET_TABLE_
 
-.data           0x0000000011013c54        0x4
+.data           0x0000000011014088        0x4
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000011013c54        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
- .data          0x0000000011013c54        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
- .data          0x0000000011013c54        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
-                0x0000000011013c54                __dso_handle
- .data          0x0000000011013c58        0x0 glibc/Release/geturl_handler_x86_32.o
- .data          0x0000000011013c58        0x0 glibc/Release/jpeg_mem_src_x86_32.o
- .data          0x0000000011013c58        0x0 glibc/Release/fimage_x86_32.o
- .data          0x0000000011013c58        0x0 glibc/Release/facedetect_x86_32.o
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
- .data          0x0000000011013c58        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
+ .data          0x0000000011014088        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
+ .data          0x0000000011014088        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crti.o
+ .data          0x0000000011014088        0x4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtbegin.o
+                0x0000000011014088                __dso_handle
+ .data          0x000000001101408c        0x0 glibc/Release/geturl_handler_x86_32.o
+ .data          0x000000001101408c        0x0 glibc/Release/jpeg_mem_src_x86_32.o
+ .data          0x000000001101408c        0x0 glibc/Release/fimage_x86_32.o
+ .data          0x000000001101408c        0x0 glibc/Release/facedetect_x86_32.o
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/32/crtend.o
+ .data          0x000000001101408c        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crtn.o
  *(.gnu.linkonce.d.*personality*)
 
-.igot.plt       0x0000000011013c58        0x0
+.igot.plt       0x000000001101408c        0x0
  .igot.plt      0x0000000000000000        0x0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
 
 .data1
  *(.data1)
-                0x0000000011013c58                _edata = .
-                0x0000000011013c58                PROVIDE (edata, .)
-                0x0000000011013c58                . = DATA_SEGMENT_END (.)
+                0x000000001101408c                _edata = .
+                0x000000001101408c                PROVIDE (edata, .)
+                0x000000001101408c                . = DATA_SEGMENT_END (.)
                 0x0000000011020000                . = ALIGN (0x10000)
                 0x0000000011020000                __bss_start = .
 
@@ -891,7 +900,7 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
                 0x0000000000000188       0x20 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
 .debug_pubnames
-                0x0000000000000000      0xb36
+                0x0000000000000000      0xb96
  *(.debug_pubnames)
  .debug_pubnames
                 0x0000000000000000       0x42 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
@@ -902,63 +911,63 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
  .debug_pubnames
                 0x0000000000000404      0x24f glibc/Release/fimage_x86_32.o
  .debug_pubnames
-                0x0000000000000653      0x40c glibc/Release/facedetect_x86_32.o
+                0x0000000000000653      0x46c glibc/Release/facedetect_x86_32.o
  .debug_pubnames
-                0x0000000000000a5f       0x1b /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+                0x0000000000000abf       0x1b /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
  .debug_pubnames
-                0x0000000000000a7a       0x26 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+                0x0000000000000ada       0x26 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
  .debug_pubnames
-                0x0000000000000aa0       0x27 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+                0x0000000000000b00       0x27 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
  .debug_pubnames
-                0x0000000000000ac7       0x35 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+                0x0000000000000b27       0x35 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
  .debug_pubnames
-                0x0000000000000afc       0x3a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+                0x0000000000000b5c       0x3a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
-.debug_info     0x0000000000000000    0x30d79
+.debug_info     0x0000000000000000    0x32194
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x197 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .debug_info    0x0000000000000197     0xdaf7 glibc/Release/geturl_handler_x86_32.o
  .debug_info    0x000000000000dc8e     0x1335 glibc/Release/jpeg_mem_src_x86_32.o
  .debug_info    0x000000000000efc3     0xa66f glibc/Release/fimage_x86_32.o
- .debug_info    0x0000000000019632    0x16b37 glibc/Release/facedetect_x86_32.o
- .debug_info    0x0000000000030169       0x8f /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .debug_info    0x00000000000301f8      0x14a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
- .debug_info    0x0000000000030342      0x3d2 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- .debug_info    0x0000000000030714      0x54a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
- .debug_info    0x0000000000030c5e      0x11b /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .debug_info    0x0000000000019632    0x17f52 glibc/Release/facedetect_x86_32.o
+ .debug_info    0x0000000000031584       0x8f /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .debug_info    0x0000000000031613      0x14a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .debug_info    0x000000000003175d      0x3d2 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .debug_info    0x0000000000031b2f      0x54a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .debug_info    0x0000000000032079      0x11b /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
-.debug_abbrev   0x0000000000000000     0x2707
+.debug_abbrev   0x0000000000000000     0x2719
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0xe6 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .debug_abbrev  0x00000000000000e6      0xa77 glibc/Release/geturl_handler_x86_32.o
  .debug_abbrev  0x0000000000000b5d      0x1ef glibc/Release/jpeg_mem_src_x86_32.o
  .debug_abbrev  0x0000000000000d4c      0x7ea glibc/Release/fimage_x86_32.o
- .debug_abbrev  0x0000000000001536      0xcc1 glibc/Release/facedetect_x86_32.o
- .debug_abbrev  0x00000000000021f7       0x4a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .debug_abbrev  0x0000000000002241       0xc0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
- .debug_abbrev  0x0000000000002301      0x1d0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- .debug_abbrev  0x00000000000024d1      0x151 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
- .debug_abbrev  0x0000000000002622       0xe5 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .debug_abbrev  0x0000000000001536      0xcd3 glibc/Release/facedetect_x86_32.o
+ .debug_abbrev  0x0000000000002209       0x4a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .debug_abbrev  0x0000000000002253       0xc0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .debug_abbrev  0x0000000000002313      0x1d0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .debug_abbrev  0x00000000000024e3      0x151 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .debug_abbrev  0x0000000000002634       0xe5 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
-.debug_line     0x0000000000000000     0x495e
+.debug_line     0x0000000000000000     0x4f69
  *(.debug_line)
  .debug_line    0x0000000000000000       0x95 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .debug_line    0x0000000000000095     0x12b2 glibc/Release/geturl_handler_x86_32.o
  .debug_line    0x0000000000001347      0x21c glibc/Release/jpeg_mem_src_x86_32.o
  .debug_line    0x0000000000001563      0xab4 glibc/Release/fimage_x86_32.o
- .debug_line    0x0000000000002017     0x1fdb glibc/Release/facedetect_x86_32.o
- .debug_line    0x0000000000003ff2       0x44 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .debug_line    0x0000000000004036      0x16c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
- .debug_line    0x00000000000041a2      0x338 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- .debug_line    0x00000000000044da      0x3b1 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
- .debug_line    0x000000000000488b       0xd3 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .debug_line    0x0000000000002017     0x25e6 glibc/Release/facedetect_x86_32.o
+ .debug_line    0x00000000000045fd       0x44 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .debug_line    0x0000000000004641      0x16c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .debug_line    0x00000000000047ad      0x338 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .debug_line    0x0000000000004ae5      0x3b1 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .debug_line    0x0000000000004e96       0xd3 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
 .debug_frame    0x0000000000000000       0x84
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x34 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .debug_frame   0x0000000000000034       0x50 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
-.debug_str      0x0000000000000000    0x138c0
+.debug_str      0x0000000000000000    0x139ee
  *(.debug_str)
  .debug_str     0x0000000000000000      0x143 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
                                         0x2ac (size before relaxing)
@@ -968,31 +977,31 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
                                         0xec3 (size before relaxing)
  .debug_str     0x0000000000008a9d      0x320 glibc/Release/fimage_x86_32.o
                                        0x5f76 (size before relaxing)
- .debug_str     0x0000000000008dbd     0xa83b glibc/Release/facedetect_x86_32.o
-                                      0x127e0 (size before relaxing)
- .debug_str     0x00000000000135f8       0x72 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .debug_str     0x0000000000008dbd     0xa969 glibc/Release/facedetect_x86_32.o
+                                      0x1290e (size before relaxing)
+ .debug_str     0x0000000000013726       0x72 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
                                         0x161 (size before relaxing)
- .debug_str     0x000000000001366a       0xa4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .debug_str     0x0000000000013798       0xa4 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
                                         0x1e4 (size before relaxing)
- .debug_str     0x000000000001370e      0x111 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .debug_str     0x000000000001383c      0x111 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
                                         0x2ec (size before relaxing)
- .debug_str     0x000000000001381f       0x4d /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .debug_str     0x000000000001394d       0x4d /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
                                         0x412 (size before relaxing)
- .debug_str     0x000000000001386c       0x54 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .debug_str     0x000000000001399a       0x54 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
                                         0x12b (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x3052
+.debug_loc      0x0000000000000000     0x35eb
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0x6a /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/crt1.o
  .debug_loc     0x000000000000006a      0xbce glibc/Release/geturl_handler_x86_32.o
  .debug_loc     0x0000000000000c38      0x151 glibc/Release/jpeg_mem_src_x86_32.o
  .debug_loc     0x0000000000000d89      0x8c6 glibc/Release/fimage_x86_32.o
- .debug_loc     0x000000000000164f     0x17f1 glibc/Release/facedetect_x86_32.o
- .debug_loc     0x0000000000002e40       0x2c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
- .debug_loc     0x0000000000002e6c       0x20 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
- .debug_loc     0x0000000000002e8c       0xd0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
- .debug_loc     0x0000000000002f5c       0x60 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
- .debug_loc     0x0000000000002fbc       0x96 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
+ .debug_loc     0x000000000000164f     0x1d8a glibc/Release/facedetect_x86_32.o
+ .debug_loc     0x00000000000033d9       0x2c /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(plugin_main_irt.o)
+ .debug_loc     0x0000000000003405       0x20 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_main.o)
+ .debug_loc     0x0000000000003425       0xd0 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(ppapi_plugin_start.o)
+ .debug_loc     0x00000000000034f5       0x60 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libppapi_stub.a(thread_creator.o)
+ .debug_loc     0x0000000000003555       0x96 /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/gcc/x86_64-nacl/4.4.3/../../../../x86_64-nacl/lib/../lib32/libc_nonshared.a(elf-init.ons)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1012,12 +1021,12 @@ LOAD /home/alexey/NaCL/nacl_sdk/pepper_31/toolchain/linux_x86_glibc/bin/../lib/g
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000     0x2138
+.debug_ranges   0x0000000000000000     0x2c60
  *(.debug_ranges)
  .debug_ranges  0x0000000000000000      0x6a8 glibc/Release/geturl_handler_x86_32.o
  .debug_ranges  0x00000000000006a8       0x18 glibc/Release/jpeg_mem_src_x86_32.o
  .debug_ranges  0x00000000000006c0       0xf0 glibc/Release/fimage_x86_32.o
- .debug_ranges  0x00000000000007b0     0x1988 glibc/Release/facedetect_x86_32.o
+ .debug_ranges  0x00000000000007b0     0x24b0 glibc/Release/facedetect_x86_32.o
 
 .gnu.attributes
  *(.gnu.attributes)

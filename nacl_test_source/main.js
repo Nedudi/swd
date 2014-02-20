@@ -76,15 +76,13 @@
   };
 
   window.swd.cameraMotionDetection = function() {
-//    function tick() {
-//      compatibility.requestAnimationFrame(tick);
-//      var ctx = swd.canvas.getContext("2d");
-//      ctx.drawImage(swd.video, 0, 0);
-//      imageData = ctx.getImageData(0, 0, swd.canvas.width, swd.canvas.height);
-//      ctx = null;
-      runLoop();
-//    }
-//    compatibility.requestAnimationFrame(tick);
+    //region|regionX|regionY
+    naclModule.postMessage("region|0.4|0.5");
+    //recognize|scaleFactor|minNeighbors|sizeW|sizeH
+    naclModule.postMessage("recognize|1.1|2|65|65");
+    //motion|pyr_scale|levels|winsize|iterations|poly_n|poly_sigma|flags
+    naclModule.postMessage("motion|0.5|3|8|10|5|1.1|0");
+    runLoop();
   };
 
 
@@ -97,39 +95,12 @@
 
 
 
-  var naclModule = null;  // Global application object.
+  var naclModule = null;
   var statusText = 'NO-STATUS';
-//  var img;
   var ts = 0;
   var tc = 0;
-//  var imageData = null;
-
-  // 1230 -- default time for face2.jpg
-
-//  window.runLoop = function() {
-//    var img = new Image();
-//    img.onload = function() {
-//      var canvas = document.getElementById("myCanvas");
-//      canvas.setAttribute("width", (canvas.width = this.width) + "px");
-//      canvas.setAttribute("height", (canvas.height = this.height) + "px");
-//      var ctx = canvas.getContext("2d");
-//      ctx.drawImage(this, 0, 0);
-//      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-//      ctx = null;
-//      canvas = null;
-//      runLoop2();
-//    };
-//    img.src = "face2.jpg";
-//  };
-
   var tt = 0;
   var rects = null;
-//  window.runLoop2 = function() {
-//    tt = (new Date()).getTime();
-//    console.log("send data: ",imageData.width, imageData.height, imageData.data.length);
-//    naclModule.postMessage(imageData.width + '|' + imageData.height);
-//    naclModule.postMessage(imageData.data.buffer);
-//  };
 
   window.runLoop = function() {
     swd.ctx.drawImage(swd.video, 0, 0, swd.video.videoWidth, swd.video.videoHeight, 0, 0, swd.canvas.width, swd.canvas.height);
@@ -151,12 +122,13 @@
     }
 
     tt = (new Date()).getTime();
-    naclModule.postMessage(imageData.width + '|' + imageData.height);
+    naclModule.postMessage("size|" + imageData.width + "|" + imageData.height);
     naclModule.postMessage(imageData.data.buffer);
   };
 
   window.handleMessage = function(message_event) {
     if(message_event.data.substr(0,1) !== "[") {
+      console.log(message_event.data);
       return;
     }
 
@@ -165,8 +137,9 @@
     tc ++;
     updateStatus(td + " - " + Math.floor(ts/tc));
 
+    var tmp = null;
     try {
-      var tmp = JSON.parse(message_event.data);
+      tmp = JSON.parse(message_event.data);
     }catch(e) {
       console.log(message_event.data);
       runLoop();
@@ -191,7 +164,6 @@
     naclModule = document.getElementById('test');
     updateStatus('SUCCESS');
     window.swd.onLoad();
-//    runLoop();
   };
 
   window.pageDidLoad = function() {
