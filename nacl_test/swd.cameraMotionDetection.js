@@ -40,10 +40,10 @@
 //      swd._naclModule.postMessage("recognize|1.1|2|65|65");
       //motion|pyr_scale|levels|winsize|iterations|poly_n|poly_sigma|flags
 //      swd._naclModule.postMessage("motion|0.5|3|8|10|5|1.1|0");
-      if(swd.cameraCanvas && swd.cameraCanvas.width > 0 && swd.cameraCanvas.height > 0) {
+//      if(swd.cameraCanvas && swd.cameraCanvas.width > 0 && swd.cameraCanvas.height > 0) {
         //size|width|height
-        swd._naclModule.postMessage("size|" + swd.cameraCanvas.width + "|" + swd.cameraCanvas.height);
-      }
+//        swd._naclModule.postMessage("size|" + swd.cameraCanvas.width + "|" + swd.cameraCanvas.height);
+//      }
       window.swd.nacl.tick();
     }
   };
@@ -61,6 +61,10 @@
   };
 
   window.swd.nacl.tick = function() {
+    if(!swd.video || !swd.video.videoWidth || !swd.video.videoHeight) {
+      setTimeout(window.swd.nacl.tick, 100);
+      return;
+    }
     swd.cameraCanvasCtx.drawImage(swd.video, 0, 0, swd.video.videoWidth, swd.video.videoHeight, 0, 0, swd.cameraCanvas.width, swd.cameraCanvas.height);
     var imageData = swd.cameraCanvasCtx.getImageData(0, 0, swd.cameraCanvas.width, swd.cameraCanvas.height);
 
@@ -80,6 +84,7 @@
       ctx.restore();
     }
 
+    swd._naclModule.postMessage("size|" + imageData.width + "|" + imageData.height);
     swd._naclModule.postMessage(imageData.data.buffer);
   };
 
