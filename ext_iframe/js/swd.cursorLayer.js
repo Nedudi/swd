@@ -152,6 +152,7 @@
           if(swd.currentHoverElement !== hElement) {
             swd.currentHoverElement = hElement;
             window.swd.cursorLayer.redrawHighlightedElement();
+            swd.currentHoverElement.classList.add('hov');
             console.log('CURRENT HOVER ELEMENT CHANGED = ',swd.currentHoverElement);
           }
         }

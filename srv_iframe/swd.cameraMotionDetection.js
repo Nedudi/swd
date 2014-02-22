@@ -35,7 +35,7 @@
       window.swd.nacl.resetMotionTracing();
 
       //region|regionX|regionY
-      swd._naclModule.postMessage("region|0.4|0.5");
+      swd._naclModule.postMessage("region|0.4|0.4");
       //recognize|scaleFactor|minNeighbors|sizeW|sizeH
 //      swd._naclModule.postMessage("recognize|1.1|2|65|65");
       //motion|pyr_scale|levels|winsize|iterations|poly_n|poly_sigma|flags
