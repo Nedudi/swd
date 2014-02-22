@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ya.Share v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-11-03 18:32+0200\n"
+"Language-Team: Web Geeks\n"
+"Last-Translator: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ ya_share
+#: wp-ya-share.php:93
+msgid "Ya.Share Plugin Options"
+msgstr "Налады ўбудовы Ya.Share"
+
+#@ ya_share
+#: wp-ya-share.php:99
+msgid "Locate ya.share block"
+msgstr "Размяшчэнне блока Ya.Share \"Падзяліцца\""
+
+#@ ya_share
+#: wp-ya-share.php:101
+msgid "add into posts content"
+msgstr "дадаваць ва ўтрыманне запісаў"
+
+#@ ya_share
+#: wp-ya-share.php:103
+msgid "create a widget"
+msgstr "стварыць виджет"
+
+#@ ya_share
+#: wp-ya-share.php:107
+msgid "Quick buttons of social networks to be in Ya.share block"
+msgstr "Якія кнопкі хуткага доступу будуць бачныя ў блоку"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "Pop-up control type"
+msgstr "Выклік выпадальнага спісу"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "left"
+msgstr "злева"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "right"
+msgstr "справа"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "center"
+msgstr "па цэнтры"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "button"
+msgstr "кнопка"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "link"
+msgstr "спасылка"
+
+#@ ya_share
+#: wp-ya-share.php:116
+msgid "none"
+msgstr "нічога"
+
+#@ ya_share
+#: wp-ya-share.php:124
+msgid "Alignment"
+msgstr "Становішча"
+
+#: wp-ya-share.php:132
+msgid "Before or after content"
+msgstr "Над ці пад утрыманнем"
+
+#: wp-ya-share.php:150
+msgid "Ya.Share Settings"
+msgstr ""
+
+#: wp-ya-share.php:182
+msgid "Send current blog page to social networks"
+msgstr "Адправіць бягучую старонку блога ў сацыяльныя сэрвісы"
+
+#: wp-ya-share.php:207
+msgid "Send To"
+msgstr "Адправіць у"
+
+#: wp-ya-share.php:210
+msgid "Title:"
+msgstr "Загаловак:"
+
+#: wp-ya-share.php:207
+msgid "before"
+msgstr "над"
+
+#: wp-ya-share.php:210
+msgid "after"
+msgstr "пад"
+
+#: wp-ya-share.php:210
+msgid "Default: vkontakte, lj, facebook, twitter, odnoklassniki, moimir, yaru. Check &quot;none&quot; for no quick buttons."
+msgstr "Па змаўчанні: vkontakte, lj, facebook, twitter, odnoklassniki, moimir, yaru. Абярыце &quot;нічога&quot; для адключэння ўсіх хуткіх кнопак."
+
+#: wp-ya-share.php:210
+msgid "Force Language"
+msgstr "Задаць мову"
+
+#: wp-ya-share.php:210
+msgid "icon"
+msgstr "абразок"
+
+#: wp-ya-share.php:210
+msgid "Default: full list."
+msgstr "Па змаўчанні: поўны спіс."
+
+#: wp-ya-share.php:205
+msgid "Pop-up list of services"
+msgstr "Спіс у выпадальным меню"
+
+#: wp-ya-share.php:176
+msgid "<a href=\"http://andrey.eto-ya.com/wordpress/my-plugins/wp-ya-share\">The author</a> has no any relation to Yandex. The plugin simplifies the usage in wordpress the <a href=\"http://api.yandex.ru/share/\">Ya.Share API</a> (&quot;Share in social networks&quot;)."
+msgstr "<a href=\"http://andrey.eto-ya.com/wordpress/my-plugins/wp-ya-share#plugin\">Аўтар убудовы</a> не мае стасункі да кампаніі Яндэкс. Убудова толькі спрашчае выкарыстанне ў wordpress <a href=\"http://api.yandex.ru/share/\">API Ya.Share</a> («Падзяліцца ў сацыяльных сетках»)."
+
+#: wp-ya-share.php:250
+msgid "Custom button/link text"
+msgstr "Тэкст кнопкі/спасылкі"
+
+#: wp-ya-share.php:255
+msgid "Pop-up сustom title"
+msgstr "загаловак выпадальнага меню"
+
+#: wp-ya-share.php:262
+msgid "Save Changes"
+msgstr "Захаваць змены"
+
+#: wp-ya-share.php:262
+msgid "Delete Plugin Options"
+msgstr "Выдаліць налады ўбудовы"
+

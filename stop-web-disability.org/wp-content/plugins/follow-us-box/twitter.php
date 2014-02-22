@@ -1,0 +1,4 @@
+<?php defined('ABSPATH') or die("Cannot access pages directly."); ?>
+
+<div class="twitter-box"  <?php echo $fix_tdisplay; ?>><a href="<?php echo 'https://twitter.com/'.$instance['tfb_username']; ?>" class="twitter-follow-button" data-show-count="<?php echo $instance['tfb_count']; ?>" data-size="<?php echo $instance['tfb_width']; ?>"><?php echo __('Follow', 'followusbox').' @'.$instance['tfb_username']; ?></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>

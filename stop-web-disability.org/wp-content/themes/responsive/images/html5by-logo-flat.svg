@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="160px" height="80px" viewBox="0 0 160 80" enable-background="new 0 0 160 80" xml:space="preserve">
+<font horiz-adv-x="1000">
+<!-- Please refer to the Copyright section for the font trademark attribution notices. -->
+<!-- Copyright: Copyright 2014 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="PublicGothicSquare" units-per-em="1000" underline-position="-133" underline-thickness="20"/>
+<missing-glyph horiz-adv-x="241"/>
+<glyph unicode="5" horiz-adv-x="426" d="M0,79l0,130l124,0l0,-85l106,0l0,184l-230,0l0,337l355,0l0,-124l-231,0l0,-89l151,0C297,432 316,424 332,409C347,393 355,374 355,352l0,-273C355,58 347,39 332,24C316,8 297,0 275,0l-196,0C58,0 39,8 24,24C8,39 0,58 0,79z"/>
+<glyph unicode="L" horiz-adv-x="426" d="M0,645l124,0l0,-521l231,0l0,-124l-355,0z"/>
+<glyph unicode="h" horiz-adv-x="426" d="M124,384l106,0l0,261l125,0l0,-645l-125,0l0,260l-106,0l0,-260l-124,0l0,645l124,0z"/>
+<glyph unicode="m" horiz-adv-x="567" d="M0,645l182,0l57,-304l7,-112l2,0l2,0l7,112l57,304l182,0l0,-645l-124,0l0,347l5,95l-3,0l-75,-442l-51,0l-51,0l-75,442l-3,0l5,-95l0,-347l-124,0z"/>
+<glyph unicode="t" horiz-adv-x="386" d="M-20,645l355,0l0,-124l-116,0l0,-521l-124,0l0,521l-115,0z"/>
+</font>
+
+	<font horiz-adv-x="1000">
+<!-- Please refer to the Copyright section for the font trademark attribution notices. -->
+<!-- Copyright: Copyright 2014 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="PublicGothicCircular" units-per-em="1000" underline-position="-133" underline-thickness="20"/>
+<missing-glyph horiz-adv-x="241"/>
+<glyph unicode="." horiz-adv-x="228" d="M0,0l0,157l157,0l0,-157z"/>
+<glyph unicode="b" horiz-adv-x="426" d="M124,384l53,0C192,384 205,389 215,400C225,411 230,424 230,439l0,29C230,483 225,495 215,506C205,516 192,521 177,521l-53,0M230,177l0,29C230,221 225,234 215,245C205,256 192,261 177,261l-53,0l0,-137l53,0C192,124 205,129 215,140C225,150 230,162 230,177M355,188l0,-11C355,152 350,129 341,108C332,87 319,68 303,52C287,36 268,23 247,14C225,5 202,0 177,0l-177,0l0,645l177,0C202,645 225,640 247,631C268,622 287,609 303,593C319,577 332,558 341,537C350,516 355,493 355,468l0,-11C355,429 349,404 338,381C327,358 311,339 292,323C311,306 327,287 338,264C349,241 355,216 355,188z"/>
+<glyph unicode="y" horiz-adv-x="393" d="M342,645l-117,-446l0,-199l-129,0l0,199l-116,446l133,0l38,-189l9,-92l2,0l9,92l37,189z"/>
+</font>
+
+	<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/">
+         <xmp:CreatorTool>Adobe Illustrator CS6 (Macintosh)</xmp:CreatorTool>
+         <xmp:CreateDate>2014-02-16T00:45:58+03:00</xmp:CreateDate>
+         <xmp:ModifyDate>2014-02-16T00:45:58+03:00</xmp:ModifyDate>
+         <xmp:MetadataDate>2014-02-16T00:45:58+03:00</xmp:MetadataDate>
+         <xmp:Thumbnails>
+            <rdf:Alt>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>256</xmpGImg:width>
+                  <xmpGImg:height>112</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAcAEAAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A9U4q7FXYq7FXYq7FXYq7&#xA;FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7F&#xA;XYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FX&#xA;Yq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FXYq7FUt8zSyw+W9Wmhdo5Y7O4eORCVZWWJiGUjcEHL&#xA;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</xmpGImg:image>
+               </rdf:li>
+            </rdf:Alt>
+         </xmp:Thumbnails>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <dc:format>image/svg+xml</dc:format>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/">
+         <photoshop:ColorMode>3</photoshop:ColorMode>
+         <photoshop:TextLayers>
+            <rdf:Bag>
+               <rdf:li rdf:parseType="Resource">
+                  <photoshop:LayerName>5</photoshop:LayerName>
+                  <photoshop:LayerText>5</photoshop:LayerText>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <photoshop:LayerName>.</photoshop:LayerName>
+                  <photoshop:LayerText>.</photoshop:LayerText>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <photoshop:LayerName>by</photoshop:LayerName>
+                  <photoshop:LayerText>by</photoshop:LayerText>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <photoshop:LayerName>htmL</photoshop:LayerName>
+                  <photoshop:LayerText>htmL</photoshop:LayerText>
+               </rdf:li>
+            </rdf:Bag>
+         </photoshop:TextLayers>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+            xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+            xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#">
+         <xmpMM:InstanceID>xmp.iid:0180117407206811822A923E4225CDF0</xmpMM:InstanceID>
+         <xmpMM:DocumentID>xmp.did:0180117407206811822A923E4225CDF0</xmpMM:DocumentID>
+         <xmpMM:OriginalDocumentID>xmp.did:05801174072068118C149F232BBC97FA</xmpMM:OriginalDocumentID>
+         <xmpMM:History>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>created</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:05801174072068118C149F232BBC97FA</stEvt:instanceID>
+                  <stEvt:when>2014-02-15T00:20:13+03:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Photoshop CS6 (Macintosh)</stEvt:softwareAgent>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>converted</stEvt:action>
+                  <stEvt:parameters>from image/png to application/vnd.adobe.photoshop</stEvt:parameters>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:06801174072068118C149F232BBC97FA</stEvt:instanceID>
+                  <stEvt:when>2014-02-16T00:26:13+03:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Photoshop CS6 (Macintosh)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:0180117407206811822A923E4225CDF0</stEvt:instanceID>
+                  <stEvt:when>2014-02-16T00:45:58+03:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Illustrator CS6 (Macintosh)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpMM:History>
+         <xmpMM:DerivedFrom rdf:parseType="Resource">
+            <stRef:instanceID>xmp.iid:0A801174072068118C149F232BBC97FA</stRef:instanceID>
+            <stRef:documentID>xmp.did:05801174072068118C149F232BBC97FA</stRef:documentID>
+            <stRef:originalDocumentID>xmp.did:05801174072068118C149F232BBC97FA</stRef:originalDocumentID>
+         </xmpMM:DerivedFrom>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:tiff="http://ns.adobe.com/tiff/1.0/">
+         <tiff:Orientation>1</tiff:Orientation>
+         <tiff:XResolution>720000/10000</tiff:XResolution>
+         <tiff:YResolution>720000/10000</tiff:YResolution>
+         <tiff:ResolutionUnit>2</tiff:ResolutionUnit>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:exif="http://ns.adobe.com/exif/1.0/">
+         <exif:ColorSpace>1</exif:ColorSpace>
+         <exif:PixelXDimension>160</exif:PixelXDimension>
+         <exif:PixelYDimension>80</exif:PixelYDimension>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
+            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+            xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
+            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/">
+         <xmpTPg:MaxPageSize rdf:parseType="Resource">
+            <stDim:w>160.000000</stDim:w>
+            <stDim:h>80.000000</stDim:h>
+            <stDim:unit>Pixels</stDim:unit>
+         </xmpTPg:MaxPageSize>
+         <xmpTPg:NPages>1</xmpTPg:NPages>
+         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
+         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
+         <xmpTPg:Fonts>
+            <rdf:Bag>
+               <rdf:li rdf:parseType="Resource">
+                  <stFnt:fontName>PublicGothicCircular</stFnt:fontName>
+                  <stFnt:fontFamily>Public Gothic Circular</stFnt:fontFamily>
+                  <stFnt:fontFace>Regular</stFnt:fontFace>
+                  <stFnt:fontType>TrueType</stFnt:fontType>
+                  <stFnt:versionString>Version 1.000;PS 001.001;hotconv 1.0.38</stFnt:versionString>
+                  <stFnt:composite>False</stFnt:composite>
+                  <stFnt:fontFileName>Public Gothic Circular.ttf</stFnt:fontFileName>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stFnt:fontName>PublicGothicSquare</stFnt:fontName>
+                  <stFnt:fontFamily>Public Gothic Square</stFnt:fontFamily>
+                  <stFnt:fontFace>Regular</stFnt:fontFace>
+                  <stFnt:fontType>TrueType</stFnt:fontType>
+                  <stFnt:versionString>Version 1.000;PS 001.001;hotconv 1.0.38</stFnt:versionString>
+                  <stFnt:composite>False</stFnt:composite>
+                  <stFnt:fontFileName>Public Gothic Square.ttf</stFnt:fontFileName>
+               </rdf:li>
+            </rdf:Bag>
+         </xmpTPg:Fonts>
+         <xmpTPg:PlateNames>
+            <rdf:Seq>
+               <rdf:li>Cyan</rdf:li>
+               <rdf:li>Magenta</rdf:li>
+               <rdf:li>Yellow</rdf:li>
+               <rdf:li>Black</rdf:li>
+            </rdf:Seq>
+         </xmpTPg:PlateNames>
+         <xmpTPg:SwatchGroups>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
+                  <xmpG:groupType>0</xmpG:groupType>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpTPg:SwatchGroups>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+	</metadata>
+<g id="_x3C_Background_x3E__xA0_0_xA0_Image_1_" display="none">
+	
+		<image display="inline" overflow="visible"  a:adobe-opacity-share="1" width="160" height="76" id="_x3C_Background_x3E__xA0_0_xA0_Image" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAABMCAIAAABlKyuDAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAFABJREFUeNrsnVlvXGcZx8/sMx6v
+Y4/jOGmcUqp0iVJRUEEVCITgAgkKF3wGJD4Id9xwwwWX9BYJLiu1ICGVJaBuoNI9TdI0TeLxNp7F
+s/P3/OqHN2fOHHvGYwc151U0OnPmPe/2PM//WY8Te+GFF7yofXFbPDqCiMBRiwgctYjAUYsIHLWI
+wFGLCBy1iMARgaMWEThqEYGjNlrrdrutVkufExwz+TAc3O7FrzcXznuxQ7g5Uduee/eVmNc7zbV1
+Op12u51Op3W9vr6eSCRE48XFRd1pNpvxeDyZTEYSHNZa+cXtKz9Mlu/2vFiisuG1m/qni05uJr1x
+vZvJt6cLzfmzye3blbWv1leeOM217e3t3bt3b3d3d3t7u1ariZaFQiGbzep6a2trc3NzY2NDvx5n
+isSlS5e+2ARuzp9v5wuZ0rVkdcOLealKKdZr9zJTnhdrFR6J18uZ7U/zN17rprNerxfrdbObN05t
+bTs7O5JUUbTTb7qOxWISYhFeQJ3L5fL5fLlcnpmZiSA6rMWatcbSo/s6Ljsb3ysnGtVOOp+sbWU/
+fHXnyg9Tta3KhWfTlfV4p3VqsCwZzWQykHNqakqyK4rqs9FoCJanp6eF2/qqbuoj0BbJxQepVCqC
+6CCYajdS5TuZ0o389X/0Eun66tPJvXK8Ua2tPTv94V+a08Xc+kf6bCyuSb5PejG9Xk/AK5oJgUU8
+iamIJ6LqJ6gr0n6uXFot/So+KJVK4gl92k+RBN8vMcnMVGVDdlbH86pf/ubUzddbc2f5qbZW0Gd9
+9Sl9ZtavZe+84z5YrVYFkhNWGc2maCyySUy7/QYtdSHq8qk+gmt+1QLUWY/oul6vjwrXDwWB909w
+erE1U2xPL8q8Kv79t0fH0omvRDAL6gqcBcISSoiH7Opa9yW46qCe+tQadFM/Sb7HUMZJCb6e31dU
+sZguNLQ4y2fpiXGYxrppEfoUl6n/cex4DaLxtXS4VV8ZX5/asMYX/+o68EHpJy1MT2lt9Ed7SVf5
+dXAiVXnsG8najmS0PbsynoeKVIGlY7d2v2m1LFLXDMt2dM1mRVrR0mis00bQgeiRNHESD0zP6JQ1
+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">
+	</image>
+</g>
+<g id="Image_xA0_1_1_" display="none" enable-background="new    ">
+	<g id="Image_xA0_1" display="inline">
+		<g>
+			<rect fill="#4E4E4E" width="160" height="73"/>
+		</g>
+	</g>
+</g>
+<g id="Group_1_1_">
+	<g id="_x35_">
+		<text transform="matrix(1.0105 0 0 1 99.999 44.9473)" fill="#3596E0" font-family="'PublicGothicSquare'" font-size="53.4312">5</text>
+	</g>
+	<g id="_x2E_">
+		<text transform="matrix(0.9747 0 0 1 113.1221 57.5361)" fill="#FD9200" font-family="'PublicGothicCircular'" font-size="45">.</text>
+	</g>
+	<g id="by">
+		<text transform="matrix(1 0 0 1 126.3438 57.4375)" fill="#FD9200" font-family="'PublicGothicCircular'" font-size="30">by</text>
+	</g>
+	<g id="htmL">
+		<text transform="matrix(1.0478 0 0 1 4 57.5312)" fill="#EDEDED" font-family="'PublicGothicSquare'" font-size="56.5742">htmL</text>
+	</g>
+	<g id="Rectangle_2">
+	</g>
+</g>
+</svg>

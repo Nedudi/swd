@@ -1,0 +1,100 @@
+body {
+	margin-top: 33px;
+}
+
+.codedemo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background: #CCC;
+	line-height: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 5px 10px;
+	font-weight: bold;
+	z-index: 1000;
+	border: solid #333;
+	border-width: 0 0 3px 0;
+}
+
+.codedemo a {
+	text-decoration: none;
+	color: #06F;
+}
+
+.codedemo a:hover {
+	text-decoration: underline;
+}
+
+.codedemo .fleft {
+	float: left;
+}
+
+.codedemo .fright {
+	float: right;
+}
+
+.viewsource {
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	background: #FFF;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 3px solid #333;
+	z-index: 1001;
+	font-family: "Courier New", Courier, monospace;
+	padding: 5px 10px;
+}
+
+.viewsource h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #06F;
+	font-size: 16px;
+	line-height: 20px;
+	margin: 30px 0 10px;
+}
+
+.viewsource h1:first-child {
+	margin: 0 0 10px;
+}
+
+.viewsource .close {
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	color: #06F;
+	background: #EEE;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #999;
+	padding: 5px;
+	line-height: 1.2em;
+}
+
+.viewsource div {
+	clear: both;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid #333;
+	overflow: auto;
+	padding: 5px 10px;
+	margin: 10px;
+	white-space: pre;
+}
+
+.viewsource .doctype {
+	height: 1em;
+}
+
+.viewsource .head {
+	height: 10em;
+}
+
+.viewsource .body {
+	height: 25em;
+}
