@@ -4,338 +4,257 @@
 
   window.swd = window.swd || {};
 
-//  window.swd.getCursorMultiplier = function(inParam) {
-//    return (1/inParam) / 2;
-//  };
-
-
-
-  window.swd.modMotion = null;
-  window.swd.modFace = null;
   swd.displayProcessing = true;
+  swd._naclModule = null;
+
+  /********************************************************************************
+   * NaCl
+   ********************************************************************************/
+
+  window.swd.nacl = {};
+  window.swd.nacl._isCursorActive = false;
+  window.swd.nacl._videoReady = false;
+  window.swd.nacl._naclReady = false;
+  window.swd.nacl._cursorPos = {"x":(1/2), "y":(1/2), "spdX":0, "spdY":0};
+  window.swd.nacl._disabled = false;
+  window.swd.nacl._faceRect = null;
+  window.swd.nacl._width = 0;
+  window.swd.nacl._height = 0;
+  window.swd.nacl._motionLimit = 0.25;
+
+  window.swd.nacl.updateStatus = function(txt) {
+    console.log("updateStatus - ", txt);
+  };
+
+  window.swd.nacl.moduleDidLoad = function() {
+    window.swd._naclModule = document.getElementById('test');
+    window.swd.nacl.updateStatus('SUCCESS');
+    window.swd.nacl._naclReady = true;
+    if(window.swd.nacl._videoReady && window.swd.nacl._naclReady) {
+      window.swd.nacl.activeCursor(false);
+      window.swd.nacl.resetMotionTracing();
+
+      //region|regionX|regionY
+      swd._naclModule.postMessage("region|0.4|0.5");
+      //recognize|scaleFactor|minNeighbors|sizeW|sizeH
+//      swd._naclModule.postMessage("recognize|1.1|2|65|65");
+      //motion|pyr_scale|levels|winsize|iterations|poly_n|poly_sigma|flags
+//      swd._naclModule.postMessage("motion|0.5|3|8|10|5|1.1|0");
+//      if(swd.cameraCanvas && swd.cameraCanvas.width > 0 && swd.cameraCanvas.height > 0) {
+        //size|width|height
+//        swd._naclModule.postMessage("size|" + swd.cameraCanvas.width + "|" + swd.cameraCanvas.height);
+//      }
+      window.swd.nacl.tick();
+    }
+  };
+
+  window.swd.nacl.pageDidLoad = function() {
+    var listener = document.getElementById('listener');
+    listener.addEventListener('load', window.swd.nacl.moduleDidLoad, true);
+    listener.addEventListener('message', window.swd.nacl.handleMessage, true);
+
+    if(window.swd._naclModule === null) {
+      window.swd.nacl.updateStatus('LOADING...');
+    } else {
+      window.swd.nacl.updateStatus();
+    }
+  };
+
+  window.swd.nacl.tick = function() {
+    if(!swd.video || !swd.video.videoWidth || !swd.video.videoHeight) {
+      setTimeout(window.swd.nacl.tick, 100);
+      return;
+    }
+    swd.cameraCanvasCtx.drawImage(swd.video, 0, 0, swd.video.videoWidth, swd.video.videoHeight, 0, 0, swd.cameraCanvas.width, swd.cameraCanvas.height);
+    var imageData = swd.cameraCanvasCtx.getImageData(0, 0, swd.cameraCanvas.width, swd.cameraCanvas.height);
+
+    var faceRect = window.swd.nacl._faceRect;
+    if(swd.displayProcessing && faceRect) {
+      var ctx = swd.cameraCanvasCtx;
+      ctx.save();
+      ctx.beginPath();
+      ctx.strokeStyle = "#FF0000";
+      ctx.moveTo(faceRect.x, faceRect.y);
+      ctx.lineTo(faceRect.x + faceRect.width, faceRect.y);
+      ctx.lineTo(faceRect.x + faceRect.width, faceRect.y + faceRect.height);
+      ctx.lineTo(faceRect.x, faceRect.y + faceRect.height);
+      ctx.lineTo(faceRect.x, faceRect.y);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    swd._naclModule.postMessage("size|" + imageData.width + "|" + imageData.height);
+    swd._naclModule.postMessage(imageData.data.buffer);
+  };
+
+  window.swd.nacl.handleMessage = function(message_event) {
+    if(message_event.data.substr(0,1) !== "[") {
+      return;
+    }
+
+    var tmp = {dx:0, dy:0};
+    try {
+      tmp = JSON.parse(message_event.data);
+    }catch(e) {
+      console.error(message_event.data);
+      tmp = {dx:0, dy:0};
+    }
+    if(tmp && tmp[0] && tmp[0].x && tmp[0].y && tmp[0].width && tmp[0].height) {
+      window.swd.nacl._faceRect = tmp[0];
+    }
+
+    if(tmp && tmp[0] && tmp[0].dx && tmp[0].dy) {
+      if((tmp[0].dx*tmp[0].dx + tmp[0].dy*tmp[0].dy) < window.swd.nacl._motionLimit) {
+        tmp[0].dx = 0;
+        tmp[0].dy = 0;
+      }
+
+      tmp[0].dx *= -1;
+      window.swd.nacl.findMoveDelta(tmp[0]);
+      window.swd.nacl.drawCursors();
+      if(!window.swd.nacl._isCursorActive) {
+        window.swd.nacl.activeCursor(false);
+      }
+    }
+
+    window.swd.nacl.tick();
+  };
+
+  /********************************************************************************
+   * Motion Detection
+   ********************************************************************************/
 
   window.swd.cameraMotionDetection = function(layers) {
-    var width = 640;
-    var height = 480;
+    window.swd.nacl._width = 320;
+    window.swd.nacl._height = 240;
 
-    swd.cameraCanvas = document.createElement("canvas");
-    swd.cameraCanvas.width = width;
-    swd.cameraCanvas.height = height;
-    swd.modMotion = new swd.Mod_Motion();
-    swd.modFace = new swd.Mod_Face();
+    swd.cameraCanvas = document.getElementById("canvas1");
+    swd.cameraCanvasCtx = swd.cameraCanvas.getContext("2d");
 
-    layers.camera = swd.cameraCanvas;
-
-    var ctx_camera = swd.cameraCanvas.getContext("2d");
-
-    var cursorPos = {"x":(1/2), "y":(1/2), "spdX":0, "spdY":0};
-    var faceRects = [];
-    var headRect = {};
-    var globalParams = {
-      centerRectColor: "rgb(0,0,255)",
-      gridPointColor: "rgb(0,255,0)",
-      maskSteps: 5,
-      detectRectCount: 4
-    };
-
-    // currect state, can be: detect, motion
-    var curWorkingState = "detect";
-    var rect;
-    var _disabled = false;
-
-//    swd.video.addEventListener("timeupdate", function () {
-//      tick();
-//      var vTime = swd.video.currentTime;
-//      console.log(vTime);
-//    }, false);
-
-    var ll = 0;
-    function tick() {
-      tickCounter++;
-      //console.log(tickCounter)
-      //console.log(ll - (new Date()).getTime());
-      ll = (new Date()).getTime();
-      if(_disabled) {
-        return;
-      }
-
-      compatibility.requestAnimationFrame(tick);
-      window.freeLog();
-      if(swd.displayProcessing) {
-        ctx_camera.drawImage(swd.video, 0, 0);
-      }
-
-      if(curWorkingState === "detect") {
-        rect = swd.modFace.process(layers);
-        if(rect) {
-          faceRects.push(rect);
-        }
-        if(faceRects.length >= globalParams.detectRectCount) {
-          if(faceRects.length > globalParams.detectRectCount) {
-            faceRects.shift();
-          }
-          createNewPointForMotionDetect();
-          activeCursor(true);
-          curWorkingState = "motion";
-        }
-        if(rect && swd.displayProcessing) {
-          ctx_camera.save();
-          ctx_camera.strokeStyle = "#ff0000";
-          ctx_camera.strokeRect(rect.x, rect.y, rect.width, rect.height);
-          ctx_camera.restore();
-        }
-      } else if(curWorkingState === "motion") {
-        swd.modMotion.process(layers);
-        if(swd.modMotion.getActivePointCount() < (swd.modMotion.getPointCount()/3)) {
-          resetMotionTracing();
-          activeCursor(false);
-          curWorkingState = "detect";
-        } else {
-          if(tickCounter >= 100){
-            tickCounter = 0;
-            resetParameters();
-          } else {
-            findMoveDelta();
-            drawActiveMotionPoint();
-            drawCursors();
-          }
-
-          // if(tickCounter === 49)console.log('==> 49',cursorPos.x,cursorPos.y);
-          // if(tickCounter === 0) console.log('==> 0' ,cursorPos.x,cursorPos.y);
-        }
-      }
+    window.swd.nacl._videoReady = true;
+    if(window.swd.nacl._videoReady && window.swd.nacl._naclReady) {
+      window.swd.nacl.activeCursor(false);
+      window.swd.nacl.resetMotionTracing();
+      window.swd.nacl.tick();
     }
-    this.tick = tick();
+  };
 
-    var maskSteps = globalParams.maskSteps;
+  window.swd.nacl.resetCursorPosition = function () {
+    window.swd.nacl._cursorPos.x = 1/2;
+    window.swd.nacl._cursorPos.y = 1/2;
+  };
 
+  window.swd.nacl.resetParameters = function() {
+    window.swd.nacl._faceRect = null;
+  };
 
+  window.swd.nacl.resetMotionTracing = function() {
+    window.swd.nacl.resetParameters();
+    window.swd.nacl.resetCursorPosition();
+    window.swd.nacl.resetCursors();
+  };
 
+  window.swd.nacl.findMoveDelta = function(data) {
+    var dx = Math.exp(1.3*Math.log(Math.abs(data.dx))) * (data.dx > 0 ? 1 : -1);
+    var dy = Math.exp(1.3*Math.log(Math.abs(data.dy))) * (data.dy > 0 ? 1 : -1);
+    window.swd.nacl._cursorPos.x -= dx / window.swd.nacl._width;
+    window.swd.nacl._cursorPos.y += dy / window.swd.nacl._height;
+    if(window.swd.nacl._cursorPos.x < 0) { window.swd.nacl._cursorPos.x = 0; }
+    else if(window.swd.nacl._cursorPos.x > 1) { window.swd.nacl._cursorPos.x = 1; }
+    if(window.swd.nacl._cursorPos.y < 0) { window.swd.nacl._cursorPos.y = 0; }
+    else if(window.swd.nacl._cursorPos.y > 1) { window.swd.nacl._cursorPos.y = 1; }
+  };
 
-    function resetCursorPosition() {
-      cursorPos.x = 1/2;
-      cursorPos.y = 1/2;
+  /********************************************************************************
+   * draw and send commands
+   ********************************************************************************/
+
+  window.swd.nacl.drawCursors = function() {
+    window.swd.sendMessage("swdCursorPosition", {
+      "x":  window.swd.nacl._cursorPos.x,
+      "y":  window.swd.nacl._cursorPos.y,
+      "mx": 1/*window.swd.nacl._cursorPos.spdX*/,
+      "my": 1/*window.swd.nacl._cursorPos.spdY*/
+    });
+  };
+
+  window.swd.nacl.resetCursors = function() {
+    window.swd.sendMessage("swdCursorReset", {
+      "x":  window.swd.nacl._cursorPos.x,
+      "y":  window.swd.nacl._cursorPos.y,
+      "mx": window.swd.nacl._cursorPos.spdX,
+      "my": window.swd.nacl._cursorPos.spdY
+    });
+  };
+
+  window.swd.nacl.activeCursor = function(isActive) {
+    window.swd.nacl._isCursorActive = isActive;
+    if(isActive) {
+      window.swd.sendMessage("swdCursorStyle", {"style":"arrow"});
+    } else {
+      window.swd.sendMessage("swdCursorStyle", {"style":"wait"});
+    }
+  };
+
+  /********************************************************************************
+   * start processing
+   ********************************************************************************/
+
+  window.swd.enableCamera = function() {
+    if(!window.swd.nacl._disabled) {
+      return;
     }
 
-    function resetParameters() {
-      faceRects = [];
-      swd.modMotion.removeAllPoints();
-      headRect = {x:0,y:0,w:0,h:0};
-      curWorkingState = "detect";
-    }
+    try {
+      compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
+        window.swd.stream = stream;
 
-    function resetMotionTracing() {
-      resetParameters();
-      resetCursorPosition();
-      resetCursors();
-    }
-
-    activeCursor(false);
-    resetMotionTracing();
-
-    function updateRect() {
-      var qq;
-      var tmp = {x:0,y:0,w:0,h:0};
-      for(qq = 0; qq < faceRects.length; ++qq) {
-        tmp.x += faceRects[qq].x;
-        tmp.y += faceRects[qq].y;
-        tmp.w += faceRects[qq].width;
-        tmp.h += faceRects[qq].height;
-      }
-      tmp.x /= faceRects.length;
-      tmp.y /= faceRects.length;
-      tmp.w /= faceRects.length;
-      tmp.h /= faceRects.length;
-      headRect = tmp;
-    }
-
-
-    // setInterval(function(){
-    //   createNewPointForMotionDetect();
-    //   console.log(1)
-    // },2000)
-
-    var tickCounter = 0;
-
-    function createNewPointForMotionDetect() {
-      var qq, ww;
-      updateRect();
-
-      cursorPos.spdX = headRect.w / 640;
-      cursorPos.spdY = headRect.h / 480;
-     // console.log(cursorPos.spdX, cursorPos.spdY);
-
-      var sx = headRect.w*0.9/maskSteps;
-      var sy = headRect.h*0.9/maskSteps;
-      var cx = (headRect.x + headRect.w/2)|0;
-      var cy = (headRect.y + headRect.h/2)|0;
-
-      for(ww = 0; ww < maskSteps; ++ww) {
-        for(qq = 0; qq < maskSteps; ++qq) {
-          swd.modMotion.setPoint(ww * maskSteps + qq, cx-(qq-(maskSteps>>1))*sx, cy-(ww-(maskSteps>>1))*sy);
-        }
-      }
-    }
-
-    var lastDetectSuccess = false;
-    function findMoveDelta() {
-      //if(isReseted) return;
-      var qq, nn = swd.modMotion.getPointCount();
-      var pp, cnt = 0, pos = {x:0, y:0};
-      for(qq = 0; qq < nn; ++qq) {
-        pp = swd.modMotion.getPoint(qq);
-        if(pp && pp.active && pp.live) {
-          pos.x += pp.x - pp.ox;
-          pos.y += pp.y - pp.oy;
-          cnt++;
-        }
-      }
-      if(cnt > maskSteps) {
-        var limx = Math.abs(pos.x / cnt);
-        var limy = Math.abs(pos.y / cnt);
-        cnt = 0;
-
-        pos = {x:0, y:0};
-        for(qq = 0; qq < nn; ++qq) {
-          pp = swd.modMotion.getPoint(qq);
-          if(pp && pp.active && pp.live) {
-            if(Math.abs(pp.x - pp.ox) < limx && Math.abs(pp.y - pp.oy) < limy) {
-              pos.x += pp.x - pp.ox;
-              pos.y += pp.y - pp.oy;
-              cnt++;
-            }
-          }
+        var videoStream = null;
+        try {
+          videoStream = compatibility.URL.createObjectURL(stream);
+        } catch (error) {
+          videoStream = stream;
         }
 
-        if(cnt) {
-          if(lastDetectSuccess) {
-            cursorPos.x -= (pos.x / cnt) / width;// * swd.getCursorMultiplier(cursorPos.spdY);  //* globalParams.moveSpeed;
-            cursorPos.y += (pos.y / cnt) / height;// * swd.getCursorMultiplier(cursorPos.spdY); //* globalParams.moveSpeed;// * (window.innerHeight/window.innerWidth); //window.innerWidth
-
-            // TODO no limit on server side
-//            if(cursorPos.x < 0) { cursorPos.x = 0; }
-//            else if(cursorPos.x > 1) { cursorPos.x = 1; }
-//            if(cursorPos.y < 0) { cursorPos.y = 0; }
-//            else if(cursorPos.y > 1) { cursorPos.y = 1; }
-          }
-          lastDetectSuccess = true;
+        window.swd.nacl._disabled = false;
+        if(window.swd.onMicReady){
+          window.swd.onMicReady(stream);
         }
-      } else {
-        lastDetectSuccess = false;
-      }
-      drawCursors();
-    }
-
-    /********************************************************************************
-     * draw and send commands
-     ********************************************************************************/
-
-    function drawActiveMotionPoint() {
-      if(!swd.displayProcessing) {
-        return;
-      }
-
-      var draw_circle = function(ctx, x, y, color) {
-        ctx.save();
-        ctx.fillStyle = color;
-        ctx.strokeStyle = color;
-        ctx.beginPath();
-        ctx.arc(x, y, 6, 0, Math.PI*2, true);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-      };
-
-      var ctx = swd.modMotion._canvas.getContext("2d");
-      var qq, dd, num = swd.modMotion.getPointCount();
-      for(qq = 0; qq < num; ++qq) {
-        dd = swd.modMotion.getPoint(qq);
-        if(dd.active) {
-          draw_circle(ctx, dd.x, dd.y, globalParams.gridPointColor);
-        }
-      }
-    }
-
-    function drawCursors() {
-      // temporary disable scale head parameter because of re-detection each time cursorPos.spdX, cursorPos.spdY
-      window.swd.sendMessage("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y, "mx":0.5/*cursorPos.spdX*/, "my":0.5/*cursorPos.spdY*/});
-      //console.log(cursorPos.x,cursorPos.y);
-
-        // document.getElementById('test_cursor').style.top = cursorPos.y*3000-1000+'px';
-        // document.getElementById('test_cursor').style.left = cursorPos.x*3000-1000+'px';
-      //window.swd.ask("swdCursorPosition", {"x":cursorPos.x, "y":cursorPos.y});
-    }
-
-    function resetCursors() {
-      window.swd.sendMessage("swdCursorReset", {"x":cursorPos.x, "y":cursorPos.y, "mx":cursorPos.spdX, "my":cursorPos.spdY});
-    }
-
-    function activeCursor(isActive) {
-      if(isActive) {
-        window.swd.sendMessage("swdCursorStyle", {"style":"arrow"});
-      } else {
-        window.swd.sendMessage("swdCursorStyle", {"style":"wait"});
-      }
-    }
-
-    /********************************************************************************
-     * start processing
-     ********************************************************************************/
-
-     window.swd.enableCamera = function() {
-      if(!_disabled) {
-        return;
-      }
-
-      try {
-        compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
-          window.swd.stream = stream;
-
-          var videoStream = null;
-          try {
-            videoStream = compatibility.URL.createObjectURL(stream);
-          } catch (error) {
-            videoStream = stream;
-          }
-
-          _disabled = false;
-          if(window.swd.onMicReady){
-            window.swd.onMicReady(stream);
-          }
-          swd.video.src = videoStream;
-          swd.video.setAttribute('muted','true');
-          swd.video.play();
-          tick();
-        }, function (error) {
-          if(window.swd.onCameraError) {
-            window.swd.onCameraError();
-          }
-          if(window.swd.onMicError) {
-            window.swd.onMicError();
-          }
-        });
-      } catch (error) {
+        swd.video.src = videoStream;
+        swd.video.setAttribute('muted','true');
+        swd.video.play();
+        window.swd.nacl.tick();
+      }, function(error) {
         if(window.swd.onCameraError) {
           window.swd.onCameraError();
         }
+        if(window.swd.onMicError) {
+          window.swd.onMicError();
+        }
+      });
+    } catch (error) {
+      if(window.swd.onCameraError) {
+        window.swd.onCameraError();
       }
-    };
-
-    window.swd.disableCamera =  function() {
-      console.log('srv frame now disable stream');
-      _disabled = true;
-      if(window.swd.stream) {
-        window.swd.stream.stop();
-        window.swd.stream = null;
-      }
-      window.swd.video.pause();
-      resetMotionTracing();
-    };
-
-    window.swd.addEventListener("refresh", function() {
-      resetMotionTracing();
-    });
-
-    tick();
+    }
   };
+
+  window.swd.disableCamera =  function() {
+    console.log('srv frame now disable stream');
+    window.swd.nacl._disabled = true;
+    if(window.swd.stream) {
+      window.swd.stream.stop();
+      window.swd.stream = null;
+    }
+    window.swd.video.pause();
+    window.swd.nacl.resetMotionTracing();
+  };
+
+//    window.swd.addEventListener("refresh", function() {
+//    resetMotionTracing();
+//    });
+
+  window.addEventListener("load", window.swd.nacl.pageDidLoad, false);
+//  (document.documentElement || document.body).addEventListener("load", window.swd.nacl.pageDidLoad, false);
 })(window);

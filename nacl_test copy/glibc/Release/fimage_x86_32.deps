@@ -1,0 +1,4 @@
+# Updated by fix_deps.py
+glibc/Release/fimage_x86_32.o: fimage.cc fimage.h
+fimage.cc:
+fimage.h:

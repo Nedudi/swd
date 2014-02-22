@@ -7,14 +7,8 @@
   window.swd.sendMessage = function(type, data)  {
     var msg = window.swd._messagePrefix + JSON.stringify({"type":type, "data":data});
     window.postMessage(msg, "*");
-    // if(window.parent) {
-    //   window.parent.postMessage(msg, "*");
-    // }
-    // var tmp = document.querySelector(".swd-iframe");
-    // if(tmp && tmp.contentWindow) {
-    //   tmp.contentWindow.postMessage(msg, "*");
-    // }
   };
+  window.swd.trigger = window.swd.sendMessage;
 
   /**
    * attach callback for event
@@ -29,6 +23,7 @@
     window.swd._listeners[event].push(func);
     return this;
   };
+  window.swd.on = window.swd.addEventListener;
 
   /**
    * detach callback for event
@@ -59,6 +54,7 @@
   };
 
   window.addEventListener("message", function(data) {
+    //console.log('swg.org window got the message = ', data);
     if(!data || typeof(data.data) !== "string") {
       return;
     }
@@ -67,7 +63,6 @@
       return;
     }
     var json = JSON.parse(str.substr(window.swd._messagePrefix.length));
-    //console.log(json.type,window.swd._listeners);
     if(window.swd._listeners[json.type]) {
       var that = this;
       window.swd._listeners[json.type].each(function(item) {

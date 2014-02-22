@@ -7,8 +7,8 @@
     console.log('-- CURSOR LAYER INITED');
     var fifoX = [];
     var fifoY = [];
-    var fifoSize = 12;
-    var moveSpeed = 20000;
+    var fifoSize = 5;
+    var moveSpeed = 15000;
     var cursor = document.createElement("div");
     cursor.setAttribute("id", "swd-cursor");
     cursor.setAttribute("class", "swd-cursor");
@@ -39,11 +39,6 @@
         return;
       }
       cursor.classList.add('icon-pointer');
-//      if(data.style === "arrow") {
-        //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorArrow + ")";
-//      } else if(data.style === "wait") {
-        //cursor.style.backgroundImage = "url(data:image/png;base64," + window.swd.base64CursorWait + ")";
-//      }
     }
 
     var lastPosX = null;
@@ -52,7 +47,6 @@
     var cursorPosY = window.innerHeight/2 - 100;
     var cursorMode = 1; // TODO 1 or 2
 
-
     window.swd.cursorLayer.redrawHighlightedElement = function(){
       var rect = swd.currentHoverElement.getBoundingClientRect();
       highlight.style.display = 'block';
@@ -60,11 +54,10 @@
       highlight.style.width   = rect.width  +20+'px';
       highlight.style.top     = rect.top    -10+'px';
       highlight.style.left    = rect.left   -10+'px';
-    }
+    };
 
 
     function setCursorPosition(data, reInitPosition) {
-//      console.log(data, reInitPosition);
 
       var getCursorMultiplier = function(inParam) {
         return (1/inParam) / 2;
@@ -129,7 +122,9 @@
         var o = document.createEvent('MouseEvents');
         var element = null;
 
-        window.swd.layout.cursorPositionChanged(x,y);
+        if(window.swd.layout && window.swd.layout.cursorPositionChanged) {
+          window.swd.layout.cursorPositionChanged(x,y);
+        }
 
         if(x && y){
           element = document.elementFromPoint(x,y);
@@ -159,11 +154,6 @@
             window.swd.cursorLayer.redrawHighlightedElement();
             console.log('CURRENT HOVER ELEMENT CHANGED = ',swd.currentHoverElement);
           }
-
-          // o.initMouseEvent('mouseover', true, true, window, 1, 100, 100, 100, 100, false, false, false, false, 0, null);
-          // if(o){
-          //    element.dispatchEvent(o);
-          // }
         }
       }
     }
@@ -201,7 +191,6 @@
     }
 
     window.swd.on("swdCursorPosition", function(request) {
-      //console.log('!!!!!!!!!!!!!!!swdCursorPosition',data)
       setCursorPosition(request.data);
     });
 

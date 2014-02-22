@@ -32,7 +32,6 @@
     swd.connectCamera();
   };
 
-
   window.swd.connectCamera = function() {
     try {
       compatibility.getUserMedia({video: true, audio: !!swd.audioClick}, function(stream) {
@@ -88,18 +87,18 @@
 //      console.log(fps, fps2, swd.video.webkitDroppedFrameCount, swd.video.webkitDecodedFrameCount);
 //    }, 100);
     swd.cameraMotionDetection(layers);
-    if(swd.cameraCanvas) {
-      document.getElementById('canvas1').appendChild(swd.cameraCanvas);
-    }
-    if(swd.modMotion._canvas) {
-      document.getElementById('canvas2').appendChild(swd.modMotion._canvas);
-    }
-    if(swd.modFace._canvas) {
-      document.getElementById('canvas3').appendChild(swd.modFace._canvas);
-    }
-    if(swd.modFace._canvas2) {
-      document.getElementById('canvas4').appendChild(swd.modFace._canvas2);
-    }
+//    if(swd.cameraCanvas) {
+//      document.getElementById('canvas1').appendChild(swd.cameraCanvas);
+//    }
+//    if(swd.modMotion._canvas) {
+//      document.getElementById('canvas2').appendChild(swd.modMotion._canvas);
+//    }
+//    if(swd.modFace._canvas) {
+//      document.getElementById('canvas3').appendChild(swd.modFace._canvas);
+//    }
+//    if(swd.modFace._canvas2) {
+//      document.getElementById('canvas4').appendChild(swd.modFace._canvas2);
+//    }
   };
 
   window.swd.onCameraError = function() {
@@ -122,7 +121,4 @@
       swd.video.src = null;
     }
   };
-
-
-
 })(window);

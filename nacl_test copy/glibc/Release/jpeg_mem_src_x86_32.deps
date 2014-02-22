@@ -1,0 +1,4 @@
+# Updated by fix_deps.py
+glibc/Release/jpeg_mem_src_x86_32.o: jpeg_mem_src.cc jpeg_mem_src.h
+jpeg_mem_src.cc:
+jpeg_mem_src.h:
