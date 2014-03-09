@@ -39,15 +39,15 @@ $responsive_options = responsive_get_options();
 
         <div class="likes">
             <!-- FB -->
-            <div class="fb-like" data-href="http://facebook.com/html5by" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+            <!-- <div class="fb-like" data-href="http://facebook.com/html5by" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div> -->
             <!-- VK -->
-            <div id="vk_like" class="like"></div>
-            <script type="text/javascript">
+            <!-- <div id="vk_like" class="like"></div> -->
+            <!--script type="text/javascript">
               VK.Widgets.Like("vk_like", {type: "mini"});
-            </script>
+            </script-->
             <!-- TW -->
-            <a href="https://twitter.com/html5by" rel="nofollow" class="twitter-follow-button like" data-show-count="false" data-lang="ru">@html5by</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <!-- <a href="https://twitter.com/html5by" rel="nofollow" class="twitter-follow-button like" data-show-count="false" data-lang="ru">@html5by</a> -->
+            <!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script-->
         </div>
 
         <div class="grid col-940">
@@ -60,7 +60,7 @@ $responsive_options = responsive_get_options();
         <div class="grid col-300 copyright">
             <?php esc_attr_e('&copy;', 'responsive'); ?> <?php _e(date('Y')); ?><a href="<?php echo home_url('/') ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                 <?php bloginfo('name'); ?>
-            </a>  by <a rel="nofollow" href="http://twitter.com/nedudi">@nedudi</a>
+            </a>
         </div><!-- end of .copyright -->
 
         <div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>

@@ -668,7 +668,7 @@ blockquote p {
 /* =Headings
 -------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1em;
   word-wrap: break-word;
   font-family: "isocpeurregular";
@@ -1371,7 +1371,7 @@ form div {
 }
 
 .top-menu li a {
-  color: #C0C0C0;
+  color: #ECECEC;
   font-size: 1.5em;
   font-family: "bebas_neue_cyrillicregular", Arial;
   vertical-align: middle;
@@ -2335,7 +2335,7 @@ BDO[DIR="rtl"] {
 
 
 #container{
-  max-width: 1000px;
+  max-width: 800px;
   min-width: 300px;
 }
 
@@ -2435,7 +2435,7 @@ h1{
 }
 
 h2{
-  margin: 1.2em 0;
+  margin: 0.8em 0;
   font-size: 2.4em;
 }
 
@@ -2451,7 +2451,7 @@ h2{
 
 h3{
   font-size: 1.8em;
-  margin: 1.2em 0;
+  margin: 1em 0;
   letter-spacing: 0px;
 }
 
