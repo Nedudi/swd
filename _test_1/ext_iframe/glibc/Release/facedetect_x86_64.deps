@@ -1,0 +1,95 @@
+# Updated by fix_deps.py
+glibc/Release/facedetect_x86_64.o: facedetect.cc \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/instance.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_instance.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_macros.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_stdint.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_resource.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_console.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_bool.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_var.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/instance_handle.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/view.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/resource.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/pass_ref.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/rect.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_rect.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_point.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_size.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/point.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/size.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/logging.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/module.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_module.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_core.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_completion_callback.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_time.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/core.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var.h \
+ facedetect.h fimage.h geturl_handler.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/completion_callback.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_errors.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/ext_output_traits.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/from_var_converter.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/optional.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_array.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_array_buffer.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_dictionary.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/output_traits.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/array_output.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_array_output.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/url_loader.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/url_request_info.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_url_request_info.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/completion_callback_factory.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/completion_callback_factory_thread_traits.h \
+ /home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/threading/lock.h
+facedetect.cc:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/instance.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_instance.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_macros.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_stdint.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_resource.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_console.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_bool.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_var.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/instance_handle.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/view.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/resource.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/pass_ref.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/rect.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_rect.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_point.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_size.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/point.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/size.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/logging.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/module.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_module.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_core.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_completion_callback.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_time.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/core.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var.h:
+facedetect.h:
+fimage.h:
+geturl_handler.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/completion_callback.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_errors.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/ext_output_traits.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/from_var_converter.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/extensions/optional.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_array.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_array_buffer.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/var_dictionary.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/output_traits.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/array_output.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/pp_array_output.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/url_loader.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/cpp/url_request_info.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/c/ppb_url_request_info.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/completion_callback_factory.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/completion_callback_factory_thread_traits.h:
+/home/alexey/NaCL/nacl_sdk/pepper_31/include/ppapi/utility/threading/lock.h:

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>cc</title>
+  <link href="test.css" rel="stylesheet" type="text/css">
+  <style>
+
+
+  </style>
+  <script type="text/javascript">
+    window.onLoad = function (argument) {
+      cset  = document.getElementsByClassName('c');
+      for(i=0;i<10;i++){
+        cset[i].onmouseover = function(){
+          //
+          this.classList.add('hov');
+        }
+      }
+    }
+  </script>
+</head>
+<body onload="window.onLoad();" onunload="window.onUnload();">
+  <div class="ccc">
+    <a class="c c1">S</a>
+    <a class="c c2">O</a>
+    <a class="c c3">C</a>
+    <a class="c c4">S</a>
+    <a class="c c5">T</a>
+    <a class="c c6">A</a>
+    <a class="c c7">R</a>
+    <a class="c c8">T</a>
+    <a class="c c9">E</a>
+    <a class="c c0">R</a>
+  </div>
+</body>
+</html>
