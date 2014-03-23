@@ -1,6 +1,6 @@
 var ex = {};
 ex.options = {
-  url: "https://stop-web-disability.org"
+  url: "https://stop-web-disability.org/1.0.1"
   //url: "http://bytiger.webdoc.com/swd/srv_iframe/cam.html"
 };
 

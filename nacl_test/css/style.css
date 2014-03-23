@@ -284,8 +284,8 @@ html body{
   z-index:999999999999999999999 !important;
   pointer-events:none !important;
   font-size: 40px !important;
-  color:rgb(242,121,53) !important;
-  text-shadow:  3px 3px 3px rgba(0,0,0,0.6) !important;
+  color:#2980b9 !important;
+  text-shadow:  1px 1px 0px white,1px -1px 0px white,-1px 1px 0px white,-1px -1px 0px white !important;
   line-height: 1 !important;
   text-align: left !important;
   margin-left: -8px !important;
@@ -296,7 +296,7 @@ html body{
   display: none;
   position:fixed !important;
   z-index:999999999999999999999 !important;
-  pointer-events:none !important;
+ /* pointer-events:none !important;*/
   box-shadow:  0 0 0 2px rgba(14, 145, 195, 1), 2px 2px 10px rgba(0, 0, 0, 0.5) !important;
   border-radius: 4px !important;
 }

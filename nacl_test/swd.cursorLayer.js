@@ -9,6 +9,7 @@
     var fifoY = [];
     var fifoSize = 5;
     var moveSpeed = 15000;
+    var outlineOutSet = 20;
     var cursor = document.createElement("div");
     cursor.setAttribute("id", "swd-cursor");
     cursor.setAttribute("class", "swd-cursor");
@@ -50,10 +51,10 @@
     window.swd.cursorLayer.redrawHighlightedElement = function(){
       var rect = swd.currentHoverElement.getBoundingClientRect();
       highlight.style.display = 'block';
-      highlight.style.height  = rect.height +20+'px';
-      highlight.style.width   = rect.width  +20+'px';
-      highlight.style.top     = rect.top    -10+'px';
-      highlight.style.left    = rect.left   -10+'px';
+      highlight.style.height  = rect.height +outlineOutSet*2+'px';
+      highlight.style.width   = rect.width  +outlineOutSet*2+'px';
+      highlight.style.top     = rect.top    -outlineOutSet+'px';
+      highlight.style.left    = rect.left   -outlineOutSet+'px';
     };
 
 
@@ -135,13 +136,17 @@
           var hElement = false;
           var clickableMatches = ['a','button','input','textarea'];
 
-          if(isNodeName(element,clickableMatches)){
+          if(element.nodeName.toLowerCase() == 'body') return;
+          if(element.nodeName.toLowerCase() == 'html') return;
+
+
+          if(isNodeName(element, clickableMatches)){
             hElement = element;
-          } else if(element.parentNode && isNodeName(element.parentNode,clickableMatches)){
+          } else if(element.parentNode && isNodeName(element.parentNode, clickableMatches)){
             hElement = element.parentNode;
-          } else if(element.parentNode.parentNode && isNodeName(element.parentNode.parentNode,clickableMatches)){
+          } else if(element.parentNode.parentNode && isNodeName(element.parentNode.parentNode, clickableMatches)){
             hElement = element.parentNode.parentNode;
-          } else if(element.parentNode.parentNode.parentNode && isNodeName(element.parentNode.parentNode.parentNode,clickableMatches)){
+          } else if(element.parentNode.parentNode.parentNode && isNodeName(element.parentNode.parentNode.parentNode, clickableMatches)){
             hElement = element.parentNode.parentNode.parentNode;
           }
 

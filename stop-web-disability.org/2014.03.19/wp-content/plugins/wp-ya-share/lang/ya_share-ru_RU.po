@@ -1,0 +1,166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Ya.Share v1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-02-04 18:04+0200\n"
+"Last-Translator: Andrey K. <andrey271@bigmir.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n+9)%10>3 ? 2 : 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ ya_share
+#: wp-ya-share.php:180
+msgid "Ya.Share Plugin Options"
+msgstr "Настройки плагина Ya.Share"
+
+#@ ya_share
+#: wp-ya-share.php:185
+msgid "Locate ya.share block"
+msgstr "Расположение блока Ya.Share \"Поделиться\""
+
+#@ ya_share
+#: wp-ya-share.php:187
+msgid "add into posts content"
+msgstr "добавлять в содержание записей"
+
+#@ ya_share
+#: wp-ya-share.php:190
+msgid "create a widget"
+msgstr "создать виджет"
+
+#@ ya_share
+#: wp-ya-share.php:195
+msgid "Quick buttons of social networks to be in Ya.share block"
+msgstr "Какие кнопки быстрого доступа будут видны в блоке"
+
+#@ ya_share
+#: wp-ya-share.php:228
+msgid "Pop-up control type"
+msgstr "Вызов выпадающего списка"
+
+#@ ya_share
+#: wp-ya-share.php:198
+msgid "none"
+msgstr "ничего"
+
+#@ ya_share
+#: wp-ya-share.php:238
+msgid "Alignment"
+msgstr "Положение"
+
+#@ ya_share
+#: wp-ya-share.php:248
+msgid "Before or after content"
+msgstr "Над или под содержанием"
+
+#@ default
+#: wp-ya-share.php:329
+msgid "Send current blog page to social networks"
+msgstr "Отправить текущую страницу блога в социальные сервисы"
+
+#@ ya_share
+#: wp-ya-share.php:350
+msgid "Send To"
+msgstr "Отправить в"
+
+#@ default
+#: wp-ya-share.php:353
+msgid "Title:"
+msgstr "Заголовок:"
+
+#@ ya_share
+#: wp-ya-share.php:258
+msgid "Force Language"
+msgstr "Задать язык"
+
+#@ ya_share
+#: wp-ya-share.php:215
+msgid "Pop-up list of services"
+msgstr "Список в выпадающем меню"
+
+#@ ya_share
+#: wp-ya-share.php:313
+msgid "<a href=\"http://andrey.eto-ya.com/wordpress/my-plugins/wp-ya-share\">The author</a> has no any relation to Yandex. The plugin simplifies the usage in wordpress the <a href=\"http://api.yandex.ru/share/\">Ya.Share API</a> (&quot;Share in social networks&quot;)."
+msgstr "<a href=\"http://andrey.eto-ya.com/wordpress/my-plugins/wp-ya-share#plugin\">Автор плагина</a> не имеет отношения к компании Яндекс. Плагин только упрощает использование в wordpress <a href=\"http://api.yandex.ru/share/\">API Ya.Share</a> («Поделиться в социальных сетях»)."
+
+#@ ya_share
+#: wp-ya-share.php:281
+msgid "Custom button/link text"
+msgstr "Текст кнопки/ссылки"
+
+#@ ya_share
+#: wp-ya-share.php:286
+msgid "Pop-up сustom title"
+msgstr "Заголовок выпадающего меню"
+
+#@ ya_share
+#: wp-ya-share.php:309
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#@ ya_share
+#: wp-ya-share.php:188
+msgid "also in any post on archive/category pages"
+msgstr "в том числе в каждой записи на страницах рубрик/архивов"
+
+#@ ya_share
+#: wp-ya-share.php:189
+msgid "selectively, via <code>[ya_share]</code> shortcode"
+msgstr "выборочно, при помощи короткого кода <code>[ya_share]</code>"
+
+#@ ya_share
+#: wp-ya-share.php:210
+msgid "Default: vkontakte, lj, facebook, twitter, odnoklassniki, gplus, yaru. Check &quot;none&quot; for no quick buttons."
+msgstr "По умолчанию: vkontakte, lj, facebook, twitter, odnoklassniki, gplus, yaru. Отметьте &quot;none&quot; для очистки списка."
+
+#@ ya_share
+#: wp-ya-share.php:261
+#: wp-ya-share.php:272
+msgid "default"
+msgstr "по умолчанию"
+
+#@ ya_share
+#: wp-ya-share.php:310
+msgid "Default Options"
+msgstr "Настройки по умолчанию"
+
+#@ ya_share
+#: wp-ya-share.php:319
+msgid "Ya.Share Options"
+msgstr "Настройки Ya.Share"
+
+#@ ya_share
+#: wp-ya-share.php:292
+msgid "sample:"
+msgstr "пример:"
+
+#@ ya_share
+#: wp-ya-share.php:299
+msgid "Show copy-paste field in popup block?"
+msgstr "Показывать в всплывающем блоке поле копирования ссылки?"
+
+#@ ya_share
+#: wp-ya-share.php:270
+msgid "Theme"
+msgstr "Тема"
+
+#@ ya_share
+#: wp-ya-share.php:272
+msgid "dark"
+msgstr "для тёмного фона"
+
+#@ ya_share
+#: wp-ya-share.php:272
+msgid "counter"
+msgstr "счётчик"
+

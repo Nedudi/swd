@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Follow Us Box\n"
+"POT-Creation-Date: 2013-04-24 18:08+0200\n"
+"PO-Revision-Date: 2013-04-24 18:08+0200\n"
+"Last-Translator: Deconf <admin@deconf.com>\n"
+"Language-Team: Deconf <admin@deconf.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../.\n"
+
+#: .././follow-us-box.php:68
+msgid "Title:"
+msgstr ""
+
+#: .././follow-us-box.php:71
+msgid "Enable Google+"
+msgstr ""
+
+#: .././follow-us-box.php:73
+msgid "Page ID:"
+msgstr ""
+
+#: .././follow-us-box.php:77 .././follow-us-box.php:92
+#: .././follow-us-box.php:110
+msgid "Width:"
+msgstr ""
+
+#: .././follow-us-box.php:80
+msgid "Style:"
+msgstr ""
+
+#: .././follow-us-box.php:82
+msgid "Light"
+msgstr ""
+
+#: .././follow-us-box.php:83
+msgid "Dark"
+msgstr ""
+
+#: .././follow-us-box.php:86
+msgid "Enable Twitter"
+msgstr ""
+
+#: .././follow-us-box.php:88
+msgid "Username:"
+msgstr ""
+
+#: .././follow-us-box.php:94
+msgid "Small"
+msgstr ""
+
+#: .././follow-us-box.php:95
+msgid "Large"
+msgstr ""
+
+#: .././follow-us-box.php:98
+msgid "Count:"
+msgstr ""
+
+#: .././follow-us-box.php:100 .././follow-us-box.php:115
+#: .././follow-us-box.php:125
+msgid "Show"
+msgstr ""
+
+#: .././follow-us-box.php:101 .././follow-us-box.php:116
+#: .././follow-us-box.php:126
+msgid "Hide"
+msgstr ""
+
+#: .././follow-us-box.php:104
+msgid "Enable Facebook"
+msgstr ""
+
+#: .././follow-us-box.php:106
+msgid "Page URL:"
+msgstr ""
+
+#: .././follow-us-box.php:113
+msgid "Faces:"
+msgstr ""
+
+#: .././follow-us-box.php:120
+msgid "Height:"
+msgstr ""
+
+#: .././follow-us-box.php:123
+msgid "Stream:"
+msgstr ""
+
+#: .././twitter.php:3
+msgid "Follow"
+msgstr ""
+
+#~ msgid ""
+#~ " (watch this <a href='http://www.deconf.com/en/projects/google-analytics-"
+#~ "dashboard-for-wordpress/' target='_blank'>Step by step video tutorial</a>)"
+#~ msgstr ""
+#~ " (watch this <a href='http://www.deconf.com/en/projects/google-analytics-"
+#~ "dashboard-for-wordpress/' target='_blank'>Step by step video tutorial</a>)"

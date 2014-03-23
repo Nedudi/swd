@@ -1,0 +1,402 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Spam Free Wordpress v1.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-10-29 08:47:23+0000\n"
+"Last-Translator: lennart <zoft80@zoft80.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: admin/class-menu.php:29
+#@ spam-free-wordpress
+msgid "Spam Free Wordpress"
+msgstr "Spam Free Wordpress"
+
+#: admin/class-menu.php:47
+#@ spam-free-wordpress
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: admin/class-menu.php:120
+#@ spam-free-wordpress
+msgid "PLUGIN SUPPORT, AND ADVANCED PLUGIN FEATURES, REQUIRE A FREE LICENSE KEY."
+msgstr "För support och avancerade pluginfunktioner, krävs en kostnadsfri licensnyckel."
+
+#: admin/class-menu.php:129
+#: admin/class-menu.php:141
+#: admin/class-menu.php:312
+#: admin/class-menu.php:328
+#: admin/class-menu.php:344
+#@ spam-free-wordpress
+msgid "THIS SECTION REQUIRES A FREE LICENSE KEY."
+msgstr "Detta avsnitt kräver en kostnadsfri licensnyckel."
+
+#: admin/class-menu.php:132
+#@ spam-free-wordpress
+msgid "Text and HTML are acceptable."
+msgstr "Text och HTML accepteras."
+
+#: admin/class-menu.php:144
+#@ spam-free-wordpress
+msgid "IP addresses only. One IP address per line."
+msgstr "Endast IP-adresser. En IP-adress per rad."
+
+#: admin/class-menu.php:194
+#@ spam-free-wordpress
+msgid "These options clean the unwanted oomment types listed below from your blog automatically every hour."
+msgstr "Dessa alternativ rensar automatiskt varje timme de oönskade kommentartyper som anges nedan från din blogg."
+
+#: admin/class-menu.php:217
+#@ spam-free-wordpress
+msgid "is not a valid license key."
+msgstr "är inte en giltig licensnyckel."
+
+#: admin/class-menu.php:270
+#@ spam-free-wordpress
+msgid "Generates a comment form if theme is not compatible with SFW."
+msgstr "Skapar ett kommentarformulär om temat inte är kompatibel med SFW."
+
+#: admin/class-menu.php:297
+#@ spam-free-wordpress
+msgid "Use only if plugin won't work any other way. (Fields are invisible)"
+msgstr "Använd endast om denna plugin inte fungerar på något annat sätt. (Fält är osynliga)"
+
+#: admin/class-menu.php:319
+#@ spam-free-wordpress
+msgid " Spam comments found."
+msgstr "Spamkommentarer hittade."
+
+#: admin/class-menu.php:335
+#@ spam-free-wordpress
+msgid " Trackbacks/Pingbacks found."
+msgstr " Trackbacks/Pingbacks hittade."
+
+#: admin/class-menu.php:351
+#@ spam-free-wordpress
+msgid " Unapproved comments found."
+msgstr "Icke godkända kommentarer hittade."
+
+#: admin/class-menu.php:405
+#@ spam-free-wordpress
+msgid "Best Selling Plugins"
+msgstr "Populära Plugins"
+
+#: admin/class-menu.php:407
+#@ spam-free-wordpress
+msgid "Simple Comments"
+msgstr "Simple Comments"
+
+#: admin/class-menu.php:408
+#@ spam-free-wordpress
+msgid "Simple Comments is coming soon."
+msgstr "Simple Comments kommer snart."
+
+#: admin/class-menu.php:409
+#@ spam-free-wordpress
+msgid "Search Engine Ping"
+msgstr "Search Engine Ping"
+
+#: admin/class-menu.php:410
+#@ spam-free-wordpress
+msgid "CacheNgin"
+msgstr "CacheNgin"
+
+#: admin/class-menu.php:411
+#@ spam-free-wordpress
+msgid "Translation Cache"
+msgstr "Translation Cache"
+
+#: admin/class-menu.php:413
+#: admin/class-menu.php:415
+#@ spam-free-wordpress
+msgid "Hire Todd Lahman"
+msgstr "Hyr Todd Lahman"
+
+#: admin/class-menu.php:416
+#@ spam-free-wordpress
+msgid "Todd's services include:"
+msgstr "Todds tjänster omfattar:"
+
+#: admin/class-menu.php:417
+#@ spam-free-wordpress
+msgid "Search Engine Optimization Expert."
+msgstr "Sökmotoroptimerings Expert."
+
+#: admin/class-menu.php:418
+#@ spam-free-wordpress
+msgid "Make your web site FASTER!."
+msgstr "Gör din webbplats SNABBARE!."
+
+#: admin/class-menu.php:419
+#@ spam-free-wordpress
+msgid "Theme and plugin development."
+msgstr "Tema- och pluginutveckling."
+
+#: admin/class-menu.php:420
+#@ spam-free-wordpress
+msgid "Custom PHP, JavaScript, jQuery, HTML, MySQL, and CSS."
+msgstr "Anpassat PHP, JavaScript, jQuery, HTML, MySQL och CSS."
+
+#: admin/class-menu.php:421
+#@ spam-free-wordpress
+msgid "Linux server administration."
+msgstr "Linux serveradministration."
+
+#: admin/class-menu.php:422
+#@ spam-free-wordpress
+msgid "Nginx, Apache, MySQL, and Percona server administration."
+msgstr "Nginx, Apache, MySQL och Percona serveradministration."
+
+#: admin/class-menu.php:423
+#@ spam-free-wordpress
+msgid "Comment Form CSS Styling"
+msgstr "CSS för Kommentarformulär "
+
+#: admin/class-menu.php:424
+#@ spam-free-wordpress
+msgid "Advanced SFW Support"
+msgstr "Avancerad SFW Support"
+
+#: admin/class-menu.php:426
+#: admin/class-menu.php:429
+#@ spam-free-wordpress
+msgid "Buy Todd a Coffee"
+msgstr "Köp en kopp kaffe till Todd "
+
+#: admin/class-menu.php:428
+#@ spam-free-wordpress
+msgid "Given enough coffee I could rule the world."
+msgstr "Med tillräckligt kaffe kunde jag styra världen."
+
+#: admin/class-menu.php:431
+#: admin/class-menu.php:434
+#@ spam-free-wordpress
+msgid "Support Forum"
+msgstr "Support Forum"
+
+#: admin/class-menu.php:433
+#@ spam-free-wordpress
+msgid "Be sure to login to use the support forum after getting a free license key. NOTE: Support is not provided on Wordpress.org."
+msgstr "Logga in för att använda vårt supportforum efter att du fått en kostnadsfri licensnyckel. OBS: Support lämnas inte på Wordpress.org."
+
+#: admin/class-menu.php:435
+#@ spam-free-wordpress
+msgid "Free License Key"
+msgstr "Kostnadsfri licensnyckel"
+
+#: admin/class-tool-tips.php:11
+#@ spam-free-wordpress
+msgid "The number of blocked comment spam will display on your comment form, along with a link to the plugin homepage."
+msgstr "Antalet blockerade kommentarspam visas i ditt kommentarformulär tillsammans med en länk till hemsidan för denna plugin."
+
+#: admin/class-tool-tips.php:16
+#@ spam-free-wordpress
+msgid "If the plugin is not working properly, your theme may not be using the comment_form function, so you will need to turn this on. The plugin can generate the comment form, and display the comments, automatically. Depending on your theme, the comments and comment form may require CSS styling that you will need to provide, or you can hire me."
+msgstr "Om insticksprogrammet inte fungerar kan det bero på att ditt tema inte använder comment_form funktionen, då behöver du använda detta. Insticksprogrammet kan generera ett kommentarformulär och visa kommentarer automatiskt. Beroende på ditt tema kan kommentarer och kommentarformulär kräva CSS som du behöver skapa eller så kan du anställa mig."
+
+#: admin/class-tool-tips.php:21
+#@ spam-free-wordpress
+msgid "Spammers use HTML in comments to leave spam links on your blog. This options strips out all the HTML tags, so the links are just plain text, and not links. Spam links are bad for SEO, even when they are nofollow links."
+msgstr "Spammare använder HTML i kommentarer att lämna spamlänkar på din blogg. Detta alternativ rensar ut alla HTML-taggar, så länkarna blir bara vanlig text, och inte länkar. Spamlänkar är negativt för SEO, även när de är nofollow länkar."
+
+#: admin/class-tool-tips.php:26
+#@ spam-free-wordpress
+msgid "The default comment form has a Website Address form field that spammers use to leave a spam link on your blog. Spam links are bad for SEO, even when they are nofollow links"
+msgstr "Det förvalda kommentarformuläret har ett webbadressfält som spammare använder för att lämna ett spam länk på din blogg. Spamlänkar är negativt för SEO, även när de är nofollow länkar"
+
+#: admin/class-tool-tips.php:31
+#@ spam-free-wordpress
+msgid "Spammers use the link embedded in the comment author name to leave a spam link on your blog. Spam links are bad for SEO, even when they are nofollow links"
+msgstr "Spammare använder inbäddade länkar i kommentarförfattarens namn för att lämna ett spam länk på din blogg. Spam länkar är negativt för SEO, även när de är nofollow länkar"
+
+#: admin/class-tool-tips.php:36
+#@ spam-free-wordpress
+msgid "Pingbacks, or trackbacks, can be placed on your blog without your knowledge or permission from another blog that may not provide a reciprocal link. 99% of pingbacks are spam links. Having a page with more than 100 links on it, or more links going out than coming in, will hurt the SEO for that page, and for the entire domain name."
+msgstr "Pingbacks eller trackbacks, kan placeras på din blogg utan din vetskap eller tillåtelse från en annan blogg som inte kan ge en ömsesidig länk. 99% av Pingbacks är spam länkar. Att ha en sida med mer än 100 länkar på den, eller mer länkar som går ut än kommer in, kommer att skada SEO för den sidan, och för hela domännamnet."
+
+#: admin/class-tool-tips.php:41
+#@ spam-free-wordpress
+msgid "This option displays a message above the comment text area on the comment form. Plane text, or HTML tags, can be used."
+msgstr "Detta alternativ visar ett meddelande ovanför kommentarens textområdet på kommentarformuläret. Ren text eller HTML-taggar kan användas."
+
+#: admin/class-tool-tips.php:46
+#@ spam-free-wordpress
+msgid "This option is to block manually submitted spam. The blocklist allows spammer IP addresses to be blocked, so the spammer can no longer leave a comment. Comments that are blocked are not saved to the database, so you will not see anything in your spam folder. This option can also be used to ban a reader from leaving comments. Enter one IP address per line. Wildcards like 192.168.1.* will not work."
+msgstr "Detta alternativ är till för att blockera manuellt skickad skräppost. Blockeringslistan gör det möjligt att blockera spammares IP-adresser så att spammaren inte längre lämna en kommentar. Kommentarer som blockeras sparas inte i databasen så du kommer inte se något i din skräppostmapp. Detta alternativ kan också användas för att förbjuda en läsare från att lämna synpunkter. Ange en IP-adress per rad. Jokertecken som 192.168.1.* fungerar inte."
+
+#: admin/class-tool-tips.php:51
+#@ spam-free-wordpress
+msgid "Automatically deletes comment spam from the spam folder. Note: Spam Free Wordpress does not save blocked comments in the spam folder, or anywhere else. Any comments in the Spam folder were put there by another plugin, or by the Comment Blacklist built into WordPress under Settings > Discussion."
+msgstr "Tar automatiskt bort kommentarspam från skräppostmappen. Notera: Spam Free Wordpress sparar inte blockerade kommentarer i skräppostmappen, eller någon annanstans. Eventuella kommentarer i mappen Skräppost skickades dit av en annan plugin eller av spärrlistan för kommentarer inbyggd i WordPress under Inställningar > Diskussion."
+
+#: admin/class-tool-tips.php:56
+#@ spam-free-wordpress
+msgid "Automatically deletes trackbacks/pingbacks."
+msgstr "Tar automatiskt bort trackbacks/pingbacks."
+
+#: admin/class-tool-tips.php:61
+#@ spam-free-wordpress
+msgid "Comments that are marked as unapproved, because the discussion settings are set to hold a comment for moderation (aka the Comment Moderation queue), will be deleted automatically, so there will be no opportunity to review and approve the comment."
+msgstr "Kommentarer som är markerade som ej godkända, eftersom diskussionsinställningarna är satta på att hålla en kommentar till moderering (aka modereringskön för kommentar) kommer att raderas automatiskt, så det blir ingen möjlighet att granska och godkänna kommentaren."
+
+#: admin/class-tool-tips.php:66
+#@ spam-free-wordpress
+msgid "If you try to leave a test comment and you see this message, \"Spam Free Wordpress disabled the comment form because it could not retrieve the password from the server. Contact support.,\" then check the box to turn this option on, and ask for support on the toddlahman.com support forum. "
+msgstr "Om du försöker lämna ett testkommentar och du ser detta meddelande, \"Spam Free Wordpress inaktiverade kommentarformuläret eftersom den inte kunde hämta lösenordet från servern. Kontakta support.\" markera då rutan för att aktivera det här alternativet och be om support på toddlahman.com supportforum."
+
+#: includes/class-comment-form.php:24
+#, php-format
+#@ default
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "En kommentar till &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentarer om &ldquo;%2$s&rdquo;"
+
+#. translators: 1: comment author, 2: date and time
+#: includes/class-comment-form.php:95
+#, php-format
+#@ default
+msgid "%1$s on %2$s <span class=\"says\">said:</span>"
+msgstr "%1$s den %2$s <span class=\"says\">sa:</span>"
+
+#. translators: 1: date, 2: time
+#: includes/class-comment-form.php:145
+#@ default
+msgid "Name"
+msgstr "Namn"
+
+#: includes/class-comment-form.php:147
+#@ default
+msgid "Email"
+msgstr "E-post"
+
+#: includes/class-comment-form.php:149
+#@ default
+msgid "Website"
+msgstr "Hemsida"
+
+#: includes/class-comment-form.php:153
+#, php-format
+#@ default
+msgid "Required fields are marked %s"
+msgstr "Obligatoriska fält är märkta %s"
+
+#: includes/class-comment-form.php:156
+#@ default
+msgctxt "noun"
+msgid "Comment"
+msgstr "Kommentar"
+
+#: includes/class-comment-form.php:157
+#, php-format
+#@ default
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Du måste vara <a href=\"%s\">inloggad för</a> att skriva en kommentar."
+
+#: includes/class-comment-form.php:158
+#, php-format
+#@ default
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr "Inloggad som <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Logga ut från detta konto\">Logga ut?</a>"
+
+#: includes/class-comment-form.php:159
+#@ default
+msgid "Your email address will not be published."
+msgstr "Din e-postadress kommer inte att publiceras."
+
+#: includes/class-comment-form.php:160
+#, php-format
+#@ default
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr "Du kan använda dessa <abbr title=\"HyperText Markup Language\">HTML-taggar</abbr> och attribut: %s"
+
+#: includes/class-comment-form.php:163
+#@ default
+msgid "Leave a Reply"
+msgstr "Lämna ett svar"
+
+#: includes/class-comment-form.php:164
+#, php-format
+#@ default
+msgid "Leave a Reply to %s"
+msgstr "Lämna ett svar till %s"
+
+#: includes/class-comment-form.php:165
+#@ default
+msgid "Cancel reply"
+msgstr "Avbryt svar"
+
+#: includes/class-comment-form.php:166
+#@ default
+msgid "Post Comment"
+msgstr "Skriv kommentar"
+
+#: includes/functions.php:83
+#: includes/functions.php:89
+#@ spam-free-wordpress
+msgid "HTML tags are not allowed."
+msgstr "HTML-taggar är inte tillåtna."
+
+#: includes/functions.php:138
+#: includes/functions.php:163
+#@ spam-free-wordpress
+msgid " Spam Comments Blocked so far by "
+msgstr "Spamkommentarer blockerade hittills"
+
+#: includes/functions.php:140
+#@ spam-free-wordpress
+msgid " version "
+msgstr " version "
+
+#: includes/functions.php:142
+#@ spam-free-wordpress
+msgid " located at "
+msgstr "belägen vid"
+
+#: includes/functions.php:188
+#@ spam-free-wordpress
+msgid "Spam Free Wordpress nonce security check failed."
+msgstr "Spam Free Wordpress nonce säkerhetskontroll misslyckades."
+
+#: includes/functions.php:192
+#@ spam-free-wordpress
+msgid "Spam Free Wordpress could not retrieve the password from the server. Contact support."
+msgstr "Spam Free Wordpress kunde inte hämta lösenordet från servern. Kontakta supporten."
+
+#: includes/functions.php:196
+#@ spam-free-wordpress
+msgid "Comment blocked by Spam Free Wordpress because your IP address is in the local blocklist, or you forgot to type a comment."
+msgstr "Kommentar blockerad av Spam Free Wordpress eftersom din IP-adress är i den lokala blockeringslistan eller så har du har glömt att skriva en kommentar."
+
+#: tl-spam-free-wordpress.php:24
+#@ spam-free-wordpress
+msgid " requires at least WordPress 3.1. Sorry! Click back button to continue."
+msgstr "kräver minst WordPress 3,1. Förlåt! Klicka tillbaka för att fortsätta."
+
+#: tl-spam-free-wordpress.php:126
+#@ spam-free-wordpress
+msgid "Settings"
+msgstr "Inställningar"
+
+#: tl-spam-free-wordpress.php:127
+#@ spam-free-wordpress
+msgid "Donate"
+msgstr "Donera"
+
+#: tl-spam-free-wordpress.php:196
+#@ spam-free-wordpress
+msgid "Spam Free Wordpress needs your attention!"
+msgstr "Spam Free Wordpress behöver din uppmärksamhet!"
+

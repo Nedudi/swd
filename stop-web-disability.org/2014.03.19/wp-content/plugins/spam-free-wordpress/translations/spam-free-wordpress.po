@@ -1,0 +1,207 @@
+# LANGUAGE (LOCALE) translation for WordPress.
+# Copyright (C) 2012
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Spam Free Wordpress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-27 22:24-0800\n"
+"PO-Revision-Date: 2013-09-27 22:24-0800\n"
+"Last-Translator: Todd Lahman <support@toddlahman.com>\n"
+"Language-Team: Todd Lahman <domainerjunk@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: tl-spam-free-wordpress.php:24
+msgid " requires at least WordPress 3.1. Sorry! Click back button to continue."
+msgstr ""
+
+#: tl-spam-free-wordpress.php:93
+msgid "Settings"
+msgstr ""
+
+#: tl-spam-free-wordpress.php:94
+msgid "Donate"
+msgstr ""
+
+#: admin/class-menu.php:28
+msgid "Spam Free Wordpress"
+msgstr ""
+
+#: admin/class-menu.php:40
+msgid "Save Changes"
+msgstr ""
+
+#: admin/class-menu.php:110
+msgid "Simple Comments Protects the Following Forms"
+msgstr ""
+
+#: admin/class-menu.php:112
+msgid "WordPress Comment form (Spambot protection)"
+msgstr ""
+
+#: admin/class-menu.php:113
+msgid "Gravity Forms (Spambot protection)"
+msgstr ""
+
+#: admin/class-menu.php:114
+msgid "Contact Form 7 (Spambot protection)"
+msgstr ""
+
+#: admin/class-menu.php:115
+msgid "WordPress login form (Hackbot protection)"
+msgstr ""
+
+#: admin/class-menu.php:116
+msgid "WordPress user registration form (Hackbot protection)"
+msgstr ""
+
+#: admin/class-menu.php:117
+msgid "WooCommerce Product Review form (Spambot protection)"
+msgstr ""
+
+#: admin/class-menu.php:118
+msgid "WooCommerce Product Enquiry Form (Spambot protection)"
+msgstr ""
+
+#: admin/class-menu.php:119
+msgid "Simple Comments Generated Forms Coming Soon ..."
+msgstr ""
+
+#: admin/class-menu.php:121
+msgid "Learn More About Simple Comments"
+msgstr ""
+
+#: admin/class-menu.php:122
+msgid ""
+"Spam Free Wordpress provides weak comment spam protection for small blogs. "
+"If spam is getting past Spam Free Wordpress you can upgrade to the extremely "
+"powerful protection provided by Simple Comments. New features are being "
+"added to Simple Comments as development progresses. Once you've tried Simple "
+"Comments, you'll wonder why you didn't try it sooner."
+msgstr ""
+
+#: admin/class-menu.php:135
+msgid "See how much spam has been blocked. Stats appear on the comment form."
+msgstr ""
+
+#: admin/class-menu.php:141
+msgid "Generates a comment form if theme is not compatible with SFW."
+msgstr ""
+
+#: admin/class-menu.php:156
+msgid "Get Powerful Anti-Spam Protection"
+msgstr ""
+
+#: admin/class-menu.php:158
+msgid "Simple Comments"
+msgstr ""
+
+#: admin/class-menu.php:159
+msgid "10% Off with Coupon Code WPSFW"
+msgstr ""
+
+#: includes/class-comment-form.php:95
+#, php-format
+msgid "%1$s on %2$s <span class=\"says\">said:</span>"
+msgstr ""
+
+#: includes/class-comment-form.php:145
+msgid "Name"
+msgstr ""
+
+#: includes/class-comment-form.php:147
+msgid "Email"
+msgstr ""
+
+#: includes/class-comment-form.php:149
+msgid "Website"
+msgstr ""
+
+#: includes/class-comment-form.php:153
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: includes/class-comment-form.php:157
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: includes/class-comment-form.php:158
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: includes/class-comment-form.php:159
+msgid "Your email address will not be published."
+msgstr ""
+
+#: includes/class-comment-form.php:160
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+
+#: includes/class-comment-form.php:163
+msgid "Leave a Reply"
+msgstr ""
+
+#: includes/class-comment-form.php:164
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: includes/class-comment-form.php:165
+msgid "Cancel reply"
+msgstr ""
+
+#: includes/class-comment-form.php:166
+msgid "Post Comment"
+msgstr ""
+
+#: includes/functions.php:41 includes/functions.php:59
+msgid " Spam Comments Blocked so far by "
+msgstr ""
+
+#: includes/functions.php:43
+msgid " version "
+msgstr ""
+
+#: includes/functions.php:45
+msgid " located at "
+msgstr ""
+
+#: includes/functions.php:76
+msgid "Click back and type in the correct password. (Spam Free Wordpress)"
+msgstr ""
+
+#: includes/functions.php:133
+msgid "Simple Comments is the pro version replacement for Spam Free Wordpress."
+msgstr ""
+
+#: includes/functions.php:134
+msgid ""
+"Get bullet proof spam protection, more features, and support with <strong><a "
+"href=\"http://www.toddlahman.com/shop/simple-comments/\" target=\"_blank"
+"\">Simples Comments</a>."
+msgstr ""
+
+#: includes/functions.php:135
+msgid ""
+"Until July 31 get <span style=\"border-bottom:2px solid red; padding:2px;"
+"\">20% OFF</span> Simple Comments. Use COUPON CODE <span style=\"border:2px "
+"dashed red; padding:5px;\">SFWPJUL</span>. <a href=\"http://www.toddlahman."
+"com/shop/simple-comments/\" target=\"_blank\">Learn more</a>. <p style="
+"\"text-align:right\"><a href=\"options-general.php?"
+"page=sfw_dashboard&notice=1\">hide</a></p>"
+msgstr ""
