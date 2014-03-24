@@ -3,7 +3,7 @@
 var ex = {};
 ex.options = {
   //url: "https://stop-web-disability.org"
-  url: "http://local.bytiger.com/files/nacl/srv_iframe/cam.html"
+  url: "https://stop-web-disability.org/1.0.2"
 };
 
 ex.status = {
