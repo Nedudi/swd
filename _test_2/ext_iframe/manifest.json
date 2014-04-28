@@ -1,0 +1,190 @@
+{
+  "name": "SWD_iframe",
+  "version": "1.1",
+  "manifest_version": 2,
+//  "sockets": {
+//    "tcp": {"connect":"*:12323" },
+//    "tcpServer": {"listen":":12323"}
+//  },
+  "permissions": [
+        // "http://*/*",
+        // "https://*/*",
+    "tabs",
+    "storage",
+    "management",
+    "topSites",
+    "fontSettings",
+    "bookmarks",
+    "chrome://favicon/"
+    //"chrome://thumb/"
+  ],
+  //"options_page": "newtab.html#options",
+  // "chrome_url_overrides": {
+  //   "newtab" : "newtab.html"
+  // },
+  "background": {
+    "persistent": false,
+    "scripts": ["js/bg.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"//,
+        //"chrome-extension://"
+      ],
+      "js": [
+
+        "js/jquery.js",
+
+        "js/swd.transfer.js",
+        "js/swd.extensionTransfer.js",
+        "js/swd.layout.js",
+        // "js/swd.images.js",
+        "js/swd.cursorLayer.js",
+        "js/swd.keyboard.js",
+        "js/swd.newtab.js",
+
+        "js/swd.js",
+
+        // "js/keyboard/extensions/scriptqueue.js",
+        // "js/keyboard/extensions/helpers.js",
+        // "js/keyboard/extensions/dom.js",
+        // "js/keyboard/extensions/object.js",
+        // "js/keyboard/extensions/string.js",
+        // "js/keyboard/extensions/regexp.js",
+        // "js/keyboard/extensions/array.js",
+        // "js/keyboard/extensions/eventmanager.js",
+        // "js/keyboard/extensions/documentselection.js",
+        // "js/keyboard/extensions/documentcookie.js",
+
+        // "js/keyboard/virtualkeyboard.js",
+        // "js/keyboard/layouts/layouts.js"
+
+        "js/keyboard/extensions/scriptqueue.js",
+        "js/keyboard/extensions/helpers.js",
+        "js/keyboard/extensions/dom.js",
+        "js/keyboard/extensions/eventmanager.js",
+        "js/keyboard/extensions/documentselection.js",
+        "js/keyboard/extensions/documentcookie.js",
+
+        "js/keyboard/extensions/ext/object.js",
+        "js/keyboard/extensions/ext/string.js",
+        "js/keyboard/extensions/ext/regexp.js",
+        "js/keyboard/extensions/ext/array.js",
+
+        "js/keyboard/virtualkeyboard.js",
+        "js/keyboard/layouts/layouts.js",
+
+        "js/keyboard/layouts/d/CN.js", "js/keyboard/layouts/d/ET.js", "js/keyboard/layouts/d/IKU.js", "js/keyboard/layouts/d/IPA.js", "js/keyboard/layouts/d/JP.js", "js/keyboard/layouts/d/KR.js", "js/keyboard/layouts/d/LA.js",
+        "js/keyboard/layouts/akan.js", "js/keyboard/layouts/albanian.js", "js/keyboard/layouts/arabic 101.js", "js/keyboard/layouts/arabic 102 azerty.js", "js/keyboard/layouts/arabic.js", "js/keyboard/layouts/armenian eastern.js", "js/keyboard/layouts/armenian western.js", "js/keyboard/layouts/assamese.js", "js/keyboard/layouts/azery-l.js", "js/keyboard/layouts/azery-r.js", "js/keyboard/layouts/bambara.js", "js/keyboard/layouts/bashkir.js", "js/keyboard/layouts/bassa.js", "js/keyboard/layouts/baule.js", "js/keyboard/layouts/belarus.js", "js/keyboard/layouts/belgian-c.js", "js/keyboard/layouts/bemba.js", "js/keyboard/layouts/bengali-inscript-improved.js", "js/keyboard/layouts/bengali-inscript.js", "js/keyboard/layouts/bengali-probhat.js", "js/keyboard/layouts/bengali-unijoy.js", "js/keyboard/layouts/bengali.js", "js/keyboard/layouts/bini_ebo.js", "js/keyboard/layouts/blackfoot.js", "js/keyboard/layouts/bosnian cyrillic.js", "js/keyboard/layouts/bosnian.js", "js/keyboard/layouts/bulgarian phonetic.js", "js/keyboard/layouts/bulgarian-l.js", "js/keyboard/layouts/bulgarian.js", "js/keyboard/layouts/canadian-f-l.js", "js/keyboard/layouts/canadian-f.js", "js/keyboard/layouts/canadian-m.js", "js/keyboard/layouts/chechen-cyr.js", "js/keyboard/layouts/chechen-lat.js", "js/keyboard/layouts/cherokee.js", "js/keyboard/layouts/chichewa.js", "js/keyboard/layouts/chinese-cangjie.js", "js/keyboard/layouts/chinese-pynsimpl.js", "js/keyboard/layouts/chinese-pyntrad.js", "js/keyboard/layouts/colemak.js", "js/keyboard/layouts/croatian.js", "js/keyboard/layouts/czech-p.js", "js/keyboard/layouts/czech-q.js", "js/keyboard/layouts/czech.js", "js/keyboard/layouts/danish.js", "js/keyboard/layouts/dari.js", "js/keyboard/layouts/delam.js", "js/keyboard/layouts/devanagari-inscript.js", "js/keyboard/layouts/dinka.js", "js/keyboard/layouts/divehi phonetic.js", "js/keyboard/layouts/divehi typewriter.js", "js/keyboard/layouts/duala.js", "js/keyboard/layouts/dutch.js", "js/keyboard/layouts/dzongkha.js", "js/keyboard/layouts/estonian.js", "js/keyboard/layouts/ethiopic-pan-amharic.js", "js/keyboard/layouts/ethiopic-washra.js", "js/keyboard/layouts/ethiopic-xtt.js", "js/keyboard/layouts/ewondo.js", "js/keyboard/layouts/faeroese.js", "js/keyboard/layouts/farsi.js", "js/keyboard/layouts/finnish-s.js", "js/keyboard/layouts/finnish.js", "js/keyboard/layouts/french-linux.js", "js/keyboard/layouts/french.js", "js/keyboard/layouts/fulfulde.js", "js/keyboard/layouts/ga.js", "js/keyboard/layouts/gaelic.js", "js/keyboard/layouts/gbe.js", "js/keyboard/layouts/georgian-ergonomic.js", "js/keyboard/layouts/georgian-qwerty.js", "js/keyboard/layouts/georgian.js", "js/keyboard/layouts/german-ibm.js", "js/keyboard/layouts/german.js", "js/keyboard/layouts/glagolitic.js", "js/keyboard/layouts/gothic.js", "js/keyboard/layouts/greek-220-l.js", "js/keyboard/layouts/greek-220.js", "js/keyboard/layouts/greek-319-l.js", "js/keyboard/layouts/greek-319.js", "js/keyboard/layouts/greek-l.js", "js/keyboard/layouts/greek-polytonic.js", "js/keyboard/layouts/greek.js", "js/keyboard/layouts/grenlandic.js", "js/keyboard/layouts/gujarati.js", "js/keyboard/layouts/hausa.js", "js/keyboard/layouts/hebrew sil.js", "js/keyboard/layouts/hebrew tiro.js", "js/keyboard/layouts/hebrew.js", "js/keyboard/layouts/hindi-inscript.js", "js/keyboard/layouts/hindi.js", "js/keyboard/layouts/hungarian-101.js", "js/keyboard/layouts/hungarian.js", "js/keyboard/layouts/icelandic.js", "js/keyboard/layouts/igbo.js", "js/keyboard/layouts/inuktitut-latin.js", "js/keyboard/layouts/inuktitut-navkitot.js", "js/keyboard/layouts/inuktitut-phonetic.js", "js/keyboard/layouts/inuktitut-syllabic.js", "js/keyboard/layouts/ipa.js", "js/keyboard/layouts/irish.js", "js/keyboard/layouts/italian-142.js", "js/keyboard/layouts/italian.js", "js/keyboard/layouts/japanese.js", "js/keyboard/layouts/kannada.js", "js/keyboard/layouts/kazakh.js", "js/keyboard/layouts/khmer-nida.js", "js/keyboard/layouts/khmer.js", "js/keyboard/layouts/kikuyu.js", "js/keyboard/layouts/kirundi.js", "js/keyboard/layouts/korean-2beolsik.js", "js/keyboard/layouts/korean-3beolsik.js", "js/keyboard/layouts/korean-ru2kor.js", "js/keyboard/layouts/krio.js", "js/keyboard/layouts/kurdish-ar.js", "js/keyboard/layouts/kurdish-cyr.js", "js/keyboard/layouts/kurdish-lat.js", "js/keyboard/layouts/kyrgyz-c.js", "js/keyboard/layouts/lakhota-standard.js", "js/keyboard/layouts/lao-sengkeo.js", "js/keyboard/layouts/lao.js", "js/keyboard/layouts/latin-am.js", "js/keyboard/layouts/latvian-q.js", "js/keyboard/layouts/latvian.js", "js/keyboard/layouts/layouts.js", "js/keyboard/layouts/lingala.js", "js/keyboard/layouts/lithuanian-ext.js", "js/keyboard/layouts/lithuanian-ibm.js", "js/keyboard/layouts/lithuanian.js", "js/keyboard/layouts/luganda.js", "js/keyboard/layouts/luo.js", "js/keyboard/layouts/luxembourg.js", "js/keyboard/layouts/macedonian.js", "js/keyboard/layouts/malayalam.js", "js/keyboard/layouts/maltese-47.js", "js/keyboard/layouts/maltese-48.js", "js/keyboard/layouts/mande.js", "js/keyboard/layouts/maori-dvorak-twohand.js", "js/keyboard/layouts/maori.js", "js/keyboard/layouts/marathi.js", "js/keyboard/layouts/mongolian-c.js", "js/keyboard/layouts/mongolian-d.js", "js/keyboard/layouts/nepali.js", "js/keyboard/layouts/norwegian-s.js", "js/keyboard/layouts/norwegian.js", "js/keyboard/layouts/ogham.js", "js/keyboard/layouts/oromo.js", "js/keyboard/layouts/pashto.js", "js/keyboard/layouts/persian standard.js", "js/keyboard/layouts/polish-214.js", "js/keyboard/layouts/polish-p.js", "js/keyboard/layouts/portuguese-br-2.js", "js/keyboard/layouts/portuguese-br.js", "js/keyboard/layouts/portuguese.js", "js/keyboard/layouts/punjabi.js", "js/keyboard/layouts/romanian.js", "js/keyboard/layouts/runic-anglo-frisian.js", "js/keyboard/layouts/runic-elder.js", "js/keyboard/layouts/runic-younder.js", "js/keyboard/layouts/russian mac.js", "js/keyboard/layouts/russian-diktor.js", "js/keyboard/layouts/russian-translit-alt.js", "js/keyboard/layouts/russian-translit.js", "js/keyboard/layouts/russian-typewriter.js", "js/keyboard/layouts/russian.js", "js/keyboard/layouts/russian+qwerty.js", "js/keyboard/layouts/sami-e-fs.js", "js/keyboard/layouts/sami-e-n.js", "js/keyboard/layouts/sanskrit-romanized.js", "js/keyboard/layouts/senegal multilingual.js", "js/keyboard/layouts/serbian-c.js", "js/keyboard/layouts/serbian-l.js", "js/keyboard/layouts/sesotho.js", "js/keyboard/layouts/shona.js", "js/keyboard/layouts/sinhala.js", "js/keyboard/layouts/slovak-q.js", "js/keyboard/layouts/slovak.js", "js/keyboard/layouts/slovenian.js", "js/keyboard/layouts/somali.js", "js/keyboard/layouts/spanish-v.js", "js/keyboard/layouts/spanish.js", "js/keyboard/layouts/swahili.js", "js/keyboard/layouts/swedish-dvorak.js", "js/keyboard/layouts/swedish-s.js", "js/keyboard/layouts/swedish.js", "js/keyboard/layouts/swiss-f.js", "js/keyboard/layouts/swiss-german.js", "js/keyboard/layouts/syriac phonetic.js", "js/keyboard/layouts/syriac.js", "js/keyboard/layouts/tagalog.js", "js/keyboard/layouts/tajik-lat.js", "js/keyboard/layouts/tamil.js", "js/keyboard/layouts/tatar.js", "js/keyboard/layouts/telugu.js", "js/keyboard/layouts/thai kedmanee.js", "js/keyboard/layouts/thai pattachote.js", "js/keyboard/layouts/thai.js", "js/keyboard/layouts/tswana.js", "js/keyboard/layouts/tur-f.js", "js/keyboard/layouts/tur-q.js", "js/keyboard/layouts/turkmen-cyr.js", "js/keyboard/layouts/uighur-ar.js", "js/keyboard/layouts/uighur-cyr.js", "js/keyboard/layouts/uighur-lat.js", "js/keyboard/layouts/uk_intl4.js", "js/keyboard/layouts/uk-e.js", "js/keyboard/layouts/uk-qm102.js", "js/keyboard/layouts/uk.js", "js/keyboard/layouts/ukdvk3.js", "js/keyboard/layouts/ukrainian phonetic.js", "js/keyboard/layouts/ukrainian-translit.js", "js/keyboard/layouts/ukrainian.js", "js/keyboard/layouts/urdu crulp phonetic.js", "js/keyboard/layouts/urdu inpage monotype.js", "js/keyboard/layouts/urdu-ar.js", "js/keyboard/layouts/urdu-madni.js", "js/keyboard/layouts/urdu-phonetic.js", "js/keyboard/layouts/urdu.js", "js/keyboard/layouts/us mac.js", "js/keyboard/layouts/us-d-l.js", "js/keyboard/layouts/us-d-r.js", "js/keyboard/layouts/us-d.js", "js/keyboard/layouts/us-i.js", "js/keyboard/layouts/us-rul90.js", "js/keyboard/layouts/us.js", "js/keyboard/layouts/uzbek.js", "js/keyboard/layouts/vietnamese.js", "js/keyboard/layouts/wolof.js", "js/keyboard/layouts/xhosa.js", "js/keyboard/layouts/yoruba.js", "js/keyboard/layouts/zawgyi-l.js", "js/keyboard/layouts/zulu.js"
+
+        //"js/swd.js"
+      ],
+      "css":[
+        "css/style.css",
+        "css/font.css",
+        "js/keyboard/css/air_large/keyboard.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+
+    //"newtab.html",
+
+    "js/dat.gui.min.js",
+    "js/jquery.js",
+    "js/swd.transfer.js",
+    "js/swd.cursorLayer.js",
+    "js/swd.layout.js",
+    "js/swd.keyboard.js",
+    "js/swd.newtab.js",
+    "js/swd.extensionTransfer.js",
+    "js/main.js",
+
+    "js/keyboard/extensions/scriptqueue.js",
+    "js/keyboard/extensions/helpers.js",
+    "js/keyboard/extensions/dom.js",
+    "js/keyboard/extensions/eventmanager.js",
+    "js/keyboard/extensions/documentselection.js",
+    "js/keyboard/extensions/documentcookie.js",
+
+    "js/keyboard/extensions/ext/object.js",
+    "js/keyboard/extensions/ext/string.js",
+    "js/keyboard/extensions/ext/regexp.js",
+    "js/keyboard/extensions/ext/array.js",
+
+    "js/keyboard/virtualkeyboard.js",
+    "js/keyboard/layouts/layouts.js",
+
+    "js/keyboard/layouts/akan.js", "js/keyboard/layouts/albanian.js", "js/keyboard/layouts/arabic 101.js", "js/keyboard/layouts/arabic 102 azerty.js", "js/keyboard/layouts/arabic.js", "js/keyboard/layouts/armenian eastern.js", "js/keyboard/layouts/armenian western.js", "js/keyboard/layouts/assamese.js", "js/keyboard/layouts/azery-l.js", "js/keyboard/layouts/azery-r.js", "js/keyboard/layouts/bambara.js", "js/keyboard/layouts/bashkir.js", "js/keyboard/layouts/bassa.js", "js/keyboard/layouts/baule.js", "js/keyboard/layouts/belarus.js", "js/keyboard/layouts/belgian-c.js", "js/keyboard/layouts/bemba.js", "js/keyboard/layouts/bengali-inscript-improved.js", "js/keyboard/layouts/bengali-inscript.js", "js/keyboard/layouts/bengali-probhat.js", "js/keyboard/layouts/bengali-unijoy.js", "js/keyboard/layouts/bengali.js", "js/keyboard/layouts/bini_ebo.js", "js/keyboard/layouts/blackfoot.js", "js/keyboard/layouts/bosnian cyrillic.js", "js/keyboard/layouts/bosnian.js", "js/keyboard/layouts/bulgarian phonetic.js", "js/keyboard/layouts/bulgarian-l.js", "js/keyboard/layouts/bulgarian.js", "js/keyboard/layouts/canadian-f-l.js", "js/keyboard/layouts/canadian-f.js", "js/keyboard/layouts/canadian-m.js", "js/keyboard/layouts/chechen-cyr.js", "js/keyboard/layouts/chechen-lat.js", "js/keyboard/layouts/cherokee.js", "js/keyboard/layouts/chichewa.js", "js/keyboard/layouts/chinese-cangjie.js", "js/keyboard/layouts/chinese-pynsimpl.js", "js/keyboard/layouts/chinese-pyntrad.js", "js/keyboard/layouts/colemak.js", "js/keyboard/layouts/croatian.js", "js/keyboard/layouts/czech-p.js", "js/keyboard/layouts/czech-q.js", "js/keyboard/layouts/czech.js", "js/keyboard/layouts/danish.js", "js/keyboard/layouts/dari.js", "js/keyboard/layouts/delam.js", "js/keyboard/layouts/devanagari-inscript.js", "js/keyboard/layouts/dinka.js", "js/keyboard/layouts/divehi phonetic.js", "js/keyboard/layouts/divehi typewriter.js", "js/keyboard/layouts/duala.js", "js/keyboard/layouts/dutch.js", "js/keyboard/layouts/dzongkha.js", "js/keyboard/layouts/estonian.js", "js/keyboard/layouts/ethiopic-pan-amharic.js", "js/keyboard/layouts/ethiopic-washra.js", "js/keyboard/layouts/ethiopic-xtt.js", "js/keyboard/layouts/ewondo.js", "js/keyboard/layouts/faeroese.js", "js/keyboard/layouts/farsi.js", "js/keyboard/layouts/finnish-s.js", "js/keyboard/layouts/finnish.js", "js/keyboard/layouts/french-linux.js", "js/keyboard/layouts/french.js", "js/keyboard/layouts/fulfulde.js", "js/keyboard/layouts/ga.js", "js/keyboard/layouts/gaelic.js", "js/keyboard/layouts/gbe.js", "js/keyboard/layouts/georgian-ergonomic.js", "js/keyboard/layouts/georgian-qwerty.js", "js/keyboard/layouts/georgian.js", "js/keyboard/layouts/german-ibm.js", "js/keyboard/layouts/german.js", "js/keyboard/layouts/glagolitic.js", "js/keyboard/layouts/gothic.js", "js/keyboard/layouts/greek-220-l.js", "js/keyboard/layouts/greek-220.js", "js/keyboard/layouts/greek-319-l.js", "js/keyboard/layouts/greek-319.js", "js/keyboard/layouts/greek-l.js", "js/keyboard/layouts/greek-polytonic.js", "js/keyboard/layouts/greek.js", "js/keyboard/layouts/grenlandic.js", "js/keyboard/layouts/gujarati.js", "js/keyboard/layouts/hausa.js", "js/keyboard/layouts/hebrew sil.js", "js/keyboard/layouts/hebrew tiro.js", "js/keyboard/layouts/hebrew.js", "js/keyboard/layouts/hindi-inscript.js", "js/keyboard/layouts/hindi.js", "js/keyboard/layouts/hungarian-101.js", "js/keyboard/layouts/hungarian.js", "js/keyboard/layouts/icelandic.js", "js/keyboard/layouts/igbo.js", "js/keyboard/layouts/inuktitut-latin.js", "js/keyboard/layouts/inuktitut-navkitot.js", "js/keyboard/layouts/inuktitut-phonetic.js", "js/keyboard/layouts/inuktitut-syllabic.js", "js/keyboard/layouts/ipa.js", "js/keyboard/layouts/irish.js", "js/keyboard/layouts/italian-142.js", "js/keyboard/layouts/italian.js", "js/keyboard/layouts/japanese.js", "js/keyboard/layouts/kannada.js", "js/keyboard/layouts/kazakh.js", "js/keyboard/layouts/khmer-nida.js", "js/keyboard/layouts/khmer.js", "js/keyboard/layouts/kikuyu.js", "js/keyboard/layouts/kirundi.js", "js/keyboard/layouts/korean-2beolsik.js", "js/keyboard/layouts/korean-3beolsik.js", "js/keyboard/layouts/korean-ru2kor.js", "js/keyboard/layouts/krio.js", "js/keyboard/layouts/kurdish-ar.js", "js/keyboard/layouts/kurdish-cyr.js", "js/keyboard/layouts/kurdish-lat.js", "js/keyboard/layouts/kyrgyz-c.js", "js/keyboard/layouts/lakhota-standard.js", "js/keyboard/layouts/lao-sengkeo.js", "js/keyboard/layouts/lao.js", "js/keyboard/layouts/latin-am.js", "js/keyboard/layouts/latvian-q.js", "js/keyboard/layouts/latvian.js", "js/keyboard/layouts/layouts.js", "js/keyboard/layouts/lingala.js", "js/keyboard/layouts/lithuanian-ext.js", "js/keyboard/layouts/lithuanian-ibm.js", "js/keyboard/layouts/lithuanian.js", "js/keyboard/layouts/luganda.js", "js/keyboard/layouts/luo.js", "js/keyboard/layouts/luxembourg.js", "js/keyboard/layouts/macedonian.js", "js/keyboard/layouts/malayalam.js", "js/keyboard/layouts/maltese-47.js", "js/keyboard/layouts/maltese-48.js", "js/keyboard/layouts/mande.js", "js/keyboard/layouts/maori-dvorak-twohand.js", "js/keyboard/layouts/maori.js", "js/keyboard/layouts/marathi.js", "js/keyboard/layouts/mongolian-c.js", "js/keyboard/layouts/mongolian-d.js", "js/keyboard/layouts/nepali.js", "js/keyboard/layouts/norwegian-s.js", "js/keyboard/layouts/norwegian.js", "js/keyboard/layouts/ogham.js", "js/keyboard/layouts/oromo.js", "js/keyboard/layouts/pashto.js", "js/keyboard/layouts/persian standard.js", "js/keyboard/layouts/polish-214.js", "js/keyboard/layouts/polish-p.js", "js/keyboard/layouts/portuguese-br-2.js", "js/keyboard/layouts/portuguese-br.js", "js/keyboard/layouts/portuguese.js", "js/keyboard/layouts/punjabi.js", "js/keyboard/layouts/romanian.js", "js/keyboard/layouts/runic-anglo-frisian.js", "js/keyboard/layouts/runic-elder.js", "js/keyboard/layouts/runic-younder.js", "js/keyboard/layouts/russian mac.js", "js/keyboard/layouts/russian-diktor.js", "js/keyboard/layouts/russian-translit-alt.js", "js/keyboard/layouts/russian-translit.js", "js/keyboard/layouts/russian-typewriter.js", "js/keyboard/layouts/russian.js", "js/keyboard/layouts/russian+qwerty.js", "js/keyboard/layouts/sami-e-fs.js", "js/keyboard/layouts/sami-e-n.js", "js/keyboard/layouts/sanskrit-romanized.js", "js/keyboard/layouts/senegal multilingual.js", "js/keyboard/layouts/serbian-c.js", "js/keyboard/layouts/serbian-l.js", "js/keyboard/layouts/sesotho.js", "js/keyboard/layouts/shona.js", "js/keyboard/layouts/sinhala.js", "js/keyboard/layouts/slovak-q.js", "js/keyboard/layouts/slovak.js", "js/keyboard/layouts/slovenian.js", "js/keyboard/layouts/somali.js", "js/keyboard/layouts/spanish-v.js", "js/keyboard/layouts/spanish.js", "js/keyboard/layouts/swahili.js", "js/keyboard/layouts/swedish-dvorak.js", "js/keyboard/layouts/swedish-s.js", "js/keyboard/layouts/swedish.js", "js/keyboard/layouts/swiss-f.js", "js/keyboard/layouts/swiss-german.js", "js/keyboard/layouts/syriac phonetic.js", "js/keyboard/layouts/syriac.js", "js/keyboard/layouts/tagalog.js", "js/keyboard/layouts/tajik-lat.js", "js/keyboard/layouts/tamil.js", "js/keyboard/layouts/tatar.js", "js/keyboard/layouts/telugu.js", "js/keyboard/layouts/thai kedmanee.js", "js/keyboard/layouts/thai pattachote.js", "js/keyboard/layouts/thai.js", "js/keyboard/layouts/tswana.js", "js/keyboard/layouts/tur-f.js", "js/keyboard/layouts/tur-q.js", "js/keyboard/layouts/turkmen-cyr.js", "js/keyboard/layouts/uighur-ar.js", "js/keyboard/layouts/uighur-cyr.js", "js/keyboard/layouts/uighur-lat.js", "js/keyboard/layouts/uk_intl4.js", "js/keyboard/layouts/uk-e.js", "js/keyboard/layouts/uk-qm102.js", "js/keyboard/layouts/uk.js", "js/keyboard/layouts/ukdvk3.js", "js/keyboard/layouts/ukrainian phonetic.js", "js/keyboard/layouts/ukrainian-translit.js", "js/keyboard/layouts/ukrainian.js", "js/keyboard/layouts/urdu crulp phonetic.js", "js/keyboard/layouts/urdu inpage monotype.js", "js/keyboard/layouts/urdu-ar.js", "js/keyboard/layouts/urdu-madni.js", "js/keyboard/layouts/urdu-phonetic.js", "js/keyboard/layouts/urdu.js", "js/keyboard/layouts/us mac.js", "js/keyboard/layouts/us-d-l.js", "js/keyboard/layouts/us-d-r.js", "js/keyboard/layouts/us-d.js", "js/keyboard/layouts/us-i.js", "js/keyboard/layouts/us-rul90.js", "js/keyboard/layouts/us.js", "js/keyboard/layouts/uzbek.js", "js/keyboard/layouts/vietnamese.js", "js/keyboard/layouts/wolof.js", "js/keyboard/layouts/xhosa.js", "js/keyboard/layouts/yoruba.js", "js/keyboard/layouts/zawgyi-l.js", "js/keyboard/layouts/zulu.js",
+    "js/keyboard/layouts/d/CN.js", "js/keyboard/layouts/d/ET.js", "js/keyboard/layouts/d/IKU.js", "js/keyboard/layouts/d/IPA.js", "js/keyboard/layouts/d/JP.js", "js/keyboard/layouts/d/KR.js", "js/keyboard/layouts/d/LA.js",
+
+    "js/jquery-2.0.2.min.map",
+
+    "glibc/Release/lib32/libgcc_s.so.1",
+    "glibc/Release/lib64/libgcc_s.so.1",
+    "glibc/Release/lib32/libopencv_core.so.2.4",
+    "glibc/Release/lib32/libopencv_highgui.so.2.4",
+    "glibc/Release/lib32/libopencv_imgproc.so.2.4",
+    "glibc/Release/lib32/libopencv_objdetect.so.2.4",
+    "glibc/Release/lib32/libopencv_video.so.2.4",
+    "glibc/Release/lib64/libopencv_core.so.2.4",
+    "glibc/Release/lib64/libopencv_highgui.so.2.4",
+    "glibc/Release/lib64/libopencv_imgproc.so.2.4",
+    "glibc/Release/lib64/libopencv_objdetect.so.2.4",
+    "glibc/Release/lib64/libopencv_video.so.2.4",
+    "glibc/Release/lib32/libstdc++.so.6",
+    "glibc/Release/lib64/libstdc++.so.6",
+    "glibc/Release/lib32/libc.so.8ec02f0e",
+    "glibc/Release/lib32/libdl.so.8ec02f0e",
+    "glibc/Release/lib32/libm.so.8ec02f0e",
+    "glibc/Release/lib32/libpthread.so.8ec02f0e",
+    "glibc/Release/lib32/librt.so.8ec02f0e",
+    "glibc/Release/lib64/libc.so.8ec02f0e",
+    "glibc/Release/lib64/libdl.so.8ec02f0e",
+    "glibc/Release/lib64/libm.so.8ec02f0e",
+    "glibc/Release/lib64/libpthread.so.8ec02f0e",
+    "glibc/Release/lib64/librt.so.8ec02f0e",
+    "glibc/Release/facedetect_x86_32.deps",
+    "glibc/Release/facedetect_x86_64.deps",
+    "glibc/Release/fimage_x86_32.deps",
+    "glibc/Release/fimage_x86_64.deps",
+    "glibc/Release/geturl_handler_x86_32.deps",
+    "glibc/Release/geturl_handler_x86_64.deps",
+    "glibc/Release/jpeg_mem_src_x86_32.deps",
+    "glibc/Release/jpeg_mem_src_x86_64.deps",
+    "glibc/Release/facedetect_x86_32.map",
+    "glibc/Release/facedetect_x86_64.map",
+    "glibc/Release/facedetect_unstripped_x86_32.nexe",
+    "glibc/Release/facedetect_unstripped_x86_64.nexe",
+    "glibc/Release/facedetect_x86_32.nexe",
+    "glibc/Release/facedetect_x86_64.nexe",
+    "glibc/Release/facedetect.nmf",
+    "glibc/Release/facedetect_x86_32.o",
+    "glibc/Release/facedetect_x86_64.o",
+    "glibc/Release/fimage_x86_32.o",
+    "glibc/Release/fimage_x86_64.o",
+    "glibc/Release/geturl_handler_x86_32.o",
+    "glibc/Release/geturl_handler_x86_64.o",
+    "glibc/Release/jpeg_mem_src_x86_32.o",
+    "glibc/Release/jpeg_mem_src_x86_64.o",
+    "glibc/Release/lib32/libjpeg.so",
+    "glibc/Release/lib32/libnaclmounts.so",
+    "glibc/Release/lib32/libppapi_cpp.so",
+    "glibc/Release/lib32/libz.so",
+    "glibc/Release/lib32/runnable-ld.so",
+    "glibc/Release/lib64/libjpeg.so",
+    "glibc/Release/lib64/libnaclmounts.so",
+    "glibc/Release/lib64/libppapi_cpp.so",
+    "glibc/Release/lib64/libz.so",
+    "glibc/Release/lib64/runnable-ld.so",
+    "glibc/Release/dir.stamp",
+    "haarcascade_frontalface_alt.xml"
+  ]
+}
