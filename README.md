@@ -65,6 +65,8 @@ Now: creative frontend developer at xb-software
 
 --------
 
-# Nobody of us is insured from the same problems, we'll be happy if you can continue this project. 
+### Nobody of us is insured from the same problems, 
+## we'll be happy if you can continue this project. 
+# we can provide any details about this project, and help you
 
 presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
