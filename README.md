@@ -3,13 +3,14 @@
 ![stop web disability](http://content.screencast.com/users/Nedudi/folders/Jing/media/34707b9a-b52c-45a4-a99a-2272841a6b42/00000761.png "Logo")
 
 ## Starting Jan 2015 this project is open-sourced
------------
-Everybody, who can continue this project, please let us know.
+### Everybody, who can continue this project, please let us know.
 
-## videos: https://vimeo.com/channels/602036
------------
+----------
 
-## presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
+## Video and images
+
+ - videos: https://vimeo.com/channels/602036
+ - presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
 
 ## Intro
 -----------
