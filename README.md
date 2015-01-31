@@ -9,9 +9,7 @@ Everybody, who can continue this project, please let us know.
 ## videos: https://vimeo.com/channels/602036
 -----------
 
-## presentation
------------
-http://prezi.com/3ctf8ey5fspi/stop-web-disability
+## presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
 
 ## Intro
 -----------
