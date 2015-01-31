@@ -57,18 +57,14 @@ that is a very huge inspiration
 -----------
 *Dmitry Dudin:*
 before: radar engener, digital signal processing systems, program logical integral schems, backend
-now: creative frontend developer at xb-software, http://urturn.com
+now: creative frontend developer at xb-software
 
 *Alexey Puzenko:*
 Before: advanced math specialist, lecturer in Radio Engineering College, c++ modeling, flash, backend
-Now: creative frontend developer at xb-software, http://urturn.com
-
-*Artem Chehowsky:*
-Before: Student at belarusian state univercity at artificial intelligence programm, php, backend
-Now: creative frontend, node.js developer at xb-software and different kinds of high level projects
+Now: creative frontend developer at xb-software
 
 --------
 
-# Nobody of us is insured from the same problems... 
+# Nobody of us is insured from the same problems, we'll be happy if you can continue this project. 
 
 presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
