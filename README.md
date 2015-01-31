@@ -1,15 +1,20 @@
-# STOP WEB DISABILITY concept and the first protorype
+# STOP WEB DISABILITY
 
 ![stop web disability](http://content.screencast.com/users/Nedudi/folders/Jing/media/34707b9a-b52c-45a4-a99a-2272841a6b42/00000761.png "Logo")
 
+## Starting Jan 2015 this project is open-sourced
 -----------
------------
------------
-### videos: https://vimeo.com/channels/602036
------------
------------
+Everybody, who can continue this project, please let us know.
+
+## videos: https://vimeo.com/channels/602036
 -----------
 
+## presentation
+-----------
+http://prezi.com/3ctf8ey5fspi/stop-web-disability
+
+## Intro
+-----------
 
 About 4% of people all over the world have different kinds of disability. About 190 millions of people can not feel their hands and feet and they are not able to do a simplest operations. 
 
@@ -27,7 +32,7 @@ We'll use only the webcam that exists in every laptop and newest web technologie
 
 ![stop web disability](http://content.screencast.com/users/Nedudi/folders/Jing/media/6f249254-f22c-4a11-a35b-bf00455539b9/00000766.png "Logo")
 
-## Why does this innovation is so amazing, helpful and cool?
+## Why does this innovation is helpful and cool?
 -----------
 All current scope of technics to help people with such kind of disabilities cost a huge amount of money and require additional devices and equipment, so only small group of people can really use this stuff. 
 
@@ -37,8 +42,28 @@ Finally this technology will be avaliable in Chrome browser as extension, that c
 
 The first concept that we did based on unique combination of algoritms to follow the face movements and voice detection. We use only open source techniques and libraries. It already works quite well, and we spend only 2 days to make the first prototype working.
 
-## What's the next steps:
+## Current state of the project:
 -----------
+Face detection and tracing was fully re-made with webGl and google chrome naive client by Alexey.
+We have a web interface that wrap any page with additional controls,  like tabs switching, opening new page, clicking wia making sound and etc.
+
+## Problems:
+----------
+
+We made few prototypes that can work quite fast, but still having problems about productivity and other points:
+
+- problem with face recognitiona nad tracing productivity (low fps even with native-client-based tracer and recogniser)
+- problems with sound tracing (sound is probably not the ideal case for many people as a click trigger)
+- problem with camera access without manual confoirmation for each new web-page (we used external https server for it, but it's still doesn't solve the problem with video stream transfer)
+- problem with scaling head movements to cursor movements.
+- problem with lights and noise redution from standard web-cameras
+- problem with launching native client related to chrome sequrity issues
+- problem with chrome and external https sources (issues with certificates)
+- many other problems
+
+## What's was the next planed steps:
+-----------
+
 * make the code review (now it looks really hacky)
 * improve follow face movements algoritms using short timeframe analysis,  webShaders, contrast and light auto abjustments
 * improve sound detection based on everage levels of noise in timeframe, correlation analysis, convolution based filters.
@@ -47,11 +72,10 @@ The first concept that we did based on unique combination of algoritms to follow
 * Adaptive algoritm that can learn personal factors (Automaic adaptation to partiqular face, voice, camera, microphone)
 * Try to implement different work modes for different kinds of disability (Detection of eyes, apple of the eyes, tang, eyebrows)
 
-## Why it is important to finish
+## Why it is still important to finish
 -----------
 We hope it will make a web avaliable for people with different kinds disabilities in every place on the planet. It will help them to live and grow socially, share thair position and feelings, give them a way to get a new emotions from everyday life.
 
-that is a very huge inspiration
 
 ## Who we are
 -----------
@@ -63,10 +87,16 @@ now: creative frontend developer at xb-software
 Before: advanced math specialist, lecturer in Radio Engineering College, c++ modeling, flash, backend
 Now: creative frontend developer at xb-software
 
---------
+## Why did we stop development
+-----------
+We stopped development in May 2014, because of huge time and inspiration defficite. Probably one day we will continue,  but for now it's not possible for a lot of internal reasons.
 
-### Nobody of us is insured from the same problems, 
-## we'll be happy if you can continue this project. 
-# we can provide any details about this project, and help you
+## Starting Jan 2015 this project is open-sourced
+-----------
+Everybody, who can continue this project, please let us know.
 
-presentation: http://prezi.com/3ctf8ey5fspi/stop-web-disability
+## Nobody of us is insured from the same problems, 
+## We'll be happy if have time to continue this project. 
+## We can provide any details about this project, and help you
+
+thanks in advance
